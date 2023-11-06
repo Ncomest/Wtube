@@ -1,0 +1,20 @@
+.SearchBar_Input {
+ background-color: var(--blue);
+ color: var(--white);
+ border: 2px solid var(--blue_border);
+ border-radius: 5px;
+ box-shadow: 2px 2px 8px 0px var(--blue_border) inset;
+}
+
+.SearchBar_Input_Header {
+ width: 100%;
+ height: 100%;
+ font-size: 1.25rem;
+ padding: 0.3rem 1.5rem;
+ margin: 0rem 1.5rem;
+}
+
+::placeholder {
+ color: var(--white);
+ opacity: 0.7;
+}

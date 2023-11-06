@@ -1,7 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Manuale&display=swap");
+
 :root {
- --backgroundColorDark: #081f3a;
- --whiteColor: #fff;
- --textSmall: 16px;
- --textNormal: 18px;
- --textLarge: 24px;
+ --dark: #081f3a;
+ --white: #fff;
+ --blue: #266aaa;
+ --blue_border: #208fb1;
+ --grey: rgba(255, 255, 255, 0.7);
+
+ --textSmall: 1rem;
+ --textNormal: 1.25rem;
+ --textLarge: 1.75rem;
+}
+
+* {
+ font-family: "Manuale", serif;
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+}
+
+.df {
+ display: flex;
+}
+.aic {
+ align-items: center;
+}
+.jcc {
+ justify-content: center;
+}
+.jcsb {
+ justify-content: space-between;
+}
+
+.f11 {
+ flex: 1 1 auto;
 }

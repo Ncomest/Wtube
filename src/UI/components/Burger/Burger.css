@@ -1,0 +1,86 @@
+.Burger {
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+
+ position: relative;
+ cursor: pointer;
+
+ width: 3.5rem;
+ height: 2rem;
+}
+
+.BurgerBar {
+ position: absolute;
+ width: 100%;
+ height: 0.2rem;
+ background-color: var(--blue_border);
+ transition: 0.3s;
+}
+
+.BurgerBar:nth-child(1) {
+ top: 0;
+ margin-top: 0;
+}
+.BurgerBar:nth-child(2) {
+ top: 0.5rem;
+ margin-top: 0.5rem;
+}
+.BurgerBar:nth-child(1) {
+ top: 1rem;
+ margin-top: 1rem;
+}
+
+.Burger.open .BurgerBar:nth-child(1) {
+ transform: rotate(45deg);
+ top: 1rem;
+ margin-top: 0;
+}
+.Burger.open .BurgerBar:nth-child(2) {
+ opacity: 0;
+}
+.Burger.open .BurgerBar:nth-child(3) {
+ transform: rotate(-45deg);
+ top: 1rem;
+ margin-top: 0;
+}
+
+.BurgerDropDown {
+ position: absolute;
+ top: 8.7rem;
+ right: 0.2rem;
+ width: 14rem;
+ height: 11.5rem;
+
+ transition: 0.3s;
+}
+
+.BurgerDropDown.open {
+ opacity: 0;
+}
+
+/* .themeContainer {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 1rem;
+}
+
+.backgroundToogle {
+ position: relative;
+ top: -0.2rem;
+ width: 4rem;
+ height: 1.6rem;
+ background-color: var(--blue_border);
+ border-radius: 1.25rem;
+}
+
+.buttonToogle {
+ position: absolute;
+ top: 0.15rem;
+ left: 0.1rem;
+ background-color: var(--dark);
+ width: 1.3rem;
+ height: 1.3rem;
+ border-radius: 50%;
+} */

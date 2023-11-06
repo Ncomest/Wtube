@@ -1,0 +1,10 @@
+.Background_DropDown {
+ border-radius: 0.625rem;
+ border: 1px solid var(--blue_border);
+ background: var(--dark);
+ box-shadow: 0px 0px 12px 4px var(--blue_border) inset;
+ color: var(--white);
+
+ padding: 1.5rem 2.5rem;
+ font-size: var(--textNormal);
+}
