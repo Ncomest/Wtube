@@ -2,7 +2,7 @@ import React from "react";
 import "./Home.css";
 
 import Header from "../../modules/components/Header/Header";
-import Body from "../../modules/components/Body/Body";
+import Body from "../../modules/components/Body/Home_Body/Body";
 
 const Home = () => {
  return (

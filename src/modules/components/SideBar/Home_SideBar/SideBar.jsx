@@ -3,7 +3,7 @@ import "./SideBar.css";
 import ListChoice, {
  Country,
  Genre,
-} from "../../../UI/components/List_Choice/ListChoice";
+} from "../../../../UI/components/List_Choice/ListChoice";
 
 function SideBar() {
  return (

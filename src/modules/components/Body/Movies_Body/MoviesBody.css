@@ -1,0 +1,6 @@
+.MoviesBody {
+ display: grid;
+ grid-template-columns: 30rem auto;
+ padding: 1.5rem 1rem;
+
+}

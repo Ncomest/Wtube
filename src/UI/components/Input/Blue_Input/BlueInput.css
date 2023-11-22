@@ -1,0 +1,5 @@
+.BlueInput {
+ border: 1px solid var(--blue_border);
+ background: var(--blue);
+ border-radius: 0.3rem;
+}

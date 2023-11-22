@@ -1,0 +1,11 @@
+.FilterList_Select {
+ background-color: var(--blue_border);
+ width: 14rem;
+ height: 2.5rem;
+ font-size: var(--textNormal);
+ color: var(--white);
+ border-radius: 0.5rem;
+
+ padding-left: 1rem;
+ margin-bottom: 1rem;
+}

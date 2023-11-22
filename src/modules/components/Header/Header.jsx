@@ -5,9 +5,8 @@ import "../../../index.css";
 
 import Logo from "../../../UI/components/Logo/Logo";
 import SearchBar from "../../../UI/components/Search_Bar/SearchBar";
-import ButtonProfile from "../../../UI/components/Button_Profile/ButtonProfile";
+import ButtonProfile from "../../../UI/components/Buttons/Button_Profile/ButtonProfile";
 import Burger from "../../../UI/components/Burger/Burger";
-
 
 function Header() {
  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -29,8 +28,8 @@ function Header() {
  const breakpoint = 768;
 
  return (
-  <div className="Header df aic jcsb">
-   <div className="Header_Logo df aic jcc">
+  <div className="Header">
+   <div className="Header_Logo">
     <Logo />
    </div>
    <div className="Header_Container">
@@ -41,7 +40,6 @@ function Header() {
      {windowWidth <= breakpoint ? <Burger /> : <ButtonProfile />}
     </div>
    </div>
-    
   </div>
  );
 }

@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
-import DropDown from "../DropDown_Background/DropDown";
+import DropDown from "../../Background_DropDown/Drop_Down_Menu/DropDown";
 import "./ButtonProfile.css";
-import ToogleDarkLight from "../ToogleDarkLight/ToogleDarkLight";
+import ToogleDarkLight from "../../ToogleDarkLight/ToogleDarkLight";
 
 function ButtonProfile() {
  const [isOpen, setIsOpen] = useState(false);

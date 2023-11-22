@@ -1,0 +1,12 @@
+.Body {
+ display: grid;
+ grid-template-columns: 37rem auto;
+ padding: 1.5rem 1rem;
+}
+
+.Body_Movies {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 1rem;
+ width: 100%;
+}

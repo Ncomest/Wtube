@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import "./Burger.css";
-import DropDown from "../DropDown_Background/DropDown";
+import DropDown from "../Background_DropDown/Drop_Down_Menu/DropDown";
 import ToogleDarkLight from "../ToogleDarkLight/ToogleDarkLight";
 
 const Burger = () => {
@@ -34,10 +34,9 @@ const BurgerText = () => {
    <br />
    <p>Сменить тему</p>
    <br />
-   <ToogleDarkLight/>
+   <ToogleDarkLight />
   </div>
  );
 };
-
 
 export default Burger;

@@ -1,0 +1,64 @@
+.LeftSideMovies {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ row-gap: 2rem;
+
+ width: 25rem;
+
+ color: var(--white);
+}
+
+.PictureContainer {
+ height: 37.5rem;
+
+ border-radius: 0.6rem;
+ box-shadow: 10px 4px 21px 0px var(--blue_border);
+}
+
+.Picture_Image {
+ width: 100%;
+ height: 100%;
+ border-radius: 0.6rem;
+}
+
+.TrailerContainer {
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ justify-content: center;
+ gap: 1rem;
+
+ width: 100%;
+ height: 3.75rem;
+
+ border-radius: 0.6rem;
+ box-shadow: 10px 4px 21px 0px var(--blue_border);
+
+ cursor: pointer;
+}
+
+.BlueInput {
+ width: 3.75rem;
+ height: 1.5rem;
+ color: var(--white);
+ font-size: var(--textNormal);
+ text-align: center;
+}
+
+.Raiting {
+ display: flex;
+
+ align-items: center;
+ justify-content: start;
+
+ width: 100%;
+ padding-left: 1rem;
+
+ gap: 1rem;
+}
+
+.RaitingTitle{
+  font-size: 1.4rem;
+}

@@ -1,6 +1,3 @@
-body {
- background-color: var(--backgroundColorDark);
- 
- font-size: var(--textLarge);
- 
+.Movies {
+  background-color: var(--dark);
 }
