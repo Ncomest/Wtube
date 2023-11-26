@@ -1,10 +1,10 @@
 import React from "react";
 import "./BlueInput.css";
 
-function BlueInput() {
+function BlueInput({value}) {
  return (
   <div>
-   <input className="BlueInput" type="text"  />
+   <p className="BlueInput">{value}</p>
   </div>
  );
 }

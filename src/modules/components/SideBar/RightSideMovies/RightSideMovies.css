@@ -1,0 +1,29 @@
+.RightSideMovies_Player {
+ width: 80rem;
+ height: 38rem;
+ background-color: aqua;
+}
+
+.RightSideMovies_AddLike {
+ width: 80rem;
+ margin: 3rem auto;
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ justify-content: end;
+
+gap: 2rem;
+}
+
+.RightSideMoviesLike {
+ display: flex;
+ flex-direction: row;
+ gap: 1rem;
+}
+
+.RightSideMoviesPlayer {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ margin: 3.5rem 0rem;
+}

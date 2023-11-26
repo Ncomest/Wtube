@@ -1,0 +1,13 @@
+.SubTitle {
+ background-color: var(--blue);
+ border-radius: 0.3rem;
+ border: 1px solid var(--blue_border);
+ box-shadow: 0px 0px 9px 5px var(--blue_border) inset;
+
+ padding: 0.6rem 0rem 0.6rem 3rem;
+ margin: 1.5rem 0rem;
+}
+
+.SubTitleText{
+  padding: 0rem 6rem;
+}

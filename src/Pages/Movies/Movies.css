@@ -1,3 +1,6 @@
 .Movies {
   background-color: var(--dark);
+  color: var(--white);
+  font-size: var(--textNormal);
+  
 }

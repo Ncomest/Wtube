@@ -2,16 +2,13 @@ import React from "react";
 import "./LeftSideMovies.css";
 import BlueInput from "../../../../UI/components/Input/Blue_Input/BlueInput";
 
-
-
 function LeftSideMovies({ movieDetails }) {
  return (
   <div className="LeftSideMovies">
    <Picture movieDetails={movieDetails} />
    <Trailer />
-   <Raiting raitingName={"IMDb"} />
-   <Raiting raitingName={"WTube"} />
-   
+   <Raiting raitingName={"IMDb"}  value={Math.round(movieDetails.rating.imdb * 10) / 10}/>
+   <Raiting raitingName={"KP"}  value={Math.round(movieDetails.rating.kp * 10) / 10}/>
   </div>
  );
 }
@@ -36,18 +33,18 @@ const Trailer = () => {
    >
     <path d="M27 20L0 39.0526L0 0.947441L27 20Z" fill="#D9D9D9" />
    </svg>
-   <p style={{textTransform: "uppercase"}}>трейлер</p>
+   <p style={{ textTransform: "uppercase" }}>трейлер</p>
   </div>
  );
 };
 
-const Raiting =({raitingName}) =>{
-  return(
-    <div className="Raiting">
-      <p className="RaitingTitle">{raitingName}</p>
-      <BlueInput/>
-    </div>
-  )
-}
+const Raiting = ({ raitingName, value }) => {
+ return (
+  <div className="Raiting">
+   <p className="RaitingTitle">{raitingName}</p>
+   <BlueInput value={value}/>
+  </div>
+ );
+};
 
 export default LeftSideMovies;
