@@ -1,14 +1,29 @@
 import React from "react";
 import "./LeftSideMovies.css";
 import BlueInput from "../../../../UI/components/Input/Blue_Input/BlueInput";
+import ModalTrailer from "../../../../helpers/Modal/Trailer/ModalTrailer";
+import { useState } from "react";
 
 function LeftSideMovies({ movieDetails }) {
+ const [modal, setModal] = useState(false);
+
+ const handleModal = () => {
+  setModal(!modal);
+ };
+
  return (
   <div className="LeftSideMovies">
    <Picture movieDetails={movieDetails} />
-   <Trailer />
-   <Raiting raitingName={"IMDb"}  value={Math.round(movieDetails.rating.imdb * 10) / 10}/>
-   <Raiting raitingName={"KP"}  value={Math.round(movieDetails.rating.kp * 10) / 10}/>
+   <Trailer onClick={handleModal}/>
+   <Raiting
+    raitingName={"IMDb"}
+    value={Math.round(movieDetails.rating.imdb * 10) / 10}
+   />
+   <Raiting
+    raitingName={"KP"}
+    value={Math.round(movieDetails.rating.kp * 10) / 10}
+   />
+   {modal ? <ModalTrailer onClick={handleModal} movieDetails={movieDetails}/> : ""}
   </div>
  );
 }
@@ -21,9 +36,9 @@ const Picture = ({ movieDetails }) => {
  );
 };
 
-const Trailer = () => {
+const Trailer = ({onClick}) => {
  return (
-  <div className="TrailerContainer">
+  <div className="TrailerContainer" onClick={onClick}>
    <svg
     xmlns="http://www.w3.org/2000/svg"
     width="27"
@@ -42,7 +57,7 @@ const Raiting = ({ raitingName, value }) => {
  return (
   <div className="Raiting">
    <p className="RaitingTitle">{raitingName}</p>
-   <BlueInput value={value}/>
+   <BlueInput value={value} />
   </div>
  );
 };

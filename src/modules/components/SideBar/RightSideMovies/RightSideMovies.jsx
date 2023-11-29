@@ -13,7 +13,7 @@ function RightSideMovies({ movieDetails }) {
  return (
   <div className="RightSideMovies">
    <RightSideMoviesTitle movieDetails={movieDetails} />
-   <RightSideMoviesPlayer />
+   <RightSideMoviesPlayer movieDetails={movieDetails} />
    <div className="RightSideMovies_AddLike">
     <Favorites />
     <RightSideMoviesLike />
@@ -43,12 +43,16 @@ function RightSideMovies({ movieDetails }) {
    <SubTitle subTitle={"Сюжет"}>
     <p>{movieDetails.description}</p>
    </SubTitle>
-   <SubTitle subTitle={"Рекомендации"}/>
-   <div style={{ display: "flex", flexDirection: "rows", justifyContent:"center" }}>
+   <SubTitle subTitle={"Рекомендации"} />
+   <div
+    style={{ display: "flex", flexDirection: "rows", justifyContent: "center" }}
+   >
     <SliderRecommend movieDetails={movieDetails} />
    </div>
    <SubTitle subTitle={"Похожие"} />
-   <div style={{ display: "flex", flexDirection: "rows", justifyContent:"center" }}>
+   <div
+    style={{ display: "flex", flexDirection: "rows", justifyContent: "center" }}
+   >
     <SliderSimilar movieDetails={movieDetails} />
    </div>
    <SubTitle subTitle={"Отзывы"}></SubTitle>
@@ -65,9 +69,30 @@ const RightSideMoviesTitle = ({ movieDetails }) => {
 };
 
 const RightSideMoviesPlayer = ({ movieDetails }) => {
+
+  if (!movieDetails.videos || !movieDetails.videos.trailers || movieDetails.videos.trailers.length === 0) {
+    return (
+      <div>
+        <p>No trailers available</p>
+        
+      </div>
+    );
+  }
+
+ const films = movieDetails.videos.trailers[0]?.url;
+
  return (
   <div className="RightSideMoviesPlayer">
-   <div className="RightSideMovies_Player"></div>
+   <div className="RightSideMovies_Player">
+    <iframe
+     width="100%"
+     height="100%"
+     src={films}
+     title="YouTube video player"
+     frameborder="0"
+     allowfullscreen
+    ></iframe>
+   </div>
   </div>
  );
 };
