@@ -27,3 +27,9 @@ gap: 2rem;
  justify-content: center;
  margin: 3.5rem 0rem;
 }
+
+.RightSideMovies_SubText{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}

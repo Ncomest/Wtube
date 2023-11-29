@@ -5,8 +5,6 @@ import SideBar from "../../SideBar/Home_SideBar/SideBar";
 import MoviesContainer from "../../MoviesContainer/MoviesContainer";
 import { Link } from "react-router-dom";
 
-// import Button_Filter_Menu from "../../../UI/components/Buttons/Filter_Menu/Button_Filter_Menu";
-// // import Filter_Movies from "../../../UI/components/Drop_Down_Menu/Filter_Movies/Filter_Movies";
 
 const API_URL =
  "https://api.kinopoisk.dev/v1.4/movie/search?page=1&limit=2&query=spider%20man";

@@ -1,5 +1,11 @@
+.Subtext{
+  display: flex;
+  gap: 1.5rem;
+}
+
 .Subtext_Text{
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: .5rem;
+  line-height: 3rem;
 }

@@ -1,9 +1,13 @@
 import React from "react";
+
 import "./RightSideMovies.css";
 
 import Favorites from "../../../../UI/components/Buttons/Favorites/Favorites";
 import SubTitle from "../../../../UI/components/Title/Sub_Title/SubTitle";
 import SubText from "../../../../UI/components/Text/Sub_text/SubText";
+
+import SliderSimilar from "../../../../helpers/Slider/Similar_Movies/SliderSimilar";
+import SliderRecommend from "../../../../helpers/Slider/Similar_Movies/SliderRecommend";
 
 function RightSideMovies({ movieDetails }) {
  return (
@@ -15,7 +19,7 @@ function RightSideMovies({ movieDetails }) {
     <RightSideMoviesLike />
    </div>
    <SubTitle subTitle={"О фильме"}>
-    <div>
+    <div className="RightSideMovies_SubText">
      <SubText
       text={"Жанр:"}
       data={movieDetails.genres}
@@ -26,7 +30,7 @@ function RightSideMovies({ movieDetails }) {
       data={movieDetails.countries}
       renderFuction={(data) => data.map((country) => country.name)}
      />
-     <p>Год:  {movieDetails.year}</p>
+     <p>Год: {movieDetails.year}</p>
      <p>Длительность: {movieDetails.movieLength} минут.</p>
     </div>
    </SubTitle>
@@ -39,12 +43,14 @@ function RightSideMovies({ movieDetails }) {
    <SubTitle subTitle={"Сюжет"}>
     <p>{movieDetails.description}</p>
    </SubTitle>
-   <SubTitle subTitle={"Рекомендации"}>
-   <SubText data={movieDetails.sequelsAndPrequels} renderFuction={(data) =>data.map((sequelsAndPrequels) => sequelsAndPrequels.name)}/>
-   </SubTitle>
-   <SubTitle subTitle={"Похожие"}>
-   <SubText data={movieDetails.similarMovies} renderFuction={(data) =>data.map((similarMovies) => similarMovies.name)}/>
-   </SubTitle>
+   <SubTitle subTitle={"Рекомендации"}/>
+   <div style={{ display: "flex", flexDirection: "rows", justifyContent:"center" }}>
+    <SliderRecommend movieDetails={movieDetails} />
+   </div>
+   <SubTitle subTitle={"Похожие"} />
+   <div style={{ display: "flex", flexDirection: "rows", justifyContent:"center" }}>
+    <SliderSimilar movieDetails={movieDetails} />
+   </div>
    <SubTitle subTitle={"Отзывы"}></SubTitle>
   </div>
  );
