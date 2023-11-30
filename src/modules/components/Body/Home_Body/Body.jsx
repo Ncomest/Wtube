@@ -17,7 +17,7 @@ function Body() {
    method: "GET",
    headers: {
     Accept: "application/json",
-    // "X-API-KEY": "RPSV678-AFW4EBA-J28BMDC-CGDWZ4E",
+    "X-API-KEY": "RPSV678-AFW4EBA-J28BMDC-CGDWZ4E",
    },
   })
    .then((response) => response.json())

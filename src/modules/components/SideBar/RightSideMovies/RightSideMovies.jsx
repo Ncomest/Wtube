@@ -8,6 +8,7 @@ import SubText from "../../../../UI/components/Text/Sub_text/SubText";
 
 import SliderSimilar from "../../../../helpers/Slider/Similar_Movies/SliderSimilar";
 import SliderRecommend from "../../../../helpers/Slider/Similar_Movies/SliderRecommend";
+import SliderActors from "../../../../helpers/Slider/Actors/SliderActors";
 
 function RightSideMovies({ movieDetails }) {
  return (
@@ -34,14 +35,14 @@ function RightSideMovies({ movieDetails }) {
      <p>Длительность: {movieDetails.movieLength} минут.</p>
     </div>
    </SubTitle>
-   <SubTitle subTitle={"Актеры"}>
-    <SubText
-     data={movieDetails.persons}
-     renderFuction={(data) => data.map((person) => person.name)}
-    />
-   </SubTitle>
+   <SubTitle subTitle={"Актеры"} />
+   <div
+    style={{ display: "flex", flexDirection: "rows", justifyContent: "center" }}
+   >
+    <SliderActors movieDetails={movieDetails} />
+   </div>
    <SubTitle subTitle={"Сюжет"}>
-    <p>{movieDetails.description}</p>
+    <p>{movieDetails.shortDescription}</p>
    </SubTitle>
    <SubTitle subTitle={"Рекомендации"} />
    <div
@@ -69,15 +70,17 @@ const RightSideMoviesTitle = ({ movieDetails }) => {
 };
 
 const RightSideMoviesPlayer = ({ movieDetails }) => {
-
-  if (!movieDetails.videos || !movieDetails.videos.trailers || movieDetails.videos.trailers.length === 0) {
-    return (
-      <div>
-        <p>No trailers available</p>
-        
-      </div>
-    );
-  }
+ if (
+  !movieDetails.videos ||
+  !movieDetails.videos.trailers ||
+  movieDetails.videos.trailers.length === 0
+ ) {
+  return (
+   <div>
+    <p>No trailers available</p>
+   </div>
+  );
+ }
 
  const films = movieDetails.videos.trailers[0]?.url;
 
