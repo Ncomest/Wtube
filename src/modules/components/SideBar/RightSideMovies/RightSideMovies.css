@@ -1,6 +1,6 @@
 .RightSideMovies_Player {
  width: 80rem;
- height: 38rem;
+ height: 40rem;
 
 }
 
@@ -32,4 +32,10 @@ gap: 2rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+
+.RightSideMovies_Block{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }

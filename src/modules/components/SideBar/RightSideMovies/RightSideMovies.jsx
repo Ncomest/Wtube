@@ -36,26 +36,33 @@ function RightSideMovies({ movieDetails }) {
     </div>
    </SubTitle>
    <SubTitle subTitle={"Актеры"} />
-   <div
-    style={{ display: "flex", flexDirection: "rows", justifyContent: "center" }}
-   >
+   <div className="RightSideMovies_Block">
     <SliderActors movieDetails={movieDetails} />
    </div>
    <SubTitle subTitle={"Сюжет"}>
     <p>{movieDetails.shortDescription}</p>
    </SubTitle>
-   <SubTitle subTitle={"Рекомендации"} />
-   <div
-    style={{ display: "flex", flexDirection: "rows", justifyContent: "center" }}
-   >
-    <SliderRecommend movieDetails={movieDetails} />
-   </div>
-   <SubTitle subTitle={"Похожие"} />
-   <div
-    style={{ display: "flex", flexDirection: "rows", justifyContent: "center" }}
-   >
-    <SliderSimilar movieDetails={movieDetails} />
-   </div>
+   {movieDetails.sequelsAndPrequels.length === 0 ? (
+    ""
+   ) : (
+    <div>
+     <SubTitle subTitle={"Рекомендации"} />
+     <div className="RightSideMovies_Block">
+      <SliderRecommend movieDetails={movieDetails} />
+     </div>
+    </div>
+   )}
+   {movieDetails.similarMovies.length === 0 ? (
+    ""
+   ) : (
+    <div>
+     <SubTitle subTitle={"Похожие"} />
+     <div className="RightSideMovies_Block">
+      <SliderSimilar movieDetails={movieDetails} />
+     </div>
+    </div>
+   )}
+
    <SubTitle subTitle={"Отзывы"}></SubTitle>
   </div>
  );
