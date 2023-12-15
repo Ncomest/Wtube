@@ -1,7 +1,7 @@
 import React from "react";
 import "./Button_Filter_Menu.css";
 
-function Button_Filter_Menu() {
+function ButtonFilterMenu() {
  return (
   <div className="FilterList">
    <select className="FilterList_Select" name="FilterList" id="FilterList">
@@ -13,4 +13,4 @@ function Button_Filter_Menu() {
  );
 }
 
-export default Button_Filter_Menu;
+export default ButtonFilterMenu;

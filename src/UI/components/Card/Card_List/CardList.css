@@ -1,4 +1,7 @@
 .Card {
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
  color: var(--white);
  background-color: var(--dark);
  border-radius: 0.5rem;
@@ -6,15 +9,18 @@
  border-left: 5px solid var(--shadow_side);
  box-shadow: 7px 8px 15px 0px var(--blue_border);
 
- /* width: 16.25rem;
-  height: 28rem; */
- margin: 2rem 0rem;
+ height: 30rem;
 }
 
-.Movies_Container_img {
+.Card-Block {
+ height: 85%;
+}
+
+.Card_Container_img {
  width: 100%;
  height: 100%;
  border-radius: 0.5rem;
+ object-fit: cover;
 }
 
 .Card-title {
@@ -22,6 +28,12 @@
  font-size: var(--smallText);
  font-weight: 300;
  margin-left: 0.5rem;
+}
+
+@media (max-width: 1440px) {
+  .Card{
+    height: 22rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -32,7 +44,7 @@
 
 @media (max-width: 320px) {
  .Card {
-  width: 7.5rem;
+  /* width: 7.5rem; */
   height: 15rem;
  }
 

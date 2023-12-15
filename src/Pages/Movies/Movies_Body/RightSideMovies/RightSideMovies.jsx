@@ -64,6 +64,29 @@ function RightSideMovies({ movieDetails }) {
    )}
 
    <SubTitle subTitle={"Отзывы"}></SubTitle>
+   <div style={{display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)'}}>
+    <div style={{ height: "8rem", backgroundColor: "red", display:'flex', flexDirection:'column', justifyContent:'space-between' }}>
+      <div style={{height: '80%', width: "100%", backgroundColor: "aqua"}}></div>
+      <div>text</div>
+    </div>
+    <div style={{ height: "8rem", backgroundColor: "red", display:'flex', flexDirection:'column', justifyContent:'space-between' }}>
+      <div style={{height: '80%', width: "100%", backgroundColor: "aqua"}}></div>
+      <div>text</div>
+    </div>
+    <div style={{ height: "8rem", backgroundColor: "red", display:'flex', flexDirection:'column', justifyContent:'space-between' }}>
+      <div style={{height: '80%', width: "100%", backgroundColor: "aqua"}}></div>
+      <div>text</div>
+    </div>
+    <div style={{ height: "8rem", backgroundColor: "red", display:'flex', flexDirection:'column', justifyContent:'space-between' }}>
+      <div style={{height: '80%', width: "100%", backgroundColor: "aqua"}}></div>
+      <div>text</div>
+    </div>
+    <div style={{ height: "8rem", backgroundColor: "red", display:'flex', flexDirection:'column', justifyContent:'space-between' }}>
+      <div style={{height: '80%', width: "100%", backgroundColor: "aqua"}}></div>
+      <div>text</div>
+    </div>
+  
+   </div>
   </div>
  );
 }

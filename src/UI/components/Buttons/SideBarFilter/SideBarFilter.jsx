@@ -4,10 +4,10 @@ import "./SideBarFilter.css";
 function SideBarFilter() {
  return (
   <div className="SideBarFilter">
-   <div>
+   <div className="SideBarFilter_Container">
     <button className="SideBarFilterBtn">Сброс</button>
    </div>
-   <div>
+   <div className="SideBarFilter_Container">
     <button className="SideBarFilterBtn">Подтвердить</button>
    </div>
   </div>

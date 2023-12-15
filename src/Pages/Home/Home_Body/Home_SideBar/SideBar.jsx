@@ -91,7 +91,7 @@ const FilterBarContainerImdb = () => {
 const FilterBarContainerKP = () => {
  return (
   <div className="FilterBarContainer_Container">
-   <p className="FilterBarContainer_Text">Рейтинг КиноПоиск</p>
+   <p className="FilterBarContainer_Text">Рейтинг КП</p>
    <div className="FilterBarContainer_Items">
     <select name="KpStart" id="KpStart" className="FilterBarContainer_Select">
      <option value="0">1</option>

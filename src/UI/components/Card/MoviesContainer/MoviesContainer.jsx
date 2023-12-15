@@ -7,13 +7,13 @@ function MoviesContainer({ poster, name }) {
   <div className="Card">
    <div className="Card-Block">
     <img
-     className="Movies_Container_img"
+     className="Card_Container_img"
      src={poster.url}
      alt={name}
      loading="lazy"
     />
-    <h2 className="Card-title">{name}</h2>
    </div>
+    <h2 className="Card-title">{name}</h2>
   </div>
  );
 }

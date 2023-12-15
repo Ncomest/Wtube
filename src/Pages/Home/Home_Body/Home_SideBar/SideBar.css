@@ -1,6 +1,6 @@
 .SideBar {
- height: 55rem;
-
+ /* height: 55rem; */
+padding-bottom: 10%;
  background-color: var(--dark);
  border-radius: 0.6rem;
  box-shadow: 10px 4px 21px 0px var(--blue_border);
@@ -11,17 +11,16 @@
 }
 
 .FilterBarContainer_Container {
- display: flex;
- margin-bottom: 5rem;
- justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+  margin: 5rem auto;
 }
-.FilterBarContainer_Text {
- width: 30%;
 
-}
 
 .FilterBarContainer_Select {
- width: 8rem;
+ width: 70%;
  height: 2.5rem;
  font-size: 1.375rem;
  padding-left: 1rem;
@@ -33,6 +32,13 @@
 .FilterBarContainer_Items {
  display: flex;
  gap: 1.5rem;
+ 
+}
+
+@media (max-width: 1440px) {
+  .FilterBarContainer_Select{
+    font-size: var(--textSmall);
+  }
 }
 
 @media (max-width: 426px) {

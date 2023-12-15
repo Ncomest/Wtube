@@ -1,5 +1,5 @@
 .ListChoice_Select {
- width: 17.5rem;
+ width: 70%;
  height: 2.5rem;
  font-size: 1.375rem;
  padding-left: 1rem;
@@ -7,16 +7,20 @@
  color: var(--white);
  border-radius: 0.5rem;
  
+ 
 }
 
 .ListChoice_Container{
   display: flex;
-  margin: 3.5rem 0rem 5rem 0rem;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+  margin: 5rem auto;
 }
 
-.ListChoice_Text{
-  
-  width: 30%;
+@media (max-width: 1440px) {
+  .ListChoice_Select {
+    font-size: var(--textSmall);
+  }
 }
 

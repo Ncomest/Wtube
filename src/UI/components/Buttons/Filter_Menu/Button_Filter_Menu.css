@@ -9,3 +9,9 @@
  padding-left: 1rem;
  margin-bottom: 1rem;
 }
+
+@media (max-width: 426px) {
+  .FilterList{
+    display: none;
+  }
+}

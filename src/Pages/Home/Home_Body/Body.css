@@ -4,10 +4,14 @@
  padding: 1.5rem 1rem;
 }
 
+.Body_Container {
+ display: flex;
+ flex-direction: column;
+}
+
 .Body_Movies {
  display: grid;
  grid-template-columns: repeat(6, 1fr);
- /* flex-wrap: wrap; */
  gap: 1rem;
  width: 100%;
 }
@@ -15,9 +19,10 @@
 @media (max-width: 1440px) {
  .Body {
   grid-template-columns: 25rem auto;
+  font-size: var(--textSmall);
  }
  .Body_Movies {
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
  }
 }
 @media (max-width: 1024px) {
@@ -25,7 +30,7 @@
   grid-template-columns: 20rem auto;
  }
  .Body_Movies {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
  }
 }
 @media (max-width: 768px) {

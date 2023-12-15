@@ -1,9 +1,13 @@
 .SideBarFilter {
  display: flex;
- margin: auto;
- width: 80%;
  align-items: center;
  justify-content: space-between;
+ width: 90%;
+ margin: auto;
+}
+
+.SideBarFilter_Container {
+ width: 50%;
 }
 
 .SideBarFilterBtn {
@@ -12,11 +16,18 @@
  border: 1px solid var(--blue_border);
  box-shadow: 6px 6px 7px 0px var(--blue_border);
  background: var(--blue);
- padding: 1rem 4rem;
+ width: 100%;
+ padding: 5% 10%;
  color: var(--white);
  font-size: var(--textNormal);
 }
 
 .SideBarFilterBtn:active {
  box-shadow: 2px 2px 2px 0px var(--blue_border);
+}
+
+@media (max-width: 1440px) {
+  .SideBarFilterBtn{
+    font-size: var(--textSmall);
+  }
 }

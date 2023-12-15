@@ -30,29 +30,35 @@
  height: 2.5rem;
 }
 
-@media (max-width: 1024px) {
- .Header{
-  grid-template-columns: 28rem auto;
+@media (max-width: 1440px) {
+ .Header {
+  grid-template-columns: 25rem auto;
  }
-  
+}
+
+@media (max-width: 1024px) {
+ .Header {
+  grid-template-columns: 20rem auto;
+ }
+
  .Header_SearchBar {
   width: 20rem;
   height: 2.5rem;
  }
  .Header_Logo {
   font-size: 3rem;
-  width: 28rem;
+  width: 20rem;
  }
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
  .Header {
   height: 4rem;
  }
 
  .Header_Logo {
   font-size: 3rem;
-  width: 15rem;
+  width: 20rem;
  }
  .Header_SearchBar {
   display: none;
@@ -61,7 +67,8 @@
   justify-content: end;
  }
 }
-@media screen and (max-width: 426px) {
+
+@media (max-width: 426px) {
  .Header_Logo {
   font-size: 2rem;
   width: 10rem;
