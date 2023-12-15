@@ -1,6 +1,6 @@
 import React from "react";
 import "./MoviesContainer.css";
-import "../../../index.css";
+
 
 function MoviesContainer({ poster, name }) {
  return (

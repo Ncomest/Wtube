@@ -1,18 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import './Movies.css'
+import "./Movies.css";
 
-import Header from "../../modules/components/Header/Header";
-import MoviesBody from "../../modules/components/Body/Movies_Body/MoviesBody";
-
-
-
+import Header from "../../modules/Header/Header";
+import MoviesBody from "./Movies_Body/MoviesBody";
 
 function Movies() {
-  const { id } = useParams();
-  const [movieDetails, setMovieDetails] = useState(null);
-  const API_URL = `https://api.kinopoisk.dev/v1.4/movie/${id}`;
-
+ const { id } = useParams();
+ const [movieDetails, setMovieDetails] = useState(null);
+ const API_URL = `https://api.kinopoisk.dev/v1.4/movie/${id}`;
 
  useEffect(() => {
   fetch(API_URL, {
@@ -33,11 +29,10 @@ function Movies() {
   return <p>Loading...</p>;
  }
 
-
  return (
   <div className="Movies">
-    <Header/>
-    <MoviesBody movieDetails={movieDetails}/>
+   <Header />
+   <MoviesBody movieDetails={movieDetails} />
   </div>
  );
 }

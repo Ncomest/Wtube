@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 
 import "./Header.css";
-import "../../../index.css";
 
-import Logo from "../../../UI/components/Logo/Logo";
-import SearchBar from "../../../UI/components/Search_Bar/SearchBar";
-import ButtonProfile from "../../../UI/components/Buttons/Button_Profile/ButtonProfile";
-import Burger from "../../../UI/components/Burger/Burger";
+
+import Logo from "../../UI/components/Logo/Logo";
+import SearchBar from "../../UI/components/Search_Bar/SearchBar";
+import ButtonProfile from "../../UI/components/Buttons/Button_Profile/ButtonProfile";
+import Burger from "../../UI/components/Burger/Burger";
 
 function Header() {
  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
