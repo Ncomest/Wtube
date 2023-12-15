@@ -5,8 +5,52 @@
 }
 
 .Body_Movies {
- display: flex;
- flex-wrap: wrap;
+ display: grid;
+ grid-template-columns: repeat(6, 1fr);
+ /* flex-wrap: wrap; */
  gap: 1rem;
  width: 100%;
+}
+
+@media (max-width: 1440px) {
+ .Body {
+  grid-template-columns: 25rem auto;
+ }
+ .Body_Movies {
+  grid-template-columns: repeat(6, 1fr);
+ }
+}
+@media (max-width: 1024px) {
+ .Body {
+  grid-template-columns: 20rem auto;
+ }
+ .Body_Movies {
+  grid-template-columns: repeat(4, 1fr);
+ }
+}
+@media (max-width: 768px) {
+ .Body {
+  padding: 1rem 0.5rem;
+ }
+ .Body_Movies {
+  grid-template-columns: repeat(2, 1fr);
+ }
+}
+
+@media (max-width: 426px) {
+ .Body {
+  grid-template-columns: auto;
+ }
+
+ .Body_Movies > a {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+ }
+}
+
+@media (max-width: 320px) {
+ .Body {
+  padding: 0.5rem 0rem;
+ }
 }

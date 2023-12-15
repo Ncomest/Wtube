@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 
 const API_URL =
- "https://api.kinopoisk.dev/v1.4/movie/search?page=1&limit=2&query=spider%20man";
+ "https://api.kinopoisk.dev/v1.4/movie/search?page=1&limit=1&query=spider%20man";
 
 function Body() {
  const [movies, setMovies] = useState([]);
@@ -31,6 +31,7 @@ function Body() {
   <div className="Body">
    <SideBar />
    <div className="Body_Movies">
+    
     {movies.map((movie) => (
      <Link key={movie.id} to={`/movies/${movie.id}`}>
       <MoviesContainer key={movie.id} {...movie} />

@@ -30,14 +30,18 @@
  height: 2.5rem;
 }
 
-@media screen and (max-width: 1024px) {
+@media (max-width: 1024px) {
+ .Header{
+  grid-template-columns: 28rem auto;
+ }
+  
  .Header_SearchBar {
   width: 20rem;
   height: 2.5rem;
  }
  .Header_Logo {
   font-size: 3rem;
-  width: 20rem;
+  width: 28rem;
  }
 }
 
@@ -61,5 +65,9 @@
  .Header_Logo {
   font-size: 2rem;
   width: 10rem;
+ }
+
+ .Header {
+  grid-template-columns: 12rem auto;
  }
 }
