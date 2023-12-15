@@ -7,26 +7,26 @@ function ListChoice({ children }) {
 
 export function Genre() {
  return (
-  <>
-   <p>Жанр</p>
-   <select name="Genre" id="genre">
-    <option value="0">Боевик</option>
+  <div className="ListChoice_Container">
+   <p className="ListChoice_Text">Жанр</p>
+   <select name="Genre" id="genre" className="ListChoice_Select">
+    <option value="0">--Выберите жанр--</option>
     <option value="1">Комедия</option>
     <option value="2">Триллер</option>
    </select>
-  </>
+  </div>
  );
 }
 export function Country() {
  return (
-  <>
-   <p>Страна</p>
-   <select name="Country" id="country">
-    <option value="0">Россия</option>
+  <div className="ListChoice_Container">
+   <p className="ListChoice_Text">Страна</p>
+   <select name="Country" id="country" className="ListChoice_Select">
+    <option value="0">--Выберите страну--</option>
     <option value="1">Америка</option>
     <option value="2">Китай</option>
    </select>
-  </>
+  </div>
  );
 }
 

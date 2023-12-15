@@ -1,0 +1,22 @@
+.SideBarFilter {
+ display: flex;
+ margin: auto;
+ width: 80%;
+ align-items: center;
+ justify-content: space-between;
+}
+
+.SideBarFilterBtn {
+ cursor: pointer;
+ border-radius: 0.5rem;
+ border: 1px solid var(--blue_border);
+ box-shadow: 6px 6px 7px 0px var(--blue_border);
+ background: var(--blue);
+ padding: 1rem 4rem;
+ color: var(--white);
+ font-size: var(--textNormal);
+}
+
+.SideBarFilterBtn:active {
+ box-shadow: 2px 2px 2px 0px var(--blue_border);
+}
