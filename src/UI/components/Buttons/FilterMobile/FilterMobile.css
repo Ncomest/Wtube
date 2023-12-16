@@ -1,0 +1,12 @@
+.FilterMobile{
+  position: relative;
+  height: 2.5rem;
+  width: 2.5rem;
+  
+}
+
+.FilterMobile svg{
+  width: 100%;
+  height: 100%;
+  
+}

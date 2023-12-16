@@ -8,23 +8,19 @@ import MoviesContainer from "../../../UI/components/Card/MoviesContainer/MoviesC
 import ButtonFilterMenu from "../../../UI/components/Buttons/Filter_Menu/Button_Filter_Menu";
 
 function getCurrentDate(date) {
-  const day = date.getDate().toString().padStart(2, '0');
-  const month = (date.getMonth() + 1).toString().padStart(2, '0');
-  const year = date.getFullYear();
+ const day = date.getDate().toString().padStart(2, "0");
+ const month = (date.getMonth() + 1).toString().padStart(2, "0");
+ const year = date.getFullYear();
 
-  return `${day}.${month}.${year}`;
+ return `${day}.${month}.${year}`;
 }
 
 const today = new Date();
 const currentDate = getCurrentDate(today);
 
-const API_URL =
-`https://api.kinopoisk.dev/v1.4/movie?page=1&limit=1&selectFields=id&selectFields=name&selectFields=poster&createdAt=01.05.2023-${currentDate}`
+const API_URL = `https://api.kinopoisk.dev/v1.4/movie?page=1&limit=1&selectFields=id&selectFields=name&selectFields=poster&createdAt=01.05.2023-${currentDate}`;
 //  "https://api.kinopoisk.dev/v1.4/movie?page=1&limit=1&selectFields=id&selectFields=name&selectFields=poster&selectFields=updatedAt";
 //  "https://api.kinopoisk.dev/v1.4/movie/search?page=1&limit=1&query=spider%20man";
-
-
-
 
 function Body() {
  const [movies, setMovies] = useState([]);

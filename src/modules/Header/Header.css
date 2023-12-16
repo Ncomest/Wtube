@@ -30,6 +30,12 @@
  height: 2.5rem;
 }
 
+.Header_Mobile {
+ display: flex;
+ align-items: center;
+ gap: 2rem;
+}
+
 @media (max-width: 1440px) {
  .Header {
   grid-template-columns: 25rem auto;
@@ -76,5 +82,23 @@
 
  .Header {
   grid-template-columns: 12rem auto;
+ }
+}
+
+@media (max-width: 376px) {
+ .Header {
+  grid-template-columns: 8rem auto;
+ }
+ .Header_Logo {
+  width: 8rem;
+ }
+}
+
+@media (max-width: 321px) {
+ .Header {
+  grid-template-columns: 5rem auto;
+ }
+ .Header_Mobile{
+  gap: 1rem;
  }
 }
