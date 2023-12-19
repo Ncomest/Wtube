@@ -12,6 +12,7 @@ import SearchMobile from "../../UI/components/Search_Bar/SearchMobile/SearchMobi
 function Header() {
  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
+
  useEffect(() => {
   // Обновляем windowWidth при изменении размера окна браузера
   const handleResize = () => {
@@ -27,6 +28,8 @@ function Header() {
  }, []);
 
  const breakpoint = 768;
+
+
 
  return (
   <div className="Header">

@@ -2,5 +2,6 @@
  background-color: var(--dark);
  color: var(--white);
  font-size: var(--textNormal);
+ min-height: 100dvh;
 }
 

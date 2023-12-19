@@ -14,17 +14,16 @@
 
 .Profile_DropDown {
  position: absolute;
- top: 11rem;
+ top: 7rem;
  right: 0.5rem;
 
  width: 21.25rem;
  height: 11rem;
 
  transition: 0.4s;
-
- 
+ z-index: 2;
 }
 
 .Profile_DropDown.open {
- opacity: 0;
+ display: none;
 }

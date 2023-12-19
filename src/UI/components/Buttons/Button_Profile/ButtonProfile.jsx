@@ -12,8 +12,10 @@ function ButtonProfile() {
  };
 
  return (
-  <div onClick={toggleBurger}>
-   <Profile />
+  <div>
+   <div onClick={toggleBurger}>
+    <Profile />
+   </div>
    <div className={`Profile_DropDown ${isOpen ? "" : "open"}`}>
     <DropDown>
      <ProfileText />

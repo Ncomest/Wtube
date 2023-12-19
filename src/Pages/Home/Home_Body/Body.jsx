@@ -42,7 +42,9 @@ function Body() {
 
  return (
   <div className="Body">
-   <SideBar />
+   <div className="Body_SideBar">
+    <SideBar />
+   </div>
    <div className="Body_Container">
     <ButtonFilterMenu />
     <div className="Body_Movies">

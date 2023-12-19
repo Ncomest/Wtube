@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "./FilterMobile.css";
-
-import DropDown from "../../Background_DropDown/Drop_Down_Menu/DropDown";
+import SideBar from "../../../../Pages/Home/Home_Body/Home_SideBar/SideBar";
 
 function FilterMobile() {
+ const [FilterMobileBtn, setFilterMobileBtn] = useState(false);
+
+ const handleFilterMobileBtn = () => {
+  setFilterMobileBtn(!FilterMobileBtn);
+ };
+
  return (
   <div className="FilterMobile">
    <svg
+    onClick={handleFilterMobileBtn}
     width="30"
     height="26"
     viewBox="0 0 30 26"
@@ -18,20 +24,18 @@ function FilterMobile() {
      fill="white"
     />
    </svg>
-   <DropDown>
-    <FilterMobileMenu/>
-    <div>hi</div>
-    <p>text</p>
-   </DropDown>
+
+   {FilterMobileBtn && <FilterMobileMenu />}
   </div>
  );
 }
 
-
-const FilterMobileMenu =() => {
-  return (
-    <div>hi world</div>
-  )
-}
+const FilterMobileMenu = () => {
+ return (
+  <div className="FilterMobileMenu">
+   <SideBar />
+  </div>
+ );
+};
 
 export default FilterMobile;

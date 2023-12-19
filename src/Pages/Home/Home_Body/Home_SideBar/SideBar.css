@@ -1,6 +1,6 @@
 .SideBar {
  /* height: 55rem; */
-padding-bottom: 10%;
+ padding-bottom: 10%;
  background-color: var(--dark);
  border-radius: 0.6rem;
  box-shadow: 10px 4px 21px 0px var(--blue_border);
@@ -11,13 +11,12 @@ padding-bottom: 10%;
 }
 
 .FilterBarContainer_Container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 90%;
-  margin: 5rem auto;
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ width: 90%;
+ margin: 5rem auto;
 }
-
 
 .FilterBarContainer_Select {
  width: 70%;
@@ -32,17 +31,18 @@ padding-bottom: 10%;
 .FilterBarContainer_Items {
  display: flex;
  gap: 1.5rem;
- 
 }
 
 @media (max-width: 1440px) {
-  .FilterBarContainer_Select{
-    font-size: var(--textSmall);
-  }
+ .FilterBarContainer_Select {
+  font-size: var(--textSmall);
+ }
 }
 
+@media (max-width: 768px) {
+  .SideBar{
+    width: 100%;
+  }
+}
 @media (max-width: 426px) {
- .SideBar {
-  display: none;
- }
 }
