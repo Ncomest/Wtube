@@ -18,3 +18,13 @@
  color: var(--white);
  opacity: 0.7;
 }
+
+.SearchBar_Mobile {
+ width: 100%;
+ margin: 1rem 0rem;
+ padding: 0rem 2rem;
+}
+
+.SearchBar_Mobile_Input {
+ margin: auto;
+}

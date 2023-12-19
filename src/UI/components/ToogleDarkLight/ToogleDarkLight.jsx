@@ -16,6 +16,67 @@ function ToogleDarkLight() {
 const Sun = () => {
  return (
   <div>
+   {/* <svg
+    width="33"
+    height="29"
+    viewBox="0 0 33 29"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+   >
+    <path
+     d="M16.8351 23C22.0917 23 26.3529 19.1944 26.3529 14.5C26.3529 9.80558 22.0917 6 16.8351 6C11.5786 6 7.31738 9.80558 7.31738 14.5C7.31738 19.1944 11.5786 23 16.8351 23Z"
+     stroke="white"
+     strokeWidth="2"
+    />
+    <path
+     d="M17.395 1V2"
+     stroke="white"
+     strokeWidth="2"
+     strokeLinecap="round"
+    />
+    <path
+     d="M17.395 27V28"
+     stroke="white"
+     strokeWidth="2"
+     strokeLinecap="round"
+    />
+    <path
+     d="M31.9515 15H30.8318"
+     stroke="white"
+     strokeWidth="2"
+     strokeLinecap="round"
+    />
+    <path
+     d="M2.83836 15H1.71863"
+     stroke="white"
+     strokeWidth="2"
+     strokeLinecap="round"
+    />
+    <path
+     d="M7.14995 23.6434L6.36511 24.3566"
+     stroke="white"
+     strokeWidth="2"
+     strokeLinecap="round"
+    />
+    <path
+     d="M28.2575 5.28675L27.4727 6"
+     stroke="white"
+     strokeWidth="2"
+     strokeLinecap="round"
+    />
+    <path
+     d="M7.15632 5.35045L6.35767 4.64954"
+     stroke="white"
+     strokeWidth="2"
+     strokeLinecap="round"
+    />
+    <path
+     d="M27.1514 24.7009L26.3528 24"
+     stroke="white"
+     strokeWidth="2"
+     strokeLinecap="round"
+    />
+   </svg> */}
    <svg
     width="33"
     height="29"
