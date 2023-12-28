@@ -5,7 +5,7 @@ function SubTitle({ subTitle, children }) {
  return (
   <div>
    <h3 className="SubTitle">{subTitle}</h3>
-   <p className="SubTitleText">{children}</p>
+   <div className="SubTitleText">{children}</div>
   </div>
  );
 }

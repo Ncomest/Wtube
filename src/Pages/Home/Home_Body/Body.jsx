@@ -25,20 +25,20 @@ const API_URL = `https://api.kinopoisk.dev/v1.4/movie?page=1&limit=1&selectField
 function Body() {
  const [movies, setMovies] = useState([]);
 
- useEffect(() => {
-  fetch(API_URL, {
-   method: "GET",
-   headers: {
-    Accept: "application/json",
-    "X-API-KEY": "RPSV678-AFW4EBA-J28BMDC-CGDWZ4E",
-   },
-  })
-   .then((response) => response.json())
-   .then((data) => {
-    console.log(data);
-    setMovies(data.docs);
-   });
- }, []);
+//  useEffect(() => {
+//   fetch(API_URL, {
+//    method: "GET",
+//    headers: {
+//     Accept: "application/json",
+//     "X-API-KEY": "RPSV678-AFW4EBA-J28BMDC-CGDWZ4E",
+//    },
+//   })
+//    .then((response) => response.json())
+//    .then((data) => {
+//     console.log(data);
+//     setMovies(data.docs);
+//    });
+//  }, []);
 
  return (
   <div className="Body">

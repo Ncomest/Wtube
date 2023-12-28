@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "./SearchMobile.css";
-import SearchBar from "../SearchBar";
+
+import SearchMobileMenu from "./SearchMobileMenu/SearchMobileMenu";
 
 function SearchMobile() {
- const [SearchOpen, setSearchOpen] = useState(false);
+ const [searchOpen, setSearchOpen] = useState(false);
 
  const handleSearchOpen = () => {
-  setSearchOpen(!SearchOpen);
+  setSearchOpen(!searchOpen);
  };
 
  return (
@@ -30,58 +31,11 @@ function SearchMobile() {
      />
     </svg>
    </div>
-   {SearchOpen && <SearchMobileMenu />}
+   {searchOpen && (
+    <SearchMobileMenu />
+   )}
   </div>
  );
 }
 
-const SearchMobileMenu = () => {
- return (
-  <div className="SearchMobileMenu">
-   <SearchBar />
-   <SearchMobileBtn />
-   <SearchMobileCard />
-  </div>
- );
-};
-
-const SearchMobileBtn = () => {
- return (
-  <div className="SearchMobileBtn">
-   <button className="SearchMobileBtnBtn">Поиск</button>
-  </div>
- );
-};
-
-const SearchMobileCard = () => {
- return (
-  <div className="SearchMobileCard">
-   <div className="SearchMobileCard_Left" >
-    <div className="SearchMobileCard_ImgContainer">
-     <img className="SearchMobileCard_Img" src="https://avatars.mds.yandex.net/get-kinopoisk-image/10893610/58239d8d-44d3-475e-ab3f-878679c64290/orig" alt="zaglushka" />
-    </div>
-   </div>
-
-   <div>
-    <h2>Иван Васильевич меняет профессию</h2>
-    <div className="SearchMobileCard_Text">
-     <p>Жанр</p>
-     <p>Комедия</p>
-    </div>
-    <div className="SearchMobileCard_Text">
-     <p>Страна</p>
-     <p>Россия</p>
-    </div>
-    <div className="SearchMobileCard_Text">
-     <p>Год</p>
-     <p>1993</p>
-    </div>
-    <div className="SearchMobileCard_Text">
-     <p>Длительность</p>
-     <p>120</p>
-    </div>
-   </div>
-  </div>
- );
-};
 export default SearchMobile;

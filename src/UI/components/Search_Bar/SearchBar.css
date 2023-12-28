@@ -28,3 +28,9 @@
 .SearchBar_Mobile_Input {
  margin: auto;
 }
+
+@media (max-width: 320px) {
+  .SearchBar_Mobile_Input{
+    font-size: var(--textSmall);
+  }
+}
