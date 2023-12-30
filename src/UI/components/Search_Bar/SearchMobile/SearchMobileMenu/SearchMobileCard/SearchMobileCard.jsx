@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const SearchMobileCard = () => {
+const SearchMobileCard = ({searchTerm}) => {
  const [loading, setLoading] = useState(true);
  const [searchMovie, setSearchMovie] = useState(null);
 
- const API_URL_TWO = `https://api.kinopoisk.dev/v1.4/movie/search?page=1&limit=1&query="Человек-паук"`;
+ const API_URL_TWO = `https://api.kinopoisk.dev/v1.4/movie/search?page=1&limit=1&query=${searchTerm}`;
  //  "https://api.kinopoisk.dev/v1.4/movie/666";
 
  useEffect(() => {

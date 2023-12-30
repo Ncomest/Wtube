@@ -1,7 +1,7 @@
 .Header {
  position: relative;
  display: grid;
- grid-template-columns: 37rem auto;
+ grid-template-columns: 25% auto;
  height: 6.25rem;
  background-color: var(--dark);
  box-shadow: 0px 6px 20px 0px var(--blue_border);
@@ -39,13 +39,13 @@
 
 @media (max-width: 1440px) {
  .Header {
-  grid-template-columns: 25rem auto;
+  /* grid-template-columns: 25rem auto; */
  }
 }
 
 @media (max-width: 1024px) {
  .Header {
-  grid-template-columns: 20rem auto;
+  /* grid-template-columns: 20rem auto; */
  }
 
  .Header_SearchBar {
@@ -82,13 +82,13 @@
  }
 
  .Header {
-  grid-template-columns: 12rem auto;
+  /* grid-template-columns: 12rem auto; */
  }
 }
 
 @media (max-width: 376px) {
  .Header {
-  grid-template-columns: 8rem auto;
+  /* grid-template-columns: 8rem auto; */
  }
  .Header_Logo {
   width: 8rem;
@@ -97,7 +97,7 @@
 
 @media (max-width: 321px) {
  .Header {
-  grid-template-columns: 5rem auto;
+  /* grid-template-columns: 5rem auto; */
  }
  .Header_Mobile {
   gap: 1rem;

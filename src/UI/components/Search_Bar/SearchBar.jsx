@@ -1,18 +1,17 @@
-import React
-// ,{useState} 
-from "react";
+import React from "react";
 import "./SearchBar.css";
 
-function SearchBar() {
-//  const [searchInput, setSearchInput] = useState("");
-  
+function SearchBar({ onSetSearchTerm }) {
+ const handleSearch = (e) => {
+  onSetSearchTerm(e.target.value);
+ };
+
  return (
   <div className="SearchBar SearchBar_Mobile">
    <input
     className="SearchBar SearchBar_Input SearchBar_Input_Header SearchBar_Mobile_Input"
     type="text"
-    // value={searchInput}
-    // onChange={(e) => setSearchInput(e.target.value)}
+    onChange={handleSearch}
     placeholder="Введите название фильма"
    />
   </div>

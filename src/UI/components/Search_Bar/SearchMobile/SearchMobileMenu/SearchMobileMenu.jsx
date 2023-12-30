@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 
 import SearchBar from "../../SearchBar";
-import SearchMobileBtn from "./SearchMobileBtn/SearchMobileBtn";
+// import SearchMobileBtn from "./SearchMobileBtn/SearchMobileBtn";
 import SearchMobileCard from "./SearchMobileCard/SearchMobileCard";
 
 const SearchMobileMenu = () => {
+ const [searchTerm, setSearchTerm] = useState("");
+
  return (
   <div className="SearchMobileMenu">
-   <SearchBar />
-   <SearchMobileBtn />
+   <SearchBar onSetSearchTerm={setSearchTerm}/>
+   {/* <SearchMobileBtn /> */}
    <div>
-    <SearchMobileCard /> 
+    <SearchMobileCard searchTerm={searchTerm}/>
    </div>
   </div>
  );
