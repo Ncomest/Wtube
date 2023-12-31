@@ -10,7 +10,7 @@ import SliderSimilar from "../../../../helpers/Slider/Similar_Movies/SliderSimil
 import SliderRecommend from "../../../../helpers/Slider/Similar_Movies/SliderRecommend";
 import SliderActors from "../../../../helpers/Slider/Actors/SliderActors";
 
-function RightSideMovies({ movieDetails }) {
+function RightSideMovies({ movieDetails,movieDetailsRev }) {
  return (
   <div className="RightSideMovies">
    <RightSideMoviesTitle movieDetails={movieDetails} />
@@ -61,6 +61,11 @@ function RightSideMovies({ movieDetails }) {
    )}
 
    <SubTitle subTitle={"Отзывы"}></SubTitle>
+   <div>
+    {movieDetailsRev.map((movie) => (
+      <li key={movie.id}>{movie.review}</li>
+    ))}
+   </div>
    {/* <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)" }}>
     <div
      style={{
