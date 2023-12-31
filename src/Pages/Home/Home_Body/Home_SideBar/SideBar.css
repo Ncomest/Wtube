@@ -7,6 +7,11 @@
  border-top: 5px solid var(--shadow_side);
  border-left: 5px solid var(--shadow_side);
 
+ /* border-radius: 0.625rem;
+ border: 1px solid var(--blue_border);
+ background: var(--dark);
+ box-shadow: 0px 0px 12px 4px var(--blue_border) inset; */
+
  margin-right: 1.5rem;
 }
 
@@ -40,9 +45,9 @@
 }
 
 @media (max-width: 768px) {
-  .SideBar{
-    width: 100%;
-  }
+ .SideBar {
+  width: 100%;
+ }
 }
 @media (max-width: 426px) {
 }

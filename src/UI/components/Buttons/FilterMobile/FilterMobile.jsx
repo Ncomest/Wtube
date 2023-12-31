@@ -24,7 +24,6 @@ function FilterMobile() {
      fill="white"
     />
    </svg>
-
    {FilterMobileBtn && <FilterMobileMenu />}
   </div>
  );

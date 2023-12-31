@@ -47,8 +47,8 @@
 
 .BurgerDropDown {
  position: absolute;
- top: 8.7rem;
- right: 0.2rem;
+ top: 100%;
+ right: 0.5%;
  width: 14rem;
  height: 11.5rem;
 

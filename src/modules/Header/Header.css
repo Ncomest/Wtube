@@ -19,7 +19,6 @@
  align-items: center;
  justify-content: center;
  font-size: 4rem;
- width: 33.5rem;
 }
 
 .Header_Profile {
@@ -28,7 +27,6 @@
 
 .Header_SearchBar {
  width: 32rem;
- height: 2.5rem;
 }
 
 .Header_Mobile {
@@ -45,16 +43,14 @@
 
 @media (max-width: 1024px) {
  .Header {
-  /* grid-template-columns: 20rem auto; */
+  grid-template-columns: 35% auto;
  }
 
  .Header_SearchBar {
   width: 20rem;
-  height: 2.5rem;
  }
  .Header_Logo {
   font-size: 3rem;
-  width: 20rem;
  }
 }
 
@@ -65,7 +61,6 @@
 
  .Header_Logo {
   font-size: 3rem;
-  width: 20rem;
  }
  .Header_SearchBar {
   display: none;
@@ -78,27 +73,14 @@
 @media (max-width: 426px) {
  .Header_Logo {
   font-size: 2rem;
-  width: 10rem;
- }
-
- .Header {
-  /* grid-template-columns: 12rem auto; */
  }
 }
 
 @media (max-width: 376px) {
- .Header {
-  /* grid-template-columns: 8rem auto; */
- }
- .Header_Logo {
-  width: 8rem;
- }
+
 }
 
 @media (max-width: 321px) {
- .Header {
-  /* grid-template-columns: 5rem auto; */
- }
  .Header_Mobile {
   gap: 1rem;
  }
