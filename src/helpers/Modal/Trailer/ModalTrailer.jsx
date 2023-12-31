@@ -5,17 +5,7 @@ function ModalTrailer({ onClick, movieDetails }) {
  const trailerUrl = movieDetails.videos.trailers[0]?.url;
 
  return (
-  <div
-   style={{
-    position: "absolute",
-    top: "7rem",
-    left: "40rem",
-    width: "90rem",
-    height: "40rem",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-   }}
+  <div className="ModalTrailer"
   >
    <iframe
     width="100%"

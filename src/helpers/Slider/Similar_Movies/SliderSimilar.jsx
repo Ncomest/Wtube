@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import "slick-carousel/slick/slick.css";
@@ -7,17 +7,50 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import CardList from "../../../UI/components/Card/Card_List/CardList";
 
-const SliderSimilar = ({ movieDetails }) => {
- const settings = {
-  dots: true,
-  infinite: false,
-  speed: 2000,
-  slidesToShow: 6,
-  slidesToScroll: 3,  
- };
+export default class SliderSimilar extends Component {
+ render() {
+  const { movieDetails } = this.props;
+  const settings = {
+   dots: false,
+   infinite: false,
+   speed: 2000,
+   slidesToShow: 6,
+   slidesToScroll: 3,
+   initialSlide: 0,
+   responsive: [
+    {
+     breakpoint: 1025,
+     settings: {
+      slidesToShow: 6,
+      slidesToScroll: 2,
+     },
+    },
+    {
+     breakpoint: 768,
+     settings: {
+      slidesToShow: 4,
+      slidesToScroll: 2,
+      initialSlide: 2,
+     },
+    },
+    {
+     breakpoint: 426,
+     settings: {
+      slidesToShow: 2,
+      slidesToScroll: 1,
+     },
+    },
+    {
+     breakpoint: 320,
+     settings: {
+      slidesToShow: 1,
+      slidesToScroll: 1,
+     },
+    },
+   ],
+  };
 
- return (
-  <div style={{ width: "105rem" }}>
+  return (
    <Slider {...settings}>
     {movieDetails.similarMovies.map((movie) => (
      <Link key={movie.id} to={`/movies/${movie.id}`}>
@@ -25,8 +58,8 @@ const SliderSimilar = ({ movieDetails }) => {
      </Link>
     ))}
    </Slider>
-  </div>
- );
-};
+  );
+ }
+}
 
-export default SliderSimilar;
+// export default SliderSimilar;

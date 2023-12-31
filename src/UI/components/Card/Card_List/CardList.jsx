@@ -3,16 +3,16 @@ import "./CardList.css";
 
 function CardList({ name, poster }) {
  return (
-  <div className="Card">
-   <div className="Card-Block">
+  <div className="CardList">
+   <div className="CardList-Block">
     <img
-     className="Card_Container_img"
+     className="CardList_Container_img"
      src={poster.url}
      alt={name}
      loading="lazy"
     />
    </div>
-   <h2 className="Card-title">{name}</h2>
+   <h2 className="CardList-title">{name}</h2>
   </div>
  );
 }

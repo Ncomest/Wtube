@@ -34,7 +34,7 @@ function RightSideMovies({ movieDetails }) {
    </SubTitle>
    <SubTitle subTitle={"Актеры"} />
    <div className="RightSideMovies_Block">
-    {/* <SliderActors movieDetails={movieDetails} /> */}
+    <SliderActors movieDetails={movieDetails} />
    </div>
    <SubTitle subTitle={"Сюжет"}>
     <p>{movieDetails.shortDescription}</p>
@@ -42,22 +42,22 @@ function RightSideMovies({ movieDetails }) {
    {movieDetails.sequelsAndPrequels.length === 0 ? (
     ""
    ) : (
-    <div>
+    <>
      <SubTitle subTitle={"Рекомендации"} />
      <div className="RightSideMovies_Block">
-      {/* <SliderRecommend movieDetails={movieDetails} /> */}
+      <SliderRecommend movieDetails={movieDetails} />
      </div>
-    </div>
+    </>
    )}
    {movieDetails.similarMovies.length === 0 ? (
     ""
    ) : (
-    <div>
+    <>
      <SubTitle subTitle={"Похожие"} />
      <div className="RightSideMovies_Block">
-      {/* <SliderSimilar movieDetails={movieDetails} /> */}
+      <SliderSimilar movieDetails={movieDetails} />
      </div>
-    </div>
+    </>
    )}
 
    <SubTitle subTitle={"Отзывы"}></SubTitle>
