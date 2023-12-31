@@ -1,18 +1,12 @@
-.RightSideMovies_Player {
- width: 80rem;
- height: 40rem;
-
-}
-
 .RightSideMovies_AddLike {
- width: 80rem;
- margin: 3rem auto;
  display: flex;
  flex-direction: row;
  align-items: center;
  justify-content: end;
 
-gap: 2rem;
+ gap: 2rem;
+
+ width: 90%;
 }
 
 .RightSideMoviesLike {
@@ -23,19 +17,50 @@ gap: 2rem;
 
 .RightSideMoviesPlayer {
  display: flex;
+ flex-direction: column;
  align-items: center;
  justify-content: center;
- margin: 3.5rem 0rem;
+ margin: 1.5rem auto;
+ gap: 1rem;
 }
 
-.RightSideMovies_SubText{
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+.RightSideMovies_Player {
+ width: 90%;
+ height: 30rem;
 }
 
-.RightSideMovies_Block{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+.RightSideMovies_SubText {
+ display: flex;
+ flex-direction: column;
+}
+
+.RightSideMovies_Block {
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+}
+
+@media (max-width: 1024px) {
+ .RightSideMovies_Player {
+  height: 20rem;
+ }
+}
+
+@media (max-width: 768px) {
+ .RightSideMovies_AddLike {
+  width: 100%;
+ }
+ .RightSideMovies_Player {
+  width: 100%;
+  height: 15rem;
+ }
+}
+
+@media (max-width: 376px) {
+ .RightSideMovies_AddLike {
+  gap: 0.5rem;
+ }
+ .RightSideMoviesLike {
+  gap: 0.5rem;
+ }
 }

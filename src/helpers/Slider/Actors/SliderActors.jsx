@@ -10,7 +10,7 @@ const SliderActors = ({ movieDetails }) => {
    dots: true,
    infinite: false,
    speed: 2000,
-   slidesToShow: 6,
+   slidesToShow: 3,
    slidesToScroll: 3,
   };
 

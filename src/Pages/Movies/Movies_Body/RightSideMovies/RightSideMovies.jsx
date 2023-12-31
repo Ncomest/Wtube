@@ -15,10 +15,7 @@ function RightSideMovies({ movieDetails }) {
   <div className="RightSideMovies">
    <RightSideMoviesTitle movieDetails={movieDetails} />
    <RightSideMoviesPlayer movieDetails={movieDetails} />
-   <div className="RightSideMovies_AddLike">
-    <Favorites />
-    <RightSideMoviesLike />
-   </div>
+
    <SubTitle subTitle={"О фильме"}>
     <div className="RightSideMovies_SubText">
      <SubText
@@ -37,7 +34,7 @@ function RightSideMovies({ movieDetails }) {
    </SubTitle>
    <SubTitle subTitle={"Актеры"} />
    <div className="RightSideMovies_Block">
-    <SliderActors movieDetails={movieDetails} />
+    {/* <SliderActors movieDetails={movieDetails} /> */}
    </div>
    <SubTitle subTitle={"Сюжет"}>
     <p>{movieDetails.shortDescription}</p>
@@ -48,7 +45,7 @@ function RightSideMovies({ movieDetails }) {
     <div>
      <SubTitle subTitle={"Рекомендации"} />
      <div className="RightSideMovies_Block">
-      <SliderRecommend movieDetails={movieDetails} />
+      {/* <SliderRecommend movieDetails={movieDetails} /> */}
      </div>
     </div>
    )}
@@ -58,13 +55,13 @@ function RightSideMovies({ movieDetails }) {
     <div>
      <SubTitle subTitle={"Похожие"} />
      <div className="RightSideMovies_Block">
-      <SliderSimilar movieDetails={movieDetails} />
+      {/* <SliderSimilar movieDetails={movieDetails} /> */}
      </div>
     </div>
    )}
 
    <SubTitle subTitle={"Отзывы"}></SubTitle>
-   <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)" }}>
+   {/* <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)" }}>
     <div
      style={{
       height: "8rem",
@@ -135,16 +132,16 @@ function RightSideMovies({ movieDetails }) {
      ></div>
      <div>text</div>
     </div>
-   </div>
+   </div> */}
   </div>
  );
 }
 
 const RightSideMoviesTitle = ({ movieDetails }) => {
  return (
-  <div>
+  <>
    <h1>{movieDetails.name}</h1>
-  </div>
+  </>
  );
 };
 
@@ -155,9 +152,9 @@ const RightSideMoviesPlayer = ({ movieDetails }) => {
   movieDetails.videos.trailers.length === 0
  ) {
   return (
-   <div>
+   <>
     <p>No trailers available</p>
-   </div>
+   </>
   );
  }
 
@@ -174,6 +171,10 @@ const RightSideMoviesPlayer = ({ movieDetails }) => {
      frameborder="0"
      allowfullscreen
     ></iframe>
+   </div>
+   <div className="RightSideMovies_AddLike">
+    <Favorites />
+    <RightSideMoviesLike />
    </div>
   </div>
  );

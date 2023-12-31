@@ -4,8 +4,7 @@
  align-items: center;
  justify-content: center;
 
- width: 17.5rem;
- height: 3.75rem;
+padding: 0.5rem 1rem;
 
  border-radius: 0.6rem;
  border: 1px solid var(--blue_border);

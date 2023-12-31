@@ -12,6 +12,7 @@ function LeftSideMovies({ movieDetails }) {
  };
 
  return (
+  <div className="LeftSideMoviesContainer">
   <div className="LeftSideMovies">
    <Picture movieDetails={movieDetails} />
    <Trailer onClick={handleModal}/>
@@ -24,6 +25,7 @@ function LeftSideMovies({ movieDetails }) {
     value={Math.round(movieDetails.rating.kp * 10) / 10}
    />
    {modal ? <ModalTrailer onClick={handleModal} movieDetails={movieDetails}/> : ""}
+  </div>
   </div>
  );
 }
