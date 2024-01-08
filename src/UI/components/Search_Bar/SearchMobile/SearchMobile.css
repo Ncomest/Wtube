@@ -77,7 +77,6 @@
 .SearchMobileCard_Text {
  display: flex;
  gap: 0.5rem;
- padding: 0.5rem 0rem;
  color: var(--grey);
 }
 
@@ -85,4 +84,13 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+}
+
+@media (min-width: 1439px) {
+  .SearchMobileCard {
+    grid-template-columns: 15% auto;
+  }
+  .SearchMobileMenu{
+    top: 7rem;
+  }
 }

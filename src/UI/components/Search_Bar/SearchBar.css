@@ -20,8 +20,8 @@
 }
 
 .SearchBar_Mobile {
- width: 100%;
- margin: 1rem 0rem;
+ width: 95%;
+ margin: 1rem auto;
 }
 
 .SearchBar_Mobile_Input {

@@ -6,6 +6,7 @@ import SearchMobileMenu from "./SearchMobileMenu/SearchMobileMenu";
 function SearchMobile() {
  const [searchOpen, setSearchOpen] = useState(false);
 
+
  const handleSearchOpen = () => {
   setSearchOpen(!searchOpen);
  };

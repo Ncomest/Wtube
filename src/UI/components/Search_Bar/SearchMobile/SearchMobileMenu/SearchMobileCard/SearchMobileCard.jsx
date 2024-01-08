@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const SearchMobileCard = ({searchTerm}) => {
+const SearchMobileCard = ({ searchTerm }) => {
  const [loading, setLoading] = useState(true);
  const [searchMovie, setSearchMovie] = useState(null);
 

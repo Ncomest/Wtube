@@ -12,7 +12,7 @@ const SearchMobileMenu = () => {
    <SearchBar onSetSearchTerm={setSearchTerm}/>
    {/* <SearchMobileBtn /> */}
    <div>
-    <SearchMobileCard searchTerm={searchTerm}/>
+    {searchTerm.length !== 0 && <SearchMobileCard searchTerm={searchTerm}/>}
    </div>
   </div>
  );

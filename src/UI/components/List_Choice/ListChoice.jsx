@@ -2,7 +2,7 @@ import React from "react";
 import "./ListChoice.css";
 
 function ListChoice({ children }) {
- return <div>{children}</div>;
+ return <>{children}</>;
 }
 
 export function Genre() {
