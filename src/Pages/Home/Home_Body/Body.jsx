@@ -49,7 +49,7 @@ function Body() {
     <ButtonFilterMenu />
     <div className="Body_Movies">
      {movies.map((movie) => (
-      <Link key={movie.id} to={`/movies/${movie.id}`}>
+      <Link className="Router-link" key={movie.id} to={`/movies/${movie.id}`}>
        <MoviesContainer key={movie.id} {...movie} />
       </Link>
      ))}

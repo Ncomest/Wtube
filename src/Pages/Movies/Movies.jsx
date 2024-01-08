@@ -25,23 +25,28 @@ function Movies() {
     console.log(data);
     setMovieDetails(data);
    });
-  fetch(API_REVIEWS, {
-   method: "GET",
-   headers: {
-    Accept: "application/json",
-    "X-API-KEY": "RPSV678-AFW4EBA-J28BMDC-CGDWZ4E",
-   },
-  })
-   .then((response) => response.json())
-   .then((data) => {
-    console.log(data);
-    setMovieDetailsRev(data.docs);
-   });
- }, [API_REVIEWS, API_URL]);
+  // fetch(API_REVIEWS, {
+  //  method: "GET",
+  //  headers: {
+  //   Accept: "application/json",
+  //   "X-API-KEY": "RPSV678-AFW4EBA-J28BMDC-CGDWZ4E",
+  //  },
+  // })
+  //  .then((response) => response.json())
+  //  .then((data) => {
+  //   console.log(data);
+  //   setMovieDetailsRev(data.docs);
+  //  });
+ }, 
+[
+  // API_REVIEWS, 
+  API_URL
+]);
 
  if (!movieDetails) {
   return <p>Loading...</p>;
  }
+
 
  return (
   <div className="Movies">

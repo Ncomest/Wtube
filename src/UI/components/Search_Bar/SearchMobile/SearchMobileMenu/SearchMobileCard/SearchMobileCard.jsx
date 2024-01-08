@@ -39,7 +39,7 @@ const SearchMobileCard = ({ searchTerm }) => {
  return (
   <>
    {searchMovie.map((movie) => (
-    <Link key={movie.id} to={`/movies/${movie.id}`}>
+    <Link className="Router-link" key={movie.id} to={`/movies/${movie.id}`}>
      <MobileCard key={movie.id} {...movie} />
     </Link>
    ))}

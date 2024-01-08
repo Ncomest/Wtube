@@ -8,20 +8,25 @@ import Error from "./Pages/Error/Error";
 function App() {
  return (
   <>
-  <nav>
+   <nav>
     <ul>
-      <li><Link to="/">Home</Link></li>
-      <li><Link to="/movies">Movies</Link></li>
-      <li><Link to="/user">User</Link></li>
+     <li>
+      <Link to="/">Home</Link>
+     </li>
+     <li>
+      <Link to="/movies">Movies</Link>
+     </li>
+     <li>
+      <Link to="/user">User</Link>
+     </li>
     </ul>
-  </nav>
+   </nav>
 
    <Routes>
     <Route path="/" element={<Home />} />
     <Route path="/Movies/:id" element={<Movies />} />
     <Route path="/User" element={<User />} />
     <Route path="*" element={<Error />} />
-
    </Routes>
   </>
  );

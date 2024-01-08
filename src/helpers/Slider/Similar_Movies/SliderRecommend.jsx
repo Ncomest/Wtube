@@ -54,7 +54,7 @@ export default class SliderRecommend extends Component {
    <>
     <Slider {...settings}>
      {movieDetails.sequelsAndPrequels.map((movie) => (
-      <Link key={movie.id} to={`/movies/${movie.id}`}>
+      <Link className="Router-link" key={movie.id} to={`/movies/${movie.id}`}>
        <CardList key={movie.id} {...movie} />
       </Link>
      ))}

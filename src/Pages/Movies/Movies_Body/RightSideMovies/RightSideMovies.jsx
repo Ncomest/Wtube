@@ -10,7 +10,7 @@ import SliderSimilar from "../../../../helpers/Slider/Similar_Movies/SliderSimil
 import SliderRecommend from "../../../../helpers/Slider/Similar_Movies/SliderRecommend";
 import SliderActors from "../../../../helpers/Slider/Actors/SliderActors";
 
-function RightSideMovies({ movieDetails,movieDetailsRev }) {
+function RightSideMovies({ movieDetails, movieDetailsRev }) {
  return (
   <div className="RightSideMovies">
    <RightSideMoviesTitle movieDetails={movieDetails} />
@@ -61,88 +61,21 @@ function RightSideMovies({ movieDetails,movieDetailsRev }) {
    )}
 
    <SubTitle subTitle={"Отзывы"}></SubTitle>
-   <div>
-    {movieDetailsRev.map((movie) => (
+   {movieDetailsRev && movieDetailsRev.length === 0 && (
+    <div>
+     {movieDetailsRev.map((movie) => (
       <li key={movie.id}>{movie.review}</li>
-    ))}
-   </div>
-   {/* <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)" }}>
-    <div
-     style={{
-      height: "8rem",
-      backgroundColor: "red",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "space-between",
-     }}
-    >
-     <div
-      style={{ height: "80%", width: "100%", backgroundColor: "aqua" }}
-     ></div>
-     <div>text</div>
+     ))}
     </div>
-    <div
-     style={{
-      height: "8rem",
-      backgroundColor: "red",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "space-between",
-     }}
-    >
-     <div
-      style={{ height: "80%", width: "100%", backgroundColor: "aqua" }}
-     ></div>
-     <div>text</div>
-    </div>
-    <div
-     style={{
-      height: "8rem",
-      backgroundColor: "red",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "space-between",
-     }}
-    >
-     <div
-      style={{ height: "80%", width: "100%", backgroundColor: "aqua" }}
-     ></div>
-     <div>text</div>
-    </div>
-    <div
-     style={{
-      height: "8rem",
-      backgroundColor: "red",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "space-between",
-     }}
-    >
-     <div
-      style={{ height: "80%", width: "100%", backgroundColor: "aqua" }}
-     ></div>
-     <div>text</div>
-    </div>
-    <div
-     style={{
-      height: "8rem",
-      backgroundColor: "red",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "space-between",
-     }}
-    >
-     <div
-      style={{ height: "80%", width: "100%", backgroundColor: "aqua" }}
-     ></div>
-     <div>text</div>
-    </div>
-   </div> */}
+   )}
   </div>
  );
 }
 
 const RightSideMoviesTitle = ({ movieDetails }) => {
+ if (!movieDetails) {
+  return <>wait</>;
+ }
  return (
   <>
    <h1>{movieDetails.name}</h1>
