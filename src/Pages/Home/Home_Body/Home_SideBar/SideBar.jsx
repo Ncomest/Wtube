@@ -24,9 +24,23 @@ const FilterBar = () => {
  const [apiChange, setApiChange] = useState("");
 
  const handleApiChange = () => {
-  const APIFound = `genre=${genre}&country=${country}&yearStart=${yearStart}&yearFinish=${yearFinish}&imdbStart=${imdbStart}&imdbFinish=${imdbFinish}&kpStart=${kpStart}&kpFinish=${kpFinish}`;
-  setApiChange(APIFound);
-  console.log(apiChange);
+  const APIFound = `https://api.kinopoisk.dev/v1.4/movie?page=1&limit=1&genres.name=${genre}`;
+  //  `https://api.kinopoisk.dev/v1.4/movie?page=1&limit=1&selectFields=top10`;
+  // const APIFound = `https://api.kinopoisk.dev/v1.4/movie?page=1&limit=1&selectFields=year=${yearStart}-${yearFinish}&selectFields=rating.imdb=${imdbStart}-${imdbFinish}&selectFields=genres=${genre}&selectFields=countries=${country}`;
+  // const APIFound = `https://api.kinopoisk.dev/v1.4/movie?page=1&limit=1&selectFields=year&selectFields=rating&selectFields=genres.name=комедия&selectFields=countries`;
+  fetch(APIFound, {
+   method: "GET",
+   headers: {
+    Accept: "application/json",
+    "X-API-KEY": "RPSV678-AFW4EBA-J28BMDC-CGDWZ4E",
+   },
+  })
+   .then((response) => response.json())
+   .then((data) => {
+    console.log(data);
+    setApiChange(data.docs);
+   });
+  //  console.log(APIFound);
  };
 
  return (
@@ -62,8 +76,34 @@ const FilterBarContainerGenre = ({ setGenre }) => {
     onChange={handleFilterChange}
    >
     <option value="0">--Выберите жанр--</option>
-    <option value="Комедия">Комедия</option>
-    <option value="Триллер">Триллер</option>
+    <option value="%D0%BA%D0%BE%D0%BC%D0%B5%D0%B4%D0%B8%D1%8F">Комедия</option>
+    <option value="%D0%B4%D1%80%D0%B0%D0%BC%D0%B0">Драма</option>
+    <option value="%D1%83%D0%B6%D0%B0%D1%81%D1%8B">Ужасы</option>
+    <option value="%D0%B1%D0%BE%D0%B5%D0%B2%D0%B8%D0%BA">Боевик</option>
+    <option value="%D1%82%D1%80%D0%B8%D0%BB%D0%BB%D0%B5%D1%80">Триллер</option>
+    <option value="%D0%BC%D0%B5%D0%BB%D0%BE%D0%B4%D1%80%D0%B0%D0%BC%D0%B0">
+     Мелодрама
+    </option>
+    <option value="%D0%B0%D0%BD%D0%B8%D0%BC%D0%B5">Аниме</option>
+    <option value="%D0%B2%D0%B5%D1%81%D1%82%D0%B5%D1%80%D0%BD">Вестерн</option>
+    <option value="%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9">
+     Документальный
+    </option>
+    <option value="%D0%B4%D0%B5%D1%82%D0%B5%D0%BA%D1%82%D0%B8%D0%B2">
+     Детектив
+    </option>
+    <option value="%D0%BA%D1%80%D0%B8%D0%BC%D0%B8%D0%BD%D0%B0%D0%BB">
+     Криминал
+    </option>
+    <option value="%D0%BF%D1%80%D0%B8%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5">
+     Приключение
+    </option>
+    <option value="%D0%BC%D1%83%D0%BB%D1%8C%D1%82%D1%84%D0%B8%D0%BB%D1%8C%D0%BC">
+     Мультфильм
+    </option>
+    <option value="%D1%84%D0%B0%D0%BD%D1%82%D0%B0%D1%81%D1%82%D0%B8%D0%BA%D0%B0">
+     Фантастика
+    </option>
    </select>
   </div>
  );

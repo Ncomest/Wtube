@@ -1,19 +1,20 @@
 import React from "react";
 import "./ModalTrailer.css";
 
+
 function ModalTrailer({ onClick, movieDetails }) {
- const trailerUrl = movieDetails.videos.trailers[0]?.url;
+ const trailerUrl = movieDetails.videos.results[0];
 
  return (
-  <div className="ModalTrailer"
-  >
+  <div className="ModalTrailer">
    <iframe
     width="100%"
     height="100%"
-    src={trailerUrl}
-    title="YouTube video player"
+    src={`https://www.youtube.com/embed/${trailerUrl.key}`}
+    title={`https://www.youtube.com/embed/${trailerUrl.name}`}
     frameborder="0"
     allowfullscreen
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
    ></iframe>
    <button
     onClick={onClick}

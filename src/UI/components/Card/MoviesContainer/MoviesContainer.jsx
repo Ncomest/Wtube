@@ -1,19 +1,20 @@
 import React from "react";
 import "./MoviesContainer.css";
 
+const imger = "https://image.tmdb.org/t/p/w500";
 
-function MoviesContainer({ poster, name }) {
+function MoviesContainer({ poster_path, title }) {
  return (
   <div className="Card">
    <div className="Card-Block">
     <img
      className="Card_Container_img"
-     src={poster.url}
-     alt={name}
+     src={imger + poster_path}
+     alt={title}
      loading="lazy"
     />
    </div>
-    <h2 className="Card-title">{name}</h2>
+   <h2 className="Card-title">{title}</h2>
   </div>
  );
 }

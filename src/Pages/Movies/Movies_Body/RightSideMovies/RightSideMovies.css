@@ -40,7 +40,14 @@
  padding: 0rem 1.5rem;
 }
 
-
+.RightSideMovies_Reviews {
+ border-radius: 0.625rem;
+ border: 1px solid var(--blue_border);
+ background: var(--dark);
+ box-shadow: 0px 0px 12px 4px var(--blue_border) inset;
+ padding: 1rem;
+ margin: 1rem 0;
+}
 
 @media (min-width: 1881px) and (max-width: 2560px) {
  .RightSideMovies_Player {
@@ -50,8 +57,6 @@
   width: 118rem;
  }
 }
-
-
 
 @media (max-width: 1024px) {
  .RightSideMovies_Player {

@@ -8,50 +8,40 @@ import MoviesBody from "./Movies_Body/MoviesBody";
 function Movies() {
  const { id } = useParams();
  const [movieDetails, setMovieDetails] = useState(null);
- const [movieDetailsRev, setMovieDetailsRev] = useState(null);
- const API_URL = `https://api.kinopoisk.dev/v1.4/movie/${id}`;
- const API_REVIEWS = `https://api.kinopoisk.dev/v1.4/review?page=1&limit=2&movieId=${id}`;
+ const API_DB = `https://api.themoviedb.org/3/movie/${id}?api_key=14d8d8918e888fb791f87057ac1674c0&append_to_response=credits,similar,recommendations,videos,reviews`;
+ //572802
+
+ const fetchOption = {
+  method: "GET",
+  headers: {
+   accept: "aplication/json",
+   Authorization:
+    "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxNGQ4ZDg5MThlODg4ZmI3OTFmODcwNTdhYzE2NzRjMCIsInN1YiI6IjY1NTdiMjMyZWE4NGM3MTA5MjI4ZDJmZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.f__dKykaUx73Pd6yuByZPnhdUetP7LYDjNnGWSicmFU",
+  },
+ };
 
  useEffect(() => {
-  fetch(API_URL, {
-   method: "GET",
-   headers: {
-    Accept: "application/json",
-    "X-API-KEY": "RPSV678-AFW4EBA-J28BMDC-CGDWZ4E",
-   },
-  })
-   .then((response) => response.json())
-   .then((data) => {
-    console.log(data);
+  const fetchMovies = async () => {
+   try {
+    const response = await fetch(API_DB, fetchOption);
+    const data = await response.json();
     setMovieDetails(data);
-   });
-  // fetch(API_REVIEWS, {
-  //  method: "GET",
-  //  headers: {
-  //   Accept: "application/json",
-  //   "X-API-KEY": "RPSV678-AFW4EBA-J28BMDC-CGDWZ4E",
-  //  },
-  // })
-  //  .then((response) => response.json())
-  //  .then((data) => {
-  //   console.log(data);
-  //   setMovieDetailsRev(data.docs);
-  //  });
- }, 
-[
-  // API_REVIEWS, 
-  API_URL
-]);
+    console.log(data);
+   } catch (err) {
+    console.error(err);
+   }
+  };
+  fetchMovies();
+ }, [id]);
 
  if (!movieDetails) {
   return <p>Loading...</p>;
  }
 
-
  return (
   <div className="Movies">
    <Header />
-   <MoviesBody movieDetails={movieDetails} movieDetailsRev={movieDetailsRev} />
+   <MoviesBody movieDetails={movieDetails} />
   </div>
  );
 }

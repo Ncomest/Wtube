@@ -11,21 +11,27 @@ function LeftSideMovies({ movieDetails }) {
   setModal(!modal);
  };
 
+
+
  return (
   <div className="LeftSideMoviesContainer">
-  <div className="LeftSideMovies">
-   <Picture movieDetails={movieDetails} />
-   <Trailer onClick={handleModal}/>
-   <Raiting
-    raitingName={"IMDb"}
-    value={Math.round(movieDetails.rating.imdb * 10) / 10}
-   />
-   <Raiting
-    raitingName={"KP"}
-    value={Math.round(movieDetails.rating.kp * 10) / 10}
-   />
-   {modal ? <ModalTrailer onClick={handleModal} movieDetails={movieDetails}/> : ""}
-  </div>
+   <div className="LeftSideMovies">
+    <Picture movieDetails={movieDetails} />
+    <Trailer onClick={handleModal} />
+    <Raiting
+     raitingName={"IMDb"}
+     value={Math.round(movieDetails.vote_average * 10) / 10}
+    />
+    <Raiting
+     raitingName={"KP"}
+     value={Math.round(movieDetails.vote_average * 10) / 10}
+    />
+    {modal ? (
+     <ModalTrailer onClick={handleModal} movieDetails={movieDetails} />
+    ) : (
+     ""
+    )}
+   </div>
   </div>
  );
 }
@@ -33,12 +39,16 @@ function LeftSideMovies({ movieDetails }) {
 const Picture = ({ movieDetails }) => {
  return (
   <div className="PictureContainer">
-   <img className="Picture_Image" src={movieDetails.poster.url} alt="" />
+   <img
+    className="Picture_Image"
+    src={`https://image.tmdb.org/t/p/w500` + movieDetails.poster_path}
+    alt="pic"
+   />
   </div>
  );
 };
 
-const Trailer = ({onClick}) => {
+const Trailer = ({ onClick }) => {
  return (
   <div className="TrailerContainer" onClick={onClick}>
    <svg

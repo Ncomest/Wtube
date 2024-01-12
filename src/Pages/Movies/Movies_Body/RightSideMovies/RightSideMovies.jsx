@@ -9,8 +9,9 @@ import SubText from "../../../../UI/components/Text/Sub_text/SubText";
 import SliderSimilar from "../../../../helpers/Slider/Similar_Movies/SliderSimilar";
 import SliderRecommend from "../../../../helpers/Slider/Similar_Movies/SliderRecommend";
 import SliderActors from "../../../../helpers/Slider/Actors/SliderActors";
+import Reviews from "../../../../UI/components/Reviews/Reviews";
 
-function RightSideMovies({ movieDetails, movieDetailsRev }) {
+function RightSideMovies({ movieDetails }) {
  return (
   <div className="RightSideMovies">
    <RightSideMoviesTitle movieDetails={movieDetails} />
@@ -25,21 +26,24 @@ function RightSideMovies({ movieDetails, movieDetailsRev }) {
      />
      <SubText
       text={"Страна:"}
-      data={movieDetails.countries}
+      data={movieDetails.production_countries}
       renderFuction={(data) => data.map((country) => country.name)}
      />
-     <p>Год: {movieDetails.year}</p>
+     <p>Год: {movieDetails.release_date}</p>
      <p>Длительность: {movieDetails.movieLength} минут.</p>
     </div>
    </SubTitle>
+
    <SubTitle subTitle={"Актеры"} />
    <div className="RightSideMovies_Block">
     <SliderActors movieDetails={movieDetails} />
    </div>
+
    <SubTitle subTitle={"Сюжет"}>
-    <p>{movieDetails.shortDescription}</p>
+    <p>{movieDetails.overview}</p>
    </SubTitle>
-   {movieDetails.sequelsAndPrequels.length === 0 ? (
+
+   {movieDetails.recommendations.results.length === 0 ? (
     ""
    ) : (
     <>
@@ -49,7 +53,8 @@ function RightSideMovies({ movieDetails, movieDetailsRev }) {
      </div>
     </>
    )}
-   {movieDetails.similarMovies.length === 0 ? (
+
+   {movieDetails.similar.results.length === 0 ? (
     ""
    ) : (
     <>
@@ -61,13 +66,9 @@ function RightSideMovies({ movieDetails, movieDetailsRev }) {
    )}
 
    <SubTitle subTitle={"Отзывы"}></SubTitle>
-   {movieDetailsRev && movieDetailsRev.length === 0 && (
-    <div>
-     {movieDetailsRev.map((movie) => (
-      <li key={movie.id}>{movie.review}</li>
-     ))}
-    </div>
-   )}
+   {movieDetails.reviews.results.map((movie) => (
+    <Reviews key={movie.id} {...movie} />
+   ))}
   </div>
  );
 }
@@ -78,17 +79,13 @@ const RightSideMoviesTitle = ({ movieDetails }) => {
  }
  return (
   <>
-   <h1>{movieDetails.name}</h1>
+   <h1>{movieDetails.original_title}</h1>
   </>
  );
 };
 
 const RightSideMoviesPlayer = ({ movieDetails }) => {
- if (
-  !movieDetails.videos ||
-  !movieDetails.videos.trailers ||
-  movieDetails.videos.trailers.length === 0
- ) {
+ if (movieDetails.videos.results.length === 0) {
   return (
    <>
     <p>No trailers available</p>
@@ -96,7 +93,7 @@ const RightSideMoviesPlayer = ({ movieDetails }) => {
   );
  }
 
- const films = movieDetails.videos.trailers[0]?.url;
+ const trailerUrl = movieDetails.videos.results[0];
 
  return (
   <div className="RightSideMoviesPlayer">
@@ -104,10 +101,11 @@ const RightSideMoviesPlayer = ({ movieDetails }) => {
     <iframe
      width="100%"
      height="100%"
-     src={films}
-     title="YouTube video player"
+     src={`https://www.youtube.com/embed/${trailerUrl.key}`}
+     title={`https://www.youtube.com/embed/${trailerUrl.name}`}
      frameborder="0"
      allowfullscreen
+     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
     ></iframe>
    </div>
    <div className="RightSideMovies_AddLike">

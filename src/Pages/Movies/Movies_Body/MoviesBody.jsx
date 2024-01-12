@@ -4,7 +4,8 @@ import "./MoviesBody.css";
 import LeftSideMovies from "./LeftSideMovies/LeftSideMovies";
 import RightSideMovies from "./RightSideMovies/RightSideMovies";
 
-function MoviesBody({ movieDetails, movieDetailsRev }) {
+function MoviesBody({ movieDetails }) {
+  
  if (!movieDetails) {
   return <>Wait</>;
  }
@@ -12,10 +13,7 @@ function MoviesBody({ movieDetails, movieDetailsRev }) {
  return (
   <div className="MoviesBody">
    <LeftSideMovies movieDetails={movieDetails} />
-   <RightSideMovies
-    movieDetails={movieDetails}
-    movieDetailsRev={movieDetailsRev}
-   />
+   <RightSideMovies movieDetails={movieDetails} />
   </div>
  );
 }

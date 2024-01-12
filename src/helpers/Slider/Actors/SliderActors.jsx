@@ -50,7 +50,7 @@ export default class SliderActors extends Component {
 
   return (
    <Slider {...settings}>
-    {movieDetails.persons.map((person) => (
+    {movieDetails.credits.cast.map((person) => (
      <ActorsCard key={person.id} {...person} />
     ))}
    </Slider>
