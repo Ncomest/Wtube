@@ -75,7 +75,7 @@ const FilterBarContainerGenre = ({ setGenre }) => {
     className="FilterBarContainer_Select"
     onChange={handleFilterChange}
    >
-    <option value="0">--Выберите жанр--</option>
+    <option value="0">-- Выберите жанр --</option>
     <option value="%D0%BA%D0%BE%D0%BC%D0%B5%D0%B4%D0%B8%D1%8F">Комедия</option>
     <option value="%D0%B4%D1%80%D0%B0%D0%BC%D0%B0">Драма</option>
     <option value="%D1%83%D0%B6%D0%B0%D1%81%D1%8B">Ужасы</option>
@@ -122,7 +122,7 @@ const FilterBarContainerCountry = ({ setCountry }) => {
     className="FilterBarContainer_Select"
     onChange={handleFilterChange}
    >
-    <option value="0">--Выберите жанр--</option>
+    <option value="0">-- Выберите страну --</option>
     <option value="Америка">Америка</option>
     <option value="Россия">Россия</option>
    </select>

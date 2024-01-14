@@ -8,15 +8,14 @@ import MoviesBody from "./Movies_Body/MoviesBody";
 function Movies() {
  const { id } = useParams();
  const [movieDetails, setMovieDetails] = useState(null);
- const API_DB = `https://api.themoviedb.org/3/movie/${id}?api_key=14d8d8918e888fb791f87057ac1674c0&append_to_response=credits,similar,recommendations,videos,reviews`;
+ const API_DB = `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_API_KEY}&append_to_response=credits,similar,recommendations,videos,reviews`;
  //572802
 
  const fetchOption = {
   method: "GET",
   headers: {
    accept: "aplication/json",
-   Authorization:
-    "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxNGQ4ZDg5MThlODg4ZmI3OTFmODcwNTdhYzE2NzRjMCIsInN1YiI6IjY1NTdiMjMyZWE4NGM3MTA5MjI4ZDJmZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.f__dKykaUx73Pd6yuByZPnhdUetP7LYDjNnGWSicmFU",
+   Authorization: `Bearer ${process.env.REACT_APP_API_TOKEN}`
   },
  };
 

@@ -12,15 +12,12 @@
 
 .Body_Movies {
  display: grid;
- grid-template-columns: repeat(6, 1fr);
+ grid-template-columns: repeat(5, 1fr);
  gap: 1rem;
  width: 100%;
 }
 
 @media (max-width: 1440px) {
- .Body {
-  font-size: var(--textSmall);
- }
  .Body_Movies {
   grid-template-columns: repeat(5, 1fr);
  }

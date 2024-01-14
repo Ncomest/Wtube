@@ -7,19 +7,18 @@
 }
 
 .SideBarFilter_Container {
- width: 50%;
+ width: 44%;
 }
 
 .SideBarFilterBtn {
  cursor: pointer;
  border-radius: 0.5rem;
- border: 1px solid var(--blue_border);
+ border: 2px solid var(--blue_border);
  box-shadow: 6px 6px 7px 0px var(--blue_border);
  background: var(--blue);
  width: 100%;
  padding: 5% 10%;
  color: var(--white);
- font-size: var(--textNormal);
 }
 
 .SideBarFilterBtn:active {

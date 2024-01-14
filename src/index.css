@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Manuale&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap");
 
 :root {
  --dark: #081f3a;
- --light_dark: #0B2C53;
+ --light_dark: #0b2c53;
  --white: #fff;
  --blue: #266aaa;
  --blue_border: #208fb1;
@@ -16,7 +16,7 @@
 
 * {
  /* font-size: 16px; */
- font-family: "Manuale", serif;
+ font-family: "Roboto", sans-serif;
  box-sizing: border-box;
  margin: 0;
  padding: 0;
@@ -40,6 +40,6 @@
 }
 
 .Router-link {
-  text-decoration: none;
-  color: inherit;
+ text-decoration: none;
+ color: inherit;
 }

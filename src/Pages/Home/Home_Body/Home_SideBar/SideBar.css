@@ -6,28 +6,20 @@
  box-shadow: 10px 4px 21px 0px var(--blue_border);
  border-top: 5px solid var(--shadow_side);
  border-left: 5px solid var(--shadow_side);
-
- /* border-radius: 0.625rem;
- border: 1px solid var(--blue_border);
- background: var(--dark);
- box-shadow: 0px 0px 12px 4px var(--blue_border) inset; */
-
  margin-right: 1.5rem;
 }
 
 .FilterBarContainer_Container {
  display: flex;
  flex-direction: row;
+ align-items: center;
  justify-content: space-between;
- width: 90%;
- margin: 5rem auto;
+ padding: 0 1rem;
+ margin: 3rem auto;
 }
 
 .FilterBarContainer_Select {
- width: 70%;
- height: 2.5rem;
- font-size: 1.375rem;
- padding-left: 1rem;
+ padding: 0.5rem 1rem;
  background-color: var(--blue);
  color: var(--white);
  border-radius: 0.5rem;
@@ -39,9 +31,7 @@
 }
 
 @media (max-width: 1440px) {
- .FilterBarContainer_Select {
-  font-size: var(--textSmall);
- }
+
 }
 
 @media (max-width: 768px) {

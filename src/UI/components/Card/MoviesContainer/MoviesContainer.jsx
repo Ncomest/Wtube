@@ -14,7 +14,10 @@ function MoviesContainer({ poster_path, title }) {
      loading="lazy"
     />
    </div>
-   <h2 className="Card-title">{title}</h2>
+   <h2 className="Card-title">
+    {title}
+    {/* {title.length <= 17 ? title : `${title.slice(0, 17)} ...`} */}
+   </h2>
   </div>
  );
 }

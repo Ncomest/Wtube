@@ -7,8 +7,9 @@ import SideBar from "./Home_SideBar/SideBar";
 import MoviesContainer from "../../../UI/components/Card/MoviesContainer/MoviesContainer";
 import ButtonFilterMenu from "../../../UI/components/Buttons/Filter_Menu/Button_Filter_Menu";
 
-const API_DB = "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";
-const itemsPerPage = 18;
+const API_DB =
+ "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";
+const itemsPerPage = 20;
 
 function Body() {
  const [movies, setMovies] = useState([]);
@@ -18,8 +19,7 @@ function Body() {
   method: "GET",
   headers: {
    accept: "aplication/json",
-   Authorization:
-    "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxNGQ4ZDg5MThlODg4ZmI3OTFmODcwNTdhYzE2NzRjMCIsInN1YiI6IjY1NTdiMjMyZWE4NGM3MTA5MjI4ZDJmZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.f__dKykaUx73Pd6yuByZPnhdUetP7LYDjNnGWSicmFU",
+   Authorization: `Bearer ${process.env.REACT_APP_API_TOKEN}`,
   },
  };
 
@@ -35,7 +35,7 @@ function Body() {
    }
   };
   fetchMovies();
- }, []);
+ });
 
  const loadMoreMovies = () => {
   setVisibleMovies((prevVisibleMovies) => prevVisibleMovies + itemsPerPage);
