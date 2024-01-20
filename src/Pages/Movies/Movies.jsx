@@ -9,13 +9,12 @@ function Movies() {
  const { id } = useParams();
  const [movieDetails, setMovieDetails] = useState(null);
  const API_DB = `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_API_KEY}&append_to_response=credits,similar,recommendations,videos,reviews`;
- //572802
 
  const fetchOption = {
   method: "GET",
   headers: {
    accept: "aplication/json",
-   Authorization: `Bearer ${process.env.REACT_APP_API_TOKEN}`
+   Authorization: `Bearer ${process.env.REACT_APP_API_TOKEN}`,
   },
  };
 
@@ -31,6 +30,7 @@ function Movies() {
    }
   };
   fetchMovies();
+  // eslint-disable-next-line
  }, [id]);
 
  if (!movieDetails) {

@@ -1,18 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import SearchBar from "../../SearchBar";
-// import SearchMobileBtn from "./SearchMobileBtn/SearchMobileBtn";
+import SearchMobileBtn from "./SearchMobileBtn/SearchMobileBtn";
 import SearchMobileCard from "./SearchMobileCard/SearchMobileCard";
 
-const SearchMobileMenu = () => {
+const SearchMobileMenu = ({setSearchOpen}) => {
  const [searchTerm, setSearchTerm] = useState("");
+ const [searchResult, setSearchResult] = useState("");
+
+ const handleSearchBtnClick = () => {
+  setSearchResult(searchTerm);
+ };
+
+ const handleKeyPress = (e) => {
+  if (e.key === "Enter") {
+   setSearchResult(searchTerm);
+  }
+ };
+
+ useEffect(() => {
+  if (!searchTerm) {
+    setSearchResult("");
+  }
+ }, [searchTerm, searchResult]);
 
  return (
   <div className="SearchMobileMenu">
-   <SearchBar onSetSearchTerm={setSearchTerm}/>
-   {/* <SearchMobileBtn /> */}
+   {searchTerm}
+   {searchResult}
+   <SearchBar onSetSearchTerm={setSearchTerm} onEnterPress={handleKeyPress} />
+   <SearchMobileBtn onClick={handleSearchBtnClick} />
    <div>
-    {searchTerm.length !== 0 && <SearchMobileCard searchTerm={searchTerm}/>}
+    {searchTerm.length !== 0 && (
+     <SearchMobileCard searchResult={searchResult} setSearchOpen={setSearchOpen}/>
+    )}
    </div>
   </div>
  );

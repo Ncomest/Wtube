@@ -35,7 +35,8 @@ function Body() {
    }
   };
   fetchMovies();
- });
+  // eslint-disable-next-line
+ }, []);
 
  const loadMoreMovies = () => {
   setVisibleMovies((prevVisibleMovies) => prevVisibleMovies + itemsPerPage);

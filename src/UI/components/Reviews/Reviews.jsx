@@ -9,6 +9,9 @@ function Reviews({ author, content }) {
  const handleShowFull = () => {
   setShowFull(!showFull);
  };
+
+ 
+
  return (
   <div className="RightSideMovies_Reviews">
    <h3>{author}</h3>

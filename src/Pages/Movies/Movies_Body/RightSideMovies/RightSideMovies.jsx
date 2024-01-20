@@ -66,9 +66,7 @@ function RightSideMovies({ movieDetails }) {
    )}
 
    <SubTitle subTitle={"Отзывы"}></SubTitle>
-   {movieDetails.reviews.results.map((movie) => (
-    <Reviews key={movie.id} {...movie} />
-   ))}
+   <RightSideMoviesReviews movieDetails={movieDetails} />
   </div>
  );
 }
@@ -79,7 +77,7 @@ const RightSideMoviesTitle = ({ movieDetails }) => {
  }
  return (
   <>
-   <h1>{movieDetails.original_title}</h1>
+   <h1>{movieDetails.title}</h1>
   </>
  );
 };
@@ -149,6 +147,20 @@ const RightSideMoviesLike = () => {
    </div>
   </div>
  );
+};
+
+const RightSideMoviesReviews = ({ movieDetails }) => {
+ if (movieDetails.reviews.results.length === 0) {
+  return <>Reviews not found...</>;
+ } else {
+  return (
+   <>
+    {movieDetails.reviews.results.map((movie) => (
+     <Reviews key={movie.id} {...movie} />
+    ))}
+   </>
+  );
+ }
 };
 
 export default RightSideMovies;

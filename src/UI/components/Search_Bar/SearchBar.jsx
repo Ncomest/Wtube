@@ -1,7 +1,7 @@
 import React from "react";
 import "./SearchBar.css";
 
-function SearchBar({ onSetSearchTerm }) {
+function SearchBar({ onSetSearchTerm, onEnterPress }) {
  const handleSearch = (e) => {
   onSetSearchTerm(e.target.value);
  };
@@ -12,6 +12,7 @@ function SearchBar({ onSetSearchTerm }) {
     className="SearchBar SearchBar_Input SearchBar_Input_Header SearchBar_Mobile_Input"
     type="text"
     onChange={handleSearch}
+    onKeyUp={onEnterPress}
     placeholder="Введите название фильма"
    />
   </div>

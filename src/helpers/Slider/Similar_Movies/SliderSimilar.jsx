@@ -9,7 +9,7 @@ import CardList from "../../../UI/components/Card/Card_List/CardList";
 
 export default class SliderSimilar extends Component {
  render() {
-  const { movieDetails } = this.props;
+  const { movieDetails} = this.props;
   const settings = {
    dots: false,
    infinite: false,

@@ -1,8 +1,9 @@
-const SearchMobileBtn = () => {
+const SearchMobileBtn = ({onClick}) => {
   return (
    <div className="SearchMobileBtn">
     <button className="SearchMobileBtnBtn" 
-    // onClick={}
+    onClick={onClick}
+
     >
      Поиск
     </button>

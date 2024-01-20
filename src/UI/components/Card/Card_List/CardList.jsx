@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./CardList.css";
 
-function CardList({ title, poster_path }) {
+function CardList({ id, title, poster_path }) {
+ const imger = "https://image.tmdb.org/t/p/w500";
 
-  const imger = "https://image.tmdb.org/t/p/w500";
 
+ useEffect(() => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+ }, [id]);
 
  return (
   <div className="CardList">
