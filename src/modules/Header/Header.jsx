@@ -10,7 +10,7 @@ import FilterMobile from "../../UI/components/Buttons/FilterMobile/FilterMobile"
 import SearchMobile from "../../UI/components/Search_Bar/SearchMobile/SearchMobile";
 // import SearchMobileMenu from "../../UI/components/Search_Bar/SearchMobile/SearchMobileMenu/SearchMobileMenu";
 
-function Header() {
+function Header({setPage}) {
  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
  useEffect(() => {
@@ -32,7 +32,7 @@ function Header() {
  return (
   <div className="Header">
    <div className="Header_Logo">
-    <Logo />
+    <Logo setPage={setPage}/>
    </div>
    <div className="Header_Container">
     {windowWidth > breakpoint && <SearchMobile />}

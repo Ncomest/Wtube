@@ -3,48 +3,30 @@ import "./SideBar.css";
 
 import SideBarFilter from "../../../../UI/components/Buttons/SideBarFilter/SideBarFilter";
 
-function SideBar() {
- return (
-  <div className="SideBar">
-   <FilterBar />
-  </div>
- );
-}
+const SideBar = ({ states }) => {
+ const {
+  genre,
+  setGenre,
+  yearStart,
+  setYearStart,
+  country,
+  setCountry,
+  yearFinish,
+  setYearFinish,
+  imdbStart,
+  setImdbStart,
+  imdbFinish,
+  setImdbFinish,
+ } = states;
 
-const FilterBar = () => {
- const [genre, setGenre] = useState("");
- const [country, setCountry] = useState("");
- const [yearStart, setYearStart] = useState("2022");
- const [yearFinish, setYearFinish] = useState("2024");
- const [imdbStart, setImdbStart] = useState("5");
- const [imdbFinish, setImdbFinish] = useState("10");
- const [kpStart, setKpStart] = useState("5");
- const [kpFinish, setKpFinish] = useState("10");
-
- const [apiChange, setApiChange] = useState("");
-
- const handleApiChange = () => {
-  const APIFound = `https://api.kinopoisk.dev/v1.4/movie?page=1&limit=1&genres.name=${genre}`;
-  //  `https://api.kinopoisk.dev/v1.4/movie?page=1&limit=1&selectFields=top10`;
-  // const APIFound = `https://api.kinopoisk.dev/v1.4/movie?page=1&limit=1&selectFields=year=${yearStart}-${yearFinish}&selectFields=rating.imdb=${imdbStart}-${imdbFinish}&selectFields=genres=${genre}&selectFields=countries=${country}`;
-  // const APIFound = `https://api.kinopoisk.dev/v1.4/movie?page=1&limit=1&selectFields=year&selectFields=rating&selectFields=genres.name=комедия&selectFields=countries`;
-  fetch(APIFound, {
-   method: "GET",
-   headers: {
-    Accept: "application/json",
-    "X-API-KEY": "RPSV678-AFW4EBA-J28BMDC-CGDWZ4E",
-   },
-  })
-   .then((response) => response.json())
-   .then((data) => {
-    console.log(data);
-    setApiChange(data.docs);
-   });
-  //  console.log(APIFound);
+ const handeFilterChange = () => {
+   const APIFound = `${genre}+${country}${yearStart}+${yearFinish}+${imdbStart}+${imdbFinish}`;
+   console.log(APIFound);
  };
 
+
  return (
-  <>
+  <div className="SideBar">
    <FilterBarContainerGenre setGenre={setGenre} />
    <FilterBarContainerCountry setCountry={setCountry} />
    <FilterBarContainerYear
@@ -55,9 +37,8 @@ const FilterBar = () => {
     setImdbStart={setImdbStart}
     setImdbFinish={setImdbFinish}
    />
-   <FilterBarContainerKP setKpStart={setKpStart} setKpFinish={setKpFinish} />
-   <SideBarFilter onClick={handleApiChange} />
-  </>
+   <SideBarFilter onClick={handeFilterChange}/>
+  </div>
  );
 };
 
@@ -68,42 +49,27 @@ const FilterBarContainerGenre = ({ setGenre }) => {
 
  return (
   <div className="FilterBarContainer_Container">
-   <p className="FilterBarContainer_Text">Жанр</p>
-   <select
-    name="Genre"
-    id="genre"
-    className="FilterBarContainer_Select"
-    onChange={handleFilterChange}
-   >
-    <option value="0">-- Выберите жанр --</option>
-    <option value="%D0%BA%D0%BE%D0%BC%D0%B5%D0%B4%D0%B8%D1%8F">Комедия</option>
-    <option value="%D0%B4%D1%80%D0%B0%D0%BC%D0%B0">Драма</option>
-    <option value="%D1%83%D0%B6%D0%B0%D1%81%D1%8B">Ужасы</option>
-    <option value="%D0%B1%D0%BE%D0%B5%D0%B2%D0%B8%D0%BA">Боевик</option>
-    <option value="%D1%82%D1%80%D0%B8%D0%BB%D0%BB%D0%B5%D1%80">Триллер</option>
-    <option value="%D0%BC%D0%B5%D0%BB%D0%BE%D0%B4%D1%80%D0%B0%D0%BC%D0%B0">
-     Мелодрама
-    </option>
-    <option value="%D0%B0%D0%BD%D0%B8%D0%BC%D0%B5">Аниме</option>
-    <option value="%D0%B2%D0%B5%D1%81%D1%82%D0%B5%D1%80%D0%BD">Вестерн</option>
-    <option value="%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9">
-     Документальный
-    </option>
-    <option value="%D0%B4%D0%B5%D1%82%D0%B5%D0%BA%D1%82%D0%B8%D0%B2">
-     Детектив
-    </option>
-    <option value="%D0%BA%D1%80%D0%B8%D0%BC%D0%B8%D0%BD%D0%B0%D0%BB">
-     Криминал
-    </option>
-    <option value="%D0%BF%D1%80%D0%B8%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5">
-     Приключение
-    </option>
-    <option value="%D0%BC%D1%83%D0%BB%D1%8C%D1%82%D1%84%D0%B8%D0%BB%D1%8C%D0%BC">
-     Мультфильм
-    </option>
-    <option value="%D1%84%D0%B0%D0%BD%D1%82%D0%B0%D1%81%D1%82%D0%B8%D0%BA%D0%B0">
-     Фантастика
-    </option>
+   <p className="FilterBarContainer_Text">Genre</p>
+   <select className="FilterBarContainer_Select" onChange={handleFilterChange}>
+    <option value="0">-- Choose genre --</option>
+    <option value="28">Action</option>
+    <option value="12">Adventure</option>
+    <option value="16">Animation</option>
+    <option value="35">Comedy</option>
+    <option value="99">Documentary</option>
+    <option value="18">Drama</option>
+    <option value="10751">Family</option>
+    <option value="14">Fantasy</option>
+    <option value="36">History</option>
+    <option value="27">Horror</option>
+    <option value="10402">Music</option>
+    <option value="9648">Mystery</option>
+    <option value="10749">Romance</option>
+    <option value="878">Science Fiction</option>
+    <option value="10770">TV Movie</option>
+    <option value="53">Thriller</option>
+    <option value="10752">War</option>
+    <option value="37">Western</option>
    </select>
   </div>
  );
@@ -115,16 +81,19 @@ const FilterBarContainerCountry = ({ setCountry }) => {
  };
  return (
   <div className="FilterBarContainer_Container">
-   <p className="FilterBarContainer_Text">Страна</p>
-   <select
-    name="Genre"
-    id="genre"
-    className="FilterBarContainer_Select"
-    onChange={handleFilterChange}
-   >
-    <option value="0">-- Выберите страну --</option>
-    <option value="Америка">Америка</option>
-    <option value="Россия">Россия</option>
+   <p className="FilterBarContainer_Text">Country</p>
+   <select className="FilterBarContainer_Select" onChange={handleFilterChange}>
+    <option value="0">-- Choose country --</option>
+    <option value="Canada">Canada</option>
+    <option value="Switzerland">Switzerland</option>
+    <option value="China">China</option>
+    <option value="Cuba">Cuba</option>
+    <option value="Germany">Germany</option>
+    <option value="United Kingdom">United Kingdom</option>
+    <option value="France">France</option>
+    <option value="Greece">Greece</option>
+    <option value="Italy">Italy</option>
+    <option value="Poland">Poland</option>
    </select>
   </div>
  );

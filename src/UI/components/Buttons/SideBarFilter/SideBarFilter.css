@@ -14,7 +14,7 @@
  cursor: pointer;
  border-radius: 0.5rem;
  border: 2px solid var(--blue_border);
- box-shadow: 6px 6px 7px 0px var(--blue_border);
+ box-shadow: 3px 3px 3px 0px var(--blue_border);
  background: var(--blue);
  width: 100%;
  padding: 5% 10%;

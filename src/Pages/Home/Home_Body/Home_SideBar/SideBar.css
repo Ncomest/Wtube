@@ -19,6 +19,8 @@
 }
 
 .FilterBarContainer_Select {
+  text-align: center;
+ width: 70%;
  padding: 0.5rem 1rem;
  background-color: var(--blue);
  color: var(--white);
@@ -31,7 +33,6 @@
 }
 
 @media (max-width: 1440px) {
-
 }
 
 @media (max-width: 768px) {
