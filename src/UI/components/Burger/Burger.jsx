@@ -3,6 +3,8 @@ import { useState } from "react";
 import "./Burger.css";
 import DropDown from "../Background_DropDown/Drop_Down_Menu/DropDown";
 import ToogleDarkLight from "../ToogleDarkLight/ToogleDarkLight";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { IoCloseOutline } from "react-icons/io5";
 
 const Burger = () => {
  const [isOpen, setIsOpen] = useState(false);
@@ -13,11 +15,11 @@ const Burger = () => {
 
  return (
   <div>
-   <div className={`Burger ${isOpen ? "open" : ""}`} onClick={toggleBurger}>
-    <div className="BurgerBar"></div>
-    <div className="BurgerBar"></div>
-    <div className="BurgerBar"></div>
-   </div>
+   {isOpen ? (
+    <IoCloseOutline className="BurgerIcon" onClick={toggleBurger} />
+   ) : (
+    <RxHamburgerMenu className="BurgerIcon" onClick={toggleBurger} />
+   )}
    <div className={`BurgerDropDown ${isOpen ? "" : "open"}`}>
     <DropDown>
      <BurgerText />

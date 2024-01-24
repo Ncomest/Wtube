@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./SideBar.css";
 
 import SideBarFilter from "../../../../UI/components/Buttons/SideBarFilter/SideBarFilter";
@@ -20,10 +20,9 @@ const SideBar = ({ states }) => {
  } = states;
 
  const handeFilterChange = () => {
-   const APIFound = `${genre}+${country}${yearStart}+${yearFinish}+${imdbStart}+${imdbFinish}`;
-   console.log(APIFound);
+  const APIFound = `${genre}+${country}${yearStart}+${yearFinish}+${imdbStart}+${imdbFinish}`;
+  console.log(APIFound);
  };
-
 
  return (
   <div className="SideBar">
@@ -37,7 +36,7 @@ const SideBar = ({ states }) => {
     setImdbStart={setImdbStart}
     setImdbFinish={setImdbFinish}
    />
-   <SideBarFilter onClick={handeFilterChange}/>
+   <SideBarFilter onClick={handeFilterChange} />
   </div>
  );
 };
@@ -182,58 +181,6 @@ const FilterBarContainerImdb = ({ setImdbStart, setImdbFinish }) => {
     <select
      name="ImdbFinish"
      id="ImdbFinish"
-     className="FilterBarContainer_Select"
-     onChange={handleFilterChangeFinish}
-     defaultValue={10}
-    >
-     <option value="1">1</option>
-     <option value="2">2</option>
-     <option value="3">3</option>
-     <option value="4">4</option>
-     <option value="5">5</option>
-     <option value="6">6</option>
-     <option value="7">7</option>
-     <option value="8">8</option>
-     <option value="9">9</option>
-     <option value="10">10</option>
-    </select>
-   </div>
-  </div>
- );
-};
-
-const FilterBarContainerKP = ({ setKpStart, setKpFinish }) => {
- const handleFilterChangeStart = (e) => {
-  setKpStart(e.target.value);
- };
- const handleFilterChangeFinish = (e) => {
-  setKpFinish(e.target.value);
- };
- return (
-  <div className="FilterBarContainer_Container">
-   <p className="FilterBarContainer_Text">Рейтинг КП</p>
-   <div className="FilterBarContainer_Items">
-    <select
-     name="KpStart"
-     id="KpStart"
-     className="FilterBarContainer_Select"
-     onChange={handleFilterChangeStart}
-     defaultValue={5}
-    >
-     <option value="1">1</option>
-     <option value="2">2</option>
-     <option value="3">3</option>
-     <option value="4">4</option>
-     <option value="5">5</option>
-     <option value="6">6</option>
-     <option value="7">7</option>
-     <option value="8">8</option>
-     <option value="9">9</option>
-     <option value="10">10</option>
-    </select>
-    <select
-     name="KpFinish"
-     id="KpFinish"
      className="FilterBarContainer_Select"
      onChange={handleFilterChangeFinish}
      defaultValue={10}

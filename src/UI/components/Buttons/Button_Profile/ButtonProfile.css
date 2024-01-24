@@ -24,3 +24,15 @@
 .Profile_DropDown.open {
  display: none;
 }
+
+.LuUserCircle2 {
+ width: 80px;
+ height: 80px;
+ stroke-width: 0.5;
+ color: var(--blue);
+}
+
+.ProfifeText_Theme{
+  display: flex;
+  gap: 1rem;
+}
