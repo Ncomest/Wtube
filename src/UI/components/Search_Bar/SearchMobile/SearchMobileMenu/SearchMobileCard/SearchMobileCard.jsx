@@ -5,13 +5,13 @@ const SearchMobileCard = ({ searchResult, setSearchOpen }) => {
  const [loading, setLoading] = useState(true);
  const [searchMovie, setSearchMovie] = useState(null);
 
- const API_URL_TWO = `https://api.themoviedb.org/3/search/movie?query=${searchResult}&?api_key=${process.env.REACT_APP_API_KEY}`;
+ const API_URL_TWO = `https://api.themoviedb.org/3/search/movie?query=${searchResult}&?api_key=14d8d8918e888fb791f87057ac1674c0`;
 
  const fetchOption = {
   method: "GET",
   headers: {
    accept: "aplication/json",
-   Authorization: `Bearer ${process.env.REACT_APP_API_TOKEN}`,
+   Authorization: `Bearer eyJhdWQiOiIxNGQ4ZDg5MThlODg4ZmI3OTFmODcwNTdhYzE2NzRjMCIsInN1YiI6IjY1NTdiMjMyZWE4NGM3MTA5MjI4ZDJmZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ`,
   },
  };
 
