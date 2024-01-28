@@ -75,7 +75,7 @@ function RightSideMovies({ movieDetails }) {
     <>
      <SubTitle subTitle={"Рекомендации"} />
      <div className="RightSideMovies_Block">
-      {/* <SliderRecommend movieDetails={movieDetails} /> */}
+      <SliderRecommend movieDetails={movieDetails} />
      </div>
     </>
    )}
@@ -86,7 +86,7 @@ function RightSideMovies({ movieDetails }) {
     <>
      <SubTitle subTitle={"Похожие"} />
      <div className="RightSideMovies_Block">
-      {/* <SliderSimilar movieDetails={movieDetails} /> */}
+      <SliderSimilar movieDetails={movieDetails} />
      </div>
     </>
    )}
