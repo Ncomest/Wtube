@@ -7,19 +7,17 @@ import SideBar from "./Home_SideBar/SideBar";
 import MoviesContainer from "../../../UI/components/Card/MoviesContainer/MoviesContainer";
 import ButtonFilterMenu from "../../../UI/components/Buttons/Filter_Menu/Button_Filter_Menu";
 
-function Body({setPage, page}) {
+function Body({ setPage, page }) {
  const [movies, setMovies] = useState([]);
- 
+
  const API_DB = `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${page}`;
- 
+
  const [genre, setGenre] = useState("");
  const [country, setCountry] = useState("");
  const [yearStart, setYearStart] = useState("2022");
  const [yearFinish, setYearFinish] = useState("2024");
  const [imdbStart, setImdbStart] = useState("5");
  const [imdbFinish, setImdbFinish] = useState("10");
-
- 
 
  const states = {
   genre,
@@ -36,11 +34,13 @@ function Body({setPage, page}) {
   setImdbFinish,
  };
 
+ //  ${process.env.REACT_APP_API_TOKEN}
+
  const fetchOption = {
   method: "GET",
   headers: {
    accept: "aplication/json",
-   Authorization: `Bearer ${process.env.REACT_APP_API_TOKEN}`,
+   Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxNGQ4ZDg5MThlODg4ZmI3OTFmODcwNTdhYzE2NzRjMCIsInN1YiI6IjY1NTdiMjMyZWE4NGM3MTA5MjI4ZDJmZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.f__dKykaUx73Pd6yuByZPnhdUetP7LYDjNnGWSicmFU`,
   },
  };
 
