@@ -5,7 +5,7 @@ function ActorsCard({ profile_path, name }) {
  const imger = "https://image.tmdb.org/t/p/w500";
 
  return (
-  <div className="CardList">
+  <div className="CardListTest">
    <div className="CardList-Block">
     <img
      className="Card_Container_img"

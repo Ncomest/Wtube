@@ -1,9 +1,9 @@
 import React, { Link } from "react-router-dom";
 import "./Logo.css";
 
-function Logo({ setPage }) {
+function Logo() {
  return (
-  <div className="Logo" onClick={() => setPage(1)}>
+  <div className="Logo">
    <Link to="/" className="Router-link">
     WTube
    </Link>

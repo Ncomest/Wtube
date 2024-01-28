@@ -1,3 +1,6 @@
+.LeftSideMoviesContainer {
+ flex: 0 0 25%;
+}
 
 .LeftSideMovies {
  position: relative;
@@ -53,4 +56,3 @@
 
  gap: 1rem;
 }
-

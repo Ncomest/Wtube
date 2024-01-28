@@ -51,6 +51,15 @@
 }
 
 /*===================================*/
+.CardListTest{
+  width: 160px;
+  display: inline-block;
+  margin-right: 1rem;
+  scroll-snap-align: start;
+}
+
+
+/*==================================*/
 
 @media (max-width: 2559px) {
  .Card-title {

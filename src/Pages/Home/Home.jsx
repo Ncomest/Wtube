@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./Home.css";
+import "./../../index.css";
 
+// import { useTheme } from "../../helpers/hooks/useTheme";
 import Header from "../../modules/Header/Header";
 import Body from "./Home_Body/Body";
 
@@ -10,13 +12,14 @@ const Home = () => {
  );
 
  useEffect(() => {
-  localStorage.setItem("current", page);
+    localStorage.setItem("current", page);
  }, [page]);
 
  return (
   <div className="Home">
-   <Header setPage={setPage}/>
-   <Body setPage={setPage} page={page}/>
+   {console.log(page)}
+   <Header setPage={setPage} />
+   <Body setPage={setPage} page={page} />
   </div>
  );
 };

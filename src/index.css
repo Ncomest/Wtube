@@ -14,6 +14,27 @@
  --textLarge: 1.75rem;
 }
 
+html [data-theme="dark"] {
+ --dark: #081f3a;
+ --light_dark: #0b2c53;
+ --white: #fff;
+ --blue: #266aaa;
+ --blue_border: #208fb1;
+ --grey: rgba(255, 255, 255, 0.7);
+ --shadow_side: rgba(32, 143, 177, 0.14);
+}
+
+html [data-theme="light"] {
+ --dark: #fff;
+ --light_dark: #99a5b4;
+ --white: #000;
+ --blue: #92bfea;
+ --blue_border: #82caf1;
+
+ --grey: rgba(255, 255, 255, 0.7);
+ --shadow_side: rgba(32, 143, 177, 0.14);
+}
+
 * {
  /* font-size: 16px; */
  font-family: "Roboto", sans-serif;

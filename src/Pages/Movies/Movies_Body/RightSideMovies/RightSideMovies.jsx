@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import "./RightSideMovies.css";
 
@@ -12,6 +12,29 @@ import SliderActors from "../../../../helpers/Slider/Actors/SliderActors";
 import Reviews from "../../../../UI/components/Reviews/Reviews";
 
 function RightSideMovies({ movieDetails }) {
+ const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+ useEffect(() => {
+  const handleResize = () => {
+   setScreenWidth(window.innerWidth);
+  };
+  widthForSlider();
+  window.addEventListener("resize", handleResize);
+
+  return () => {
+   window.removeEventListener("resize", handleResize);
+  };
+ }, []);
+ const widthForSlider = () => {
+  return Math.round(screenWidth * 0.72);
+ };
+ const widthForMobile = () => {
+  return Math.round(screenWidth);
+ };
+ console.log(screenWidth + " currentWidth");
+ console.log(widthForSlider() + " 0.70%");
+ console.log(window.innerWidth + " 100%");
+
  return (
   <div className="RightSideMovies">
    <RightSideMoviesTitle movieDetails={movieDetails} />
@@ -35,7 +58,10 @@ function RightSideMovies({ movieDetails }) {
    </SubTitle>
 
    <SubTitle subTitle={"Актеры"} />
-   <div className="RightSideMovies_Block">
+   <div
+    className="RightSideMovies_Block"
+    style={{ width: `${screenWidth > 426 ? widthForSlider() + "px" : "100%"}` }}
+   >
     <SliderActors movieDetails={movieDetails} />
    </div>
 
@@ -49,7 +75,7 @@ function RightSideMovies({ movieDetails }) {
     <>
      <SubTitle subTitle={"Рекомендации"} />
      <div className="RightSideMovies_Block">
-      <SliderRecommend movieDetails={movieDetails} />
+      {/* <SliderRecommend movieDetails={movieDetails} /> */}
      </div>
     </>
    )}
@@ -60,7 +86,7 @@ function RightSideMovies({ movieDetails }) {
     <>
      <SubTitle subTitle={"Похожие"} />
      <div className="RightSideMovies_Block">
-      <SliderSimilar movieDetails={movieDetails} />
+      {/* <SliderSimilar movieDetails={movieDetails} /> */}
      </div>
     </>
    )}

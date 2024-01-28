@@ -1,25 +1,17 @@
 .MoviesBody {
- display: grid;
- grid-template-columns: 25% auto;
+ display: flex;
  padding: 1.5rem 1rem;
  gap: 1rem;
 }
 
-@media (max-width: 1024px) {
-  .MoviesBody{
-    grid-template-columns: 35% auto;
-  }
-}
-
 @media (max-width: 768px) {
-  .MoviesBody{
-    padding: 1.5rem 0.5rem;
-  }
+ .MoviesBody {
+  padding: 1.5rem 0.5rem;
+ }
 }
 
 @media (max-width: 426px) {
-  .MoviesBody{
-    display: flex;
-    flex-direction: column;
-  }
+ .MoviesBody {
+  flex-direction: column;
+ }
 }
