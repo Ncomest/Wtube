@@ -1,39 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap");
 
 :root {
- --dark: #081f3a;
+ --dark: #000;
  --light_dark: #0b2c53;
  --white: #fff;
  --blue: #266aaa;
- --blue_border: #208fb1;
+ --blue_border: #ffffff84;
  --grey: rgba(255, 255, 255, 0.7);
  --shadow_side: rgba(32, 143, 177, 0.14);
 
- --textSmall: 1rem;
- --textNormal: 1.25rem;
- --textLarge: 1.75rem;
+ --textSmall: 14px;
+ --textNormal: 16px;
+ --textLarge: 18px;
 }
 
-html [data-theme="dark"] {
- --dark: #081f3a;
- --light_dark: #0b2c53;
- --white: #fff;
- --blue: #266aaa;
- --blue_border: #208fb1;
- --grey: rgba(255, 255, 255, 0.7);
- --shadow_side: rgba(32, 143, 177, 0.14);
-}
 
-html [data-theme="light"] {
- --dark: #fff;
- --light_dark: #99a5b4;
- --white: #000;
- --blue: #92bfea;
- --blue_border: #82caf1;
-
- --grey: rgba(255, 255, 255, 0.7);
- --shadow_side: rgba(32, 143, 177, 0.14);
-}
 
 * {
  /* font-size: 16px; */

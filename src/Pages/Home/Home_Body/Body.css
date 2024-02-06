@@ -1,8 +1,12 @@
 .Body {
  position: relative;
- display: grid;
- grid-template-columns: 25% auto;
+ display: flex;
+ /* grid-template-columns: 25% auto; */
  padding: 1.5rem 1rem;
+}
+
+.Body_SideBar {
+ flex: 0 0 min(35%, 400px);
 }
 
 .Body_Container {

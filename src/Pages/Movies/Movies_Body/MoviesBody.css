@@ -1,17 +1,167 @@
 .MoviesBody {
+ padding-top: 5px;
+}
+
+.MovieBlock {
+ position: absolute;
  display: flex;
- padding: 1.5rem 1rem;
- gap: 1rem;
+ flex-direction: column;
+ bottom: 30px;
+ left: 30px;
+ gap: 10px;
+ max-width: 400px;
+}
+
+.MovieBlock h1 {
+ font-size: 38px;
+ margin-bottom: 20px;
+}
+
+.bgMovies {
+ position: relative;
+ width: 100%;
+ height: 600px;
+}
+
+.bgMovies img {
+ object-fit: cover;
+ height: 100%;
+ width: 100%;
+ z-index: 2;
+}
+
+.overlay {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background: linear-gradient(to left, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 1)),
+  linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+}
+
+.MovieBlock span {
+ font-weight: bold;
+}
+
+.MoviesText {
+ display: flex;
+ gap: 5px;
+}
+
+.MovieWatch {
+ gap: 10px;
+ max-width: 200px;
+ margin: auto;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ padding: 10px 20px;
+ border: 1px solid var(--white);
+ border-radius: 5px;
+ cursor: pointer;
+}
+
+.MovieWatch button {
+ color: var(--white);
+ background-color: transparent;
+ border: none;
+ text-transform: uppercase;
+ cursor: pointer;
+ font-weight: bold;
+ font-size: 18px;
+}
+
+.MovieWatch:hover {
+ background-color: rgba(255, 255, 255, 0.1);
+}
+
+.trailerMovie {
+ width: 100%;
+ height: 100%;
+ overflow-x: scroll;
+ scroll-behavior: smooth;
+ white-space: nowrap;
+ scroll-snap-type: x mandatory;
+}
+
+.movieCard {
+ height: 360px;
+ width: 660px;
+ display: inline-block;
+ margin-right: 20px;
+ scroll-snap-align: start;
+}
+
+.movieCard img {
+ width: 100%;
+}
+
+.actorsMain {
+ padding: 10px;
+}
+
+.actorsSlider {
+ display: flex;
+ align-items: center;
+ width: 100%;
+ overflow-x: scroll;
+ overflow-y: hidden;
+ white-space: nowrap;
+ scroll-behavior: smooth;
+ gap: 10px;
+ scroll-snap-type: x mandatory;
+}
+
+.actorsCard {
+ display: inline-block;
+ scroll-snap-align: start;
+}
+
+.trailerMovie::-webkit-scrollbar,
+.actorsSlider::-webkit-scrollbar {
+ width: 2px;
+}
+
+.actorsCard img {
+ border-radius: 5px;
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+}
+
+.actorsCard div {
+ width: 160px;
+ height: 240px;
 }
 
 @media (max-width: 768px) {
  .MoviesBody {
   padding: 1.5rem 0.5rem;
  }
+ .movieCard {
+  height: 240px;
+  width: 420px;
+ }
+ .actorsCard div {
+  width: 140px;
+  height: 180px;
+ }
 }
 
-@media (max-width: 426px) {
+@media (max-width: 425px) {
  .MoviesBody {
   flex-direction: column;
+ }
+ .MovieBlock {
+  left: 10px;
+ }
+ .movieCard {
+  height: 160px;
+  width: 320px;
+ }
+ .actorsCard div {
+  width: 100px;
+  height: 140px;
  }
 }

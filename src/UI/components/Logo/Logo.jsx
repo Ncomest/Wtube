@@ -5,7 +5,7 @@ function Logo() {
  return (
   <div className="Logo">
    <Link to="/" className="Router-link">
-    WTube
+    <span>W</span>Tube
    </Link>
   </div>
  );

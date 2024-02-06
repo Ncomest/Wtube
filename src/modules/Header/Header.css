@@ -1,11 +1,10 @@
 .Header {
  position: relative;
  display: flex;
- /* display: grid; */
- /* grid-template-columns: 25% auto; */
- height: 6.25rem;
+ height: 80px;
  background-color: var(--dark);
- box-shadow: 0px 6px 20px 0px var(--blue_border);
+ box-shadow: 0px 2px 2px 0px var(--blue_border);
+ padding: 0px 10px;
 }
 
 .Header_Container {
@@ -13,7 +12,6 @@
  display: flex;
  align-items: center;
  justify-content: space-between;
- padding: 0rem 1rem 0rem 0rem;
 }
 
 .Header_Logo {
@@ -34,14 +32,53 @@
  gap: 2rem;
 }
 
+.Sign {
+ cursor: pointer;
+ font-size: var(--textNormal);
+ position: relative;
+ overflow: hidden;
+ padding: 10px 20px;
+ color: var(--white);
+ background-color: transparent;
+ border: none;
+ transition: text-decoration 4.5s ease-in-out;
+}
+
+.Sign::before {
+ content: "";
+ position: absolute;
+ width: 0;
+ height: 2px;
+ bottom: 10px;
+ left: 50%;
+ transition: width 0.4s ease-in-out;
+ transform: translateX(-50%);
+ background-color: var(--white);
+}
+
+.Sign:hover::before {
+ width: 100%;
+}
+
+/* .Sign:hover {
+ text-decoration: underline;
+} */
+
+.signRed {
+ margin-left: 10px;
+ background-color: rgba(255, 3, 3, 0.696);
+ border-radius: 5px;
+ font-weight: bold;
+}
+
+.signRed:hover {
+ background-color: rgb(255, 0, 0);
+}
+
 @media (max-width: 1440px) {
 }
 
 @media (max-width: 1024px) {
- .Header {
-  grid-template-columns: 35% auto;
- }
-
  .Header_SearchBar {
   width: 20rem;
  }
@@ -66,17 +103,17 @@
  }
 }
 
-@media (max-width: 426px) {
+@media (max-width: 425px) {
  .Header_Logo {
   font-size: 2rem;
  }
 }
 
-@media (max-width: 376px) {
-}
-
-@media (max-width: 321px) {
+@media (max-width: 375px) {
  .Header_Mobile {
   gap: 1rem;
  }
+}
+
+@media (max-width: 320px) {
 }

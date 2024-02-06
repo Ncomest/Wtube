@@ -37,10 +37,10 @@ function RightSideMovies({ movieDetails }) {
 
  return (
   <div className="RightSideMovies">
-   <RightSideMoviesTitle movieDetails={movieDetails} />
-   <RightSideMoviesPlayer movieDetails={movieDetails} />
+   {/* <RightSideMoviesTitle movieDetails={movieDetails} />
+   <RightSideMoviesPlayer movieDetails={movieDetails} /> */}
 
-   <SubTitle subTitle={"О фильме"}>
+   {/* <SubTitle subTitle={"О фильме"}>
     <div className="RightSideMovies_SubText">
      <SubText
       text={"Жанр:"}
@@ -55,19 +55,19 @@ function RightSideMovies({ movieDetails }) {
      <p>Год: {movieDetails.release_date}</p>
      <p>Длительность: {movieDetails.movieLength} минут.</p>
     </div>
-   </SubTitle>
+   </SubTitle> */}
 
-   <SubTitle subTitle={"Актеры"} />
+   {/* <SubTitle subTitle={"Актеры"} />
    <div
     className="RightSideMovies_Block"
     style={{ width: `${screenWidth > 426 ? widthForSlider() + "px" : "100%"}` }}
    >
     <SliderActors movieDetails={movieDetails} />
-   </div>
+   </div> */}
 
-   <SubTitle subTitle={"Сюжет"}>
+   {/* <SubTitle subTitle={"Сюжет"}>
     <p>{movieDetails.overview}</p>
-   </SubTitle>
+   </SubTitle> */}
 
    {movieDetails.recommendations.results.length === 0 ? (
     ""
@@ -75,7 +75,7 @@ function RightSideMovies({ movieDetails }) {
     <>
      <SubTitle subTitle={"Рекомендации"} />
      <div className="RightSideMovies_Block">
-      <SliderRecommend movieDetails={movieDetails} />
+      {/* <SliderRecommend movieDetails={movieDetails} /> */}
      </div>
     </>
    )}
@@ -86,7 +86,7 @@ function RightSideMovies({ movieDetails }) {
     <>
      <SubTitle subTitle={"Похожие"} />
      <div className="RightSideMovies_Block">
-      <SliderSimilar movieDetails={movieDetails} />
+      {/* <SliderSimilar movieDetails={movieDetails} /> */}
      </div>
     </>
    )}

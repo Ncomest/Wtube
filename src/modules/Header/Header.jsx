@@ -44,7 +44,11 @@ function Header({ setPage }) {
        <Burger />
       </div>
      ) : (
-      <ButtonProfile />
+      // <ButtonProfile />
+      <div>
+       <button className="Sign">Sign In</button>
+       <button className="Sign signRed">Sign Up</button>
+      </div>
      )}
     </div>
    </div>
