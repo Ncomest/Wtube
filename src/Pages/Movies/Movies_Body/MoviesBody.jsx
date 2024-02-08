@@ -123,31 +123,11 @@ function MoviesBody({ movieDetails }) {
    </div>
 
    <SubTitle subTitle={"Reviews"} />
-   {/* <div style={{ display: "flex", gap: "10px", flexWrap: "nowrap" }}> */}
-   {/* <div className="sliderItem"> */}
+
    {movieDetails.reviews.results.map((item) => (
-    //  <div className="itemCard " key={item.id}>
-    //   <div>
-    //    <h3>{item.author}</h3>
-    //    <p>
-    //     {item.truncatedContent}
-    //     <span
-    //      style={{ cursor: "pointer", color: "var(--blue)" }}
-    //      // onClick={handleShowFull}
-    //     >
-    //      {/* {showFull ? " hide" : " ...next"} */}
-    //     </span>
-    //    </p>
-    //   </div>
-    //  </div>
     <Reviews key={item.id} {...item} />
    ))}
-   {/* </div> */}
 
-   {/* {movieDetails.reviews.results.map((item) => (
-     <Reviews key={item.id} {...item} />
-    ))}
-   </div> */}
    {/* <LeftSideMovies movieDetails={movieDetails} /> */}
    {/* <RightSideMovies movieDetails={movieDetails} /> */}
   </div>
