@@ -5,7 +5,7 @@ import "./MoviesBody.css";
 import { ImPlay } from "react-icons/im";
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 
-import LeftSideMovies from "./LeftSideMovies/LeftSideMovies";
+// import LeftSideMovies from "./LeftSideMovies/LeftSideMovies";
 import RightSideMovies from "./RightSideMovies/RightSideMovies";
 import SubTitle from "../../../UI/components/Title/Sub_Title/SubTitle";
 import Reviews from "../../../UI/components/Reviews/Reviews";
@@ -147,7 +147,7 @@ function MoviesBody({ movieDetails }) {
     ))}
    </div> */}
    {/* <LeftSideMovies movieDetails={movieDetails} /> */}
-   <RightSideMovies movieDetails={movieDetails} />
+   {/* <RightSideMovies movieDetails={movieDetails} /> */}
   </div>
  );
 }
