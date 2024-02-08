@@ -93,14 +93,16 @@ function MoviesBody({ movieDetails }) {
    <SubTitle subTitle={"Recommendation"} />
    <div className="sliderItem">
     {movieDetails.recommendations.results.map((item) => (
-     <div className="itemCard moviesItem" key={item.id}>
-      <div>
-       <p style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
-        {item.title}
-       </p>
-       <img src={bck + item.poster_path} alt={item.name} loading="lazy" />
+     <Link className="Router-link" key={item.id} to={`/movies/${item.id}`}>
+      <div className="itemCard moviesItem" key={item.id}>
+       <div>
+        <p style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
+         {item.title}
+        </p>
+        <img src={bck + item.poster_path} alt={item.name} loading="lazy" />
+       </div>
       </div>
-     </div>
+     </Link>
     ))}
    </div>
 
