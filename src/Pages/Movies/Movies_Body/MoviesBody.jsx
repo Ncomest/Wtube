@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./MoviesBody.css";
 
 import { ImPlay } from "react-icons/im";
@@ -7,6 +8,7 @@ import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 import LeftSideMovies from "./LeftSideMovies/LeftSideMovies";
 import RightSideMovies from "./RightSideMovies/RightSideMovies";
 import SubTitle from "../../../UI/components/Title/Sub_Title/SubTitle";
+import Reviews from "../../../UI/components/Reviews/Reviews";
 
 function MoviesBody({ movieDetails }) {
  const [open, setOpen] = useState(false);
@@ -22,10 +24,19 @@ function MoviesBody({ movieDetails }) {
  return (
   <div className="MoviesBody">
    <div className="bgMovies">
-    <img src={bck + movieDetails.backdrop_path} alt={movieDetails.title} />
+    <img
+     src={
+      bck +
+      (window.innerWidth >= 426
+       ? movieDetails.backdrop_path
+       : movieDetails.poster_path)
+     }
+     alt={movieDetails.title}
+     loading="lazy"
+    />
     <div className="overlay"></div>
     <div className="MovieBlock">
-     <h1>{movieDetails.original_title}</h1>
+     <h1>{movieDetails.title}</h1>
      <p>
       <span>Overview: </span>
       {movieDetails.overview}
@@ -63,20 +74,78 @@ function MoviesBody({ movieDetails }) {
    />
    {open ? <TrailerMovie movieDetails={movieDetails} /> : ""}
 
-   <div className="actorsMain">
-   <SubTitle subTitle={"Актеры"} />
-    <div className="actorsSlider">
+   <div className="main">
+    <SubTitle subTitle={"Actors"} />
+    <div className="sliderItem">
      {movieDetails.credits.cast.map((item) => (
-      <div className="actorsCard" key={item.id}>
-       <p>{item.name}</p>
+      <div className="itemCard" key={item.id}>
        <div>
-        <img src={bck + item.profile_path} alt={item.name} />
+        <p style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
+         {item.name}
+        </p>
+        <img src={bck + item.profile_path} alt={item.name} loading="lazy" />
        </div>
       </div>
      ))}
     </div>
    </div>
 
+   <SubTitle subTitle={"Recommendation"} />
+   <div className="sliderItem">
+    {movieDetails.recommendations.results.map((item) => (
+     <div className="itemCard moviesItem" key={item.id}>
+      <div>
+       <p style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
+        {item.title}
+       </p>
+       <img src={bck + item.poster_path} alt={item.name} loading="lazy" />
+      </div>
+     </div>
+    ))}
+   </div>
+
+   <SubTitle subTitle={"Similar"} />
+   <div className="sliderItem">
+    {movieDetails.similar.results.map((item) => (
+     <Link className="Router-link" key={item.id} to={`/movies/${item.id}`}>
+      <div className="itemCard moviesItem" key={item.id}>
+       <div>
+        <p style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
+         {item.title}
+        </p>
+        <img src={bck + item.poster_path} alt={item.name} loading="lazy" />
+       </div>
+      </div>
+     </Link>
+    ))}
+   </div>
+
+   <SubTitle subTitle={"Reviews"} />
+   {/* <div style={{ display: "flex", gap: "10px", flexWrap: "nowrap" }}> */}
+   {/* <div className="sliderItem"> */}
+   {movieDetails.reviews.results.map((item) => (
+    //  <div className="itemCard " key={item.id}>
+    //   <div>
+    //    <h3>{item.author}</h3>
+    //    <p>
+    //     {item.truncatedContent}
+    //     <span
+    //      style={{ cursor: "pointer", color: "var(--blue)" }}
+    //      // onClick={handleShowFull}
+    //     >
+    //      {/* {showFull ? " hide" : " ...next"} */}
+    //     </span>
+    //    </p>
+    //   </div>
+    //  </div>
+    <Reviews key={item.id} {...item} />
+   ))}
+   {/* </div> */}
+
+   {/* {movieDetails.reviews.results.map((item) => (
+     <Reviews key={item.id} {...item} />
+    ))}
+   </div> */}
    {/* <LeftSideMovies movieDetails={movieDetails} /> */}
    <RightSideMovies movieDetails={movieDetails} />
   </div>

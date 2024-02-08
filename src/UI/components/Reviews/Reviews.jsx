@@ -22,7 +22,7 @@ function Reviews({ author, content }) {
       style={{ cursor: "pointer", color: "var(--blue)" }}
       onClick={handleShowFull}
      >
-      {showFull ? " Скрыть" : " ...Далее"}
+      {showFull ? " hide" : " ...next"}
      </span>
     </p>
    </div>

@@ -69,30 +69,30 @@ function RightSideMovies({ movieDetails }) {
     <p>{movieDetails.overview}</p>
    </SubTitle> */}
 
-   {movieDetails.recommendations.results.length === 0 ? (
+   {/* {movieDetails.recommendations.results.length === 0 ? (
     ""
    ) : (
     <>
      <SubTitle subTitle={"Рекомендации"} />
      <div className="RightSideMovies_Block">
-      {/* <SliderRecommend movieDetails={movieDetails} /> */}
+      <SliderRecommend movieDetails={movieDetails} />
      </div>
     </>
-   )}
+   )} */}
 
-   {movieDetails.similar.results.length === 0 ? (
+   {/* {movieDetails.similar.results.length === 0 ? (
     ""
    ) : (
     <>
      <SubTitle subTitle={"Похожие"} />
      <div className="RightSideMovies_Block">
-      {/* <SliderSimilar movieDetails={movieDetails} /> */}
+      <SliderSimilar movieDetails={movieDetails} />
      </div>
     </>
-   )}
+   )} */}
 
-   <SubTitle subTitle={"Отзывы"}></SubTitle>
-   <RightSideMoviesReviews movieDetails={movieDetails} />
+   {/* <SubTitle subTitle={"Отзывы"}></SubTitle>
+   <RightSideMoviesReviews movieDetails={movieDetails} /> */}
   </div>
  );
 }

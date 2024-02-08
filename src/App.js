@@ -1,5 +1,4 @@
-import { Route, Routes, Link } from "react-router-dom";
-
+import { Route, Routes} from "react-router-dom";
 
 import Home from "./Pages/Home/Home";
 import Movies from "./Pages/Movies/Movies";
@@ -12,8 +11,8 @@ function App() {
 
  return (
   <>
-   <nav>
-    
+   {/* <nav>
+    если будешь включать, добавь Link вверху, типа useState
     <ul>
      <li>
       <Link to="/">Home</Link>
@@ -25,8 +24,7 @@ function App() {
       <Link to="/user">User</Link>
      </li>
     </ul>
-   </nav>
-
+   </nav> */}
    <Routes>
     <Route path="/" element={<Home />} />
     <Route path="/Movies/:id" element={<Movies />} />
