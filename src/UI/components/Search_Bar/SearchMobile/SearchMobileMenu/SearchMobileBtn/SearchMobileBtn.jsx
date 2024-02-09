@@ -1,14 +1,11 @@
-const SearchMobileBtn = ({onClick}) => {
-  return (
-   <div className="SearchMobileBtn">
-    <button className="SearchMobileBtnBtn" 
-    onClick={onClick}
+const SearchMobileBtn = ({ onClick }) => {
+ return (
+  <div className="SearchMobileBtn">
+   <button className="SearchMobileBtnBtn" onClick={onClick}>
+    Search
+   </button>
+  </div>
+ );
+};
 
-    >
-     Поиск
-    </button>
-   </div>
-  );
- };
-
- export default SearchMobileBtn;
+export default SearchMobileBtn;

@@ -6,18 +6,24 @@ import { ImPlay } from "react-icons/im";
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 
 // import LeftSideMovies from "./LeftSideMovies/LeftSideMovies";
-import RightSideMovies from "./RightSideMovies/RightSideMovies";
+// import RightSideMovies from "./RightSideMovies/RightSideMovies";
 import SubTitle from "../../../UI/components/Title/Sub_Title/SubTitle";
 import Reviews from "../../../UI/components/Reviews/Reviews";
 
 function MoviesBody({ movieDetails }) {
  const [open, setOpen] = useState(false);
+
  if (!movieDetails) {
   return <>Wait</>;
  }
 
  const handleOpenMovie = (e) => {
   setOpen((e) => !open);
+ };
+
+ const handleUp = () => {
+  window.scrollTo(0, 0);
+  setOpen(false);
  };
 
  const bck = "https://image.tmdb.org/t/p/w500";
@@ -94,7 +100,7 @@ function MoviesBody({ movieDetails }) {
    <div className="sliderItem">
     {movieDetails.recommendations.results.map((item) => (
      <Link className="Router-link" key={item.id} to={`/movies/${item.id}`}>
-      <div className="itemCard moviesItem" key={item.id}>
+      <div className="itemCard moviesItem" key={item.id} onClick={handleUp}>
        <div>
         <p style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
          {item.title}
@@ -110,7 +116,7 @@ function MoviesBody({ movieDetails }) {
    <div className="sliderItem">
     {movieDetails.similar.results.map((item) => (
      <Link className="Router-link" key={item.id} to={`/movies/${item.id}`}>
-      <div className="itemCard moviesItem" key={item.id}>
+      <div className="itemCard moviesItem" key={item.id} onClick={handleUp}>
        <div>
         <p style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
          {item.title}
@@ -123,7 +129,6 @@ function MoviesBody({ movieDetails }) {
    </div>
 
    <SubTitle subTitle={"Reviews"} />
-
    {movieDetails.reviews.results.map((item) => (
     <Reviews key={item.id} {...item} />
    ))}

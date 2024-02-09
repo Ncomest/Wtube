@@ -1,15 +1,14 @@
 .SearchMobileMenu {
  z-index: 2;
  position: absolute;
- top: 4.4rem;
+ top: 80px;
  left: 0;
 
  width: 100%;
 
  border-radius: 0.5rem;
- border: 1px solid var(--blue_border);
- background: var(--light_dark);
- box-shadow: 0px 0px 12px 4px var(--blue) inset;
+ border: 1px solid var(--grey);
+ background: var(--dark_transp);
 }
 
 .SearchMobileBtn {
@@ -21,25 +20,31 @@
 
 .SearchMobileBtnBtn {
  color: var(--white);
- font-size: var(--textSmall);
+ font-size: var(--textNormal);
  border-radius: 0.3rem;
- border: 1px solid var(--blue_border);
- background: var(--blue);
+ border: 1px solid var(--grey);
+ background: var(--red);
  padding: 0.5rem 2.5rem;
+ cursor: pointer;
+ transition: background 0.3s ease;
+}
+
+.SearchMobileBtnBtn:hover {
+ background: var(--light_red);
 }
 
 .SearchMobileCard {
  display: grid;
  grid-template-columns: 30% auto;
- padding: 1rem 0rem;
- font-size: var(--textSmall);
+ padding: 16px 5px;
+ font-size: var(--textNormal);
 
- border-radius: 0.3rem;
- border: 1px solid var(--blue_border);
- background: var(--blue);
+ border-radius: 5px;
+ border: 1px solid var(--grey);
+ background: var(--dark_transp);
 
  width: 95%;
- margin: 1rem auto;
+ margin: 16px auto;
 }
 
 .SearchMobileCard_Left {
@@ -73,7 +78,19 @@
  .SearchMobileCard {
   grid-template-columns: 15% auto;
  }
+ /* .SearchMobileMenu {
+  top: 80px;
+ } */
+}
+
+@media (max-width: 768px) {
  .SearchMobileMenu {
-  top: 7rem;
+  top: 64px;
+ }
+}
+
+@media (max-width: 425px) {
+ .SearchMobileCard {
+  font-size: var(--textSmall);
  }
 }

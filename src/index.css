@@ -3,6 +3,10 @@
 :root {
  --dark: #000;
  --light_dark: #0b2c53;
+ --dark_transp: #000000c3;
+ --light_transp: #535353c3;
+ --red: #a60000;
+ --light_red: #d20000;
  --white: #fff;
  --blue: #266aaa;
  --blue_border: #ffffff84;
@@ -13,8 +17,6 @@
  --textNormal: 16px;
  --textLarge: 18px;
 }
-
-
 
 * {
  /* font-size: 16px; */

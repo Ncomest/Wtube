@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./SearchBar.css";
 
-function SearchBar({ onSetSearchTerm, onEnterPress }) {
+function SearchBar({ onSetSearchTerm, onEnterPress, inputRef }) {
  const handleSearch = (e) => {
   onSetSearchTerm(e.target.value);
  };
+
+ useEffect(() => {
+  if (inputRef.current) {
+   inputRef.current.focus();
+  }
+ }, [inputRef]);
 
  return (
   <div className="SearchBar SearchBar_Mobile">
@@ -13,7 +19,8 @@ function SearchBar({ onSetSearchTerm, onEnterPress }) {
     type="text"
     onChange={handleSearch}
     onKeyUp={onEnterPress}
-    placeholder="Введите название фильма"
+    placeholder="Search..."
+    ref={inputRef}
    />
   </div>
  );

@@ -1,17 +1,17 @@
 .SearchBar_Input {
- background-color: var(--blue);
+ background-color: var(--dark_transp);
  color: var(--white);
- border: 2px solid var(--blue_border);
+ border: 2px solid var(--grey);
  border-radius: 5px;
- box-shadow: 2px 2px 8px 0px var(--blue_border) inset;
+ outline: none;
 }
 
 .SearchBar_Input_Header {
  width: 100%;
  height: 100%;
- font-size: 1.25rem;
- padding: 0.3rem 1.5rem;
- margin: 0rem 1.5rem;
+ font-size: var(--textNormal);
+ padding: 10px 20px;
+ margin: 0px 20px;
 }
 
 ::placeholder {
@@ -21,7 +21,7 @@
 
 .SearchBar_Mobile {
  width: 95%;
- margin: 1rem auto;
+ margin: 16px auto;
 }
 
 .SearchBar_Mobile_Input {
@@ -29,7 +29,7 @@
 }
 
 @media (max-width: 320px) {
-  .SearchBar_Mobile_Input{
-    font-size: var(--textSmall);
-  }
+ .SearchBar_Mobile_Input {
+  font-size: var(--textSmall);
+ }
 }

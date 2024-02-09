@@ -4,7 +4,7 @@ import "./Header.css";
 
 import Logo from "../../UI/components/Logo/Logo";
 // import SearchBar from "../../UI/components/Search_Bar/SearchBar";
-import ButtonProfile from "../../UI/components/Buttons/Button_Profile/ButtonProfile";
+// import ButtonProfile from "../../UI/components/Buttons/Button_Profile/ButtonProfile";
 import Burger from "../../UI/components/Burger/Burger";
 import FilterMobile from "../../UI/components/Buttons/FilterMobile/FilterMobile";
 import SearchMobile from "../../UI/components/Search_Bar/SearchMobile/SearchMobile";
@@ -44,7 +44,6 @@ function Header({ setPage }) {
        <Burger />
       </div>
      ) : (
-      // <ButtonProfile />
       <div>
        <button className="Sign">Sign In</button>
        <button className="Sign signRed">Sign Up</button>

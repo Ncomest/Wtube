@@ -4,7 +4,7 @@ import SearchBar from "../../SearchBar";
 import SearchMobileBtn from "./SearchMobileBtn/SearchMobileBtn";
 import SearchMobileCard from "./SearchMobileCard/SearchMobileCard";
 
-const SearchMobileMenu = ({setSearchOpen}) => {
+const SearchMobileMenu = ({ setSearchOpen, inputRef }) => {
  const [searchTerm, setSearchTerm] = useState("");
  const [searchResult, setSearchResult] = useState("");
 
@@ -20,19 +20,24 @@ const SearchMobileMenu = ({setSearchOpen}) => {
 
  useEffect(() => {
   if (!searchTerm) {
-    setSearchResult("");
+   setSearchResult("");
   }
  }, [searchTerm, searchResult]);
 
  return (
   <div className="SearchMobileMenu">
-   {searchTerm}
-   {searchResult}
-   <SearchBar onSetSearchTerm={setSearchTerm} onEnterPress={handleKeyPress} />
+   <SearchBar
+    onSetSearchTerm={setSearchTerm}
+    onEnterPress={handleKeyPress}
+    inputRef={inputRef}
+   />
    <SearchMobileBtn onClick={handleSearchBtnClick} />
    <div>
     {searchTerm.length !== 0 && (
-     <SearchMobileCard searchResult={searchResult} setSearchOpen={setSearchOpen}/>
+     <SearchMobileCard
+      searchResult={searchResult}
+      setSearchOpen={setSearchOpen}
+     />
     )}
    </div>
   </div>

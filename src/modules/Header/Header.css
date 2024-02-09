@@ -66,13 +66,13 @@
 
 .signRed {
  margin-left: 10px;
- background-color: rgba(255, 3, 3, 0.696);
+ background-color: var(--red);
  border-radius: 5px;
  font-weight: bold;
 }
 
 .signRed:hover {
- background-color: rgb(255, 0, 0);
+ background-color: var(--light_red);
 }
 
 @media (max-width: 1440px) {
@@ -89,7 +89,7 @@
 
 @media (max-width: 768px) {
  .Header {
-  height: 4rem;
+  height: 64px;
  }
 
  .Header_Logo {
