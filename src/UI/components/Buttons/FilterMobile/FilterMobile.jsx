@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./FilterMobile.css";
 import SideBar from "../../../../Pages/Home/Home_Body/Home_SideBar/SideBar";
 
-import { CiFilter } from "react-icons/ci";
+import { BsFilterSquare } from "react-icons/bs";
 
 function FilterMobile() {
  const [FilterMobileBtn, setFilterMobileBtn] = useState(false);
@@ -13,7 +13,7 @@ function FilterMobile() {
 
  return (
   <div onClick={handleFilterMobileBtn}>
-   <CiFilter className="CiFilter" />
+   <BsFilterSquare className="CiFilter" size={40} />
    {FilterMobileBtn && <FilterMobileMenu />}
   </div>
  );
@@ -21,9 +21,9 @@ function FilterMobile() {
 
 const FilterMobileMenu = () => {
  return (
-  <div className="FilterMobileMenu">
+  <>
    <SideBar />
-  </div>
+  </>
  );
 };
 

@@ -24,6 +24,12 @@ function MoviesBody({ movieDetails }) {
  const handleUp = () => {
   window.scrollTo(0, 0);
   setOpen(false);
+
+  const startScroll = document.querySelectorAll(".sliderItem");
+
+  startScroll.forEach((item) => {
+   item.scrollLeft = 0;
+  });
  };
 
  const bck = "https://image.tmdb.org/t/p/w500";

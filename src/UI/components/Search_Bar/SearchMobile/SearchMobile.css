@@ -1,9 +1,10 @@
 .SearchMobileMenu {
  z-index: 2;
  position: absolute;
- top: 80px;
- left: 0;
+ top: 84px;
+ right: 0;
 
+ max-width: 800px;
  width: 100%;
 
  border-radius: 0.5rem;
