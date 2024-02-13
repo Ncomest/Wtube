@@ -3,7 +3,6 @@ import "./Body.css";
 
 import { Link } from "react-router-dom";
 
-import SideBar from "./Home_SideBar/SideBar";
 import MoviesContainer from "../../../UI/components/Card/MoviesContainer/MoviesContainer";
 import ButtonFilterMenu from "../../../UI/components/Buttons/Filter_Menu/Button_Filter_Menu";
 import { requests } from "../../../helpers/Requests";
@@ -36,15 +35,28 @@ function Body({ setPage, page }) {
 
  //  ${process.env.REACT_APP_API_TOKEN}
 
-//  const rMovie = movies[Math.floor(Math.random() * movies.length)]
+ //  const rMovie = movies[Math.floor(Math.random() * movies.length)]
 
-useEffect(()=>{
-  axios.get(requests.requestPopular + `${page}`).then((response)=>{
-    setMovies(response.data.results)
-  })
-},[page])
-console.log(movies)
+//  useEffect(() => {
+//   axios.get(requests.requestPopular + `${page}`).then((response) => {
+//    setMovies(response.data.results);
+//   });
+//  }, [page]);
+ 
 
+ useEffect(() => {
+  const fetchData = async () => {
+   try {
+    const response = await axios.get(requests.requestPopular + `${page}`);
+    setMovies(response.data.results);
+   } catch (error) {
+    console.error("some error", error);
+   }
+  };
+
+  fetchData();
+ }, [page]);
+ console.log(movies);
 
  const handlePagePlus = () => {
   setPage((e) => e + 1);
@@ -57,11 +69,12 @@ console.log(movies)
   }
  };
 
+ if (movies.length === 0) {
+  return <div className="moviesLoading">Loading...</div>;
+ }
+
  return (
   <div className="Body">
-   <div className="Body_SideBar">
-    {/* <SideBar states={states} /> */}
-   </div>
    <div className="Body_Container">
     <ButtonFilterMenu />
     <div className="Body_Movies">

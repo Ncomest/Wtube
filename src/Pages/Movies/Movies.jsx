@@ -41,7 +41,6 @@ function Movies() {
 
  return (
   <div className="Movies">
-   <Header />
    <MoviesBody movieDetails={movieDetails} />
   </div>
  );

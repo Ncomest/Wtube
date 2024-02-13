@@ -5,6 +5,16 @@
  padding: 1.5rem 1rem;
 }
 
+.moviesLoading {
+ height: 100vh;
+ background-color: var(--dark);
+ color: var(--grey);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: var(--textLarge);
+}
+
 .Body_SideBar {
  flex: 0 0 min(35%, 400px);
 }
