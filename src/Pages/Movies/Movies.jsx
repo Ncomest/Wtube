@@ -36,7 +36,7 @@ function Movies() {
  }, [id]);
 
  if (!movieDetails) {
-  return <p>Loading...</p>;
+  return <div className="waitLoading">Loading...</div>;
  }
 
  return (
