@@ -9,7 +9,7 @@ function SearchMobile() {
  const inputRef = useRef(null);
 
  const handleSearchOpen = (e) => {
-  setSearchOpen((prevSeachOpen) => !prevSeachOpen);
+  setSearchOpen((e) => !searchOpen);
   if (inputRef.current) {
    inputRef.current.focus();
   }

@@ -26,16 +26,13 @@ const SideBar = () => {
 
  return (
   <div className="SideBar">
-   <div className="sidebar_item">
-    <div>
-     <FilterBarContainerGenre />
-     <FilterBarContainerCountry />
-    </div>
-    <div>
-     <FilterBarContainerYear />
-     <FilterBarContainerImdb />
-    </div>
+   <div className="sidebar_items">
+    <FilterBarContainerGenre />
+    <FilterBarContainerCountry />
+    <FilterBarContainerYear />
+    <FilterBarContainerImdb />
    </div>
+
    <SideBarFilter onClick={handeFilterChange} />
   </div>
  );

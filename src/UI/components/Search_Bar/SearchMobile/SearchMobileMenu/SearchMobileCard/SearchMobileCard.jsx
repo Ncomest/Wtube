@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import "./SearchMobileCard.css";
+
 const SearchMobileCard = ({ searchResult, setSearchOpen }) => {
  const [loading, setLoading] = useState(true);
  const [searchMovie, setSearchMovie] = useState(null);
@@ -38,7 +40,7 @@ const SearchMobileCard = ({ searchResult, setSearchOpen }) => {
  };
 
  if (loading) {
-  return <div>Loading...Loading...</div>;
+  return <div className="loading_searchbar">Loading...</div>;
  }
 
  if (searchResult && searchMovie.length === 0) {

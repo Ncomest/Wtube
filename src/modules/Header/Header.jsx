@@ -55,7 +55,7 @@ function Header({ setPage }) {
      ) : (
       <div>
        <button className="Sign">Log In</button>
-       <button className="Sign signRed">Sign Up</button>
+       <button className="Sign btnRed">Sign Up</button>
       </div>
      )}
     </div>

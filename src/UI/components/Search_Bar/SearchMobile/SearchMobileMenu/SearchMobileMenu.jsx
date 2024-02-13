@@ -27,15 +27,9 @@ const SearchMobileMenu = ({ setSearchOpen, inputRef }) => {
  //  close search DropDown menu
  const hanldeClose = (e) => {
   if (!e.target.closest(".SearchMobileMenu") || e.key === "Escape") {
-    setSearchOpen(false);
+   setSearchOpen(false);
   }
  };
-
-//  const hanldeCloseBtn = (e) => {
-//   if (e.key === "Escape") {
-//    setSearchOpen(false);
-//   }
-//  };
 
  useEffect(() => {
   document.addEventListener("mousedown", hanldeClose);

@@ -8,13 +8,16 @@ function SideBarFilter({ onClick }) {
  return (
   <div className="SideBarFilter">
    <div className="SideBarFilter_Container">
-    <button className="SideBarFilterBtn" onClick={handleReload}>
-     Сброс
+    <button
+     className="SideBarFilterBtn"
+     // onClick={handleReload}
+    >
+     Reload
     </button>
    </div>
    <div className="SideBarFilter_Container">
-    <button className="SideBarFilterBtn" onClick={onClick}>
-     Подтвердить
+    <button className="SideBarFilterBtn btnRed" onClick={onClick}>
+     Accept
     </button>
    </div>
   </div>

@@ -1,0 +1,15 @@
+.FilterMenu {
+ height: 100vh;
+ background-color: var(--dark);
+ color: var(--grey);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: var(--textLarge);
+}
+
+@media (max-width: 425px) {
+ .filter {
+  font-size: var(--textSmall);
+ }
+}

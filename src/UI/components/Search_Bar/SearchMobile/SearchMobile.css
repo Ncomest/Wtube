@@ -7,6 +7,10 @@
  max-width: 800px;
  width: 100%;
 
+ padding: 10px 10px;
+ display: flex;
+ flex-direction: column;
+ gap: 10px;
  border-radius: 0.5rem;
  border: 1px solid var(--grey);
  background: var(--dark_transp);
@@ -15,8 +19,6 @@
 .SearchMobileBtn {
  display: flex;
  justify-content: end;
- width: 95%;
- margin: 1rem auto;
 }
 
 .SearchMobileBtnBtn {
@@ -25,7 +27,7 @@
  border-radius: 0.3rem;
  border: 1px solid var(--grey);
  background: var(--red);
- padding: 0.5rem 2.5rem;
+ padding: 10px 30px;
  cursor: pointer;
  transition: background 0.3s ease;
 }
@@ -44,8 +46,7 @@
  border: 1px solid var(--grey);
  background: var(--dark_transp);
 
- width: 95%;
- margin: 16px auto;
+ margin: 10px auto;
 }
 
 .SearchMobileCard_Left {

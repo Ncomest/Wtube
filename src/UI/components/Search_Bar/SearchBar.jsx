@@ -13,9 +13,9 @@ function SearchBar({ onSetSearchTerm, onEnterPress, inputRef }) {
  }, [inputRef]);
 
  return (
-  <div className="SearchBar SearchBar_Mobile">
+  <div className="SearchBar">
    <input
-    className="SearchBar SearchBar_Input SearchBar_Input_Header SearchBar_Mobile_Input"
+    className="SearchBar_Input"
     type="text"
     onChange={handleSearch}
     onKeyUp={onEnterPress}

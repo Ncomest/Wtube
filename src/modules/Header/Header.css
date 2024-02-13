@@ -34,6 +34,7 @@
 }
 
 .Sign {
+ border-radius: 5px;
  cursor: pointer;
  font-size: var(--textNormal);
  position: relative;
@@ -65,14 +66,11 @@
  text-decoration: underline;
 } */
 
-.signRed {
- margin-left: 10px;
+.btnRed {
  background-color: var(--red);
- border-radius: 5px;
- font-weight: bold;
 }
 
-.signRed:hover {
+.btnRed:hover {
  background-color: var(--light_red);
 }
 

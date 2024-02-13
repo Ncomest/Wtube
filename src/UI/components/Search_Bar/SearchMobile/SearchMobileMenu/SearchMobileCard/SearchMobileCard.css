@@ -1,0 +1,8 @@
+.loading_searchbar {
+ height: 100vh;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ font-size: var(--textLarge);
+ color: var(--grey);
+}
