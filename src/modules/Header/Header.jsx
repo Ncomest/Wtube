@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import "./Header.css";
 
@@ -6,6 +7,7 @@ import Logo from "../../UI/components/Logo/Logo";
 import Burger from "../../UI/components/Burger/Burger";
 import FilterMobile from "../../UI/components/Buttons/FilterMobile/FilterMobile";
 import SearchMobile from "../../UI/components/Search_Bar/SearchMobile/SearchMobile";
+import { BsFilterSquare } from "react-icons/bs";
 
 function Header({ setPage }) {
  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -34,7 +36,10 @@ function Header({ setPage }) {
    <div className="Header_Container">
     {windowWidth > breakpoint && (
      <>
-      <SearchMobile /> <FilterMobile />
+      <SearchMobile />
+      <Link to="/filter">
+       <BsFilterSquare className="CiFilter" size={40} />
+      </Link>
      </>
     )}
 
@@ -42,12 +47,14 @@ function Header({ setPage }) {
      {windowWidth <= breakpoint ? (
       <div className="Header_Mobile">
        <SearchMobile />
-       <FilterMobile />
+       <Link to="/filter">
+        <BsFilterSquare className="CiFilter" size={40} />
+       </Link>
        <Burger />
       </div>
      ) : (
       <div>
-       <button className="Sign">Sign In</button>
+       <button className="Sign">Log In</button>
        <button className="Sign signRed">Sign Up</button>
       </div>
      )}

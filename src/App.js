@@ -1,34 +1,27 @@
-import { Route, Routes} from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 
 import Home from "./Pages/Home/Home";
 import Movies from "./Pages/Movies/Movies";
-import User from "./Pages/User/User";
 import Error from "./Pages/Error/Error";
-
+import Filter from "./Pages/Filter/Filter";
+import Header from "./modules/Header/Header";
 
 function App() {
- 
+ const [page, setPage] = useState(
+  parseInt(localStorage.getItem("current"), 10) || 1
+ );
+ useEffect(() => {
+  localStorage.setItem("current", page);
+ }, [page]);
 
  return (
   <>
-   {/* <nav>
-    если будешь включать, добавь Link вверху, типа useState
-    <ul>
-     <li>
-      <Link to="/">Home</Link>
-     </li>
-     <li>
-      <Link to="/movies">Movies</Link>
-     </li>
-     <li>
-      <Link to="/user">User</Link>
-     </li>
-    </ul>
-   </nav> */}
+   <Header setPage={setPage} />
    <Routes>
     <Route path="/" element={<Home />} />
     <Route path="/Movies/:id" element={<Movies />} />
-    <Route path="/User" element={<User />} />
+    <Route path="/Filter" element={<Filter />} />
     <Route path="*" element={<Error />} />
    </Routes>
   </>

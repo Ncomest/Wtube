@@ -60,7 +60,7 @@ console.log(movies)
  return (
   <div className="Body">
    <div className="Body_SideBar">
-    <SideBar states={states} />
+    {/* <SideBar states={states} /> */}
    </div>
    <div className="Body_Container">
     <ButtonFilterMenu />

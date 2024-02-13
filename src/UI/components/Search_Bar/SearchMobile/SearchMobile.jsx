@@ -9,19 +9,24 @@ function SearchMobile() {
  const inputRef = useRef(null);
 
  const handleSearchOpen = (e) => {
-  setSearchOpen((e) => !searchOpen);
+  setSearchOpen((prevSeachOpen) => !prevSeachOpen);
   if (inputRef.current) {
    inputRef.current.focus();
   }
  };
 
  return (
-  <>
-   <BsSearch size="40px" strokeWidth="0.1" onClick={handleSearchOpen} />
+  <div>
+   <BsSearch
+    size="40px"
+    strokeWidth="0.1"
+    onClick={handleSearchOpen}
+    className="BsSearch"
+   />
    {searchOpen && (
     <SearchMobileMenu setSearchOpen={setSearchOpen} inputRef={inputRef} />
    )}
-  </>
+  </div>
  );
 }
 

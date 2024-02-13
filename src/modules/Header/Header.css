@@ -76,6 +76,11 @@
  background-color: var(--light_red);
 }
 
+.BsSearch {
+ cursor: pointer;
+ fill: white;
+}
+
 @media (max-width: 1440px) {
 }
 

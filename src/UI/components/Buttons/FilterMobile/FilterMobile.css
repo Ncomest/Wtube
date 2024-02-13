@@ -1,14 +1,4 @@
-
-/* .CiFilter{
-  width: 50px;
-  height: 50px;
-} */
-
-/* .FilterMobileMenu {
- transition: opacity 0.8s ease;
- position: absolute;
- top: 4.4rem;
- left: 0;
- width: 100%;
- z-index: 2;
-} */
+.CiFilter {
+ cursor: pointer;
+ fill: white;
+}

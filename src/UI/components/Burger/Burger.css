@@ -10,23 +10,22 @@
  height: 2rem;
 }
 
-.BurgerDropDown {
+.BurgerDropDown.open {
  z-index: 2;
  position: absolute;
  top: 100%;
  right: 0.5%;
- width: 14rem;
- height: 11.5rem;
-
+ padding: 10px 20px;
+ background-color: aqua;
  transition: 0.3s;
+ display: block;
 }
 
-.BurgerDropDown.open {
+.BurgerDropDown {
  display: none;
 }
 
 .BurgerIcon {
- width: 50px;
- height: 50px;
+ color: white;
+ /* fill: var(--white); */
 }
-

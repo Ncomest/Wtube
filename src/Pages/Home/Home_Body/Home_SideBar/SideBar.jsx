@@ -3,39 +3,39 @@ import "./SideBar.css";
 
 import SideBarFilter from "../../../../UI/components/Buttons/SideBarFilter/SideBarFilter";
 
-const SideBar = ({ states }) => {
- const {
-  genre,
-  setGenre,
-  yearStart,
-  setYearStart,
-  country,
-  setCountry,
-  yearFinish,
-  setYearFinish,
-  imdbStart,
-  setImdbStart,
-  imdbFinish,
-  setImdbFinish,
- } = states;
+const SideBar = () => {
+ //  const {
+ //   genre,
+ //   setGenre,
+ //   yearStart,
+ //   setYearStart,
+ //   country,
+ //   setCountry,
+ //   yearFinish,
+ //   setYearFinish,
+ //   imdbStart,
+ //   setImdbStart,
+ //   imdbFinish,
+ //   setImdbFinish,
+ //  } = states;
 
  const handeFilterChange = () => {
-  const APIFound = `${genre}+${country}${yearStart}+${yearFinish}+${imdbStart}+${imdbFinish}`;
-  console.log(APIFound);
+  // const APIFound = `${genre}+${country}${yearStart}+${yearFinish}+${imdbStart}+${imdbFinish}`;
+  // console.log(APIFound);
  };
 
  return (
   <div className="SideBar">
-   <FilterBarContainerGenre setGenre={setGenre} />
-   <FilterBarContainerCountry setCountry={setCountry} />
-   <FilterBarContainerYear
-    setYearStart={setYearStart}
-    setYearFinish={setYearFinish}
-   />
-   <FilterBarContainerImdb
-    setImdbStart={setImdbStart}
-    setImdbFinish={setImdbFinish}
-   />
+   <div className="sidebar_item">
+    <div>
+     <FilterBarContainerGenre />
+     <FilterBarContainerCountry />
+    </div>
+    <div>
+     <FilterBarContainerYear />
+     <FilterBarContainerImdb />
+    </div>
+   </div>
    <SideBarFilter onClick={handeFilterChange} />
   </div>
  );
@@ -109,7 +109,7 @@ const FilterBarContainerYear = ({ setYearStart, setYearFinish }) => {
  const currentYear = new Date().getFullYear();
  return (
   <div className="FilterBarContainer_Container">
-   <p className="FilterBarContainer_Text">Год</p>
+   <p className="FilterBarContainer_Text">Year</p>
    <div className="FilterBarContainer_Items">
     <select
      name="YearStart"
@@ -158,7 +158,7 @@ const FilterBarContainerImdb = ({ setImdbStart, setImdbFinish }) => {
 
  return (
   <div className="FilterBarContainer_Container">
-   <p className="FilterBarContainer_Text">Рейтинг Imdb</p>
+   <p className="FilterBarContainer_Text">Raiting Imdb</p>
    <div className="FilterBarContainer_Items">
     <select
      name="ImdbStart"

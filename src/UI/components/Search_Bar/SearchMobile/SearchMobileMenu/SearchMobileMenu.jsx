@@ -24,6 +24,28 @@ const SearchMobileMenu = ({ setSearchOpen, inputRef }) => {
   }
  }, [searchTerm, searchResult]);
 
+ //  close search DropDown menu
+ const hanldeClose = (e) => {
+  if (!e.target.closest(".SearchMobileMenu") || e.key === "Escape") {
+    setSearchOpen(false);
+  }
+ };
+
+//  const hanldeCloseBtn = (e) => {
+//   if (e.key === "Escape") {
+//    setSearchOpen(false);
+//   }
+//  };
+
+ useEffect(() => {
+  document.addEventListener("mousedown", hanldeClose);
+  document.addEventListener("keydown", hanldeClose);
+  return () => {
+   document.removeEventListener("mousedown", hanldeClose);
+   document.removeEventListener("keydown", hanldeClose);
+  };
+ }, [setSearchOpen]);
+
  return (
   <div className="SearchMobileMenu">
    <SearchBar

@@ -1,8 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import "./Burger.css";
-import DropDown from "../Background_DropDown/Drop_Down_Menu/DropDown";
-import ToogleDarkLight from "../ToogleDarkLight/ToogleDarkLight";
+// import ToogleDarkLight from "../ToogleDarkLight/ToogleDarkLight";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoCloseOutline } from "react-icons/io5";
 
@@ -16,14 +15,12 @@ const Burger = () => {
  return (
   <div>
    {isOpen ? (
-    <IoCloseOutline className="BurgerIcon" onClick={toggleBurger} />
+    <IoCloseOutline size={50} className="BurgerIcon" onClick={toggleBurger} />
    ) : (
-    <RxHamburgerMenu className="BurgerIcon" onClick={toggleBurger} />
+    <RxHamburgerMenu size={50} className="BurgerIcon" onClick={toggleBurger} />
    )}
-   <div className={`BurgerDropDown ${isOpen ? "" : "open"}`}>
-    <DropDown>
-     <BurgerText />
-    </DropDown>
+   <div className={`BurgerDropDown ${isOpen ? "open" : ""}`}>
+    <BurgerText />
    </div>
   </div>
  );
@@ -31,12 +28,12 @@ const Burger = () => {
 
 const BurgerText = () => {
  return (
-  <div>
-   <p>Войти</p>
+  <div className="BurgerText">
+   <p>Log In</p>
    <br />
-   <p>Сменить тему</p>
-   <br />
-   <ToogleDarkLight />
+   <p>Sign Up</p>
+   {/* <br /> */}
+   {/* <ToogleDarkLight /> */}
   </div>
  );
 };
