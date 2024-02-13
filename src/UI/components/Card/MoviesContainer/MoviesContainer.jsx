@@ -3,21 +3,14 @@ import "./MoviesContainer.css";
 
 const imger = "https://image.tmdb.org/t/p/w500";
 
-function MoviesContainer({ poster_path, title }) {
+function MoviesContainer({ poster_path, title, release_date }) {
  return (
-  <div className="Card">
-   <div className="Card-Block">
-    <img
-     className="Card_Container_img"
-     src={imger + poster_path}
-     alt={title}
-     loading="lazy"
-    />
+  <div className="MoviesContainer">
+   <div>
+    <img src={imger + poster_path} alt={title} loading="lazy" />
    </div>
-   <h2 className="Card-title">
-    {title}
-    {/* {title.length <= 17 ? title : `${title.slice(0, 17)} ...`} */}
-   </h2>
+   <p>{release_date.slice(0, 4)}</p>
+   <h3>{title}</h3>
   </div>
  );
 }

@@ -11,52 +11,56 @@ import axios from "axios";
 function Body({ setPage, page }) {
  const [movies, setMovies] = useState([]);
 
-//  const [genre, setGenre] = useState("");
-//  const [country, setCountry] = useState("");
-//  const [yearStart, setYearStart] = useState("2022");
-//  const [yearFinish, setYearFinish] = useState("2024");
-//  const [imdbStart, setImdbStart] = useState("5");
-//  const [imdbFinish, setImdbFinish] = useState("10");
+ //  const [genre, setGenre] = useState("");
+ //  const [country, setCountry] = useState("");
+ //  const [yearStart, setYearStart] = useState("2022");
+ //  const [yearFinish, setYearFinish] = useState("2024");
+ //  const [imdbStart, setImdbStart] = useState("5");
+ //  const [imdbFinish, setImdbFinish] = useState("10");
 
-//  const states = {
-//   genre,
-//   setGenre,
-//   yearStart,
-//   setYearStart,
-//   country,
-//   setCountry,
-//   yearFinish,
-//   setYearFinish,
-//   imdbStart,
-//   setImdbStart,
-//   imdbFinish,
-//   setImdbFinish,
-//  };
+ //  const states = {
+ //   genre,
+ //   setGenre,
+ //   yearStart,
+ //   setYearStart,
+ //   country,
+ //   setCountry,
+ //   yearFinish,
+ //   setYearFinish,
+ //   imdbStart,
+ //   setImdbStart,
+ //   imdbFinish,
+ //   setImdbFinish,
+ //  };
 
  //  ${process.env.REACT_APP_API_TOKEN}
 
  //  const rMovie = movies[Math.floor(Math.random() * movies.length)]
+ const options = {
+  method: "GET",
+  headers: {
+   accept: "application/json",
+   Authorization:
+    "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxNGQ4ZDg5MThlODg4ZmI3OTFmODcwNTdhYzE2NzRjMCIsInN1YiI6IjY1NTdiMjMyZWE4NGM3MTA5MjI4ZDJmZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.f__dKykaUx73Pd6yuByZPnhdUetP7LYDjNnGWSicmFU",
+  },
+ };
 
-//  useEffect(() => {
-//   axios.get(requests.requestPopular + `${page}`).then((response) => {
-//    setMovies(response.data.results);
-//   });
-//  }, [page]);
- 
+ const fetchData = async () => {
+  try {
+   const response = await axios.get(
+    requests.requestPopular + `${page}`,
+    options
+   );
+   setMovies(response.data.results);
+   console.log(response.data);
+  } catch (error) {
+   console.error(error);
+  }
+ };
 
  useEffect(() => {
-  const fetchData = async () => {
-   try {
-    const response = await axios.get(requests.requestPopular + `${page}`);
-    setMovies(response.data.results);
-   } catch (error) {
-    console.error("some error", error);
-   }
-  };
-
   fetchData();
  }, [page]);
- console.log(movies);
 
  const handlePagePlus = () => {
   setPage((e) => e + 1);
@@ -69,9 +73,9 @@ function Body({ setPage, page }) {
   }
  };
 
- if (movies.length === 0) {
-  return <div className="moviesLoading">Loading...</div>;
- }
+ //  if (movies.length === 0) {
+ //   return <div className="moviesLoading">Loading...</div>;
+ //  }
 
  return (
   <div className="Body">

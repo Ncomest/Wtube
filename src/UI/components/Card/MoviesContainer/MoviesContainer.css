@@ -1,0 +1,48 @@
+.MoviesContainer {
+ margin-bottom: 10px;
+}
+
+.MoviesContainer > div {
+ height: 400px;
+}
+
+.MoviesContainer img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+}
+
+.MoviesContainer p {
+ color: var(--grey);
+}
+
+.MoviesContainer h3 {
+ font-size: 18px;
+}
+
+@media (max-width: 1024px) {
+ .MoviesContainer > div {
+  height: 300px;
+ }
+ .MoviesContainer h3 {
+  font-size: var(--textNormal);
+ }
+}
+
+@media (max-width: 768px) {
+ .MoviesContainer > div {
+  height: 250px;
+ }
+ .MoviesContainer p {
+  font-size: var(--textSmall);
+ }
+}
+
+@media (max-width: 425px) {
+ .MoviesContainer p {
+  font-size: 12px;
+ }
+ .MoviesContainer h3 {
+  font-size: var(--textSmall);
+ }
+}

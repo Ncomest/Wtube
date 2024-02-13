@@ -5,7 +5,7 @@ import "./Header.css";
 
 import Logo from "../../UI/components/Logo/Logo";
 import Burger from "../../UI/components/Burger/Burger";
-import FilterMobile from "../../UI/components/Buttons/FilterMobile/FilterMobile";
+// import FilterMobile from "../../UI/components/Buttons/FilterMobile/FilterMobile";
 import SearchMobile from "../../UI/components/Search_Bar/SearchMobile/SearchMobile";
 import { BsFilterSquare } from "react-icons/bs";
 
@@ -30,7 +30,7 @@ function Header({ setPage }) {
 
  return (
   <div className="Header">
-   <div className="Header_Logo" setPage={(e) => e(1)}>
+   <div className="Header_Logo" onClick={() => (setPage(1))}>
     <Logo />
    </div>
    <div className="Header_Container">
@@ -38,7 +38,7 @@ function Header({ setPage }) {
      <>
       <SearchMobile />
       <Link to="/filter">
-       <BsFilterSquare className="CiFilter" size={40} />
+       <BsFilterSquare className="BsFilterSquare" fill="white" size={40} />
       </Link>
      </>
     )}

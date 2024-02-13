@@ -5,9 +5,9 @@ function ButtonFilterMenu() {
  return (
   <>
    <select className="FilterList_Select" name="FilterList" id="FilterList">
-    <option value="0">по рейтингу</option>
-    <option value="1">по названию</option>
-    <option value="2">по популярности</option>
+    <option value="1">popular</option>
+    <option value="2">raiting</option>
+    <option value="3">upcoming</option>
    </select>
   </>
  );

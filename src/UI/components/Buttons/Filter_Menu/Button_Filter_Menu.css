@@ -1,20 +1,16 @@
 .FilterList_Select {
- background-color: var(--blue);
- width: 14rem;
- height: 2.5rem;
+ background-color: var(--dark);
  font-size: var(--textNormal);
  color: var(--white);
- border-radius: 0.5rem;
 
- padding-left: 1rem;
- margin-bottom: 1rem;
-
+ border-radius: 5px;
+ width: 200px;
+ padding: 5px 10px;
+ margin-bottom: 10px;
 }
 
-
-
 @media (max-width: 426px) {
-  .FilterList{
-    display: none;
-  }
+ .FilterList {
+  display: none;
+ }
 }

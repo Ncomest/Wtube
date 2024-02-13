@@ -19,7 +19,7 @@ function App() {
   <>
    <Header setPage={setPage} />
    <Routes>
-    <Route path="/" element={<Home />} />
+    <Route path="/" element={<Home page={page} setPage={setPage} />} />
     <Route path="/Movies/:id" element={<Movies />} />
     <Route path="/Filter" element={<Filter />} />
     <Route path="*" element={<Error />} />
