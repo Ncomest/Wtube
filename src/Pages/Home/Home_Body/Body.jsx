@@ -11,27 +11,27 @@ import axios from "axios";
 function Body({ setPage, page }) {
  const [movies, setMovies] = useState([]);
 
- const [genre, setGenre] = useState("");
- const [country, setCountry] = useState("");
- const [yearStart, setYearStart] = useState("2022");
- const [yearFinish, setYearFinish] = useState("2024");
- const [imdbStart, setImdbStart] = useState("5");
- const [imdbFinish, setImdbFinish] = useState("10");
+//  const [genre, setGenre] = useState("");
+//  const [country, setCountry] = useState("");
+//  const [yearStart, setYearStart] = useState("2022");
+//  const [yearFinish, setYearFinish] = useState("2024");
+//  const [imdbStart, setImdbStart] = useState("5");
+//  const [imdbFinish, setImdbFinish] = useState("10");
 
- const states = {
-  genre,
-  setGenre,
-  yearStart,
-  setYearStart,
-  country,
-  setCountry,
-  yearFinish,
-  setYearFinish,
-  imdbStart,
-  setImdbStart,
-  imdbFinish,
-  setImdbFinish,
- };
+//  const states = {
+//   genre,
+//   setGenre,
+//   yearStart,
+//   setYearStart,
+//   country,
+//   setCountry,
+//   yearFinish,
+//   setYearFinish,
+//   imdbStart,
+//   setImdbStart,
+//   imdbFinish,
+//   setImdbFinish,
+//  };
 
  //  ${process.env.REACT_APP_API_TOKEN}
 
