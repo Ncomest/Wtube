@@ -10,7 +10,7 @@ function SideBarFilter({ onClick }) {
    <div className="SideBarFilter_Container">
     <button
      className="SideBarFilterBtn"
-     // onClick={handleReload}
+     onClick={handleReload}
     >
      Reload
     </button>
