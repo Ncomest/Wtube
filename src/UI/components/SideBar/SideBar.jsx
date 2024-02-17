@@ -1,7 +1,7 @@
 import React from "react";
 import "./SideBar.css";
 
-import SideBarFilter from "../../../../UI/components/Buttons/SideBarFilter/SideBarFilter";
+import SideBarFilter from "../Buttons/SideBarFilter/SideBarFilter";
 
 const SideBar = () => {
  //  const {

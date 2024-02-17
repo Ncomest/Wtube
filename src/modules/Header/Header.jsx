@@ -5,7 +5,6 @@ import "./Header.css";
 
 import Logo from "../../UI/components/Logo/Logo";
 import Burger from "../../UI/components/Burger/Burger";
-// import FilterMobile from "../../UI/components/Buttons/FilterMobile/FilterMobile";
 import SearchMobile from "../../UI/components/Search_Bar/SearchMobile/SearchMobile";
 import { BsFilterSquare } from "react-icons/bs";
 

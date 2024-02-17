@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./FilterMobile.css";
-import SideBar from "../../../../Pages/Home/Home_Body/Home_SideBar/SideBar";
+import SideBar from "../../SideBar/SideBar";
 
 // import { BsFilterSquare } from "react-icons/bs";
 
