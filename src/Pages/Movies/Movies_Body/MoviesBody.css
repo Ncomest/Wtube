@@ -127,7 +127,7 @@
 }
 .sliderItem::-webkit-scrollbar-thumb,
 .trailerMovie::-webkit-scrollbar-thumb {
- background-color: var(--white);
+ background-color: var(--red);
  border-radius: 6px;
 }
 

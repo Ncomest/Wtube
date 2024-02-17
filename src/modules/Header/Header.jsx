@@ -29,7 +29,7 @@ function Header({ setPage }) {
 
  return (
   <div className="Header">
-   <div className="Header_Logo" onClick={() => (setPage(1))}>
+   <div className="Header_Logo" onClick={() => setPage(1)}>
     <Logo />
    </div>
    <div className="Header_Container">
@@ -47,7 +47,7 @@ function Header({ setPage }) {
       <div className="Header_Mobile">
        <SearchMobile />
        <Link to="/filter">
-        <BsFilterSquare className="CiFilter" size={40} />
+        <BsFilterSquare className="CiFilter" fill="white" size={40} />
        </Link>
        <Burger />
       </div>

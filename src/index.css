@@ -26,22 +26,6 @@
  padding: 0;
 }
 
-.df {
- display: flex;
-}
-.aic {
- align-items: center;
-}
-.jcc {
- justify-content: center;
-}
-.jcsb {
- justify-content: space-between;
-}
-
-.f11 {
- flex: 1 1 auto;
-}
 
 .Router-link {
  text-decoration: none;

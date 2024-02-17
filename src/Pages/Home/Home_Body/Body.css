@@ -1,9 +1,11 @@
 .Body {
  position: relative;
  display: flex;
- /* grid-template-columns: 25% auto; */
+ flex-direction: column;
  padding: 1.5rem 1rem;
 }
+
+
 
 .moviesLoading {
  height: 100vh;

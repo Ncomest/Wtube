@@ -7,9 +7,11 @@ import MoviesContainer from "../../../UI/components/Card/MoviesContainer/MoviesC
 import ButtonFilterMenu from "../../../UI/components/Buttons/Filter_Menu/Button_Filter_Menu";
 import { requests } from "../../../helpers/Requests";
 import axios from "axios";
+import SliderMain from "../../../helpers/Slider/Main/SliderMain";
 
 function Body({ setPage, page }) {
  const [movies, setMovies] = useState([]);
+ const [upcomingMovies, setUpcomingMovies] = useState([]);
 
  //  const [genre, setGenre] = useState("");
  //  const [country, setCountry] = useState("");
@@ -47,12 +49,15 @@ function Body({ setPage, page }) {
 
  const fetchData = async () => {
   try {
-   const response = await axios.get(
-    requests.requestPopular + `${page}`,
-    options
-   );
-   setMovies(response.data.results);
-   console.log(response.data);
+   const [popularResponse, upcomingResponse] = await Promise.all([
+    axios.get(requests.requestPopular + `${page}`, options),
+    axios.get(requests.requestUpcoming, options),
+   ]);
+
+   setMovies(popularResponse.data.results);
+   setUpcomingMovies(upcomingResponse.data.results);
+   console.log("Popular", popularResponse.data);
+   console.log("Upcoming", upcomingResponse.data);
   } catch (error) {
    console.error(error);
   }
@@ -73,12 +78,11 @@ function Body({ setPage, page }) {
   }
  };
 
- //  if (movies.length === 0) {
- //   return <div className="moviesLoading">Loading...</div>;
- //  }
+ 
 
  return (
   <div className="Body">
+   <SliderMain upcomingMovies={upcomingMovies}/>
    <div className="Body_Container">
     <ButtonFilterMenu />
     <div className="Body_Movies">

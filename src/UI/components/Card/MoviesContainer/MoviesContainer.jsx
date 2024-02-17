@@ -1,13 +1,13 @@
 import React from "react";
 import "./MoviesContainer.css";
 
-const imger = "https://image.tmdb.org/t/p/w500";
+const poster = "https://image.tmdb.org/t/p/w500";
 
 function MoviesContainer({ poster_path, title, release_date }) {
  return (
   <div className="MoviesContainer">
    <div>
-    <img src={imger + poster_path} alt={title} loading="lazy" />
+    <img src={poster + poster_path} alt={title} loading="lazy" />
    </div>
    <p>{release_date.slice(0, 4)}</p>
    <h3>{title}</h3>
