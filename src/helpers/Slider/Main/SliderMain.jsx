@@ -7,37 +7,38 @@ import "slick-carousel/slick/slick-theme.css";
 
 import { Link } from "react-router-dom";
 
+import { MdArrowBackIos } from "react-icons/md";
+import { MdArrowForwardIos } from "react-icons/md";
+
 function SampleNextArrow(props) {
- const { className, style, onClick } = props;
  return (
   <div
-   className={className}
+   className="custom-arrow"
    style={{
-    ...style,
-    display: "block",
-    position: "absolute",
+    ...props.style,
+    display: "flex",
     right: "10px",
-    zIndex: "2",
    }}
-   onClick={onClick}
-  />
+   onClick={props.onClick}
+  >
+   <MdArrowForwardIos />
+  </div>
  );
 }
 
 function SamplePrevArrow(props) {
- const { className, style, onClick } = props;
  return (
   <div
-   className={className}
+   className="custom-arrow"
    style={{
-    ...style,
-    display: "block",
-    position: "absolute",
+    ...props.style,
+    display: "flex",
     left: "10px",
-    zIndex: "2",
    }}
-   onClick={onClick}
-  />
+   onClick={props.onClick}
+  >
+   <MdArrowBackIos />
+  </div>
  );
 }
 
@@ -50,7 +51,7 @@ function SliderMain({ upcomingMovies }) {
   className: "center",
   centerMode: true,
   infinite: true,
-  slidesToShow: 1,
+  slidesToShow: 3,
   speed: 500,
   autoplay: true,
   autoplaySpeed: 8000,
