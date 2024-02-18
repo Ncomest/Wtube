@@ -40,7 +40,7 @@
 .SearchMobileCard {
  display: grid;
  grid-template-columns: 30% auto;
- padding: 16px 5px;
+ padding: 5px;
  font-size: var(--textNormal);
 
  border-radius: 5px;
@@ -50,23 +50,23 @@
 }
 
 .SearchMobileCard_Left {
- margin-top: 0.5rem;
+ display: flex;
 }
 
 .SearchMobileCard_ImgContainer {
- padding: 0rem 1rem;
+ padding: 0px 5px;
 }
 
 .SearchMobileCard_Img {
  width: 100%;
  height: 100%;
  object-fit: cover;
- border-radius: 0.5rem;
+ border-radius: 5px;
 }
 
 .SearchMobileCard_Text {
  display: flex;
- gap: 0.5rem;
+ gap: 5px;
  color: var(--grey);
 }
 
@@ -82,7 +82,7 @@
 .SearchMobileCard_List {
  display: flex;
  flex-wrap: wrap;
- gap: 0.5rem;
+ gap: 5px;
 }
 
 .overv {

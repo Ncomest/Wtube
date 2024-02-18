@@ -15,6 +15,11 @@
  opacity: 0.7;
 }
 
+@media (max-width: 425px) {
+ .SearchBar_Input {
+  padding: 10px 10px;
+ }
+}
 @media (max-width: 320px) {
  .SearchBar_Input {
   font-size: var(--textSmall);
