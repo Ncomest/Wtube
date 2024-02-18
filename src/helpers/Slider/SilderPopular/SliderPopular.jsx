@@ -13,6 +13,16 @@ import { MdArrowForwardIos } from "react-icons/md";
 function SliderPopular({ movies }) {
  const poster = "https://image.tmdb.org/t/p/w500";
 
+ const handleUp = () => {
+  window.scrollTo(0, 0);
+
+  const startScroll = document.querySelectorAll(".slider-popular");
+
+  startScroll.forEach((item) => {
+   item.scrollLeft = 0;
+  });
+ };
+
  function SampleNextArrow(props) {
   return (
    <div
@@ -86,7 +96,7 @@ function SliderPopular({ movies }) {
    <Slider {...settings}>
     {movies.map((movie) => (
      <Link className="Router-link" key={movie.id} to={`/movies/${movie.id}`}>
-      <div key={movie.id} className="slider-popular_card">
+      <div key={movie.id} className="slider-popular_card" onClick={handleUp}>
        <div>
         <img
          className="slider-popular_img"

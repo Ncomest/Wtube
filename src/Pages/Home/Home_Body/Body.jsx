@@ -85,6 +85,9 @@ function Body() {
  //   }
  //  };
 
+
+ 
+
  return (
   <div className="Body">
    <SliderMain upcomingMovies={upcomingMovies} />
