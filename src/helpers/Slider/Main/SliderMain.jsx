@@ -21,7 +21,7 @@ function SampleNextArrow(props) {
    }}
    onClick={props.onClick}
   >
-   <MdArrowForwardIos />
+   <MdArrowForwardIos size={30} />
   </div>
  );
 }
@@ -37,7 +37,7 @@ function SamplePrevArrow(props) {
    }}
    onClick={props.onClick}
   >
-   <MdArrowBackIos />
+   <MdArrowBackIos size={30} />
   </div>
  );
 }

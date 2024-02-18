@@ -1,0 +1,35 @@
+.slider-popular_card {
+ padding: 0px 5px;
+ margin: 20px 0px 15px 0px;
+}
+
+.slider-popular_img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ border-radius: 3px;
+}
+
+.slider-popular_card h3 {
+ white-space: nowrap;
+ text-overflow: ellipsis;
+ overflow: hidden;
+}
+
+@media (max-width: 768px) {
+ .slider-popular_card h3 {
+  font-size: var(--textNormal);
+ }
+ .slider-popular_card p {
+  font-size: var(--textSmall);
+ }
+}
+
+@media (max-width: 425px) {
+ .slider-popular_card h3 {
+  font-size: var(--textSmall);
+ }
+ .slider-popular_card p {
+  font-size: 12px;
+ }
+}

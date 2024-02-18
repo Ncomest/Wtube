@@ -1,5 +1,5 @@
 .body_slider {
- padding: 20px 0px;
+ padding: 10px 0px;
 }
 .slider_container {
  height: 400px;
@@ -41,6 +41,7 @@
  }
  .slider_card {
   height: 300px;
+  margin: 0;
  }
 }
 
@@ -50,5 +51,10 @@
  }
  .slider_card {
   height: 200px;
+ }
+ .custom-arrow {
+  border: none;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.334);
  }
 }

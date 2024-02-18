@@ -5,8 +5,6 @@
  padding: 1.5rem 1rem;
 }
 
-
-
 .moviesLoading {
  height: 100vh;
  background-color: var(--dark);
@@ -54,6 +52,18 @@
 
 .Body_btn-more:hover {
  background-color: var(--light_dark);
+}
+
+.Body_Container h4::after {
+ content: "";
+ display: block;
+ width: 100%;
+ height: 3px;
+ background: linear-gradient(to right, white, black);
+}
+.Body_Container h4 {
+ margin: 30px 0px 0px 0px;
+ font-size: var(--textLarge);
 }
 
 @media (max-width: 1440px) {

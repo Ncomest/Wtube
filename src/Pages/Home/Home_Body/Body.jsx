@@ -8,10 +8,12 @@ import ButtonFilterMenu from "../../../UI/components/Buttons/Filter_Menu/Button_
 import { requests } from "../../../helpers/Requests";
 import axios from "axios";
 import SliderMain from "../../../helpers/Slider/Main/SliderMain";
+import SliderPopular from "../../../helpers/Slider/SilderPopular/SliderPopular";
 
 function Body({ setPage, page }) {
  const [movies, setMovies] = useState([]);
  const [upcomingMovies, setUpcomingMovies] = useState([]);
+ const [topRatedMovies, setTopRatedMovies] = useState([]);
 
  //  const [genre, setGenre] = useState("");
  //  const [country, setCountry] = useState("");
@@ -49,15 +51,19 @@ function Body({ setPage, page }) {
 
  const fetchData = async () => {
   try {
-   const [popularResponse, upcomingResponse] = await Promise.all([
-    axios.get(requests.requestPopular + `${page}`, options),
-    axios.get(requests.requestUpcoming, options),
-   ]);
+   const [popularResponse, upcomingResponse, topRatedMovies] =
+    await Promise.all([
+     axios.get(requests.requestPopular + options),
+     axios.get(requests.requestUpcoming, options),
+     axios.get(requests.requestTopRated, options),
+    ]);
 
    setMovies(popularResponse.data.results);
    setUpcomingMovies(upcomingResponse.data.results);
+   setTopRatedMovies(topRatedMovies.data.results);
    console.log("Popular", popularResponse.data);
    console.log("Upcoming", upcomingResponse.data);
+   console.log("Top Rated", topRatedMovies.data);
   } catch (error) {
    console.error(error);
   }
@@ -65,34 +71,38 @@ function Body({ setPage, page }) {
 
  useEffect(() => {
   fetchData();
- }, [page]);
+ }, []);
 
- const handlePagePlus = () => {
-  setPage((e) => e + 1);
-  window.scrollTo({ top: 0, behavior: "smooth" });
- };
- const handlePageMinus = () => {
-  if (page > 1) {
-   setPage((e) => e - 1);
-   window.scrollTo({ top: 0, behavior: "smooth" });
-  }
- };
-
- 
+//  const handlePagePlus = () => {
+//   setPage((e) => e + 1);
+//   window.scrollTo({ top: 0, behavior: "smooth" });
+//  };
+//  const handlePageMinus = () => {
+//   if (page > 1) {
+//    setPage((e) => e - 1);
+//    window.scrollTo({ top: 0, behavior: "smooth" });
+//   }
+//  };
 
  return (
   <div className="Body">
-   <SliderMain upcomingMovies={upcomingMovies}/>
+   <SliderMain upcomingMovies={upcomingMovies} />
    <div className="Body_Container">
-    <ButtonFilterMenu />
-    <div className="Body_Movies">
-     {movies.map((movie) => (
+    {/* <ButtonFilterMenu /> */}
+    <h4>Popular</h4>
+    {/* <div */}
+    {/* // className="Body_Movies" */}
+    {/* > */}
+    <SliderPopular movies={movies} />
+    <h4>Top Rated</h4>
+    <SliderPopular movies={topRatedMovies} />
+    {/* {movies.map((movie) => (
       <Link className="Router-link" key={movie.id} to={`/movies/${movie.id}`}>
        <MoviesContainer key={movie.id} {...movie} />
       </Link>
-     ))}
-    </div>
-    <div className="Body_btn">
+     ))} */}
+    {/* </div> */}
+    {/* <div className="Body_btn">
      {page > 1 ? (
       <button className="Body_btn-more" onClick={handlePageMinus}>
        Previous page
@@ -104,7 +114,7 @@ function Body({ setPage, page }) {
      <button className="Body_btn-more" onClick={handlePagePlus}>
       Next page
      </button>
-    </div>
+    </div> */}
    </div>
   </div>
  );
