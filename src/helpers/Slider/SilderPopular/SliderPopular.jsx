@@ -1,6 +1,8 @@
 import React from "react";
 import "./SliderPopular.css";
 
+import { Link } from "react-router-dom";
+
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -83,18 +85,20 @@ function SliderPopular({ movies }) {
   <div className="slider-popular">
    <Slider {...settings}>
     {movies.map((movie) => (
-     <div key={movie.id} className="slider-popular_card">
-      <div>
-       <img
-        className="slider-popular_img"
-        src={poster + movie.poster_path}
-        alt={movie.title}
-        loading="lazy"
-       />
-       <p>{movie.release_date.slice(0, 4)}•</p>
-       <h3>{movie.title}</h3>
+     <Link className="Router-link" key={movie.id} to={`/movies/${movie.id}`}>
+      <div key={movie.id} className="slider-popular_card">
+       <div>
+        <img
+         className="slider-popular_img"
+         src={poster + movie.poster_path}
+         alt={movie.title}
+         loading="lazy"
+        />
+        <p>{movie.release_date.slice(0, 4)}•</p>
+        <h3>{movie.title}</h3>
+       </div>
       </div>
-     </div>
+     </Link>
     ))}
    </Slider>
   </div>
