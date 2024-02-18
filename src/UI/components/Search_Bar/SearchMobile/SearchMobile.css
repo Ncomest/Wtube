@@ -1,11 +1,12 @@
 .SearchMobileMenu {
- z-index: 2;
+ z-index: 3;
  position: absolute;
  top: 84px;
  right: 0;
 
  max-width: 800px;
  width: 100%;
+ color: white;
 
  padding: 10px 10px;
  display: flex;
@@ -13,7 +14,7 @@
  gap: 10px;
  border-radius: 0.5rem;
  border: 1px solid var(--grey);
- background: var(--dark_transp);
+ background: var(--dark);
 }
 
 .SearchMobileBtn {
@@ -44,7 +45,6 @@
 
  border-radius: 5px;
  border: 1px solid var(--grey);
- background: var(--dark_transp);
 
  margin: 10px auto;
 }
@@ -70,10 +70,23 @@
  color: var(--grey);
 }
 
+.SearchMobileCard_Text p {
+ color: var(--grey);
+}
+
+.SearchMobileCard_Text p:nth-child(1) {
+ color: var(--white);
+ font-weight: bold;
+}
+
 .SearchMobileCard_List {
  display: flex;
  flex-wrap: wrap;
  gap: 0.5rem;
+}
+
+.overv {
+ flex-direction: column;
 }
 
 @media (min-width: 1439px) {

@@ -4,10 +4,10 @@ import "./../../index.css";
 
 import Body from "./Home_Body/Body";
 
-const Home = ({ page, setPage }) => {
+const Home = () => {
  return (
   <div className="Home">
-   <Body setPage={setPage} page={page} />
+   <Body />
   </div>
  );
 };

@@ -1,0 +1,26 @@
+.footer {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ background-color: var(--dark);
+}
+
+.footer::before {
+ content: "";
+ height: 2px;
+ /* background: var(--grey); */
+ background: linear-gradient(to right, black 0%, white 50%, black 100%);
+ display: block;
+ width: 100%;
+}
+
+.footer svg {
+ margin-top: 10px;
+}
+
+.footer a {
+ color: var(--grey);
+ text-decoration: none;
+ margin: 5px 0px;
+}

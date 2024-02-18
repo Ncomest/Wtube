@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "./Body.css";
 
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
-import MoviesContainer from "../../../UI/components/Card/MoviesContainer/MoviesContainer";
-import ButtonFilterMenu from "../../../UI/components/Buttons/Filter_Menu/Button_Filter_Menu";
+// import MoviesContainer from "../../../UI/components/Card/MoviesContainer/MoviesContainer";
+// import ButtonFilterMenu from "../../../UI/components/Buttons/Filter_Menu/Button_Filter_Menu";
 import { requests } from "../../../helpers/Requests";
 import axios from "axios";
 import SliderMain from "../../../helpers/Slider/Main/SliderMain";
 import SliderPopular from "../../../helpers/Slider/SilderPopular/SliderPopular";
 
-function Body({ setPage, page }) {
+function Body() {
  const [movies, setMovies] = useState([]);
  const [upcomingMovies, setUpcomingMovies] = useState([]);
  const [topRatedMovies, setTopRatedMovies] = useState([]);
@@ -71,31 +71,30 @@ function Body({ setPage, page }) {
 
  useEffect(() => {
   fetchData();
+  // eslint-disable-next-line
  }, []);
 
-//  const handlePagePlus = () => {
-//   setPage((e) => e + 1);
-//   window.scrollTo({ top: 0, behavior: "smooth" });
-//  };
-//  const handlePageMinus = () => {
-//   if (page > 1) {
-//    setPage((e) => e - 1);
-//    window.scrollTo({ top: 0, behavior: "smooth" });
-//   }
-//  };
+ //  const handlePagePlus = () => {
+ //   setPage((e) => e + 1);
+ //   window.scrollTo({ top: 0, behavior: "smooth" });
+ //  };
+ //  const handlePageMinus = () => {
+ //   if (page > 1) {
+ //    setPage((e) => e - 1);
+ //    window.scrollTo({ top: 0, behavior: "smooth" });
+ //   }
+ //  };
 
  return (
   <div className="Body">
    <SliderMain upcomingMovies={upcomingMovies} />
    <div className="Body_Container">
-    {/* <ButtonFilterMenu /> */}
     <h4>Popular</h4>
-    {/* <div */}
-    {/* // className="Body_Movies" */}
-    {/* > */}
+
     <SliderPopular movies={movies} />
     <h4>Top Rated</h4>
     <SliderPopular movies={topRatedMovies} />
+
     {/* {movies.map((movie) => (
       <Link className="Router-link" key={movie.id} to={`/movies/${movie.id}`}>
        <MoviesContainer key={movie.id} {...movie} />

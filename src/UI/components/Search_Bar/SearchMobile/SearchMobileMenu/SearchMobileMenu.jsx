@@ -38,6 +38,7 @@ const SearchMobileMenu = ({ setSearchOpen, inputRef }) => {
    document.removeEventListener("mousedown", hanldeClose);
    document.removeEventListener("keydown", hanldeClose);
   };
+  // eslint-disable-next-line
  }, [setSearchOpen]);
 
  return (

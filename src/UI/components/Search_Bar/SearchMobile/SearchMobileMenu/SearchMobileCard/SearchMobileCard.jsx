@@ -79,7 +79,7 @@ const MobileCard = ({ ...movie }) => {
      <img
       className="SearchMobileCard_Img"
       src={imger + poster_path ? imger + poster_path : "placeholder_url"}
-      alt="zaglushka"
+      alt={title}
       loading="lazy"
      />
     </div>
@@ -95,15 +95,18 @@ const MobileCard = ({ ...movie }) => {
       ))}
      </div> */}
     </div>
+
     <div className="SearchMobileCard_Text">
      <p>Rating:</p>
-     {Math.round(vote_average * 10) / 10}
+     <p>{Math.round(vote_average * 10) / 10}</p>
     </div>
+
     <div className="SearchMobileCard_Text">
      <p>Year:</p>
      <p>{release_date}</p>
     </div>
-    <div>
+
+    <div className="SearchMobileCard_Text overv">
      <p>Overview:</p>
      {window.innerWidth < 427 ? (
       <p>{overview.slice(0, 100)}...</p>

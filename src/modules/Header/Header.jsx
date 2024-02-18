@@ -8,7 +8,7 @@ import Burger from "../../UI/components/Burger/Burger";
 import SearchMobile from "../../UI/components/Search_Bar/SearchMobile/SearchMobile";
 import { BsFilterSquare } from "react-icons/bs";
 
-function Header({ setPage }) {
+function Header() {
  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
  useEffect(() => {
@@ -29,7 +29,7 @@ function Header({ setPage }) {
 
  return (
   <div className="Header">
-   <div className="Header_Logo" onClick={() => setPage(1)}>
+   <div className="Header_Logo">
     <Logo />
    </div>
    <div className="Header_Container">
