@@ -72,8 +72,18 @@ const MobileCard = ({ ...movie }) => {
   return <div>Loading...MovieCard</div>;
  }
 
+ const handleUp = () => {
+  window.scrollTo(0, 0);
+
+  const startScroll = document.querySelectorAll(".SearchMobileCard");
+
+  startScroll.forEach((item) => {
+   item.scrollLeft = 0;
+  });
+ };
+
  return (
-  <div className="SearchMobileCard">
+  <div className="SearchMobileCard" onClick={handleUp}>
    <div className="SearchMobileCard_Left">
     <div className="SearchMobileCard_ImgContainer">
      <img

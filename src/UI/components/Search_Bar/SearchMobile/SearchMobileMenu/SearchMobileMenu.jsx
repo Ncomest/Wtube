@@ -31,6 +31,8 @@ const SearchMobileMenu = ({ setSearchOpen, inputRef }) => {
   }
  };
 
+
+
  useEffect(() => {
   document.addEventListener("mousedown", hanldeClose);
   document.addEventListener("keydown", hanldeClose);
@@ -54,6 +56,7 @@ const SearchMobileMenu = ({ setSearchOpen, inputRef }) => {
      <SearchMobileCard
       searchResult={searchResult}
       setSearchOpen={setSearchOpen}
+      
      />
     )}
    </div>

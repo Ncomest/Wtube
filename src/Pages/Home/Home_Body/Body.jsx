@@ -53,7 +53,7 @@ function Body() {
   try {
    const [popularResponse, upcomingResponse, topRatedMovies] =
     await Promise.all([
-     axios.get(requests.requestPopular + options),
+     axios.get(requests.requestPopular, options),
      axios.get(requests.requestUpcoming, options),
      axios.get(requests.requestTopRated, options),
     ]);
@@ -84,9 +84,6 @@ function Body() {
  //    window.scrollTo({ top: 0, behavior: "smooth" });
  //   }
  //  };
-
-
- 
 
  return (
   <div className="Body">

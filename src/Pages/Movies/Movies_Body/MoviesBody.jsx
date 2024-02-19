@@ -33,6 +33,7 @@ function MoviesBody({ movieDetails }) {
  const bck = "https://image.tmdb.org/t/p/w500";
  return (
   <div className="MoviesBody">
+   {/* About movies */}
    <div className="bgMovies">
     <img
      src={
@@ -75,6 +76,8 @@ function MoviesBody({ movieDetails }) {
      </p>
     </div>
    </div>
+
+   {/* Btn Trailer DropDown */}
    <div className="MovieWatch" onClick={handleOpenMovie}>
     <ImPlay size={30} color="red" />
     <button>Watch</button>
@@ -85,59 +88,81 @@ function MoviesBody({ movieDetails }) {
    {open ? <TrailerMovie movieDetails={movieDetails} /> : ""}
 
    <div className="main">
-    <SubTitle subTitle={"Actors"} />
-    <div className="sliderItem">
-     {movieDetails.credits.cast.map((item) => (
-      <div>
-       <div className="itemCard" key={item.id}>
+    {/* ACTORS */}
+    {movieDetails.credits.cast !== 0 && (
+     <>
+      <SubTitle subTitle={"Actors"} />
+      <div className="sliderItem">
+       {movieDetails.credits.cast.map((item) => (
         <div>
-         <p style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
-          {item.name}
-         </p>
-         <img src={bck + item.profile_path} alt={item.name} loading="lazy" />
+         <div className="itemCard" key={item.id}>
+          <div>
+           <p style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
+            {item.name}
+           </p>
+           <img src={bck + item.profile_path} alt={item.name} loading="lazy" />
+          </div>
+         </div>
         </div>
-       </div>
+       ))}
       </div>
-     ))}
-    </div>
-   </div>
+     </>
+    )}
 
-   <SubTitle subTitle={"Recommendation"} />
-   <div className="sliderItem">
-    {movieDetails.recommendations.results.map((item) => (
-     <Link className="Router-link" key={item.id} to={`/movies/${item.id}`}>
-      <div className="itemCard" key={item.id} onClick={handleUp}>
-       <div>
-        <p style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
-         {item.title}
-        </p>
-        <img src={bck + item.poster_path} alt={item.name} loading="lazy" />
+    {/* RECOMENDATIOM */}
+    <>
+     {movieDetails.recommendations.results.length !== 0 && (
+      <>
+       <SubTitle subTitle={"Recommendation"} />
+       <div className="sliderItem">
+        {movieDetails.recommendations.results.map((item) => (
+         <Link className="Router-link" key={item.id} to={`/movies/${item.id}`}>
+          <div className="itemCard" key={item.id} onClick={handleUp}>
+           <div>
+            <p style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
+             {item.title}
+            </p>
+            <img src={bck + item.poster_path} alt={item.name} loading="lazy" />
+           </div>
+          </div>
+         </Link>
+        ))}
        </div>
-      </div>
-     </Link>
-    ))}
-   </div>
+      </>
+     )}
+    </>
 
-   <SubTitle subTitle={"Similar"} />
-   <div className="sliderItem">
-    {movieDetails.similar.results.map((item) => (
-     <Link className="Router-link" key={item.id} to={`/movies/${item.id}`}>
-      <div className="itemCard" key={item.id} onClick={handleUp}>
-       <div>
-        <p style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
-         {item.title}
-        </p>
-        <img src={bck + item.poster_path} alt={item.name} loading="lazy" />
-       </div>
+    {/* SIMILAR */}
+    {movieDetails.similar.results.length !== 0 && (
+     <>
+      <SubTitle subTitle={"Similar"} />
+      <div className="sliderItem">
+       {movieDetails.similar.results.map((item) => (
+        <Link className="Router-link" key={item.id} to={`/movies/${item.id}`}>
+         <div className="itemCard" key={item.id} onClick={handleUp}>
+          <div>
+           <p style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
+            {item.title}
+           </p>
+           <img src={bck + item.poster_path} alt={item.name} loading="lazy" />
+          </div>
+         </div>
+        </Link>
+       ))}
       </div>
-     </Link>
-    ))}
-   </div>
+     </>
+    )}
 
-   <SubTitle subTitle={"Reviews"} />
-   {movieDetails.reviews.results.map((item) => (
-    <Reviews key={item.id} {...item} />
-   ))}
+    {/* REVIEWS */}
+    {movieDetails.reviews.results.length !== 0 ?? (
+     <>
+      <SubTitle subTitle={"Reviews"} />
+      {movieDetails.reviews.results.map((item) => (
+       <Reviews key={item.id} {...item} />
+      ))}
+     </>
+    )}
+   </div>
   </div>
  );
 }
