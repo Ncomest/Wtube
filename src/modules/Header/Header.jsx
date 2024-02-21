@@ -32,32 +32,22 @@ function Header() {
    <div className="Header_Logo">
     <Logo />
    </div>
-   <div className="Header_Container">
-    {windowWidth > breakpoint && (
-     <>
-      <SearchMobile />
-      <Link to="/filter">
-       <BsFilterSquare className="BsFilterSquare" fill="white" size={40} />
-      </Link>
-     </>
-    )}
 
-    <div className="Header_Profile">
+   <div className="Header_Container">
+    <>
+     <SearchMobile />
+     <Link to="/filter">
+      <BsFilterSquare className="BsFilterSquare" fill="white" size={40} />
+     </Link>
      {windowWidth <= breakpoint ? (
-      <div className="Header_Mobile">
-       <SearchMobile />
-       <Link to="/filter">
-        <BsFilterSquare className="CiFilter" fill="white" size={40} />
-       </Link>
-       <Burger />
-      </div>
+      <Burger />
      ) : (
       <div>
        <button className="Sign">Log In</button>
        <button className="Sign btnRed">Sign Up</button>
       </div>
      )}
-    </div>
+    </>
    </div>
   </div>
  );
