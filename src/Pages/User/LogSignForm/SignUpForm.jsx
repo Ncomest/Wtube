@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function SignUpForm({ onClick }) {
+function SignUpForm({ children, onToogleLogin }) {
  const [formData, setformData] = useState({
   login: "",
   password: "",
@@ -68,6 +68,7 @@ function SignUpForm({ onClick }) {
     agree: false,
    });
 
+   onToogleLogin();
    console.log("Success, data saved to localStorage!");
   } else {
    console.log("Please confirm all data places!");
@@ -115,9 +116,7 @@ function SignUpForm({ onClick }) {
    </div>
 
    <button type="submit">Accept</button>
-   <p onClick={onClick}>
-    If you have an account, you can <span>Log In</span>
-   </p>
+   {/* <div>{children}</div> */}
   </form>
  );
 }

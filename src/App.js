@@ -7,21 +7,22 @@ import Filter from "./Pages/Filter/Filter";
 import Header from "./modules/Header/Header";
 import Footer from "./modules/Footer/Footer";
 import User from "./Pages/User/User";
+import UserPofile from "./Pages/User/UserProfile/UserPofile";
 
 function App() {
- 
-
  return (
   <>
-   <Header  />
+   <Header />
    <Routes>
     <Route path="/" element={<Home />} />
     <Route path="/Movies/:id" element={<Movies />} />
     <Route path="/Filter" element={<Filter />} />
-    <Route path="/User" element={<User/>} />
+    <Route path="/User" element={<User />} />
+    <Route path="/UserProfile" element={<UserPofile />} />
     <Route path="*" element={<Error />} />
+    {/* <Redirect from='/' to='loginform' /> */}
    </Routes>
-   <Footer/>
+   <Footer />
   </>
  );
 }

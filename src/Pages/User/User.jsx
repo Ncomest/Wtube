@@ -5,21 +5,29 @@ import LogInForm from "./LogSignForm/LogInForm";
 import SignUpForm from "./LogSignForm/SignUpForm";
 
 function User() {
- const [toogleLog, setToogleLog] = useState(true);
-
+ const [toggleLog, setToggleLog] = useState(false);
+ const [toggleToLogin, setToggleToLogin] = useState(false);
 
  //toogle btn login signin
- const handleToogle = () => {
-  setToogleLog((e) => setToogleLog(!toogleLog));
+ const handleToggle = () => {
+  setToggleLog((e) => !e);
+  setToggleToLogin(false);
+ };
+
+ const handleToLogin = () => {
+  setToggleToLogin(true);
  };
 
  return (
   <div className="user">
-   {toogleLog ? (
-    <LogInForm onClick={handleToogle} />
+   {toggleToLogin || toggleLog ? (
+    <LogInForm onClick={handleToggle} />
    ) : (
-    <SignUpForm onClick={handleToogle} />
+    <SignUpForm onClick={handleToggle} onToogleLogin={handleToLogin} />
    )}
+   <button className="toogleBtn" onClick={handleToggle}>
+    {toggleLog ? "Switch to Sign Up" : "Switch to Log In"}
+   </button>
   </div>
  );
 }

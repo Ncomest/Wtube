@@ -1,0 +1,9 @@
+.user-profile {
+ height: 100vh;
+ background-color: var(--dark);
+ color: var(--white);
+ font-size: 40px;
+ padding: 10px;
+ display: flex;
+ justify-content: space-between;
+}

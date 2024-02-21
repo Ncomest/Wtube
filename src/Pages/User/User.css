@@ -1,4 +1,5 @@
 .user {
+ position: relative;
  height: 100vh;
  background-color: var(--dark);
  display: flex;
@@ -45,7 +46,7 @@
  width: 20px;
 }
 
-.form-login button {
+.form-login > button {
  padding: 8px 40px;
  background-color: var(--red);
  border: none;
@@ -62,5 +63,15 @@
 
 .form-login span {
  color: var(--red);
+ cursor: pointer;
+}
+
+.toogleBtn {
+ position: absolute;
+ top: 20px;
+ padding: 5px 30px;
+ background-color: transparent;
+ border: 1px solid var(--red);
+ color: var(--white);
  cursor: pointer;
 }
