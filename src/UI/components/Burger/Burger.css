@@ -6,26 +6,32 @@
  position: relative;
  cursor: pointer;
 
- width: 3.5rem;
- height: 2rem;
-}
-
-.BurgerDropDown.open {
- z-index: 2;
- position: absolute;
- top: 100%;
- right: 0.5%;
- padding: 10px 20px;
- background-color: aqua;
- transition: 0.3s;
- display: block;
+ /* width: 3.5rem;
+ height: 2rem; */
 }
 
 .BurgerDropDown {
- display: none;
+ z-index: 3;
+ position: fixed;
+ transition: right 1s ease;
+ background-color: var(--dark_transp);
+ top: 68px;
+ width: 200px;
+ right: -200px;
+ padding: 10px 20px;
+ border-radius: 5px;
+}
+
+.BurgerDropDown.open {
+ right: 0;
 }
 
 .BurgerIcon {
  color: white;
  /* fill: var(--white); */
+}
+
+.BurgerText {
+ display: flex;
+ flex-direction: column;
 }

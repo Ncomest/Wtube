@@ -6,6 +6,9 @@ import "./Header.css";
 import Logo from "../../UI/components/Logo/Logo";
 import Burger from "../../UI/components/Burger/Burger";
 import SearchMobile from "../../UI/components/Search_Bar/SearchMobile/SearchMobile";
+import BtnLogin from "../../UI/components/Buttons/LogIn/BtnLogin";
+import BtnSignUp from "../../UI/components/Buttons/LogIn/BtnSignUp";
+
 import { BsFilterSquare } from "react-icons/bs";
 
 function Header() {
@@ -43,8 +46,8 @@ function Header() {
       <Burger />
      ) : (
       <div>
-       <button className="Sign">Log In</button>
-       <button className="Sign btnRed">Sign Up</button>
+       <BtnLogin />
+       <BtnSignUp />
       </div>
      )}
     </>

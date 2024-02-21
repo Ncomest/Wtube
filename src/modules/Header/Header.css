@@ -33,46 +33,9 @@
  gap: 2rem;
 }
 
-.Sign {
- border-radius: 5px;
- cursor: pointer;
- font-size: var(--textNormal);
- position: relative;
- overflow: hidden;
- padding: 10px 20px;
- color: var(--white);
- background-color: transparent;
- border: none;
- transition: text-decoration 4.5s ease-in-out;
-}
 
-.Sign::before {
- content: "";
- position: absolute;
- width: 0;
- height: 2px;
- bottom: 10px;
- left: 50%;
- transition: width 0.4s ease-in-out;
- transform: translateX(-50%);
- background-color: var(--white);
-}
 
-.Sign:hover::before {
- width: 100%;
-}
 
-/* .Sign:hover {
- text-decoration: underline;
-} */
-
-.btnRed {
- background-color: var(--red);
-}
-
-.btnRed:hover {
- background-color: var(--light_red);
-}
 
 .BsSearch {
  cursor: pointer;

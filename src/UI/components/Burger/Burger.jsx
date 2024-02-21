@@ -5,6 +5,9 @@ import "./Burger.css";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoCloseOutline } from "react-icons/io5";
 
+import BtnLogin from "../Buttons/LogIn/BtnLogin";
+import BtnSignUp from "../Buttons/LogIn/BtnSignUp";
+
 const Burger = () => {
  const [isOpen, setIsOpen] = useState(false);
 
@@ -29,11 +32,9 @@ const Burger = () => {
 const BurgerText = () => {
  return (
   <div className="BurgerText">
-   <p>Log In</p>
+   <BtnLogin />
    <br />
-   <p>Sign Up</p>
-   {/* <br /> */}
-   {/* <ToogleDarkLight /> */}
+   <BtnSignUp />
   </div>
  );
 };
