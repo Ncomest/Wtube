@@ -154,7 +154,7 @@ function MoviesBody({ movieDetails }) {
     )}
 
     {/* REVIEWS */}
-    {movieDetails.reviews.results.length !== 0 ?? (
+    {movieDetails.reviews.results.length !== 0 && (
      <>
       <SubTitle subTitle={"Reviews"} />
       {movieDetails.reviews.results.map((item) => (
