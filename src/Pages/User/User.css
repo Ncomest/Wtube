@@ -37,6 +37,10 @@
  gap: 10px;
 }
 
+.checkbox-login label {
+ cursor: pointer;
+}
+
 .checkbox-login input {
  width: 20px;
 }
@@ -49,8 +53,14 @@
  color: var(--white);
  text-transform: uppercase;
  font-weight: bold;
+ cursor: pointer;
 }
 
 .form-login button:hover {
  background-color: var(--light_red);
+}
+
+.form-login span {
+ color: var(--red);
+ cursor: pointer;
 }
