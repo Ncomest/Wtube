@@ -7,33 +7,31 @@
  color: var(--white);
 }
 
+.background-image_container {
+ position: relative;
+}
+
+.background-image_container > img {
+ position: absolute;
+ z-index: 1;
+ height: 100%;
+ width: 100%;
+ object-fit: cover;
+ filter: brightness(0.2) blur(6px);
+}
+
 .wrapp-actors {
+ position: relative;
  max-width: 1920px;
  width: 80%;
  margin: auto;
- padding: 50px 0px;
-}
-
-.actors_backdrop {
- height: 400px;
- position: relative;
- width: 100%;
-}
-
-.actors_backdrop img {
- position: absolute;
- top: 0;
- left: 0;
- width: 100%;
- height: 100%;
- object-fit: cover;
- filter: brightness(0.3);
+ padding: 30px 0px;
+ z-index: 3;
 }
 
 .actors-card {
  display: flex;
  gap: 40px;
- margin-bottom: 30px;
 }
 
 .actors-card_image {
@@ -60,16 +58,14 @@
 }
 
 .card-container {
- /* display: flex; */
- /* flex-wrap: wrap; */
-
  display: grid;
- grid-template-columns: repeat(5, 300px);
+ grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
  justify-content: space-between;
+ gap: 10px;
 }
 
 .card-image {
- height: auto;
+ width: auto;
 }
 
 .card-image img {
@@ -99,47 +95,56 @@
  margin-bottom: 10px;
 }
 
-@media (max-width: 1920px) {
- .card-container {
-  grid-template-columns: repeat(5, 300px);
- }
+.add-more {
+ width: 200px;
+ margin: 10px auto;
 }
-@media (max-width: 1440px) {
- .card-container {
-  grid-template-columns: repeat(4, 200px);
+
+@media (max-width: 1024px) {
+ .wrapp-actors {
+  width: 100%;
+  padding: 10px 10px;
  }
 }
 
 @media (max-width: 992px) {
- .card-container {
-  grid-template-columns: repeat(3, 200px);
- }
- .actors-card_image {
-  height: 300px;
+ .actors_backdrop {
+  height: 200px;
  }
 }
 
 @media (max-width: 768px) {
- .card-container {
-  grid-template-columns: repeat(3, 160px);
- }
-}
-
-@media (max-width: 425px) {
- .card-container {
-  grid-template-columns: repeat(2, 140px);
- }
  .actors-card_image {
-  width: 220px;
-  height: auto;
- }
-}
-
-@media (max-width: 425px) {
- .card-container {
-  grid-template-columns: repeat(2, 120px);
+  height: 380px;
  }
  .actors-card {
+  padding: 10px 5px;
+ }
+ .card-container {
+  gap: 5px;
+ }
+ .wrapp-actors {
+  padding: 5px 5px;
+ }
+ .movies_card {
+  margin-bottom: 10px;
+ }
+ .about-actors {
+  flex: 3;
+ }
+}
+
+@media (max-width: 425px) {
+ .actors-card {
+  align-items: center;
   flex-direction: column;
+  gap: 10px;
+  padding-top: 15px;
+ }
+ .actors-card_image {
+  flex: none;
+ }
+ .actors_backdrop {
+  height: 140px;
  }
 }

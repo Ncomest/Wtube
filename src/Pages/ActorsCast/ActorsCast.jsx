@@ -5,6 +5,7 @@ import { useParams, Link } from "react-router-dom";
 function ActorsCast() {
  const { id } = useParams();
  const [movies, setMovies] = useState([]);
+ const [addSlice, setAddSlice] = useState(20);
 
  const options = {
   method: "GET",
@@ -36,32 +37,39 @@ function ActorsCast() {
   window.scrollTo(0, 0);
  };
 
+ const handleAdd = () => {
+  setAddSlice((e) => e + 20);
+  console.log(addSlice);
+ };
+
  const bck = "https://image.tmdb.org/t/p/w500";
+ const randomIndex = Math.floor(Math.random() * movies?.credits?.cast.length);
 
  return (
   <div className="main-container">
-   <div className="actors_backdrop">
-    <img src={bck + movies?.credits?.cast[0].backdrop_path} alt="" />
+   <div className="background-image_container">
+    <img src={bck + movies?.credits?.cast[randomIndex]?.backdrop_path} alt="" />
+    <div className="wrapp-actors">
+     <div className="actors-card">
+      <div className="actors-card_image">
+       <img src={bck + movies.profile_path} alt={movies.name} />
+      </div>
+      <div className="about-actors">
+       <h3>{movies.name}</h3>
+       <p>{movies.birthday}</p>
+       <p>{movies.place_of_birth}</p>
+       <p>{movies.biography}</p>
+      </div>
+     </div>
+    </div>
    </div>
 
    <div className="wrapp-actors">
-    <div className="actors-card">
-     <div className="actors-card_image">
-      <img src={bck + movies.profile_path} alt={movies.name} />
-     </div>
-     <div className="about-actors">
-      <h3>{movies.name}</h3>
-      <p>{movies.birthday}</p>
-      <p>{movies.place_of_birth}</p>
-      <p>{movies.biography}</p>
-     </div>
-    </div>
-
     <div className="title-movies">
      <h3>Movies</h3>
     </div>
     <div className="card-container">
-     {movies?.credits?.cast.slice(0, 20).map((item) => (
+     {movies?.credits?.cast.slice(0, `${addSlice}`).map((item) => (
       <Link className="Router-link" to={`/movies/${item.id}`} key={item.id}>
        <div key={item.id} className="movies_card" onClick={handleUp}>
         <div className="card-image">
@@ -73,6 +81,11 @@ function ActorsCast() {
      ))}
     </div>
    </div>
+   {movies?.credits?.cast.length > addSlice && (
+    <button className="Sign btnRed add-more" onClick={handleAdd}>
+     Add more...
+    </button>
+   )}
   </div>
  );
 }
