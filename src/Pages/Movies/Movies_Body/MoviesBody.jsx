@@ -94,16 +94,18 @@ function MoviesBody({ movieDetails }) {
       <SubTitle subTitle={"Actors"} />
       <div className="sliderItem">
        {movieDetails.credits.cast.map((item) => (
-        <div>
-         <div className="itemCard" key={item.id}>
-          <div>
-           <p style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
-            {item.name}
-           </p>
-           <img src={bck + item.profile_path} alt={item.name} loading="lazy" />
+        <Link className="Router-link" to={`/actorscast/${item.id}`} key={item.id}>
+         <div>
+          <div className="itemCard" key={item.id}>
+           <div>
+            <p style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
+             {item.name}
+            </p>
+            <img src={bck + item.profile_path} alt={item.name} loading="lazy" />
+           </div>
           </div>
          </div>
-        </div>
+        </Link>
        ))}
       </div>
      </>
