@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./ActorsCast.css";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 function ActorsCast() {
  const { id } = useParams();
@@ -19,7 +19,7 @@ function ActorsCast() {
   async function fetchData() {
    try {
     const res = await fetch(
-     `https://api.themoviedb.org/3/person/${id}api_key=14d8d8918e888fb791f87057ac1674c0&append_to_response=credits`,
+     `https://api.themoviedb.org/3/person/${id}?api_key=14d8d8918e888fb791f87057ac1674c0&append_to_response=credits`,
      options
     );
     const data = await res.json();
@@ -31,6 +31,10 @@ function ActorsCast() {
   }
   fetchData();
  }, [id]);
+
+ const handleUp = () => {
+  window.scrollTo(0, 0);
+ };
 
  const bck = "https://image.tmdb.org/t/p/w500";
 
@@ -53,14 +57,19 @@ function ActorsCast() {
      </div>
     </div>
 
+    <div className="title-movies">
+     <h3>Movies</h3>
+    </div>
     <div className="card-container">
      {movies?.credits?.cast.slice(0, 20).map((item) => (
-      <div key={item.id} className="movies_card">
-       <div className="card-image">
-        <img src={bck + item.poster_path} alt={item.title} />
+      <Link className="Router-link" to={`/movies/${item.id}`} key={item.id}>
+       <div key={item.id} className="movies_card" onClick={handleUp}>
+        <div className="card-image">
+         <img src={bck + item.poster_path} alt={item.title} />
+         <h4>{item.title}</h4>
+        </div>
        </div>
-       <h3>{item.title}</h3>
-      </div>
+      </Link>
      ))}
     </div>
    </div>
