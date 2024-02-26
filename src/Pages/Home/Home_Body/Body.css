@@ -62,7 +62,7 @@
  background: linear-gradient(to right, white, black);
 }
 .Body_Container h4 {
- margin: 30px 0px 0px 0px;
+ margin: 20px 0px 0px 0px;
  font-size: var(--textLarge);
 }
 
@@ -79,6 +79,7 @@
  .Body {
   padding: 5px 10px;
  }
+
  .Body_Movies {
   grid-template-columns: repeat(3, 1fr);
  }
