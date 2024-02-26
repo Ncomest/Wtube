@@ -32,7 +32,7 @@ const SearchMobileMenu = ({ setSearchOpen, inputRef }) => {
     inputRef={inputRef}
    />
    <SearchMobileBtn onClick={handleSearchBtnClick} />
-   <div>
+   <div className="search-card_drop-down">
     {searchTerm.length !== 0 && (
      <SearchMobileCard searchResult={searchResult} />
     )}

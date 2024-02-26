@@ -17,7 +17,7 @@
 }
 
 .custom-arrow {
- z-index: 2;
+ z-index: 1;
  width: 50px;
  height: 120px;
  align-items: center;
@@ -43,6 +43,11 @@
   height: 300px;
   margin: 0;
  }
+ .custom-arrow {
+  border: none;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.334);
+ }
 }
 
 @media (max-width: 425px) {
@@ -51,10 +56,5 @@
  }
  .slider_card {
   height: 200px;
- }
- .custom-arrow {
-  border: none;
-  background-color: transparent;
-  color: rgba(255, 255, 255, 0.334);
  }
 }

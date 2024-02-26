@@ -94,15 +94,15 @@ function MoviesBody({ movieDetails }) {
       <SubTitle subTitle={"Actors"} />
       <div className="sliderItem">
        {movieDetails.credits.cast.map((item) => (
-        <Link className="Router-link" to={`/actorscast/${item.id}`} key={item.id}>
-         <div>
-          <div className="itemCard" key={item.id}>
-           <div>
-            <p style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
-             {item.name}
-            </p>
-            <img src={bck + item.profile_path} alt={item.name} loading="lazy" />
-           </div>
+        <Link
+         className="Router-link"
+         to={`/actorscast/${item.id}`}
+         key={item.id}
+        >
+         <div className="itemCard" key={item.id}>
+          <div>
+           <p>{item.name}</p>
+           <img src={bck + item.profile_path} alt={item.name} loading="lazy" />
           </div>
          </div>
         </Link>
@@ -121,9 +121,7 @@ function MoviesBody({ movieDetails }) {
          <Link className="Router-link" key={item.id} to={`/movies/${item.id}`}>
           <div className="itemCard" key={item.id} onClick={handleUp}>
            <div>
-            <p style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
-             {item.title}
-            </p>
+            <p>{item.title}</p>
             <img src={bck + item.poster_path} alt={item.name} loading="lazy" />
            </div>
           </div>
@@ -143,9 +141,7 @@ function MoviesBody({ movieDetails }) {
         <Link className="Router-link" key={item.id} to={`/movies/${item.id}`}>
          <div className="itemCard" key={item.id} onClick={handleUp}>
           <div>
-           <p style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
-            {item.title}
-           </p>
+           <p>{item.title}</p>
            <img src={bck + item.poster_path} alt={item.name} loading="lazy" />
           </div>
          </div>

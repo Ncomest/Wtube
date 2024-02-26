@@ -15,31 +15,6 @@ function Body() {
  const [upcomingMovies, setUpcomingMovies] = useState([]);
  const [topRatedMovies, setTopRatedMovies] = useState([]);
 
- //  const [genre, setGenre] = useState("");
- //  const [country, setCountry] = useState("");
- //  const [yearStart, setYearStart] = useState("2022");
- //  const [yearFinish, setYearFinish] = useState("2024");
- //  const [imdbStart, setImdbStart] = useState("5");
- //  const [imdbFinish, setImdbFinish] = useState("10");
-
- //  const states = {
- //   genre,
- //   setGenre,
- //   yearStart,
- //   setYearStart,
- //   country,
- //   setCountry,
- //   yearFinish,
- //   setYearFinish,
- //   imdbStart,
- //   setImdbStart,
- //   imdbFinish,
- //   setImdbFinish,
- //  };
-
- //  ${process.env.REACT_APP_API_TOKEN}
-
- //  const rMovie = movies[Math.floor(Math.random() * movies.length)]
  const options = {
   method: "GET",
   headers: {
@@ -74,17 +49,6 @@ function Body() {
   // eslint-disable-next-line
  }, []);
 
- //  const handlePagePlus = () => {
- //   setPage((e) => e + 1);
- //   window.scrollTo({ top: 0, behavior: "smooth" });
- //  };
- //  const handlePageMinus = () => {
- //   if (page > 1) {
- //    setPage((e) => e - 1);
- //    window.scrollTo({ top: 0, behavior: "smooth" });
- //   }
- //  };
-
  return (
   <div className="Body">
    <SliderMain upcomingMovies={upcomingMovies} />
@@ -94,26 +58,6 @@ function Body() {
     <SliderPopular movies={movies} />
     <h4>Top Rated</h4>
     <SliderPopular movies={topRatedMovies} />
-
-    {/* {movies.map((movie) => (
-      <Link className="Router-link" key={movie.id} to={`/movies/${movie.id}`}>
-       <MoviesContainer key={movie.id} {...movie} />
-      </Link>
-     ))} */}
-    {/* </div> */}
-    {/* <div className="Body_btn">
-     {page > 1 ? (
-      <button className="Body_btn-more" onClick={handlePageMinus}>
-       Previous page
-      </button>
-     ) : (
-      ""
-     )}
-
-     <button className="Body_btn-more" onClick={handlePagePlus}>
-      Next page
-     </button>
-    </div> */}
    </div>
   </div>
  );

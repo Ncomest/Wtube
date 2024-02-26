@@ -1,6 +1,7 @@
 .user {
  position: relative;
  height: 100vh;
+ min-height: 800px;
  background-color: var(--dark);
  display: flex;
  align-items: center;

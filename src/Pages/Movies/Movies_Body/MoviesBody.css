@@ -141,6 +141,8 @@
 
 .itemCard p {
  margin-bottom: 5px;
+ overflow: hidden;
+ text-overflow: ellipsis;
 }
 
 .itemCard div {

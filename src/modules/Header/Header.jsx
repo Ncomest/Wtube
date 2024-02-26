@@ -32,7 +32,6 @@ function Header() {
 
  return (
   <div className="Header">
-    
    <div className="Header_Logo">
     <Logo />
    </div>

@@ -37,6 +37,11 @@
  background: var(--light_red);
 }
 
+.search-card_drop-down {
+ max-height: 400px;
+ overflow-y: auto;
+}
+
 .SearchMobileCard {
  display: grid;
  grid-template-columns: 30% auto;
