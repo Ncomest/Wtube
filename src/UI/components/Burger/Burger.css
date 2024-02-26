@@ -2,28 +2,21 @@
  display: flex;
  flex-direction: column;
  justify-content: space-between;
-
  position: relative;
  cursor: pointer;
-
- /* width: 3.5rem;
- height: 2rem; */
 }
 
 .BurgerDropDown {
  z-index: 3;
- position: fixed;
+ position: absolute;
  transition: right 1s ease;
  background-color: var(--dark_transp);
  top: 68px;
- width: 200px;
- right: -200px;
+ right: 0;
  padding: 10px 20px;
  border-radius: 5px;
-}
-
-.BurgerDropDown.open {
- right: 0;
+ border-left: 1px solid var(--grey);
+ border-bottom: 1px solid var(--grey);
 }
 
 .BurgerIcon {

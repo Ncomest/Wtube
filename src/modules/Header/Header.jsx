@@ -32,6 +32,7 @@ function Header() {
 
  return (
   <div className="Header">
+    
    <div className="Header_Logo">
     <Logo />
    </div>
@@ -39,9 +40,11 @@ function Header() {
    <div className="Header_Container">
     <>
      <SearchMobile />
-     <Link to="/filter">
-      <BsFilterSquare className="BsFilterSquare" fill="white" size={40} />
-     </Link>
+     <div>
+      <Link to="/filter">
+       <BsFilterSquare className="BsFilterSquare" fill="white" size={40} />
+      </Link>
+     </div>
      {windowWidth <= breakpoint ? (
       <Burger />
      ) : (

@@ -1,7 +1,6 @@
-import React from "react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./Burger.css";
-// import ToogleDarkLight from "../ToogleDarkLight/ToogleDarkLight";
+
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoCloseOutline } from "react-icons/io5";
 
@@ -15,26 +14,45 @@ const Burger = () => {
   setIsOpen(!isOpen);
  };
 
+ const closeMenu = () => {
+  setIsOpen(false);
+ };
+
+ const burgerRef = useRef();
+
+ useEffect(() => {
+  const handleClickOutSide = (e) => {
+   if (burgerRef.current && !burgerRef.current.contains(e.target)) {
+    closeMenu();
+   }
+  };
+
+  document.addEventListener("mousedown", handleClickOutSide);
+
+  return () => {
+   document.removeEventListener("mousedown", handleClickOutSide);
+  };
+ }, [burgerRef]);
+
  return (
-  <div>
+  <div ref={burgerRef}>
    {isOpen ? (
     <IoCloseOutline size={50} className="BurgerIcon" onClick={toggleBurger} />
    ) : (
     <RxHamburgerMenu size={50} className="BurgerIcon" onClick={toggleBurger} />
    )}
-   <div className={`BurgerDropDown ${isOpen ? "open" : ""}`}>
-    <BurgerText />
-   </div>
+   {isOpen && <BurgerText />}
   </div>
  );
 };
 
 const BurgerText = () => {
  return (
-  <div className="BurgerText">
-   <BtnLogin />
-   <br />
-   <BtnSignUp />
+  <div className="BurgerDropDown">
+   <div className="BurgerText">
+    <BtnLogin />
+    <BtnSignUp />
+   </div>
   </div>
  );
 };
