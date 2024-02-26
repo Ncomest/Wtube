@@ -26,7 +26,6 @@ const Burger = () => {
     closeMenu();
    }
   };
-
   document.addEventListener("mousedown", handleClickOutSide);
 
   return () => {

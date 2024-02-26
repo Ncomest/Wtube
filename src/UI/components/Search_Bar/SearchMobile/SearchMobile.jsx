@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./SearchMobile.css";
 import { BsSearch } from "react-icons/bs";
 
@@ -7,25 +7,33 @@ import SearchMobileMenu from "./SearchMobileMenu/SearchMobileMenu";
 function SearchMobile() {
  const [searchOpen, setSearchOpen] = useState(false);
  const inputRef = useRef(null);
+ const searchRef = useRef();
 
- const handleSearchOpen = (e) => {
-  setSearchOpen((e) => !searchOpen);
-  if (inputRef.current) {
-   inputRef.current.focus();
-  }
+ const closeSearch = () => {
+  setSearchOpen(false);
  };
 
+ useEffect(() => {
+  const handleClickOutside = (event) => {
+   if (searchRef.current && !searchRef.current.contains(event.target)) {
+    closeSearch();
+   }
+  };
+  document.addEventListener("mousedown", handleClickOutside);
+  return () => {
+   document.removeEventListener("mousedown", handleClickOutside);
+  };
+ }, [searchRef]);
+
  return (
-  <div>
+  <div ref={searchRef}>
    <BsSearch
     size="40px"
     strokeWidth="0.1"
-    onClick={handleSearchOpen}
     className="BsSearch"
+    onClick={() => setSearchOpen(!searchOpen)}
    />
-   {searchOpen && (
-    <SearchMobileMenu setSearchOpen={setSearchOpen} inputRef={inputRef} />
-   )}
+   {searchOpen && <SearchMobileMenu inputRef={inputRef} />}
   </div>
  );
 }

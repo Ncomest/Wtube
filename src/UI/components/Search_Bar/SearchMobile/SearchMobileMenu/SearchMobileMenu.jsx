@@ -25,23 +25,23 @@ const SearchMobileMenu = ({ setSearchOpen, inputRef }) => {
  }, [searchTerm, searchResult]);
 
  //  close search DropDown menu
- const hanldeClose = (e) => {
-  if (!e.target.closest(".SearchMobileMenu") || e.key === "Escape") {
-   setSearchOpen(false);
-  }
- };
+//  const hanldeClose = (e) => {
+//   if (!e.target.closest(".SearchMobileMenu") || e.key === "Escape") {
+//    setSearchOpen(false);
+//   }
+//  };
 
 
 
- useEffect(() => {
-  document.addEventListener("mousedown", hanldeClose);
-  document.addEventListener("keydown", hanldeClose);
-  return () => {
-   document.removeEventListener("mousedown", hanldeClose);
-   document.removeEventListener("keydown", hanldeClose);
-  };
-  // eslint-disable-next-line
- }, [setSearchOpen]);
+//  useEffect(() => {
+//   document.addEventListener("mousedown", hanldeClose);
+//   document.addEventListener("keydown", hanldeClose);
+//   return () => {
+//    document.removeEventListener("mousedown", hanldeClose);
+//    document.removeEventListener("keydown", hanldeClose);
+//   };
+//   // eslint-disable-next-line
+//  }, [setSearchOpen]);
 
  return (
   <div className="SearchMobileMenu">
@@ -55,7 +55,7 @@ const SearchMobileMenu = ({ setSearchOpen, inputRef }) => {
     {searchTerm.length !== 0 && (
      <SearchMobileCard
       searchResult={searchResult}
-      setSearchOpen={setSearchOpen}
+      // setSearchOpen={setSearchOpen}
       
      />
     )}
