@@ -1,15 +1,43 @@
-.FilterMenu {
- height: 100vh;
- background-color: var(--dark);
- color: var(--grey);
+.filterPage {
  display: flex;
+ flex-direction: column;
+ background-color: var(--dark);
+ color: var(--white);
+}
+
+.filterMenu {
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
  align-items: center;
- justify-content: center;
- font-size: var(--textLarge);
+ justify-content: start;
+ gap: 10px;
+ margin: auto;
+ padding: 10px 5px;
+ width: 100%;
+}
+
+.filter-card_image {
+ width: auto;
+}
+
+.filter-card_image img {
+ border-radius: 5px;
+ height: 100%;
+ width: 100%;
+ object-fit: cover;
+}
+
+.filter-card_image h4 {
+ white-space: nowrap;
+ overflow: hidden;
+ text-overflow: ellipsis;
+}
+
+.btnNextPage {
+ display: flex;
+ margin: 0px auto 15px auto;
+ gap: 10px;
 }
 
 @media (max-width: 425px) {
- .filter {
-  font-size: var(--textSmall);
- }
 }

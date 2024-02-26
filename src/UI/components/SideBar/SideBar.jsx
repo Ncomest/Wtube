@@ -3,51 +3,31 @@ import "./SideBar.css";
 
 import SideBarFilter from "../Buttons/SideBarFilter/SideBarFilter";
 
-const SideBar = () => {
- //  const {
- //   genre,
- //   setGenre,
- //   yearStart,
- //   setYearStart,
- //   country,
- //   setCountry,
- //   yearFinish,
- //   setYearFinish,
- //   imdbStart,
- //   setImdbStart,
- //   imdbFinish,
- //   setImdbFinish,
- //  } = states;
-
- const handeFilterChange = () => {
-  // const APIFound = `${genre}+${country}${yearStart}+${yearFinish}+${imdbStart}+${imdbFinish}`;
-  // console.log(APIFound);
- };
-
+const SideBar = ({ filters, onClick }) => {
  return (
   <div className="SideBar">
    <div className="sidebar_items">
-    <FilterBarContainerGenre />
-    <FilterBarContainerCountry />
-    <FilterBarContainerYear />
-    <FilterBarContainerImdb />
+    <FilterBarContainerGenre filters={filters} />
+    <FilterBarContainerCountry filters={filters} />
+    <FilterBarContainerYear filters={filters} />
+    <FilterBarContainerImdb filters={filters} />
    </div>
 
-   <SideBarFilter onClick={handeFilterChange} />
+   <SideBarFilter onClick={onClick} />
   </div>
  );
 };
 
-const FilterBarContainerGenre = ({ setGenre }) => {
+const FilterBarContainerGenre = ({ filters }) => {
  const handleFilterChange = (e) => {
-  setGenre(e.target.value);
+  filters.setGenre(e.target.value);
  };
 
  return (
   <div className="FilterBarContainer_Container">
    <p className="FilterBarContainer_Text">Genre</p>
    <select className="FilterBarContainer_Select" onChange={handleFilterChange}>
-    <option value="0">-- Choose genre --</option>
+    <option value="">-- Choose genre --</option>
     <option value="28">Action</option>
     <option value="12">Adventure</option>
     <option value="16">Animation</option>
@@ -71,36 +51,36 @@ const FilterBarContainerGenre = ({ setGenre }) => {
  );
 };
 
-const FilterBarContainerCountry = ({ setCountry }) => {
+const FilterBarContainerCountry = ({ filters }) => {
  const handleFilterChange = (e) => {
-  setCountry(e.target.value);
+  filters.setCountry(e.target.value);
  };
  return (
   <div className="FilterBarContainer_Container">
    <p className="FilterBarContainer_Text">Country</p>
    <select className="FilterBarContainer_Select" onChange={handleFilterChange}>
-    <option value="0">-- Choose country --</option>
-    <option value="Canada">Canada</option>
-    <option value="Switzerland">Switzerland</option>
-    <option value="China">China</option>
-    <option value="Cuba">Cuba</option>
-    <option value="Germany">Germany</option>
-    <option value="United Kingdom">United Kingdom</option>
-    <option value="France">France</option>
-    <option value="Greece">Greece</option>
-    <option value="Italy">Italy</option>
-    <option value="Poland">Poland</option>
+    <option value="">-- Choose country --</option>
+    <option value="pl">Poland</option>
+    <option value="ca">Canada</option>
+    <option value="cn">China</option>
+    <option value="de">Germany</option>
+    <option value="us">US America</option>
+    <option value="gb">United Kingdom</option>
+    <option value="fr">France</option>
+    <option value="it">Italy</option>
+    <option value="ru">Russia</option>
+    <option value="in">India</option>
    </select>
   </div>
  );
 };
 
-const FilterBarContainerYear = ({ setYearStart, setYearFinish }) => {
+const FilterBarContainerYear = ({ filters }) => {
  const handleFilterChangeStart = (e) => {
-  setYearStart(e.target.value);
+  filters.setStartYear(e.target.value);
  };
  const handleFilterChangeFinish = (e) => {
-  setYearFinish(e.target.value);
+  filters.setFinishYear(e.target.value);
  };
 
  const currentYear = new Date().getFullYear();
@@ -145,12 +125,12 @@ const FilterBarContainerYear = ({ setYearStart, setYearFinish }) => {
  );
 };
 
-const FilterBarContainerImdb = ({ setImdbStart, setImdbFinish }) => {
+const FilterBarContainerImdb = ({ filters }) => {
  const handleFilterChangeStart = (e) => {
-  setImdbStart(e.target.value);
+  filters.setStartImdb(e.target.value);
  };
  const handleFilterChangeFinish = (e) => {
-  setImdbFinish(e.target.value);
+  filters.setFinishImdb(e.target.value);
  };
 
  return (
