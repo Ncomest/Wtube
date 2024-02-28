@@ -1,6 +1,9 @@
 .RightSideMovies_Reviews {
  display: flex;
  flex-direction: column;
+ min-width: 400px;
+ height: auto;
+ justify-content: center;
 }
 
 .author_section {
@@ -10,10 +13,24 @@
 
 .author_section > div {
  height: 100px;
+ width: 100px;
 }
 
 .author_section img {
  height: 100%;
  width: 100%;
  object-fit: cover;
+}
+
+.no-avatar {
+ height: 100%;
+ width: 100%;
+}
+
+.author-review {
+ display: flex;
+}
+
+.author-review p {
+ white-space: wrap;
 }

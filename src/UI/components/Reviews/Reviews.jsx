@@ -3,7 +3,7 @@ import "./Reviews.css";
 
 import { FaUserSecret } from "react-icons/fa6";
 
-function Reviews({ author, content, avatar_path }) {
+function Reviews({ author, content, author_details }) {
  const [showFull, setShowFull] = useState(false);
 
  const truncatedContent = showFull ? content : `${content.slice(0, 150)}`;
@@ -12,19 +12,21 @@ function Reviews({ author, content, avatar_path }) {
   setShowFull(!showFull);
  };
 
+ const bck = "https://image.tmdb.org/t/p/w500";
+
  return (
   <div className="RightSideMovies_Reviews">
    <div className="author_section">
     <div>
-     {avatar_path === null ? (
-      <img src={avatar_path} alt={author} />
+     {author_details.avatar_path === null ? (
+      <FaUserSecret className="no-avatar" />
      ) : (
-      <FaUserSecret size={100} />
+      <img src={bck + author_details.avatar_path} alt={author} />
      )}
     </div>
     <h3>{author}</h3>
    </div>
-   <div style={{ display: "flex" }}>
+   <div className="author-review">
     <p>
      {truncatedContent}
      <span
