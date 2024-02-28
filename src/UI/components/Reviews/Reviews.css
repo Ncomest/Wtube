@@ -33,15 +33,24 @@
 
 .overviews-open {
  white-space: wrap;
- color: var(--grey);
 }
 
 .overviews-line-three {
- color: var(--grey);
  white-space: wrap;
  overflow: hidden;
  text-overflow: ellipsis;
  display: -webkit-box;
  -webkit-line-clamp: 3;
  -webkit-box-orient: vertical;
+}
+
+.author-review span {
+ cursor: pointer;
+ color: var(--blue);
+}
+
+@media (max-width: 425px) {
+ .RightSideMovies_Reviews {
+  min-width: 300px;
+ }
 }

@@ -24,26 +24,19 @@ function Reviews({ author, content, author_details }) {
       <img src={bck + author_details.avatar_path} alt={author} />
      )}
     </div>
-    <h3>{author}</h3>
+    <div>
+     <h3>{author}</h3>
+     <p>rating:{` ${author_details.rating}`}</p>
+    </div>
    </div>
    <div className="author-review">
     <p className={showFull ? "overviews-open" : "overviews-line-three"}>
      {content}
     </p>
     {showFull ? (
-     <span
-      style={{ cursor: "pointer", color: "var(--red)" }}
-      onClick={handleShowFull}
-     >
-      hide...
-     </span>
+     <span onClick={handleShowFull}>...hide</span>
     ) : (
-     <span
-      style={{ cursor: "pointer", color: "var(--blue)" }}
-      onClick={handleShowFull}
-     >
-      show...
-     </span>
+     <span onClick={handleShowFull}>show...</span>
     )}
    </div>
   </div>

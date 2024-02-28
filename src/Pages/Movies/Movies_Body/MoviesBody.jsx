@@ -89,7 +89,7 @@ function MoviesBody({ movieDetails }) {
 
    <div className="main">
     {/* ACTORS */}
-    {/* {movieDetails.credits.cast !== 0 && (
+    {movieDetails.credits.cast !== 0 && (
      <>
       <SubTitle subTitle={"Actors"} />
       <div className="sliderItem">
@@ -109,11 +109,11 @@ function MoviesBody({ movieDetails }) {
        ))}
       </div>
      </>
-    )} */}
+    )}
 
     {/* RECOMENDATIOM */}
     <>
-     {/* {movieDetails.recommendations.results.length !== 0 && (
+     {movieDetails.recommendations.results.length !== 0 && (
       <>
        <SubTitle subTitle={"Recommendation"} />
        <div className="sliderItem">
@@ -129,11 +129,11 @@ function MoviesBody({ movieDetails }) {
         ))}
        </div>
       </>
-     )} */}
+     )}
     </>
 
     {/* SIMILAR */}
-    {/* {movieDetails.similar.results.length !== 0 && (
+    {movieDetails.similar.results.length !== 0 && (
      <>
       <SubTitle subTitle={"Similar"} />
       <div className="sliderItem">
@@ -149,7 +149,7 @@ function MoviesBody({ movieDetails }) {
        ))}
       </div>
      </>
-    )} */}
+    )}
 
     {/* REVIEWS */}
     <SubTitle subTitle={"Reviews"} />
