@@ -1,0 +1,19 @@
+.RightSideMovies_Reviews {
+ display: flex;
+ flex-direction: column;
+}
+
+.author_section {
+ display: flex;
+ gap: 10px;
+}
+
+.author_section > div {
+ height: 100px;
+}
+
+.author_section img {
+ height: 100%;
+ width: 100%;
+ object-fit: cover;
+}
