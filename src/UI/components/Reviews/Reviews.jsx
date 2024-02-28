@@ -6,7 +6,7 @@ import { FaUserSecret } from "react-icons/fa6";
 function Reviews({ author, content, author_details }) {
  const [showFull, setShowFull] = useState(false);
 
- const truncatedContent = showFull ? content : `${content.slice(0, 150)}`;
+ //  const truncatedContent = showFull ? content : `${content.slice(0, 150)}`;
 
  const handleShowFull = () => {
   setShowFull(!showFull);
@@ -27,15 +27,24 @@ function Reviews({ author, content, author_details }) {
     <h3>{author}</h3>
    </div>
    <div className="author-review">
-    <p>
-     {truncatedContent}
+    <p className={showFull ? "overviews-open" : "overviews-line-three"}>
+     {content}
+    </p>
+    {showFull ? (
      <span
       style={{ cursor: "pointer", color: "var(--blue)" }}
       onClick={handleShowFull}
      >
-      {showFull ? " hide" : " ...next"}
+      hide...
      </span>
-    </p>
+    ) : (
+     <span
+      style={{ cursor: "pointer", color: "var(--blue)" }}
+      onClick={handleShowFull}
+     >
+      show...
+     </span>
+    )}
    </div>
   </div>
  );

@@ -153,7 +153,7 @@ function MoviesBody({ movieDetails }) {
 
     {/* REVIEWS */}
     <SubTitle subTitle={"Reviews"} />
-    <div className="sliderItem">
+    <div className="sliderItem reviews">
      {movieDetails.reviews.results.length !== 0 && (
       <>
        {movieDetails.reviews.results.map((item) => (

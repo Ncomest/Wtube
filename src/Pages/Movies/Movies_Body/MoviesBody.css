@@ -115,6 +115,10 @@
  padding-bottom: 5px;
 }
 
+.reviews {
+ align-items: start;
+}
+
 .itemCard {
  display: inline-block;
  scroll-snap-align: start;

@@ -2,8 +2,7 @@
  display: flex;
  flex-direction: column;
  min-width: 400px;
- height: auto;
- justify-content: center;
+ gap: 10px;
 }
 
 .author_section {
@@ -28,9 +27,17 @@
 }
 
 .author-review {
- display: flex;
+ /* display: flex; */
+}
+.overviews-open {
+ white-space: wrap;
 }
 
-.author-review p {
+.overviews-line-three {
  white-space: wrap;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ display: -webkit-box;
+ -webkit-line-clamp: 3;
+ -webkit-box-orient: vertical;
 }
