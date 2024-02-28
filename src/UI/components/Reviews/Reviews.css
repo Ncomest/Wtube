@@ -3,6 +3,9 @@
  flex-direction: column;
  min-width: 400px;
  gap: 10px;
+ border: 1px solid var(--grey);
+ border-radius: 5px;
+ padding: 5px;
 }
 
 .author_section {
@@ -19,21 +22,22 @@
  height: 100%;
  width: 100%;
  object-fit: cover;
+ border-radius: 5px;
 }
 
 .no-avatar {
  height: 100%;
  width: 100%;
+ color: rgb(84, 84, 84);
 }
 
-.author-review {
- /* display: flex; */
-}
 .overviews-open {
  white-space: wrap;
+ color: var(--grey);
 }
 
 .overviews-line-three {
+ color: var(--grey);
  white-space: wrap;
  overflow: hidden;
  text-overflow: ellipsis;

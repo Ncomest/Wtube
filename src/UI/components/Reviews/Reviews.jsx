@@ -32,7 +32,7 @@ function Reviews({ author, content, author_details }) {
     </p>
     {showFull ? (
      <span
-      style={{ cursor: "pointer", color: "var(--blue)" }}
+      style={{ cursor: "pointer", color: "var(--red)" }}
       onClick={handleShowFull}
      >
       hide...
