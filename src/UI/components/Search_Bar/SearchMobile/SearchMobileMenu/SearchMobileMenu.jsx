@@ -4,7 +4,7 @@ import SearchBar from "../../SearchBar";
 import SearchMobileBtn from "./SearchMobileBtn/SearchMobileBtn";
 import SearchMobileCard from "./SearchMobileCard/SearchMobileCard";
 
-const SearchMobileMenu = ({ setSearchOpen, inputRef }) => {
+const SearchMobileMenu = ({  inputRef ,selectedLanguage}) => {
  const [searchTerm, setSearchTerm] = useState("");
  const [searchResult, setSearchResult] = useState("");
 
@@ -34,7 +34,7 @@ const SearchMobileMenu = ({ setSearchOpen, inputRef }) => {
    <SearchMobileBtn onClick={handleSearchBtnClick} />
    <div className="search-card_drop-down">
     {searchTerm.length !== 0 && (
-     <SearchMobileCard searchResult={searchResult} />
+     <SearchMobileCard searchResult={searchResult} selectedLanguage={selectedLanguage}/>
     )}
    </div>
   </div>

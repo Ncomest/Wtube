@@ -28,12 +28,21 @@ function App() {
  return (
   <>
    <Language selectedLanguage={selectedLanguage} onChange={handleLang} />
-   <Header />
+   <Header selectedLanguage={selectedLanguage} />
    <Routes>
-    <Route path="/" element={<Home selectedLanguage={selectedLanguage}/>} />
-    <Route path="/Movies/:id" element={<Movies selectedLanguage={selectedLanguage}/>} />
-    <Route path="/Filter" element={<Filter selectedLanguage={selectedLanguage}/>} />
-    <Route path="/ActorsCast/:id" element={<ActorsCast selectedLanguage={selectedLanguage}/>} />
+    <Route path="/" element={<Home selectedLanguage={selectedLanguage} />} />
+    <Route
+     path="/Movies/:id"
+     element={<Movies selectedLanguage={selectedLanguage} />}
+    />
+    <Route
+     path="/Filter"
+     element={<Filter selectedLanguage={selectedLanguage} />}
+    />
+    <Route
+     path="/ActorsCast/:id"
+     element={<ActorsCast selectedLanguage={selectedLanguage} />}
+    />
     <Route path="/User" element={<User />} />
     <Route path="/UserProfile" element={<UserPofile />} />
     <Route path="*" element={<Error />} />

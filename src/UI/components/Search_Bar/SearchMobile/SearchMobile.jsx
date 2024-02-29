@@ -4,7 +4,7 @@ import { BsSearch } from "react-icons/bs";
 
 import SearchMobileMenu from "./SearchMobileMenu/SearchMobileMenu";
 
-function SearchMobile() {
+function SearchMobile({selectedLanguage}) {
  const [searchOpen, setSearchOpen] = useState(false);
  const inputRef = useRef(null);
  const searchRef = useRef();
@@ -33,7 +33,7 @@ function SearchMobile() {
     className="BsSearch"
     onClick={() => setSearchOpen(!searchOpen)}
    />
-   {searchOpen && <SearchMobileMenu inputRef={inputRef} />}
+   {searchOpen && <SearchMobileMenu inputRef={inputRef} selectedLanguage={selectedLanguage}/>}
   </div>
  );
 }

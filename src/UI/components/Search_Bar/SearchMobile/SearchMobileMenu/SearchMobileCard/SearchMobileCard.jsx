@@ -3,11 +3,15 @@ import { Link } from "react-router-dom";
 
 import "./SearchMobileCard.css";
 
-const SearchMobileCard = ({ searchResult, setSearchOpen }) => {
+const SearchMobileCard = ({
+ searchResult,
+ setSearchOpen,
+ selectedLanguage,
+}) => {
  const [loading, setLoading] = useState(true);
  const [searchMovie, setSearchMovie] = useState(null);
 
- const API_URL_TWO = `https://api.themoviedb.org/3/search/movie?query=${searchResult}&?api_key=14d8d8918e888fb791f87057ac1674c0`;
+ const API_URL_TWO = `https://api.themoviedb.org/3/search/movie?query=${searchResult}&?api_key=14d8d8918e888fb791f87057ac1674c0&language=${selectedLanguage}`;
 
  const fetchOption = {
   method: "GET",
