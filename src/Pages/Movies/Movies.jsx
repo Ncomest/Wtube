@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./Movies.css";
-import { myKey } from "../../helpers/Requests.js";
+// import { myKey } from "../../helpers/Requests.js";
 
 import MoviesBody from "./Movies_Body/MoviesBody";
 
-function Movies() {
+function Movies({ selectedLanguage }) {
  const { id } = useParams();
  const [movieDetails, setMovieDetails] = useState(null);
- const API_DB = `https://api.themoviedb.org/3/movie/${id}?api_key=${myKey}&append_to_response=credits,similar,recommendations,videos,reviews`;
+ const myKey = "14d8d8918e888fb791f87057ac1674c0";
+ const API_DB = `https://api.themoviedb.org/3/movie/${id}?api_key=${myKey}&language=${selectedLanguage}&append_to_response=credits,similar,recommendations,videos,reviews`;
 
  const fetchOption = {
   method: "GET",
@@ -30,8 +31,7 @@ function Movies() {
    }
   };
   fetchMovies();
-  // eslint-disable-next-line
- }, [id]);
+ }, [id, selectedLanguage]);
 
  if (!movieDetails) {
   return <div className="waitLoading">Loading...</div>;

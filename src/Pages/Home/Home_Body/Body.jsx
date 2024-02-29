@@ -5,15 +5,23 @@ import "./Body.css";
 
 // import MoviesContainer from "../../../UI/components/Card/MoviesContainer/MoviesContainer";
 // import ButtonFilterMenu from "../../../UI/components/Buttons/Filter_Menu/Button_Filter_Menu";
-import { requests } from "../../../helpers/Requests";
+// import { requests } from "../../../helpers/Requests";
 import axios from "axios";
 import SliderMain from "../../../helpers/Slider/Main/SliderMain";
 import SliderPopular from "../../../helpers/Slider/SilderPopular/SliderPopular";
 
-function Body() {
+function Body({ selectedLanguage }) {
  const [movies, setMovies] = useState([]);
  const [upcomingMovies, setUpcomingMovies] = useState([]);
  const [topRatedMovies, setTopRatedMovies] = useState([]);
+
+ const myKey = "14d8d8918e888fb791f87057ac1674c0";
+
+ const requests = {
+  requestPopular: `https://api.themoviedb.org/3/movie/popular?api_key=${myKey}&language=${selectedLanguage}&page=1`,
+  requestTopRated: `https://api.themoviedb.org/3/movie/top_rated?api_key=${myKey}&language=${selectedLanguage}&page=1`,
+  requestUpcoming: `https://api.themoviedb.org/3/movie/upcoming?api_key=${myKey}&language=${selectedLanguage}&page=1`,
+ };
 
  const options = {
   method: "GET",
@@ -47,7 +55,7 @@ function Body() {
  useEffect(() => {
   fetchData();
   // eslint-disable-next-line
- }, []);
+ }, [selectedLanguage]);
 
  return (
   <div className="Body">

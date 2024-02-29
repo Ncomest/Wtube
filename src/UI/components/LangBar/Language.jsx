@@ -1,10 +1,10 @@
 import React from "react";
 import "./Language.css";
 
-const Language = () => {
+const Language = ({ onChange, selectedLanguage }) => {
  return (
   <div className="language">
-   <select name="" id="">
+   <select value={selectedLanguage} onChange={onChange}>
     <option value="en-US">EN</option>
     <option value="ru-RU">RU</option>
    </select>

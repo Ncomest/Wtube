@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./ActorsCast.css";
 import { useParams, Link } from "react-router-dom";
 
-function ActorsCast() {
+function ActorsCast({selectedLanguage}) {
  const { id } = useParams();
  const [movies, setMovies] = useState([]);
  const [addSlice, setAddSlice] = useState(20);
@@ -20,7 +20,7 @@ function ActorsCast() {
   async function fetchData() {
    try {
     const res = await fetch(
-     `https://api.themoviedb.org/3/person/${id}?api_key=14d8d8918e888fb791f87057ac1674c0&append_to_response=credits`,
+     `https://api.themoviedb.org/3/person/${id}?api_key=14d8d8918e888fb791f87057ac1674c0&language=${selectedLanguage}&append_to_response=credits`,
      options
     );
     const data = await res.json();
@@ -31,7 +31,7 @@ function ActorsCast() {
    }
   }
   fetchData();
- }, [id]);
+ }, [id, selectedLanguage]);
 
  const handleUp = () => {
   window.scrollTo(0, 0);

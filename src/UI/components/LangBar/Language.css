@@ -1,7 +1,15 @@
 .language {
- height: 20px;
+ height: 30px;
  display: flex;
  justify-content: end;
+ align-items: center;
  padding: 0px 10px;
  background-color: var(--dark);
 }
+
+.language select {
+ height: 25px;
+ color: var(--white);
+ background-color: var(--dark);
+}
+

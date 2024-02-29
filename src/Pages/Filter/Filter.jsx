@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import SideBar from "../../UI/components/SideBar/SideBar";
 
-export default function Filter() {
+export default function Filter({ selectedLanguage }) {
  const [movies, setMovies] = useState([]);
  const [startYear, setStartYear] = useState("");
  const [finishYear, setFinishYear] = useState("");
@@ -35,7 +35,7 @@ export default function Filter() {
 
  const handleChangeFetch = () => {
   fetch(
-   `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc&primary_release_date.gte=${startYear}-01-01&primary_release_date.lte=${finishYear}-12-31&with_original_language=${country}&with_genres=${genre}&vote_average.gte=${startImdb}&vote_average.lte=${finishImdb}`,
+   `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=${selectedLanguage}&page=${page}&sort_by=popularity.desc&primary_release_date.gte=${startYear}-01-01&primary_release_date.lte=${finishYear}-12-31&with_original_language=${country}&with_genres=${genre}&vote_average.gte=${startImdb}&vote_average.lte=${finishImdb}`,
    options
   )
    .then((response) => response.json())
@@ -62,7 +62,7 @@ export default function Filter() {
 
  useEffect(() => {
   handleChangeFetch();
- }, [page]);
+ }, [page, selectedLanguage]);
 
  return (
   <div className="filterPage">

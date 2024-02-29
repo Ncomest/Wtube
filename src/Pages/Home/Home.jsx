@@ -4,10 +4,10 @@ import "./../../index.css";
 
 import Body from "./Home_Body/Body";
 
-const Home = () => {
+const Home = ({selectedLanguage}) => {
  return (
   <div className="Home">
-   <Body />
+   <Body selectedLanguage={selectedLanguage} />
   </div>
  );
 };
