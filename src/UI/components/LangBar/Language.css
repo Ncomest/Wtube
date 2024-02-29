@@ -1,0 +1,7 @@
+.language {
+ height: 20px;
+ display: flex;
+ justify-content: end;
+ padding: 0px 10px;
+ background-color: var(--dark);
+}
