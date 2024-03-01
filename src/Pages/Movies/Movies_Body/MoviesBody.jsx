@@ -52,39 +52,38 @@ function MoviesBody({ movieDetails }) {
     <div className="MovieBlock">
      <h1>{movieDetails.title}</h1>
      <p>
-      <span>Overview: </span>
+      <span>{t("overview")}: </span>
       {movieDetails.overview}
      </p>
      <p>
-      <span>Release: </span>
+      <span>{t("release")}: </span>
       {movieDetails.release_date}
      </p>
      <div className="MoviesText">
       {" "}
-      <span>Genres: </span>
+      <span>{t("genres")}: </span>
       {movieDetails.genres.map((genre) => (
        <p key={genre.id}>{genre.name}</p>
       ))}
      </div>
      <p>
       {" "}
-      <span>Raiting Imdb: </span>
+      <span>{t("ratingIMDB")}: </span>
       {Math.round(movieDetails.vote_average * 10) / 10}
      </p>
      <p>
       {" "}
-      <span>Runtime: </span>
+      <span>{t("runtime")}: </span>
       {movieDetails.runtime + " "}
-      minute
+      {t("minute")}
      </p>
     </div>
-    <p>{t("actors")}</p>
    </div>
 
    {/* Btn Trailer DropDown */}
    <div className="MovieWatch" onClick={handleOpenMovie}>
     <ImPlay size={30} color="red" />
-    <button>Watch</button>
+    <button>{t("watch")}</button>
    </div>
    <MdKeyboardDoubleArrowDown
     style={{ margin: "auto", width: "100%", marginTop: "5px" }}
@@ -95,7 +94,7 @@ function MoviesBody({ movieDetails }) {
     {/* ACTORS */}
     {movieDetails.credits.cast !== 0 && (
      <>
-      <SubTitle subTitle={t("Actors")} />
+      <SubTitle subTitle={t("actors")} />
       <div className="sliderItem">
        {movieDetails.credits.cast.map((item) => (
         <Link
@@ -119,7 +118,7 @@ function MoviesBody({ movieDetails }) {
     <>
      {movieDetails.recommendations.results.length !== 0 && (
       <>
-       <SubTitle subTitle={"Recommendation"} />
+       <SubTitle subTitle={t("recommendation")} />
        <div className="sliderItem">
         {movieDetails.recommendations.results.map((item) => (
          <Link className="Router-link" key={item.id} to={`/movies/${item.id}`}>
@@ -139,7 +138,7 @@ function MoviesBody({ movieDetails }) {
     {/* SIMILAR */}
     {movieDetails.similar.results.length !== 0 && (
      <>
-      <SubTitle subTitle={"Similar"} />
+      <SubTitle subTitle={t("similar")} />
       <div className="sliderItem">
        {movieDetails.similar.results.map((item) => (
         <Link className="Router-link" key={item.id} to={`/movies/${item.id}`}>
@@ -154,9 +153,9 @@ function MoviesBody({ movieDetails }) {
       </div>
      </>
     )}
-    {console.log(t("translation:actors"))}
+
     {/* REVIEWS */}
-    <SubTitle subTitle={"Reviews"} />
+    <SubTitle subTitle={t("reviews")} />
     <div className="sliderItem reviews">
      {movieDetails.reviews.results.length !== 0 && (
       <>
