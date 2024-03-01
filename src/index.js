@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import App from "./App";
 import "./index.css";
-
+import "./helpers/i18n";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -14,4 +14,3 @@ root.render(
   </BrowserRouter>
  </React.StrictMode>
 );
-

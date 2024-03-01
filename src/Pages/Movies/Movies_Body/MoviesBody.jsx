@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 import "./MoviesBody.css";
 
 import { ImPlay } from "react-icons/im";
@@ -10,6 +12,7 @@ import Reviews from "../../../UI/components/Reviews/Reviews";
 
 function MoviesBody({ movieDetails }) {
  const [open, setOpen] = useState(false);
+ const { t } = useTranslation();
 
  if (!movieDetails) {
   return <>Wait</>;
@@ -75,6 +78,7 @@ function MoviesBody({ movieDetails }) {
       minute
      </p>
     </div>
+    <p>{t("actors")}</p>
    </div>
 
    {/* Btn Trailer DropDown */}
@@ -91,7 +95,7 @@ function MoviesBody({ movieDetails }) {
     {/* ACTORS */}
     {movieDetails.credits.cast !== 0 && (
      <>
-      <SubTitle subTitle={"Actors"} />
+      <SubTitle subTitle={t("Actors")} />
       <div className="sliderItem">
        {movieDetails.credits.cast.map((item) => (
         <Link
@@ -150,7 +154,7 @@ function MoviesBody({ movieDetails }) {
       </div>
      </>
     )}
-
+    {console.log(t("translation:actors"))}
     {/* REVIEWS */}
     <SubTitle subTitle={"Reviews"} />
     <div className="sliderItem reviews">
