@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Body.css";
+import { useTranslation } from "react-i18next";
 
-// import { Link } from "react-router-dom";
-
-// import MoviesContainer from "../../../UI/components/Card/MoviesContainer/MoviesContainer";
-// import ButtonFilterMenu from "../../../UI/components/Buttons/Filter_Menu/Button_Filter_Menu";
-// import { requests } from "../../../helpers/Requests";
 import axios from "axios";
 import SliderMain from "../../../helpers/Slider/Main/SliderMain";
 import SliderPopular from "../../../helpers/Slider/SilderPopular/SliderPopular";
@@ -14,6 +10,9 @@ function Body({ selectedLanguage }) {
  const [movies, setMovies] = useState([]);
  const [upcomingMovies, setUpcomingMovies] = useState([]);
  const [topRatedMovies, setTopRatedMovies] = useState([]);
+ const { t } = useTranslation();
+
+
 
  const myKey = "14d8d8918e888fb791f87057ac1674c0";
 
@@ -44,9 +43,9 @@ function Body({ selectedLanguage }) {
    setMovies(popularResponse.data.results);
    setUpcomingMovies(upcomingResponse.data.results);
    setTopRatedMovies(topRatedMovies.data.results);
-   console.log("Popular", popularResponse.data);
-   console.log("Upcoming", upcomingResponse.data);
-   console.log("Top Rated", topRatedMovies.data);
+  //  console.log("Popular", popularResponse.data);
+  //  console.log("Upcoming", upcomingResponse.data);
+  //  console.log("Top Rated", topRatedMovies.data);
   } catch (error) {
    console.error(error);
   }
@@ -61,10 +60,10 @@ function Body({ selectedLanguage }) {
   <div className="Body">
    <SliderMain upcomingMovies={upcomingMovies} />
    <div className="Body_Container">
-    <h4>Popular</h4>
+    <h4>{t('popular')}</h4>
 
     <SliderPopular movies={movies} />
-    <h4>Top Rated</h4>
+    <h4>{t('topRating')}</h4>
     <SliderPopular movies={topRatedMovies} />
    </div>
   </div>

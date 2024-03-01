@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import "./SearchMobileCard.css";
+import { useTranslation } from "react-i18next";
 
 const SearchMobileCard = ({
  searchResult,
@@ -71,6 +72,7 @@ const MobileCard = ({ ...movie }) => {
  const imger = "https://image.tmdb.org/t/p/w500";
  const { poster_path, title, genres, vote_average, release_date, overview } =
   movie;
+ const { t } = useTranslation();
 
  if (!movie) {
   return <div>Loading...MovieCard</div>;
@@ -102,7 +104,7 @@ const MobileCard = ({ ...movie }) => {
    <div>
     <h2>{title}</h2>
     <div className="SearchMobileCard_Text">
-     <p>Genres:</p>
+     <p>{t("genres")}:</p>
      {/* <div className="SearchMobileCard_List">
       {genres.map((genre) => (
        <p key={genre.name}>{genre.name},</p>
@@ -111,17 +113,17 @@ const MobileCard = ({ ...movie }) => {
     </div>
 
     <div className="SearchMobileCard_Text">
-     <p>Rating:</p>
+     <p>{t("rating")}:</p>
      <p>{Math.round(vote_average * 10) / 10}</p>
     </div>
 
     <div className="SearchMobileCard_Text">
-     <p>Year:</p>
+     <p>{t("year")}:</p>
      <p>{release_date}</p>
     </div>
 
     <div className="SearchMobileCard_Text overv">
-     <p>Overview:</p>
+     <p>{t("overview")}:</p>
      {window.innerWidth < 427 ? (
       <p>{overview.slice(0, 100)}...</p>
      ) : (

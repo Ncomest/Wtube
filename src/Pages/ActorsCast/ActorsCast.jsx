@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./ActorsCast.css";
 import { useParams, Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
-function ActorsCast({selectedLanguage}) {
+function ActorsCast({ selectedLanguage }) {
  const { id } = useParams();
  const [movies, setMovies] = useState([]);
  const [addSlice, setAddSlice] = useState(20);
+ const { t } = useTranslation();
 
  const options = {
   method: "GET",
@@ -66,7 +68,7 @@ function ActorsCast({selectedLanguage}) {
 
    <div className="wrapp-actors">
     <div className="title-movies">
-     <h3>Movies</h3>
+     <h3>{t("movies")}</h3>
     </div>
     <div className="card-container">
      {movies?.credits?.cast.slice(0, `${addSlice}`).map((item) => (
@@ -83,7 +85,7 @@ function ActorsCast({selectedLanguage}) {
    </div>
    {movies?.credits?.cast.length > addSlice && (
     <button className="Sign btnRed add-more" onClick={handleAdd}>
-     Add more...
+     {t("more")}
     </button>
    )}
   </div>

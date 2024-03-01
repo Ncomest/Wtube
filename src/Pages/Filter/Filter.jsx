@@ -3,6 +3,7 @@ import "./Filter.css";
 import { Link } from "react-router-dom";
 
 import SideBar from "../../UI/components/SideBar/SideBar";
+import { useTranslation } from "react-i18next";
 
 export default function Filter({ selectedLanguage }) {
  const [movies, setMovies] = useState([]);
@@ -13,6 +14,7 @@ export default function Filter({ selectedLanguage }) {
  const [startImdb, setStartImdb] = useState("");
  const [finishImdb, setFinishImdb] = useState("");
  const [page, setPage] = useState(1);
+ const { t } = useTranslation();
  const bck = "https://image.tmdb.org/t/p/w500";
 
  const filters = {
@@ -83,12 +85,12 @@ export default function Filter({ selectedLanguage }) {
    <div className="btnNextPage">
     {page > 1 && (
      <button className="Sign btnRed" onClick={handlePrevPage}>
-      Prev page
+      {t("previous")}
      </button>
     )}
 
     <button className="Sign btnRed" onClick={handleNextPage}>
-     Next page
+     {t('next')}
     </button>
    </div>
   </div>

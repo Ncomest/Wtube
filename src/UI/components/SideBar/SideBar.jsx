@@ -2,6 +2,7 @@ import React from "react";
 import "./SideBar.css";
 
 import SideBarFilter from "../Buttons/SideBarFilter/SideBarFilter";
+import { useTranslation } from "react-i18next";
 
 const SideBar = ({ filters, onClick }) => {
  return (
@@ -19,15 +20,16 @@ const SideBar = ({ filters, onClick }) => {
 };
 
 const FilterBarContainerGenre = ({ filters }) => {
+ const { t } = useTranslation();
  const handleFilterChange = (e) => {
   filters.setGenre(e.target.value);
  };
 
  return (
   <div className="FilterBarContainer_Container">
-   <p className="FilterBarContainer_Text">Genre</p>
+   <p className="FilterBarContainer_Text">{t("genres")}</p>
    <select className="FilterBarContainer_Select" onChange={handleFilterChange}>
-    <option value="">-- Choose genre --</option>
+    <option value="">-- {t("chooseGenre")} --</option>
     <option value="28">Action</option>
     <option value="12">Adventure</option>
     <option value="16">Animation</option>
@@ -52,14 +54,15 @@ const FilterBarContainerGenre = ({ filters }) => {
 };
 
 const FilterBarContainerCountry = ({ filters }) => {
+ const { t } = useTranslation();
  const handleFilterChange = (e) => {
   filters.setCountry(e.target.value);
  };
  return (
   <div className="FilterBarContainer_Container">
-   <p className="FilterBarContainer_Text">Country</p>
+   <p className="FilterBarContainer_Text">{t("country")}</p>
    <select className="FilterBarContainer_Select" onChange={handleFilterChange}>
-    <option value="">-- Choose country --</option>
+    <option value="">-- {t("chooseCountry")} --</option>
     <option value="pl">Poland</option>
     <option value="ca">Canada</option>
     <option value="cn">China</option>
@@ -76,6 +79,7 @@ const FilterBarContainerCountry = ({ filters }) => {
 };
 
 const FilterBarContainerYear = ({ filters }) => {
+ const { t } = useTranslation();
  const handleFilterChangeStart = (e) => {
   filters.setStartYear(e.target.value);
  };
@@ -86,7 +90,7 @@ const FilterBarContainerYear = ({ filters }) => {
  const currentYear = new Date().getFullYear();
  return (
   <div className="FilterBarContainer_Container">
-   <p className="FilterBarContainer_Text">Year</p>
+   <p className="FilterBarContainer_Text">{t("year")}</p>
    <div className="FilterBarContainer_Items">
     <select
      name="YearStart"
@@ -126,6 +130,7 @@ const FilterBarContainerYear = ({ filters }) => {
 };
 
 const FilterBarContainerImdb = ({ filters }) => {
+ const { t } = useTranslation();
  const handleFilterChangeStart = (e) => {
   filters.setStartImdb(e.target.value);
  };
@@ -135,7 +140,7 @@ const FilterBarContainerImdb = ({ filters }) => {
 
  return (
   <div className="FilterBarContainer_Container">
-   <p className="FilterBarContainer_Text">Raiting Imdb</p>
+   <p className="FilterBarContainer_Text">{t("ratingIMDB")}</p>
    <div className="FilterBarContainer_Items">
     <select
      name="ImdbStart"
