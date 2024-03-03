@@ -61,8 +61,8 @@ function Body({ selectedLanguage }) {
    <SliderMain upcomingMovies={upcomingMovies} />
    <div className="Body_Container">
     <h4>{t('popular')}</h4>
-
     <SliderPopular movies={movies} />
+    
     <h4>{t('topRating')}</h4>
     <SliderPopular movies={topRatedMovies} />
    </div>

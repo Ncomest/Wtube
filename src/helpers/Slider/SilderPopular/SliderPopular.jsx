@@ -59,9 +59,9 @@ function SliderPopular({ movies }) {
   nextArrow: <SampleNextArrow />,
   prevArrow: <SamplePrevArrow />,
   infinite: true,
-  speed: 500,
+  speed: 900,
   slidesToShow: 3,
-  slidesToScroll: 2,
+  slidesToScroll: 1,
   initialSlide: 0,
   centerMode: false,
   rows: 2,
@@ -71,21 +71,18 @@ function SliderPopular({ movies }) {
     breakpoint: 992,
     settings: {
      slidesToShow: 3,
-     slidesToScroll: 1,
     },
    },
    {
     breakpoint: 768,
     settings: {
      slidesToShow: 2,
-     slidesToScroll: 1,
     },
    },
    {
     breakpoint: 425,
     settings: {
      slidesToShow: 1,
-     slidesToScroll: 1,
     },
    },
   ],
