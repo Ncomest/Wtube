@@ -31,3 +31,16 @@
  text-decoration: none;
  color: inherit;
 }
+
+.btn-global {
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: var(--textNormal);
+  position: relative;
+  overflow: hidden;
+  padding: 10px 20px;
+  color: var(--white);
+  background-color: transparent;
+  border: none;
+  transition: text-decoration 4.5s ease-in-out;
+ }

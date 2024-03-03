@@ -64,10 +64,6 @@
  gap: 10px;
 }
 
-.card-image {
- /* width: auto; */
-}
-
 .card-image img {
  height: 280px;
  width: 100%;

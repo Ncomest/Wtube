@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import "./MoviesCategory.css";
+import ButtonCommon from "../../UI/components/Buttons/ButtonCommon/ButtonCommon";
 
 function MoviesCategory({ selectedLanguage }) {
  const { category } = useParams();
@@ -58,16 +59,12 @@ function MoviesCategory({ selectedLanguage }) {
       </div>
      ))}
     </div>
-    <div className="btnNextPage">
+    <div className="MoviesCategory-btn_container">
      {page > 1 && (
-      <button className="Sign btnRed" onClick={handlePrevPage}>
-       {t("previous")}
-      </button>
+      <ButtonCommon text={t("previous")} onClick={handlePrevPage} />
      )}
-
-     <button className="Sign btnRed" onClick={handleNextPage}>
-      {t("next")}
-     </button>
+     <p>{page}</p>
+     <ButtonCommon text={t("next")} onClick={handleNextPage} />
     </div>
    </div>
   </div>

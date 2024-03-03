@@ -1,4 +1,4 @@
-.Sign {
+.button-common {
  border-radius: 5px;
  cursor: pointer;
  font-size: var(--textNormal);
@@ -11,7 +11,7 @@
  transition: text-decoration 4.5s ease-in-out;
 }
 
-.Sign::before {
+.button-common::before {
  content: "";
  position: absolute;
  width: 0;
@@ -23,14 +23,14 @@
  background-color: var(--white);
 }
 
-.Sign:hover::before {
+.button-common:hover::before {
  width: 100%;
 }
 
-.btnRed {
+.button-red {
  background-color: var(--red);
 }
 
-.btnRed:hover {
+.button-red:hover {
  background-color: var(--light_red);
 }
