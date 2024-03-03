@@ -49,8 +49,11 @@ function App() {
       path="/ActorsCast/:id"
       element={<ActorsCast selectedLanguage={selectedLanguage} />}
      />
+     <Route
+      path="/moviescategory/:category"
+      element={<MoviesCategory selectedLanguage={selectedLanguage} />}
+     />
      <Route path="/User" element={<User />} />
-     <Route path="/moviescategory" element={<MoviesCategory />} />
      <Route path="/UserProfile" element={<UserPofile />} />
      <Route path="*" element={<Error />} />
      {/* <Redirect from='/' to='loginform' /> */}

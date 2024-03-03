@@ -8,11 +8,10 @@ import SliderMain from "../../../helpers/Slider/Main/SliderMain";
 import SliderPopular from "../../../helpers/Slider/SilderPopular/SliderPopular";
 
 function Body({ selectedLanguage }) {
- const [movies, setMovies] = useState([]);
  const [upcomingMovies, setUpcomingMovies] = useState([]);
+ const [popularMovies, setPopularMovies] = useState([]);
  const [topRatedMovies, setTopRatedMovies] = useState([]);
  const { t } = useTranslation();
-
  const myKey = "14d8d8918e888fb791f87057ac1674c0";
 
  const requests = {
@@ -39,7 +38,7 @@ function Body({ selectedLanguage }) {
      axios.get(requests.requestTopRated, options),
     ]);
 
-   setMovies(popularResponse.data.results);
+   setPopularMovies(popularResponse.data.results);
    setUpcomingMovies(upcomingResponse.data.results);
    setTopRatedMovies(topRatedMovies.data.results);
    //  console.log("Popular", popularResponse.data);
@@ -59,11 +58,7 @@ function Body({ selectedLanguage }) {
   <div className="Body">
    <div className="section-header">
     <h4>{t("upComming")}</h4>
-    <Link
-     className="Router-link"
-     //  key={upcom.id}
-     to={`/moviescategory`}
-    >
+    <Link className="Router-link" to={`/moviescategory/upcoming`}>
      <p>{t("lookingAll")}</p>
     </Link>
    </div>
@@ -71,13 +66,17 @@ function Body({ selectedLanguage }) {
    <div className="Body_Container">
     <div className="section-header">
      <h4>{t("popular")}</h4>
-     <p>{t("lookingAll")}</p>
+     <Link className="Router-link" to={`/moviescategory/popular`}>
+      <p>{t("lookingAll")}</p>
+     </Link>
     </div>
-    <SliderPopular movies={movies} />
+    <SliderPopular movies={popularMovies} />
 
     <div className="section-header">
      <h4>{t("topRating")}</h4>
-     <p>{t("lookingAll")}</p>
+     <Link className="Router-link" to={`/moviescategory/top-rated`}>
+      <p>{t("lookingAll")}</p>
+     </Link>
     </div>
     <SliderPopular movies={topRatedMovies} />
    </div>

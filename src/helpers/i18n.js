@@ -36,7 +36,7 @@ i18n.use(initReactI18next).init({
     movies: "Movies",
     more: "More",
     lookingAll: "Looking all",
-    upComming: "Up comming",
+    upComming: "Upcoming",
    },
   },
   "ru-RU": {

@@ -1,0 +1,51 @@
+.MoviesCategory {
+ background-color: var(--dark);
+ color: var(--white);
+ padding: 10px;
+}
+
+.MoviesCategory h2 {
+ margin: 0 0 10px 0;
+}
+
+.MoviesCategory-grid {
+ display: grid;
+ grid-template-columns: repeat(5, minmax(160px, 1fr));
+ /* grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); */
+ justify-content: space-between;
+ gap: 10px;
+}
+
+.grid_card {
+ margin-bottom: 10px;
+}
+
+.grid-card-image h4 {
+ overflow: hidden;
+ text-overflow: ellipsis;
+ white-space: nowrap;
+}
+
+.grid-card-image img {
+ width: 100%;
+ object-fit: cover;
+ border-radius: 5px;
+}
+
+@media (max-width: 992px) {
+ .MoviesCategory-grid {
+  grid-template-columns: repeat(4, minmax(160px, 1fr));
+ }
+}
+
+@media (max-width: 768px) {
+ .MoviesCategory-grid {
+  grid-template-columns: repeat(4, minmax(90px, 1fr));
+ }
+}
+
+@media (max-width: 425px) {
+ .MoviesCategory-grid {
+  grid-template-columns: repeat(2, minmax(90px, 1fr));
+ }
+}
