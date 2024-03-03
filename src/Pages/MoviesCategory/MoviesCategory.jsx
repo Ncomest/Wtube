@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import "./MoviesCategory.css";
 import ButtonCommon from "../../UI/components/Buttons/ButtonCommon/ButtonCommon";
@@ -51,12 +51,14 @@ function MoviesCategory({ selectedLanguage }) {
    <div>
     <div className="MoviesCategory-grid">
      {movies?.results?.map((item) => (
-      <div key={item.id} className="grid_card">
-       <div className="grid-card-image">
-        <img src={bck + item.poster_path} alt={item.title} />
-        <h4>{item.title}</h4>
+      <Link className="Router-link" to={`/movies/${item.id}`} key={item.id}>
+       <div key={item.id} className="grid_card">
+        <div className="grid-card-image">
+         <img src={bck + item.poster_path} alt={item.title} />
+         <h4>{item.title}</h4>
+        </div>
        </div>
-      </div>
+      </Link>
      ))}
     </div>
     <div className="MoviesCategory-btn_container">
