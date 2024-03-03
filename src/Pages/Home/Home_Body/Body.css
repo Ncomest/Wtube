@@ -66,6 +66,22 @@
  font-size: var(--textLarge);
 }
 
+.section-header {
+ position: relative;
+}
+
+.section-header p {
+ position: absolute;
+ bottom: 5px;
+ right: 0;
+ color: var(--grey);
+ cursor: pointer;
+}
+
+.section-header p:hover {
+ color: var(--white);
+}
+
 @media (max-width: 1440px) {
 }
 

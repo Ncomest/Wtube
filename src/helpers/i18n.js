@@ -35,6 +35,8 @@ i18n.use(initReactI18next).init({
     accept: "Accept",
     movies: "Movies",
     more: "More",
+    lookingAll: "Looking all",
+    upComming: "Up comming",
    },
   },
   "ru-RU": {
@@ -66,6 +68,8 @@ i18n.use(initReactI18next).init({
     accept: "Принять",
     movies: "Фильмы",
     more: "Еще",
+    lookingAll: "Смотреть все",
+    upComming: "Скоро на экранах",
    },
   },
  },

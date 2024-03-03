@@ -12,8 +12,6 @@ function Body({ selectedLanguage }) {
  const [topRatedMovies, setTopRatedMovies] = useState([]);
  const { t } = useTranslation();
 
-
-
  const myKey = "14d8d8918e888fb791f87057ac1674c0";
 
  const requests = {
@@ -43,9 +41,9 @@ function Body({ selectedLanguage }) {
    setMovies(popularResponse.data.results);
    setUpcomingMovies(upcomingResponse.data.results);
    setTopRatedMovies(topRatedMovies.data.results);
-  //  console.log("Popular", popularResponse.data);
-  //  console.log("Upcoming", upcomingResponse.data);
-  //  console.log("Top Rated", topRatedMovies.data);
+   //  console.log("Popular", popularResponse.data);
+   //  console.log("Upcoming", upcomingResponse.data);
+   //  console.log("Top Rated", topRatedMovies.data);
   } catch (error) {
    console.error(error);
   }
@@ -58,12 +56,22 @@ function Body({ selectedLanguage }) {
 
  return (
   <div className="Body">
+   <div className="section-header">
+    <h4>{t("upComming")}</h4>
+    <p>{t("lookingAll")}</p>
+   </div>
    <SliderMain upcomingMovies={upcomingMovies} />
    <div className="Body_Container">
-    <h4>{t('popular')}</h4>
+    <div className="section-header">
+     <h4>{t("popular")}</h4>
+     <p>{t("lookingAll")}</p>
+    </div>
     <SliderPopular movies={movies} />
-    
-    <h4>{t('topRating')}</h4>
+
+    <div className="section-header">
+     <h4>{t("topRating")}</h4>
+     <p>{t("lookingAll")}</p>
+    </div>
     <SliderPopular movies={topRatedMovies} />
    </div>
   </div>
