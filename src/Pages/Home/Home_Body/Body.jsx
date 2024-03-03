@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "./Body.css";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import "./Body.css";
 
 import axios from "axios";
 import SliderMain from "../../../helpers/Slider/Main/SliderMain";
@@ -58,7 +59,13 @@ function Body({ selectedLanguage }) {
   <div className="Body">
    <div className="section-header">
     <h4>{t("upComming")}</h4>
-    <p>{t("lookingAll")}</p>
+    <Link
+     className="Router-link"
+     //  key={upcom.id}
+     to={`/moviescategory`}
+    >
+     <p>{t("lookingAll")}</p>
+    </Link>
    </div>
    <SliderMain upcomingMovies={upcomingMovies} />
    <div className="Body_Container">
