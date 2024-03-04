@@ -11,7 +11,7 @@ import BtnSignUp from "../../UI/components/Buttons/LogIn/BtnSignUp";
 
 import { BsFilterSquare } from "react-icons/bs";
 
-function Header({selectedLanguage}) {
+function Header({ selectedLanguage }) {
  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
  useEffect(() => {
@@ -38,7 +38,7 @@ function Header({selectedLanguage}) {
 
    <div className="Header_Container">
     <>
-     <SearchMobile selectedLanguage={selectedLanguage}/>
+     <SearchMobile selectedLanguage={selectedLanguage} />
      <div>
       <Link to="/filter">
        <BsFilterSquare className="BsFilterSquare" fill="white" size={40} />
@@ -47,10 +47,10 @@ function Header({selectedLanguage}) {
      {windowWidth <= breakpoint ? (
       <Burger />
      ) : (
-      <div>
+      <>
        <BtnLogin />
        <BtnSignUp />
-      </div>
+      </>
      )}
     </>
    </div>

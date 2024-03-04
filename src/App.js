@@ -14,6 +14,8 @@ import UserPofile from "./Pages/User/UserProfile/UserPofile";
 import ActorsCast from "./Pages/ActorsCast/ActorsCast";
 import Language from "./UI/components/LangBar/Language";
 import MoviesCategory from "./Pages/MoviesCategory/MoviesCategory";
+import Login from "./Pages/Login/Login";
+import SignUp from "./Pages/SignUp/SignUp";
 
 function App() {
  const [selectedLanguage, setSelectedLanguage] = useState(
@@ -54,6 +56,8 @@ function App() {
       element={<MoviesCategory selectedLanguage={selectedLanguage} />}
      />
      <Route path="/User" element={<User />} />
+     <Route path="/login" element={<Login />} />
+     <Route path="/signup" element={<SignUp />} />
      <Route path="/UserProfile" element={<UserPofile />} />
      <Route path="*" element={<Error />} />
      {/* <Redirect from='/' to='loginform' /> */}
