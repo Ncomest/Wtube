@@ -47,7 +47,7 @@ function MoviesCategory({ selectedLanguage }) {
  const bck = "https://image.tmdb.org/t/p/w500";
  return (
   <div className="MoviesCategory">
-   <h2>{category}</h2>
+   <h2>{t(`${category}`)}</h2>
    <div>
     <div className="MoviesCategory-grid">
      {movies?.results?.map((item) => (

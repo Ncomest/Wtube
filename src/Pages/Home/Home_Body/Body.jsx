@@ -56,14 +56,15 @@ function Body({ selectedLanguage }) {
 
  return (
   <div className="Body">
-   <div className="section-header">
-    <h4>{t("upComming")}</h4>
-    <Link className="Router-link" to={`/moviescategory/upcoming`}>
-     <p>{t("lookingAll")}</p>
-    </Link>
-   </div>
-   <SliderMain upcomingMovies={upcomingMovies} />
    <div className="Body_Container">
+    <div className="section-header">
+     <h4>{t("upComming")}</h4>
+     <Link className="Router-link" to={`/moviescategory/upcoming`}>
+      <p>{t("lookingAll")}</p>
+     </Link>
+    </div>
+    <SliderMain upcomingMovies={upcomingMovies} />
+
     <div className="section-header">
      <h4>{t("popular")}</h4>
      <Link className="Router-link" to={`/moviescategory/popular`}>
@@ -73,8 +74,8 @@ function Body({ selectedLanguage }) {
     <SliderPopular movies={popularMovies} />
 
     <div className="section-header">
-     <h4>{t("topRating")}</h4>
-     <Link className="Router-link" to={`/moviescategory/top-rated`}>
+     <h4>{t("top_rated")}</h4>
+     <Link className="Router-link" to={`/moviescategory/top_rated`}>
       <p>{t("lookingAll")}</p>
      </Link>
     </div>
