@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./SignUp.css";
+import { USER_REGEX } from "../../helpers/Register";
+import { PWD_REGEX } from "../../helpers/Register";
 
 function SignUp() {
  const userRef = useRef();
@@ -16,7 +18,12 @@ function SignUp() {
   userRef.current.focus();
  }, []);
 
- useEffect(() => {}, []);
+ useEffect(() => {
+  const result = USER_REGEX.test(user);
+  console.log(result);
+  console.log(user);
+  setValidName(result);
+ }, [user]);
 
  return (
   <div className="signup">
