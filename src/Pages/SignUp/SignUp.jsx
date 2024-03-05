@@ -25,11 +25,46 @@ function SignUp() {
   setValidName(result);
  }, [user]);
 
+ useEffect(() => {
+  setErrMsg("");
+ }, [user]);
+
  return (
   <div className="signup">
-   <form action="">
-    <label htmlFor="">
-     <input type="text" />
+   <p
+    ref={errRef}
+    className={errMsg ? "errmsg" : "offcreen"}
+    aria-live="assertive"
+   >
+    {errMsg}
+   </p>
+   <form>
+    <label htmlFor="username">
+     Username:
+     <span className={validName ? "valid" : "hide"}></span>
+     <span className={validName || !user ? "hide" : "invalid"}>Not good</span>
+     <input
+      type="text"
+      id="username"
+      ref={userRef}
+      autoComplete="off"
+      onChange={(e) => setUser(e.target.value)}
+      required
+      aria-invalid={validName ? "false" : "true"}
+      aria-describedby="uidnote"
+      onFocus={() => setUserFocus(true)}
+      onBlur={() => setUserFocus(false)}
+     />
+     <p
+      id="uidnote"
+      className={userFocus && user && !validName ? "instruction" : "offscreen"}
+     >
+      4 to 16 characters.
+      <br />
+      Must begin with a letter.
+      <br />
+      Letters,numbers
+     </p>
     </label>
     <button>Accept</button>
    </form>
