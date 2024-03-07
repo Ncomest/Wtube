@@ -7,4 +7,37 @@
  justify-content: center;
  flex-direction: column;
  gap: 20px;
+ /* background-image: url(/public/loginSignup.jpg);
+ filter: brightness(0.3); */
+}
+
+.form-singup {
+ display: flex;
+ flex-direction: column;
+ max-width: 300px;
+ width: 100%;
+ gap: 10px;
+ border: 1px solid var(--grey);
+ padding: 40px;
+}
+
+#username {
+ padding: 10px;
+ border-radius: 5px;
+ outline: none;
+}
+
+.input-container {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+}
+
+.instruct {
+ display: flex;
+ gap: 5px;
+ background-color: var(--light_red);
+ border: 1px solid var(--red);
+ border-radius: 5px;
+ padding: 5px;
 }

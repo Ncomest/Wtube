@@ -2,6 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import "./SignUp.css";
 import { USER_REGEX } from "../../helpers/Register";
 import { PWD_REGEX } from "../../helpers/Register";
+import { GrStatusGood } from "react-icons/gr";
+import { LuBadgeInfo } from "react-icons/lu";
+import ButtonCommon from "../../UI/components/Buttons/ButtonCommon/ButtonCommon";
 
 function SignUp() {
  const userRef = useRef();
@@ -31,18 +34,19 @@ function SignUp() {
 
  return (
   <div className="signup">
-   <p
+   {/* <p
     ref={errRef}
     className={errMsg ? "errmsg" : "offcreen"}
     aria-live="assertive"
    >
     {errMsg}
-   </p>
-   <form>
-    <label htmlFor="username">
-     Username:
-     <span className={validName ? "valid" : "hide"}></span>
-     <span className={validName || !user ? "hide" : "invalid"}>Not good</span>
+   </p> */}
+   <form className="form-singup">
+    <label htmlFor="username">Username:</label>
+    {!userFocus && user && !validName ? (
+     <Instruct text="Must be 4-16 letter or numbers" />
+    ) : null}
+    <div className="input-container">
      <input
       type="text"
       id="username"
@@ -55,18 +59,12 @@ function SignUp() {
       onFocus={() => setUserFocus(true)}
       onBlur={() => setUserFocus(false)}
      />
-     <p
-      id="uidnote"
-      className={userFocus && user && !validName ? "instruction" : "offscreen"}
-     >
-      4 to 16 characters.
-      <br />
-      Must begin with a letter.
-      <br />
-      Letters,numbers
-     </p>
-    </label>
-    <button>Accept</button>
+     {validName ? <GrStatusGood size={25} /> : null}
+    </div>
+    <div>
+     {/* <button>Accept</button> */}
+     <ButtonCommon text="Accept" />
+    </div>
    </form>
    <button>go to Login</button>
   </div>
@@ -74,3 +72,12 @@ function SignUp() {
 }
 
 export default SignUp;
+
+const Instruct = ({ text }) => {
+ return (
+  <div className="instruct">
+   <LuBadgeInfo size={25} />
+   <p id="uidnote">{text}</p>
+  </div>
+ );
+};
