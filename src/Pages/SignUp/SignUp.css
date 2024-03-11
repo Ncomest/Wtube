@@ -1,5 +1,6 @@
 .signup {
- height: 100vh;
+ min-height: 100vh;
+ padding: 20px 0;
  background-color: var(--dark);
  color: var(--white);
  display: flex;

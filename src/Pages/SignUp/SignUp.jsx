@@ -65,7 +65,7 @@ function SignUp() {
      }`}
     >
      {!userFocus && user && !validName ? (
-      <Instruct text="Must be 4-16 letter or numbers" validName={validName} />
+      <Instruct text="Must be 4-16 letter or numbers" />
      ) : null}
     </div>
     <input
@@ -81,7 +81,7 @@ function SignUp() {
 
     <div className="label-container">
      <label htmlFor="password">Password:</label>
-     {validName ? <GrStatusGood size={25} color="green" /> : null}
+     {validPwd ? <GrStatusGood size={25} color="green" /> : null}
     </div>
     <div
      className={`err-msg ${
@@ -89,7 +89,7 @@ function SignUp() {
      }`}
     >
      {!pwdFocus && pwd && !validPwd ? (
-      <Instruct text="Must include letter and number 8-32" validName={validName} />
+      <Instruct text="Must include letter and number 8-32" />
      ) : null}
     </div>
     <input
@@ -102,8 +102,34 @@ function SignUp() {
      onFocus={() => setPwdFocus(true)}
      onBlur={() => setPwdFocus(false)}
     />
+
+    <div className="label-container">
+     <label htmlFor="confirm_pwd">Confirm password:</label>
+     {matchPwd && !matchFocus && validMatch ? (
+      <GrStatusGood size={25} color="green" />
+     ) : null}
+    </div>
+    <div
+     className={`err-msg ${
+      !matchFocus && matchPwd && !validMatch ? "visible" : "hidden"
+     }`}
+    >
+     {!matchFocus && matchPwd && !validMatch ? (
+      <Instruct text="Must match the first password input field" />
+     ) : null}
+    </div>
+    <input
+     type="password"
+     id="confirm_pwd"
+     ref={userRef}
+     autoComplete="off"
+     onChange={(e) => setMatchPwd(e.target.value)}
+     required
+     onFocus={() => setMatchFocus(true)}
+     onBlur={() => setMatchFocus(false)}
+    />
     <div className="signup_btn_container">
-     <ButtonCommon text="Accept" />
+     <ButtonCommon text="Accept"/>
     </div>
    </form>
    <button>go to Login</button>
