@@ -45,3 +45,17 @@
 .signup_btn_container {
  width: 150px;
 }
+
+.label-container {
+ display: flex;
+ align-items: center;
+ gap: 5px;
+}
+
+.err-msg {
+ opacity: 0;
+ transition: opacity 0.5s ease-in-out;
+}
+.err-msg.visible {
+ opacity: 1;
+}

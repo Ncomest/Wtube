@@ -14,6 +14,14 @@ function SignUp() {
  const [validName, setValidName] = useState(false);
  const [userFocus, setUserFocus] = useState(false);
 
+ const [pwd, setPwd] = useState("");
+ const [validPwd, setValidNPwd] = useState(false);
+ const [pwdFocus, setPwdFocus] = useState(false);
+
+ const [matchPwd, setMatchPwd] = useState("");
+ const [validMatch, setValidMatch] = useState(false);
+ const [matchFocus, setMatchFocus] = useState(false);
+
  const [errMsg, setErrMsg] = useState("");
  const [success, setSuccess] = useState(false);
 
@@ -32,28 +40,43 @@ function SignUp() {
   setErrMsg("");
  }, [user]);
 
+ useEffect(() => {
+  const result = PWD_REGEX.test(pwd);
+  console.log(result);
+  console.log(pwd);
+  setValidNPwd(result);
+  const macth = pwd === matchPwd;
+  setValidMatch(macth);
+ }, [pwd, matchPwd]);
+
  return (
   <div className="signup">
    <form className="form-singup">
-    <label htmlFor="username">Username:</label>
-    {!userFocus && user && !validName ? (
-     <Instruct text="Must be 4-16 letter or numbers" />
-    ) : null}
-    <div className="input-container">
-     <input
-      type="text"
-      id="username"
-      ref={userRef}
-      autoComplete="off"
-      onChange={(e) => setUser(e.target.value)}
-      required
-      onFocus={() => setUserFocus(true)}
-      onBlur={() => setUserFocus(false)}
-     />
-     {validName ? <GrStatusGood size={25} /> : null}
+    <div className="label-container">
+     <label htmlFor="username">Username:</label>
+     {validName ? <GrStatusGood size={25} color="green" /> : null}
     </div>
+    <div
+     className={`err-msg ${
+      !userFocus && user && !validName ? "visible" : "hidden"
+     }`}
+    >
+     {!userFocus && user && !validName ? (
+      <Instruct text="Must be 4-16 letter or numbers" validName={validName} />
+     ) : null}
+    </div>
+    <input
+     type="text"
+     id="username"
+     ref={userRef}
+     autoComplete="off"
+     onChange={(e) => setUser(e.target.value)}
+     required
+     onFocus={() => setUserFocus(true)}
+     onBlur={() => setUserFocus(false)}
+    />
     <div className="signup_btn_container">
-    <ButtonCommon text="Accept" />
+     <ButtonCommon text="Accept" />
     </div>
    </form>
    <button>go to Login</button>
