@@ -37,10 +37,6 @@ function SignUp() {
  }, [user]);
 
  useEffect(() => {
-  setErrMsg("");
- }, [user]);
-
- useEffect(() => {
   const result = PWD_REGEX.test(pwd);
   console.log(result);
   console.log(pwd);
@@ -49,8 +45,15 @@ function SignUp() {
   setValidMatch(macth);
  }, [pwd, matchPwd]);
 
+ useEffect(() => {
+  setErrMsg("");
+ }, [user, pwd, matchPwd]);
+
  return (
   <div className="signup">
+   {/* <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"}>
+    {errMsg}
+   </p> */}
    <form className="form-singup">
     <div className="label-container">
      <label htmlFor="username">Username:</label>
@@ -74,6 +77,30 @@ function SignUp() {
      required
      onFocus={() => setUserFocus(true)}
      onBlur={() => setUserFocus(false)}
+    />
+
+    <div className="label-container">
+     <label htmlFor="password">Password:</label>
+     {validName ? <GrStatusGood size={25} color="green" /> : null}
+    </div>
+    <div
+     className={`err-msg ${
+      !pwdFocus && pwd && !validPwd ? "visible" : "hidden"
+     }`}
+    >
+     {!pwdFocus && pwd && !validPwd ? (
+      <Instruct text="Must include letter and number 8-32" validName={validName} />
+     ) : null}
+    </div>
+    <input
+     type="password"
+     id="password"
+     ref={userRef}
+     autoComplete="off"
+     onChange={(e) => setPwd(e.target.value)}
+     required
+     onFocus={() => setPwdFocus(true)}
+     onBlur={() => setPwdFocus(false)}
     />
     <div className="signup_btn_container">
      <ButtonCommon text="Accept" />
