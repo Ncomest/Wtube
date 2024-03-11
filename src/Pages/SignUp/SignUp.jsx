@@ -34,13 +34,6 @@ function SignUp() {
 
  return (
   <div className="signup">
-   {/* <p
-    ref={errRef}
-    className={errMsg ? "errmsg" : "offcreen"}
-    aria-live="assertive"
-   >
-    {errMsg}
-   </p> */}
    <form className="form-singup">
     <label htmlFor="username">Username:</label>
     {!userFocus && user && !validName ? (
@@ -54,16 +47,13 @@ function SignUp() {
       autoComplete="off"
       onChange={(e) => setUser(e.target.value)}
       required
-      aria-invalid={validName ? "false" : "true"}
-      aria-describedby="uidnote"
       onFocus={() => setUserFocus(true)}
       onBlur={() => setUserFocus(false)}
      />
      {validName ? <GrStatusGood size={25} /> : null}
     </div>
-    <div>
-     {/* <button>Accept</button> */}
-     <ButtonCommon text="Accept" />
+    <div className="signup_btn_container">
+    <ButtonCommon text="Accept" />
     </div>
    </form>
    <button>go to Login</button>
