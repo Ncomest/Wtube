@@ -105,9 +105,7 @@ function SignUp() {
 
     <div className="label-container">
      <label htmlFor="confirm_pwd">Confirm password:</label>
-     {matchPwd && !matchFocus && validMatch ? (
-      <GrStatusGood size={25} color="green" />
-     ) : null}
+     {matchPwd && validMatch ? <GrStatusGood size={25} color="green" /> : null}
     </div>
     <div
      className={`err-msg ${
@@ -128,9 +126,10 @@ function SignUp() {
      onFocus={() => setMatchFocus(true)}
      onBlur={() => setMatchFocus(false)}
     />
-    <div className="signup_btn_container">
-     <ButtonCommon text="Accept"/>
-    </div>
+    <button disabled={!validName || !validPwd || !validMatch ? true : false}>
+     {/* <ButtonCommon text="Accept" /> */}
+     Accept
+    </button>
    </form>
    <button>go to Login</button>
   </div>
