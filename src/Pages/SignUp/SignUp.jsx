@@ -54,8 +54,22 @@ function SignUp() {
    return;
   }
   try {
-   const userData = { user, pwd };
-   localStorage.setItem("userData", JSON.stringify(userData));
+   const storedData = localStorage.getItem("userData");
+   let userDataArray = [];
+   if (storedData) {
+    userDataArray = JSON.parse(storedData);
+   }
+
+   const userExists = userDataArray.some((userData) => userData.user === user);
+   if (userExists) {
+    setErrMsg("Username already exist");
+    console.log("Username already exist");
+    return;
+   }
+
+   userDataArray.push({ user, pwd });
+
+   localStorage.setItem("userData", JSON.stringify(userDataArray));
 
    setUser("");
    setPwd("");
