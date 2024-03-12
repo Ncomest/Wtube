@@ -17,7 +17,7 @@
  flex-direction: column;
  max-width: 300px;
  width: 100%;
- gap: 10px;
+ /* gap: 10px; */
  border: 1px solid var(--grey);
  padding: 40px;
 }
@@ -26,6 +26,7 @@
  padding: 10px;
  border-radius: 5px;
  outline: none;
+ margin-bottom: 20px;
 }
 
 .input-container {
@@ -43,8 +44,22 @@
  padding: 5px;
 }
 
-.signup_btn_container {
- width: 150px;
+.sign-up_btn {
+ padding: 10px;
+ border-radius: 5px;
+ background-color: var(--red);
+ color: var(--white);
+ cursor: pointer;
+ margin-bottom: 20px;
+}
+
+.sign-up_btn:hover {
+ background-color: var(--light_red);
+}
+
+.sign-up_btn:disabled {
+ background-color: grey;
+ cursor: not-allowed;
 }
 
 .label-container {
@@ -59,4 +74,9 @@
 }
 .err-msg.visible {
  opacity: 1;
+}
+
+.singup span {
+ color: red;
+ cursor: pointer;
 }
