@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, json } from "react-router-dom";
 import "./SignUp.css";
 import { USER_REGEX } from "../../helpers/Register";
 import { PWD_REGEX } from "../../helpers/Register";
@@ -31,15 +31,11 @@ function SignUp() {
 
  useEffect(() => {
   const result = USER_REGEX.test(user);
-  console.log(result);
-  console.log(user);
   setValidName(result);
  }, [user]);
 
  useEffect(() => {
   const result = PWD_REGEX.test(pwd);
-  console.log(result);
-  console.log(pwd);
   setValidNPwd(result);
   const macth = pwd === matchPwd;
   setValidMatch(macth);
@@ -57,8 +53,19 @@ function SignUp() {
    setErrMsg("Invalid Entry");
    return;
   }
-  console.log(user, pwd);
-  setSuccess(true);
+  try {
+   const userData = { user, pwd };
+   localStorage.setItem("userData", JSON.stringify(userData));
+
+   setUser("");
+   setPwd("");
+   setMatchPwd("");
+
+   setSuccess(true);
+  } catch (err) {
+   console.error("Registration failed", err);
+   setErrMsg("Registration failed");
+  }
  };
 
  return (
@@ -72,9 +79,6 @@ function SignUp() {
     </div>
    ) : (
     <div className="signup">
-     {/* <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"}>
-    {errMsg}
-   </p> */}
      <form className="form-singup" onSubmit={handleSubmit}>
       <div className="label-container">
        <label htmlFor="username">Username:</label>
