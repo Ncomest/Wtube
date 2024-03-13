@@ -1,5 +1,35 @@
 .login {
- height: 100vh;
+ min-height: 100vh;
  background-color: var(--dark);
  color: var(--white);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.login-form {
+ display: flex;
+ flex-direction: column;
+ max-width: 300px;
+ width: 100%;
+ border: 1px solid var(--grey);
+ padding: 40px;
+}
+
+.login-form input {
+ margin-bottom: 20px;
+ padding: 10px;
+ border-radius: 5px;
+ outline: none;
+}
+
+.login-btn {
+ padding: 10px;
+ color: white;
+ background-color: var(--red);
+ border-radius: 5px;
+}
+
+.login-btn:hover {
+ background-color: var(--light_red);
 }

@@ -45,7 +45,7 @@ function SignUp() {
   setErrMsg("");
  }, [user, pwd, matchPwd]);
 
- const handleSubmit = async (e) => {
+ const handleSubmit = (e) => {
   e.preventDefault();
   const v1 = USER_REGEX.test(user);
   const v2 = PWD_REGEX.test(pwd);
@@ -53,33 +53,29 @@ function SignUp() {
    setErrMsg("Invalid Entry");
    return;
   }
-  try {
-   const storedData = localStorage.getItem("userData");
-   let userDataArray = [];
-   if (storedData) {
-    userDataArray = JSON.parse(storedData);
-   }
 
-   const userExists = userDataArray.some((userData) => userData.user === user);
-   if (userExists) {
-    setErrMsg("Username already exist");
-    console.log("Username already exist");
-    return;
-   }
-
-   userDataArray.push({ user, pwd });
-
-   localStorage.setItem("userData", JSON.stringify(userDataArray));
-
-   setUser("");
-   setPwd("");
-   setMatchPwd("");
-
-   setSuccess(true);
-  } catch (err) {
-   console.error("Registration failed", err);
-   setErrMsg("Registration failed");
+  const storedData = localStorage.getItem("userData");
+  let userDataArray = [];
+  if (storedData) {
+   userDataArray = JSON.parse(storedData);
   }
+
+  const userExists = userDataArray.some((userData) => userData.user === user);
+  if (userExists) {
+   setErrMsg("Username already exist");
+   console.log("Username already exist");
+   return;
+  }
+
+  userDataArray.push({ user, pwd });
+
+  localStorage.setItem("userData", JSON.stringify(userDataArray));
+
+  setUser("");
+  setPwd("");
+  setMatchPwd("");
+
+  setSuccess(true);
  };
 
  return (
@@ -88,7 +84,7 @@ function SignUp() {
     <div className="signup">
      <h1>Success</h1>
      <Link className="Router-link" to={`/login`}>
-      <span>Log In</span>
+      <span className="signup-span">Log In</span>
      </Link>
     </div>
    ) : (
@@ -176,7 +172,7 @@ function SignUp() {
       <p>
        If you have an account{" "}
        <Link className="Router-link" to={`/login`}>
-        <span>Log In</span>
+        <span className="signup-span">Log In</span>
        </Link>
       </p>
      </form>
