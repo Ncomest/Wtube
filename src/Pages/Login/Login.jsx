@@ -28,26 +28,28 @@ function Login() {
 
  return (
   <div className="login">
-   <form className="login-form" onSubmit={handleLogin}>
-    <label htmlFor="username">Username:</label>
-    <input
-     type="text"
-     name="user"
-     value={userData.user}
-     onChange={handleInputChange}
-     required
-    />
-    <label htmlFor="password">Password:</label>
-    <input
-     type="password"
-     name="pwd"
-     value={userData.pwd}
-     onChange={handleInputChange}
-     required
-    />
-    <button className="login-btn">Login</button>
+   <section className="login-section">
+    <form className="login-form" onSubmit={handleLogin}>
+     <label htmlFor="username">Username:</label>
+     <input
+      type="text"
+      name="user"
+      value={userData.user}
+      onChange={handleInputChange}
+      required
+     />
+     <label htmlFor="password">Password:</label>
+     <input
+      type="password"
+      name="pwd"
+      value={userData.pwd}
+      onChange={handleInputChange}
+      required
+     />
+     <button className="login-btn">Log In</button>
+    </form>
     <button>go to Sign Up</button>
-   </form>
+   </section>
   </div>
  );
 }

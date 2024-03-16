@@ -8,18 +8,18 @@
  justify-content: center;
  flex-direction: column;
  gap: 20px;
- /* background-image: url(/public/loginSignup.jpg);
- filter: brightness(0.3); */
+}
+
+.signup-section {
+ border: 1px solid var(--grey);
+ padding: 40px;
+ max-width: 300px;
+ width: 100%;
 }
 
 .form-singup {
  display: flex;
  flex-direction: column;
- max-width: 300px;
- width: 100%;
- /* gap: 10px; */
- border: 1px solid var(--grey);
- padding: 40px;
 }
 
 .form-singup input {

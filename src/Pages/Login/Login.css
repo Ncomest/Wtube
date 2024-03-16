@@ -7,13 +7,16 @@
  justify-content: center;
 }
 
-.login-form {
- display: flex;
- flex-direction: column;
+.login-section {
  max-width: 300px;
  width: 100%;
  border: 1px solid var(--grey);
  padding: 40px;
+}
+
+.login-form {
+ display: flex;
+ flex-direction: column;
 }
 
 .login-form input {
@@ -28,6 +31,7 @@
  color: white;
  background-color: var(--red);
  border-radius: 5px;
+ margin-bottom: 20px;
 }
 
 .login-btn:hover {
