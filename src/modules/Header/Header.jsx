@@ -13,6 +13,13 @@ import { BsFilterSquare } from "react-icons/bs";
 
 function Header({ selectedLanguage }) {
  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+ const [userProf, setUserProf] = useState(
+  JSON.parse(localStorage.getItem("Authorization")) || {}
+ );
+
+ useEffect(() => {
+  setUserProf(JSON.parse(localStorage.getItem("Authorization")) || {});
+ }, []);
 
  useEffect(() => {
   // Обновляем windowWidth при изменении размера окна браузера
@@ -48,8 +55,14 @@ function Header({ selectedLanguage }) {
       <Burger />
      ) : (
       <>
-       <BtnLogin />
-       <BtnSignUp />
+       {userProf.online === true ? (
+        <div style={{ color: "white" }}>Welcome,{userProf.userData.user}</div>
+       ) : (
+        <>
+         <BtnLogin />
+         <BtnSignUp />
+        </>
+       )}
       </>
      )}
     </>

@@ -8,7 +8,7 @@ function BtnLogin() {
  return (
   <>
    <button className="Sign">
-    <Link className="Router-link" to={`/user`}>
+    <Link className="Router-link" to={`/login`}>
      {t("logIn")}
     </Link>
    </button>

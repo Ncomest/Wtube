@@ -56,7 +56,7 @@ function App() {
      />
      <Route path="/login" element={<Login />} />
      <Route path="/signup" element={<SignUp />} />
-     <Route path="/UserProfile" element={<UserPofile />} />
+     <Route path="/user_profile" element={<UserPofile />} />
      <Route path="*" element={<Error />} />
      {/* <Redirect from='/' to='loginform' /> */}
     </Routes>

@@ -3,6 +3,7 @@
  background-color: var(--dark);
  color: var(--white);
  display: flex;
+ flex-direction: column;
  align-items: center;
  justify-content: center;
 }
@@ -32,8 +33,40 @@
  background-color: var(--red);
  border-radius: 5px;
  margin-bottom: 20px;
+ cursor: pointer;
 }
 
 .login-btn:hover {
+ background-color: var(--light_red);
+}
+.login-btn:disabled {
+ background-color: grey;
+ cursor: not-allowed;
+}
+
+.login_label-container {
+ display: flex;
+ align-items: center;
+ gap: 5px;
+}
+
+.login_err-msg {
+ opacity: 0;
+ transition: opacity 0.5s ease-in-out;
+}
+.login_err-msg.visible {
+ opacity: 1;
+}
+
+.login-failed_btn {
+ padding: 10px 20px;
+ border-radius: 5px;
+ background-color: var(--red);
+ cursor: pointer;
+ margin-top: 20px;
+ color: white;
+}
+
+.login-failed_btn:hover {
  background-color: var(--light_red);
 }

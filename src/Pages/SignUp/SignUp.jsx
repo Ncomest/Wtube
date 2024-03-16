@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, json } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./SignUp.css";
 import { USER_REGEX } from "../../helpers/Register";
 import { PWD_REGEX } from "../../helpers/Register";
@@ -14,7 +14,7 @@ function SignUp() {
  const [userFocus, setUserFocus] = useState(false);
 
  const [pwd, setPwd] = useState("");
- const [validPwd, setValidNPwd] = useState(false);
+ const [validPwd, setValidPwd] = useState(false);
  const [pwdFocus, setPwdFocus] = useState(false);
 
  const [matchPwd, setMatchPwd] = useState("");
@@ -34,7 +34,7 @@ function SignUp() {
 
  useEffect(() => {
   const result = PWD_REGEX.test(pwd);
-  setValidNPwd(result);
+  setValidPwd(result);
   const macth = pwd === matchPwd;
   setValidMatch(macth);
  }, [pwd, matchPwd]);
