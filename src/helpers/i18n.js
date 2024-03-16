@@ -37,6 +37,7 @@ i18n.use(initReactI18next).init({
     lookingAll: "Looking all",
     upComming: "Upcoming",
     top_rated: "Top rated",
+    hello: "Hello",
    },
   },
   "ru-RU": {
@@ -70,6 +71,7 @@ i18n.use(initReactI18next).init({
     lookingAll: "Смотреть все",
     upComming: "Скоро на экранах",
     top_rated: "Топ рейтинг",
+    hello: "Здравствуйте",
    },
   },
  },

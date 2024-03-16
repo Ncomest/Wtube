@@ -10,12 +10,12 @@ import BtnLogin from "../../UI/components/Buttons/LogIn/BtnLogin";
 import BtnSignUp from "../../UI/components/Buttons/LogIn/BtnSignUp";
 
 import { BsFilterSquare } from "react-icons/bs";
+import { useTranslation } from "react-i18next";
 
 function Header({ selectedLanguage }) {
+ const { t } = useTranslation();
  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
- const [userProf, setUserProf] = useState(
-  JSON.parse(localStorage.getItem("Authorization")) || {}
- );
+ const [userProf, setUserProf] = useState({});
 
  useEffect(() => {
   setUserProf(JSON.parse(localStorage.getItem("Authorization")) || {});
@@ -56,7 +56,16 @@ function Header({ selectedLanguage }) {
      ) : (
       <>
        {userProf.online === true ? (
-        <div style={{ color: "white" }}>Welcome,{userProf.userData.user}</div>
+        <div className="header_profile-container">
+         <Link className="Router-link" to={`/user_profile`}>
+          <p>
+           {t("hello")},{" "}
+           <span style={{ textTransform: "capitalize", color: "red" }}>
+            {userProf.user}
+           </span>
+          </p>
+         </Link>
+        </div>
        ) : (
         <>
          <BtnLogin />

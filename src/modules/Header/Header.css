@@ -39,6 +39,12 @@
  fill: white;
 }
 
+.header_profile-container {
+ display: flex;
+ align-items: end;
+ color: var(--white);
+}
+
 @media (max-width: 1440px) {
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
@@ -32,6 +32,18 @@ function MoviesBody({ movieDetails }) {
    item.scrollLeft = 0;
   });
  };
+
+ const handleFavorites = () => {
+  const existData = JSON.parse(localStorage.getItem("Authorization")) || [];
+  const newFavorite = { id: movieDetails.id };
+  const updateFavorites = [...existData.favorites, newFavorite];
+  localStorage.setItem(
+   "Authorization",
+   JSON.stringify({ ...existData, favorites: updateFavorites })
+  );
+ };
+
+//  useEffect(() => {}, []);
 
  const bck = "https://image.tmdb.org/t/p/w500";
  return (
@@ -79,7 +91,7 @@ function MoviesBody({ movieDetails }) {
      </p>
     </div>
    </div>
-
+   <button onClick={handleFavorites}>Add to favorites</button>
    {/* Btn Trailer DropDown */}
    <div className="MovieWatch" onClick={handleOpenMovie}>
     <ImPlay size={30} color="red" />

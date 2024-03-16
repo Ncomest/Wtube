@@ -39,9 +39,7 @@ function Login() {
  const handleLogin = (e) => {
   e.preventDefault();
 
-  const v1 = USER_REGEX.test(userData.user);
-  const v2 = PWD_REGEX.test(userData.pwd);
-  if (!v1 || !v2) {
+  if (!validName || !validPwd) {
    return;
   }
 
@@ -53,7 +51,7 @@ function Login() {
    console.log("success");
    localStorage.setItem(
     "Authorization",
-    JSON.stringify({ online: true, userData })
+    JSON.stringify({ ...userData, online: true, favorites: [] })
    );
    navigate("/user_profile");
   } else {
@@ -63,9 +61,7 @@ function Login() {
  };
 
  const existAuth = JSON.parse(localStorage.getItem("Authorization")) || [];
- useEffect(() => {
-  existAuth.online === true ? console.log("online") : console.log("offline");
- }, [existAuth.online]);
+ useEffect(() => {}, [existAuth.online]);
  if (existAuth.online === true) {
   return <Navigate to="/user_profile" />;
  }
@@ -135,10 +131,7 @@ function Login() {
         onBlur={() => setPwdFocus(false)}
        />
 
-       <button
-        className="login-btn"
-        disabled={!validName || !validPwd ? true : false}
-       >
+       <button className="login-btn" disabled={!validName || !validPwd}>
         Log In
        </button>
       </form>
