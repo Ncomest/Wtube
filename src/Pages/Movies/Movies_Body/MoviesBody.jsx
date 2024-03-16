@@ -35,7 +35,9 @@ function MoviesBody({ movieDetails }) {
 
  const handleFavorites = () => {
   const existData = JSON.parse(localStorage.getItem("Authorization")) || [];
-  const newFavorite = { id: movieDetails.id };
+  const { id, poster_path, title } = movieDetails;
+  const newFavorite = { id, poster_path, title };
+
   const updateFavorites = [...existData.favorites, newFavorite];
   localStorage.setItem(
    "Authorization",
@@ -43,7 +45,7 @@ function MoviesBody({ movieDetails }) {
   );
  };
 
-//  useEffect(() => {}, []);
+ //  useEffect(() => {}, []);
 
  const bck = "https://image.tmdb.org/t/p/w500";
  return (

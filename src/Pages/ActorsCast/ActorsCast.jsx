@@ -50,7 +50,7 @@ function ActorsCast({ selectedLanguage }) {
  return (
   <div className="main-container">
    <div className="background-image_container">
-    <img src={bck + movies?.credits?.cast[randomIndex]?.backdrop_path} alt="" />
+    {/* <img src={bck + movies?.credits?.cast[randomIndex]?.backdrop_path} alt="" /> */}
     <div className="wrapp-actors">
      <div className="actors-card">
       <div className="actors-card_image">

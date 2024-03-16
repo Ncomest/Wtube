@@ -1,9 +1,21 @@
 .user-profile {
- height: 100vh;
+ min-height: 100vh;
  background-color: var(--dark);
  color: var(--white);
  font-size: 40px;
  padding: 10px;
  display: flex;
+ flex-direction: column;
  justify-content: space-between;
+}
+
+.user-profile_card {
+ width: 150px;
+ height: 150px;
+}
+
+.user-profile_card img {
+ height: 100%;
+ width: 100%;
+ object-fit: cover;
 }
