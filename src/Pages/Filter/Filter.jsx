@@ -7,12 +7,12 @@ import { useTranslation } from "react-i18next";
 
 export default function Filter({ selectedLanguage }) {
  const [movies, setMovies] = useState([]);
- const [startYear, setStartYear] = useState("");
- const [finishYear, setFinishYear] = useState("");
+ const [startYear, setStartYear] = useState();
+ const [finishYear, setFinishYear] = useState();
  const [country, setCountry] = useState("");
  const [genre, setGenre] = useState("");
- const [startImdb, setStartImdb] = useState("");
- const [finishImdb, setFinishImdb] = useState("");
+ const [startImdb, setStartImdb] = useState();
+ const [finishImdb, setFinishImdb] = useState();
  const [page, setPage] = useState(1);
  const { t } = useTranslation();
  const bck = "https://image.tmdb.org/t/p/w500";
@@ -24,6 +24,8 @@ export default function Filter({ selectedLanguage }) {
   setGenre,
   setStartImdb,
   setFinishImdb,
+  startYear,
+  finishYear,
  };
 
  const options = {
@@ -90,7 +92,7 @@ export default function Filter({ selectedLanguage }) {
     )}
 
     <button className="Sign btnRed" onClick={handleNextPage}>
-     {t('next')}
+     {t("next")}
     </button>
    </div>
   </div>

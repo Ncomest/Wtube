@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./SideBar.css";
 
 import SideBarFilter from "../Buttons/SideBarFilter/SideBarFilter";
@@ -79,13 +79,19 @@ const FilterBarContainerCountry = ({ filters }) => {
 };
 
 const FilterBarContainerYear = ({ filters }) => {
+ const { startYear, finishYear, setStartYear, setFinishYear } = filters;
  const { t } = useTranslation();
+
  const handleFilterChangeStart = (e) => {
-  filters.setStartYear(e.target.value);
+  const newStartYear = parseInt(e.target.value);
+  setStartYear(newStartYear);
  };
  const handleFilterChangeFinish = (e) => {
-  filters.setFinishYear(e.target.value);
+  const newFinishYear = parseInt(e.target.value);
+  setFinishYear(newFinishYear);
  };
+
+ useEffect(() => {}, []);
 
  const currentYear = new Date().getFullYear();
  return (
@@ -97,7 +103,7 @@ const FilterBarContainerYear = ({ filters }) => {
      id="YearStart"
      className="FilterBarContainer_Select"
      onChange={handleFilterChangeStart}
-     defaultValue={currentYear - 3}
+     value={startYear}
     >
      {Array.from({ length: 37 }, (_, index) => {
       const year = currentYear - 36 + index;
@@ -113,10 +119,11 @@ const FilterBarContainerYear = ({ filters }) => {
      id="YearFinish"
      className="FilterBarContainer_Select"
      onChange={handleFilterChangeFinish}
-     defaultValue={currentYear}
+     value={finishYear}
+     defaultValue={new Date().getFullYear()}
     >
-     {Array.from({ length: 37 }, (_, index) => {
-      const year = currentYear - 36 + index;
+     {Array.from({ length: currentYear - startYear + 1 }, (_, index) => {
+      const year = currentYear - startYear + index;
       return (
        <option key={year} value={year}>
         {year}

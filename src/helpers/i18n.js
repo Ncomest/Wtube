@@ -41,6 +41,8 @@ i18n.use(initReactI18next).init({
     ooops: "Ooops",
     sorry: "Sorry",
     thereisnosuchpage: "there is no such page",
+    logout: "Log Out",
+    favorites: "Favorites",
    },
   },
   "ru-RU": {
@@ -78,6 +80,8 @@ i18n.use(initReactI18next).init({
     ooops: "Ооопс",
     sorry: "Извините",
     thereisnosuchpage: "такой страницы не существует",
+    logout: "Выйти",
+    favorites: "Избранные",
    },
   },
  },

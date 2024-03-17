@@ -2,20 +2,68 @@
  min-height: 100vh;
  background-color: var(--dark);
  color: var(--white);
- font-size: 40px;
  padding: 10px;
  display: flex;
  flex-direction: column;
  justify-content: space-between;
 }
 
-.user-profile_card {
- width: 150px;
- height: 150px;
-}
-
 .user-profile_card img {
  height: 100%;
  width: 100%;
  object-fit: cover;
+}
+
+.user-profile_wrapper {
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+ justify-content: start;
+ gap: 10px;
+ margin: auto;
+ padding: 10px 5px;
+ width: 100%;
+ min-height: 100vh;
+}
+
+.user-profile_card_image {
+ width: auto;
+ margin-bottom: 15px;
+}
+
+.user-profile_card_image img {
+ border-radius: 5px;
+ height: 240px;
+ width: 100%;
+ object-fit: cover;
+}
+
+.user-profile_card_image h4 {
+ font-size: var(--textLarge);
+ white-space: nowrap;
+ overflow: hidden;
+ text-overflow: ellipsis;
+}
+
+.user-porfile_header-section {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.user-porfile_header-section_hello span::first-letter {
+ text-transform: uppercase;
+}
+
+.user-porfile_header-section div:nth-child(1) {
+ font-size: 28px;
+}
+
+.user-porfile h2 {
+ font-size: 18px;
+}
+
+@media (max-width: 425px) {
+ .user-porfile_header-section div:nth-child(1) {
+  font-size: 20px;
+ }
 }
