@@ -1,8 +1,16 @@
+import { useTranslation } from "react-i18next";
+
+import "./Error.css";
+
 export default function Error() {
+ const { t } = useTranslation();
+
  return (
-  <div>
-   <h1>Oops!</h1>
-   <p>Sorry, an uneexpected error has occurred</p>
+  <div className="error-page">
+   <h1>{t("ooops")}!</h1>
+   <p>
+    {t("sorry")}, {t("thereisnosuchpage")}
+   </p>
   </div>
  );
 }

@@ -1,0 +1,17 @@
+.error-page {
+ min-height: 100vh;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ flex-direction: column;
+ background-color: var(--dark);
+ color: var(--white);
+}
+
+.error-page h1 {
+ font-size: 60px;
+}
+
+.error-page p {
+ font-size: 30px;
+}

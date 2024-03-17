@@ -45,7 +45,7 @@ function ActorsCast({ selectedLanguage }) {
  };
 
  const bck = "https://image.tmdb.org/t/p/w500";
- const randomIndex = Math.floor(Math.random() * movies?.credits?.cast.length);
+//  const randomIndex = Math.floor(Math.random() * movies?.credits?.cast.length);
 
  return (
   <div className="main-container">
