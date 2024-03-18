@@ -4,8 +4,10 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { PWD_REGEX, USER_REGEX } from "../../helpers/Register";
 import { GrStatusGood } from "react-icons/gr";
 import { LuBadgeInfo } from "react-icons/lu";
+import { useAuth } from "../../helpers/AuthContext";
 
 function Login() {
+ const { setIsAuthenticated } = useAuth();
  const navigate = useNavigate();
  const userRef = useRef();
  const [userData, setUserData] = useState({
@@ -49,7 +51,7 @@ function Login() {
 
   if (userFind && userFind.pwd === pwd) {
    console.log("success");
-
+   setIsAuthenticated(true);
    let existData = JSON.parse(localStorage.getItem("Authorization")) || {};
 
    existData.online = true;
@@ -140,7 +142,7 @@ function Login() {
       <p>
        If you don't have an account, you can{" "}
        <Link className="Router-link" to={`/signup`}>
-        Sign Up
+        <span style={{ color: "red" }}>Sign Up</span>
        </Link>
       </p>
 

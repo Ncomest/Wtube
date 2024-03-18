@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import "./UserPofile.css";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useAuth } from "../../../helpers/AuthContext";
 import ButtonCommon from "../../../UI/components/Buttons/ButtonCommon/ButtonCommon";
 import SubTitle from "../../../UI/components/Title/Sub_Title/SubTitle";
 
 function UserPofile() {
+ const { setIsAuthenticated } = useAuth();
  const [userProf, setUserProf] = useState({});
  const navigate = useNavigate();
  const { t } = useTranslation();
@@ -23,8 +25,8 @@ function UserPofile() {
   const authData = JSON.parse(localStorage.getItem("Authorization")) || {};
   authData.online = false;
   localStorage.setItem("Authorization", JSON.stringify(authData));
-  // setUserProf({});
   navigate("/login");
+  setIsAuthenticated(false);
  };
 
  const handleRemoveMovie = (movieId) => {

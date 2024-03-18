@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { I18nextProvider } from "react-i18next";
+import { AuthProvider } from "./helpers/AuthContext";
 import i18n from "./helpers/i18n";
 
 import Home from "./Pages/Home/Home";
@@ -34,33 +35,35 @@ function App() {
  return (
   <>
    <I18nextProvider i18n={i18n}>
-    <Language selectedLanguage={selectedLanguage} onChange={handleLang} />
-    <Header selectedLanguage={selectedLanguage} />
-    <Routes>
-     <Route path="/" element={<Home selectedLanguage={selectedLanguage} />} />
-     <Route
-      path="/Movies/:id"
-      element={<Movies selectedLanguage={selectedLanguage} />}
-     />
-     <Route
-      path="/Filter"
-      element={<Filter selectedLanguage={selectedLanguage} />}
-     />
-     <Route
-      path="/ActorsCast/:id"
-      element={<ActorsCast selectedLanguage={selectedLanguage} />}
-     />
-     <Route
-      path="/moviescategory/:category"
-      element={<MoviesCategory selectedLanguage={selectedLanguage} />}
-     />
-     <Route path="/login" element={<Login />} />
-     <Route path="/signup" element={<SignUp />} />
-     <Route path="/user_profile" element={<UserPofile />} />
-     <Route path="*" element={<Error />} />
-     {/* <Redirect from='/' to='loginform' /> */}
-    </Routes>
-    <Footer />
+    <AuthProvider>
+     <Language selectedLanguage={selectedLanguage} onChange={handleLang} />
+     <Header selectedLanguage={selectedLanguage} />
+     <Routes>
+      <Route path="/" element={<Home selectedLanguage={selectedLanguage} />} />
+      <Route
+       path="/Movies/:id"
+       element={<Movies selectedLanguage={selectedLanguage} />}
+      />
+      <Route
+       path="/Filter"
+       element={<Filter selectedLanguage={selectedLanguage} />}
+      />
+      <Route
+       path="/ActorsCast/:id"
+       element={<ActorsCast selectedLanguage={selectedLanguage} />}
+      />
+      <Route
+       path="/moviescategory/:category"
+       element={<MoviesCategory selectedLanguage={selectedLanguage} />}
+      />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/user_profile" element={<UserPofile />} />
+      <Route path="*" element={<Error />} />
+      {/* <Redirect from='/' to='loginform' /> */}
+     </Routes>
+     <Footer />
+    </AuthProvider>
    </I18nextProvider>
   </>
  );

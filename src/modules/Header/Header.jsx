@@ -11,29 +11,28 @@ import BtnSignUp from "../../UI/components/Buttons/LogIn/BtnSignUp";
 
 import { BsFilterSquare } from "react-icons/bs";
 import { useTranslation } from "react-i18next";
-
+import { useAuth } from "../../helpers/AuthContext";
 function Header({ selectedLanguage }) {
  const { t } = useTranslation();
  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
- const [userProf, setUserProf] = useState({});
+ const { isAuthenticated } = useAuth();
+ const [authChanged, setAuthChanged] = useState(false);
 
+ console.log(isAuthenticated);
  useEffect(() => {
-  setUserProf(JSON.parse(localStorage.getItem("Authorization")) || {});
- }, []);
-
- useEffect(() => {
-  // Обновляем windowWidth при изменении размера окна браузера
   const handleResize = () => {
    setWindowWidth(window.innerWidth);
   };
-
   window.addEventListener("resize", handleResize);
-
   return () => {
-   // Удаляем обработчик события при размонтировании компонента
    window.removeEventListener("resize", handleResize);
   };
  }, []);
+
+ useEffect(() => {
+  // Обновляем состояние authChanged при изменении isAuthenticated
+  setAuthChanged(!authChanged);
+ }, [isAuthenticated]);
 
  const breakpoint = 768;
 
@@ -55,13 +54,13 @@ function Header({ selectedLanguage }) {
       <Burger />
      ) : (
       <>
-       {userProf.online === true ? (
+       {isAuthenticated ? (
         <div className="header_profile-container">
          <Link className="Router-link" to={`/user_profile`}>
           <p>
            {t("hello")},{" "}
            <span style={{ textTransform: "capitalize", color: "red" }}>
-            {userProf.user}
+            {JSON.parse(localStorage.getItem("Authorization"))?.user}
            </span>
           </p>
          </Link>
