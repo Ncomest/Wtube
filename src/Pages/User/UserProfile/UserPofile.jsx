@@ -22,6 +22,15 @@ function UserPofile() {
   navigate("/login");
  };
 
+ const handleRemoveMovie = (movieId) => {
+  let authData = JSON.parse(localStorage.getItem("Authorization")) || {};
+  let favorites = authData.favorites || [];
+  favorites = favorites.filter((movie) => movie.id !== movieId);
+  authData = { ...authData, favorites };
+  localStorage.setItem("Authorization", JSON.stringify(authData));
+  setUserProf(authData);
+ };
+
  const bck = "https://image.tmdb.org/t/p/w500";
  return (
   <>
@@ -43,6 +52,7 @@ function UserPofile() {
     <div className="user-profile_wrapper">
      {userProf?.favorites?.map((item) => (
       <div key={item.id} className="user-profile_card">
+       <button onClick={() => handleRemoveMovie(item.id)}>delete</button>
        <div className="user-profile_card_image">
         <img src={bck + item.poster_path} alt={item.title} />
         <h4>{item.title}</h4>

@@ -25,6 +25,15 @@
  min-height: 100vh;
 }
 
+.user-profile_card {
+ position: relative;
+}
+.user-profile_card button {
+ position: absolute;
+ top: 0;
+ right: 0;
+}
+
 .user-profile_card_image {
  width: auto;
  margin-bottom: 15px;
