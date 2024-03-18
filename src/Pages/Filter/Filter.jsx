@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import SideBar from "../../UI/components/SideBar/SideBar";
 import { useTranslation } from "react-i18next";
+import ButtonFilterMenu from "../../UI/components/Buttons/Filter_Menu/Button_Filter_Menu";
 
 export default function Filter({ selectedLanguage }) {
  const [movies, setMovies] = useState([]);
@@ -11,9 +12,10 @@ export default function Filter({ selectedLanguage }) {
  const [finishYear, setFinishYear] = useState(2024);
  const [country, setCountry] = useState("");
  const [genre, setGenre] = useState("");
- const [startImdb, setStartImdb] = useState("5");
- const [finishImdb, setFinishImdb] = useState("10");
+ const [startImdb, setStartImdb] = useState(5);
+ const [finishImdb, setFinishImdb] = useState(10);
  const [page, setPage] = useState(1);
+ const [sortMovies, setSortMovies] = useState("primary_release_date.desc");
  const { t } = useTranslation();
  const bck = "https://image.tmdb.org/t/p/w500";
 
@@ -30,6 +32,8 @@ export default function Filter({ selectedLanguage }) {
   finishYear,
  };
 
+ useEffect(() => {}, [sortMovies]);
+
  const options = {
   method: "GET",
   headers: {
@@ -39,8 +43,8 @@ export default function Filter({ selectedLanguage }) {
   },
  };
 
+ const API = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=${selectedLanguage}&page=${page}&sort_by=${sortMovies}&primary_release_date.gte=${startYear}-01-01&primary_release_date.lte=${finishYear}-12-31&with_origin_country=${country}&with_genres=${genre}&vote_average.gte=${startImdb}&vote_average.lte=${finishImdb}`;
  const handleChangeFetch = () => {
-  const API = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=${selectedLanguage}&page=${page}&sort_by=popularity.desc&primary_release_date.gte=${startYear}-01-01&primary_release_date.lte=${finishYear}-12-31&with_origin_country=${country}&with_genres=${genre}&vote_average.gte=${startImdb}&vote_average.lte=${finishImdb}`;
   console.log(API);
   fetch(API, options)
    .then((response) => response.json())
@@ -67,11 +71,14 @@ export default function Filter({ selectedLanguage }) {
 
  useEffect(() => {
   handleChangeFetch();
- }, [page, selectedLanguage]);
+ }, [page, selectedLanguage, sortMovies]);
 
  return (
   <div className="filterPage">
    <SideBar filters={filters} onClick={handleChangeFetch} />
+   <div>
+    <ButtonFilterMenu sortMovies={sortMovies} setSortMovies={setSortMovies} />
+   </div>
    <div className="filterMenu">
     {movies.map((item) => (
      <Link className="Router-link" to={`/movies/${item.id}`} key={item.id}>
