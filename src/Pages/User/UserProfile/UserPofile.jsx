@@ -11,8 +11,13 @@ function UserPofile() {
  const { t } = useTranslation();
 
  useEffect(() => {
-  setUserProf(JSON.parse(localStorage.getItem("Authorization")) || {});
- }, []);
+  const authData = JSON.parse(localStorage.getItem("Authorization")) || {};
+  if (!authData.online) {
+   navigate("/login");
+  } else {
+   setUserProf(authData);
+  }
+ }, [navigate]);
 
  const handleLogOut = () => {
   const authData = JSON.parse(localStorage.getItem("Authorization")) || {};
