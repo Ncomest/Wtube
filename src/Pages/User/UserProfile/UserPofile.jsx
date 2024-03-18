@@ -15,8 +15,10 @@ function UserPofile() {
  }, []);
 
  const handleLogOut = () => {
-  localStorage.removeItem("Authorization");
-  setUserProf({});
+  const authData = JSON.parse(localStorage.getItem("Authorization")) || {};
+  authData.online = false;
+  localStorage.setItem("Authorization", JSON.stringify(authData));
+  // setUserProf({});
   navigate("/login");
  };
 

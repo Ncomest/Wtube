@@ -38,14 +38,24 @@ function MoviesBody({ movieDetails }) {
   const { id, poster_path, title } = movieDetails;
   const newFavorite = { id, poster_path, title };
 
-  const updateFavorites = [...existData.favorites, newFavorite];
-  localStorage.setItem(
-   "Authorization",
-   JSON.stringify({ ...existData, favorites: updateFavorites })
-  );
- };
+  if (!existData.hasOwnProperty("favorites")) {
+   existData.favorites = [];
+  }
 
- //  useEffect(() => {}, []);
+  const isAlreadyExistData = existData.favorites.some(
+   (item) => item.id === newFavorite.id
+  );
+
+  if (isAlreadyExistData) {
+   console.log("Уже есть фильм");
+  } else {
+   const updateFavorites = [...existData.favorites, newFavorite];
+   localStorage.setItem(
+    "Authorization",
+    JSON.stringify({ ...existData, favorites: updateFavorites })
+   );
+  }
+ };
 
  const bck = "https://image.tmdb.org/t/p/w500";
  return (
@@ -93,7 +103,9 @@ function MoviesBody({ movieDetails }) {
      </p>
     </div>
    </div>
+
    <button onClick={handleFavorites}>Add to favorites</button>
+
    {/* Btn Trailer DropDown */}
    <div className="MovieWatch" onClick={handleOpenMovie}>
     <ImPlay size={30} color="red" />

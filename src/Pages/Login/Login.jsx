@@ -49,10 +49,12 @@ function Login() {
 
   if (userFind && userFind.pwd === pwd) {
    console.log("success");
-   localStorage.setItem(
-    "Authorization",
-    JSON.stringify({ ...userData, online: true, favorites: [] })
-   );
+
+   let existData = JSON.parse(localStorage.getItem("Authorization")) || {};
+
+   existData.online = true;
+
+   localStorage.setItem("Authorization", JSON.stringify(existData));
    navigate("/user_profile");
   } else {
    console.log("failrue");
