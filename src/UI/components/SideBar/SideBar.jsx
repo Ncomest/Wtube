@@ -63,16 +63,16 @@ const FilterBarContainerCountry = ({ filters }) => {
    <p className="FilterBarContainer_Text">{t("country")}</p>
    <select className="FilterBarContainer_Select" onChange={handleFilterChange}>
     <option value="">-- {t("chooseCountry")} --</option>
-    <option value="pl">Poland</option>
-    <option value="ca">Canada</option>
-    <option value="cn">China</option>
-    <option value="de">Germany</option>
-    <option value="us">US America</option>
-    <option value="gb">United Kingdom</option>
-    <option value="fr">France</option>
-    <option value="it">Italy</option>
-    <option value="ru">Russia</option>
-    <option value="in">India</option>
+    <option value="PL">Poland</option>
+    <option value="CA">Canada</option>
+    <option value="CN">China</option>
+    <option value="DE">Germany</option>
+    <option value="US">US America</option>
+    <option value="GB">United Kingdom</option>
+    <option value="FR">France</option>
+    <option value="IT">Italy</option>
+    <option value="RU">Russia</option>
+    <option value="IN">India</option>
    </select>
   </div>
  );
@@ -90,8 +90,6 @@ const FilterBarContainerYear = ({ filters }) => {
   const newFinishYear = parseInt(e.target.value);
   setFinishYear(newFinishYear);
  };
-
- useEffect(() => {}, []);
 
  const currentYear = new Date().getFullYear();
  return (
@@ -157,16 +155,14 @@ const FilterBarContainerImdb = ({ filters }) => {
      onChange={handleFilterChangeStart}
      defaultValue={5}
     >
-     <option value="1">1</option>
-     <option value="2">2</option>
-     <option value="3">3</option>
-     <option value="4">4</option>
-     <option value="5">5</option>
-     <option value="6">6</option>
-     <option value="7">7</option>
-     <option value="8">8</option>
-     <option value="9">9</option>
-     <option value="10">10</option>
+     {Array.from({ length: 11 }, (_, index) => {
+      const imdb = 0 + index;
+      return (
+       <option key={imdb} value={imdb}>
+        {imdb}
+       </option>
+      );
+     })}
     </select>
     <select
      name="ImdbFinish"
@@ -175,16 +171,14 @@ const FilterBarContainerImdb = ({ filters }) => {
      onChange={handleFilterChangeFinish}
      defaultValue={10}
     >
-     <option value="1">1</option>
-     <option value="2">2</option>
-     <option value="3">3</option>
-     <option value="4">4</option>
-     <option value="5">5</option>
-     <option value="6">6</option>
-     <option value="7">7</option>
-     <option value="8">8</option>
-     <option value="9">9</option>
-     <option value="10">10</option>
+     {Array.from({ length: 11 - +startImdb }, (_, index) => {
+      const imdb = +startImdb + index;
+      return (
+       <option key={imdb} value={imdb}>
+        {imdb}
+       </option>
+      );
+     })}
     </select>
    </div>
   </div>

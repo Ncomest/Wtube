@@ -7,12 +7,12 @@ import { useTranslation } from "react-i18next";
 
 export default function Filter({ selectedLanguage }) {
  const [movies, setMovies] = useState([]);
- const [startYear, setStartYear] = useState("");
- const [finishYear, setFinishYear] = useState();
+ const [startYear, setStartYear] = useState(1988);
+ const [finishYear, setFinishYear] = useState(2024);
  const [country, setCountry] = useState("");
  const [genre, setGenre] = useState("");
- const [startImdb, setStartImdb] = useState();
- const [finishImdb, setFinishImdb] = useState();
+ const [startImdb, setStartImdb] = useState("5");
+ const [finishImdb, setFinishImdb] = useState("10");
  const [page, setPage] = useState(1);
  const { t } = useTranslation();
  const bck = "https://image.tmdb.org/t/p/w500";
@@ -40,10 +40,9 @@ export default function Filter({ selectedLanguage }) {
  };
 
  const handleChangeFetch = () => {
-  fetch(
-   `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=${selectedLanguage}&page=${page}&sort_by=popularity.desc&primary_release_date.gte=${startYear}-01-01&primary_release_date.lte=${finishYear}-12-31&with_original_language=${country}&with_genres=${genre}&vote_average.gte=${startImdb}&vote_average.lte=${finishImdb}`,
-   options
-  )
+  const API = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=${selectedLanguage}&page=${page}&sort_by=popularity.desc&primary_release_date.gte=${startYear}-01-01&primary_release_date.lte=${finishYear}-12-31&with_origin_country=${country}&with_genres=${genre}&vote_average.gte=${startImdb}&vote_average.lte=${finishImdb}`;
+  console.log(API);
+  fetch(API, options)
    .then((response) => response.json())
    .then((response) => {
     setMovies(response.results);
@@ -74,7 +73,7 @@ export default function Filter({ selectedLanguage }) {
   <div className="filterPage">
    <SideBar filters={filters} onClick={handleChangeFetch} />
    <div className="filterMenu">
-    {/* {movies.map((item) => (
+    {movies.map((item) => (
      <Link className="Router-link" to={`/movies/${item.id}`} key={item.id}>
       <div key={item.id} onClick={handleUp}>
        <div className="filter-card_image">
@@ -84,7 +83,7 @@ export default function Filter({ selectedLanguage }) {
        </div>
       </div>
      </Link>
-    ))} */}
+    ))}
    </div>
    <div className="btnNextPage">
     {page > 1 && (
