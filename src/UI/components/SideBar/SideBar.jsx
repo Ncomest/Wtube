@@ -120,10 +120,10 @@ const FilterBarContainerYear = ({ filters }) => {
      className="FilterBarContainer_Select"
      onChange={handleFilterChangeFinish}
      value={finishYear}
-     defaultValue={new Date().getFullYear()}
+     defaultValue={currentYear}
     >
      {Array.from({ length: currentYear - startYear + 1 }, (_, index) => {
-      const year = currentYear - startYear + index;
+      const year = startYear + index;
       return (
        <option key={year} value={year}>
         {year}
@@ -137,12 +137,13 @@ const FilterBarContainerYear = ({ filters }) => {
 };
 
 const FilterBarContainerImdb = ({ filters }) => {
+ const { setStartImdb, startImdb, setFinishImdb, finishImdb } = filters;
  const { t } = useTranslation();
  const handleFilterChangeStart = (e) => {
-  filters.setStartImdb(e.target.value);
+  setStartImdb(e.target.value);
  };
  const handleFilterChangeFinish = (e) => {
-  filters.setFinishImdb(e.target.value);
+  setFinishImdb(e.target.value);
  };
 
  return (

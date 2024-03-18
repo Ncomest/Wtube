@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 
 export default function Filter({ selectedLanguage }) {
  const [movies, setMovies] = useState([]);
- const [startYear, setStartYear] = useState();
+ const [startYear, setStartYear] = useState("");
  const [finishYear, setFinishYear] = useState();
  const [country, setCountry] = useState("");
  const [genre, setGenre] = useState("");
@@ -24,6 +24,8 @@ export default function Filter({ selectedLanguage }) {
   setGenre,
   setStartImdb,
   setFinishImdb,
+  startImdb,
+  finishImdb,
   startYear,
   finishYear,
  };
@@ -72,7 +74,7 @@ export default function Filter({ selectedLanguage }) {
   <div className="filterPage">
    <SideBar filters={filters} onClick={handleChangeFetch} />
    <div className="filterMenu">
-    {movies.map((item) => (
+    {/* {movies.map((item) => (
      <Link className="Router-link" to={`/movies/${item.id}`} key={item.id}>
       <div key={item.id} onClick={handleUp}>
        <div className="filter-card_image">
@@ -82,7 +84,7 @@ export default function Filter({ selectedLanguage }) {
        </div>
       </div>
      </Link>
-    ))}
+    ))} */}
    </div>
    <div className="btnNextPage">
     {page > 1 && (
