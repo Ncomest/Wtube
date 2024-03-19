@@ -35,25 +35,56 @@ function MoviesBody({ movieDetails }) {
 
  const handleFavorites = () => {
   const existData = JSON.parse(localStorage.getItem("Authorization")) || [];
+  const existUserData = JSON.parse(localStorage.getItem("userData")) || [];
+  console.log(
+   "записываем данные из общего массива userData в переменную existUserData",
+   existUserData
+  );
+  //Деструктуризировать данные из localStorage Auth
+  const { user, pwd } = existData;
+  console.log("Деструктурируем данные из авторизации", user, pwd);
+
+  //Сравнить и найти данные нужного пользователя
+  const userFindData = existUserData.find((item) => item.user === user);
+  console.log(
+   "Находим нужные нам данные из массива userData, сравниваем и записываем в переменную userFindData",
+   userFindData
+  );
+
   const { id, poster_path, title } = movieDetails;
   const newFavorite = { id, poster_path, title };
 
-  if (!existData.hasOwnProperty("favorites")) {
-   existData.favorites = [];
+  // Если нет массива избранные, то создаем его
+  if (!userFindData.hasOwnProperty("favorites")) {
+   userFindData.favorites = [];
   }
 
-  const isAlreadyExistData = existData.favorites.some(
+  const updateData = { ...userFindData, favorites: [newFavorite] };
+  console.log(
+   "обновленные данные где мы добавили уже favorites в переменную updateData",
+   updateData
+  );
+
+  const pushData = existUserData.map((item) => {
+   if (item.user === user && item.pwd === pwd) {
+    return { ...item, favorites: [{ ...newFavorite }] };
+   } else {
+    return item;
+   }
+  });
+  console.log("Отпраляем обновленные данные обратно", pushData);
+
+  //находит данные по фильма в favorites по id и если найдет то станет true
+  const isAlreadyExistData = pushData.some(
    (item) => item.id === newFavorite.id
   );
+  console.log("isAlreadyExistData", isAlreadyExistData);
 
   if (isAlreadyExistData) {
    console.log("Уже есть фильм");
   } else {
-   const updateFavorites = [...existData.favorites, newFavorite];
-   localStorage.setItem(
-    "Authorization",
-    JSON.stringify({ ...existData, favorites: updateFavorites })
-   );
+   localStorage.setItem("userData", JSON.stringify(pushData));
+   console.log("данные успешно обновленны в localStorage", pushData);
   }
  };
 
