@@ -59,7 +59,10 @@ function MoviesBody({ movieDetails }) {
    userFindData.favorites = [];
   }
 
-  const updateData = { ...userFindData, favorites: [newFavorite] };
+  const updateData = {
+   ...userFindData,
+   favorites: [...userFindData.favorites, newFavorite],
+  };
   console.log(
    "обновленные данные где мы добавили уже favorites в переменную updateData",
    updateData
@@ -67,20 +70,20 @@ function MoviesBody({ movieDetails }) {
 
   const pushData = existUserData.map((item) => {
    if (item.user === user && item.pwd === pwd) {
-    return { ...item, favorites: [{ ...newFavorite }] };
+    return { ...item, favorites: [...userFindData.favorites, newFavorite] };
    } else {
     return item;
    }
   });
   console.log("Отпраляем обновленные данные обратно", pushData);
 
-  //находит данные по фильма в favorites по id и если найдет то станет true
-  const isAlreadyExistData = pushData.some(
+  // Проверяем , если такой уже фильм
+  const lookMoviesYet = userFindData?.favorites.some(
    (item) => item.id === newFavorite.id
   );
-  console.log("isAlreadyExistData", isAlreadyExistData);
+  console.log(lookMoviesYet);
 
-  if (isAlreadyExistData) {
+  if (lookMoviesYet) {
    console.log("Уже есть фильм");
   } else {
    localStorage.setItem("userData", JSON.stringify(pushData));
