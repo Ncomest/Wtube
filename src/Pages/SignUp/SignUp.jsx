@@ -51,10 +51,14 @@ function SignUp() {
   let userDataArray = [];
   if (storedData) {
    userDataArray = JSON.parse(storedData);
+   if (!Array.isArray(userDataArray)) {
+    userDataArray = [];
+   }
   }
 
   const userExists = userDataArray.some((userData) => userData.user === user);
   if (userExists) {
+   // !Тут надо доделать визуальное изменение
    console.log("Username already exist");
    return;
   }
