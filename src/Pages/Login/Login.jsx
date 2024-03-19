@@ -46,17 +46,29 @@ function Login() {
   }
 
   const userDataStorage = JSON.parse(localStorage.getItem("userData")) || [];
+  console.log("its localStorage", userDataStorage);
+
   const { user, pwd } = userData;
+  console.log("its state", userData);
+
   const userFind = userDataStorage.find((data) => data.user === user);
+  console.log("im find user", userFind);
 
   if (userFind && userFind.pwd === pwd) {
    console.log("success");
    setIsAuthenticated(true);
+
    let existData = JSON.parse(localStorage.getItem("Authorization")) || {};
+   const updateAuth = {
+    ...existData,
+    online: true,
+    user: userFind.user,
+    pwd: userFind.pwd,
+   };
+   console.log("updateAuth", updateAuth);
 
-   existData.online = true;
+   localStorage.setItem("Authorization", JSON.stringify(updateAuth));
 
-   localStorage.setItem("Authorization", JSON.stringify(existData));
    navigate("/user_profile");
   } else {
    console.log("failrue");
