@@ -9,8 +9,21 @@ import SubTitle from "../../../UI/components/Title/Sub_Title/SubTitle";
 function UserPofile() {
  const { setIsAuthenticated } = useAuth();
  const [userProf, setUserProf] = useState({});
+ const [favorMovies, setFavorMovies] = useState({});
  const navigate = useNavigate();
  const { t } = useTranslation();
+
+ useEffect(() => {
+  const favor = JSON.parse(localStorage.getItem("userData")) || [];
+  const userAuth = JSON.parse(localStorage.getItem("Authorization")) || {};
+  const compareUser = favor.find((user) => user.user === userAuth.user);
+
+  setFavorMovies(compareUser);
+ }, []);
+
+ useEffect(() => {
+  console.log("favorMovies", favorMovies);
+ }, [favorMovies]);
 
  useEffect(() => {
   const authData = JSON.parse(localStorage.getItem("Authorization")) || {};
@@ -30,12 +43,25 @@ function UserPofile() {
  };
 
  const handleRemoveMovie = (movieId) => {
-  let authData = JSON.parse(localStorage.getItem("Authorization")) || {};
-  let favorites = authData.favorites || [];
-  favorites = favorites.filter((movie) => movie.id !== movieId);
-  authData = { ...authData, favorites };
-  localStorage.setItem("Authorization", JSON.stringify(authData));
-  setUserProf(authData);
+  const favor = JSON.parse(localStorage.getItem("userData")) || [];
+  const userAuth = JSON.parse(localStorage.getItem("Authorization")) || {};
+  const compareUser = favor.find((user) => user.user === userAuth.user);
+  const findMovies = compareUser?.favorites.filter(
+   (movie) => movie.id !== movieId
+  );
+
+  const newCompare = { ...compareUser, favorites: findMovies };
+
+  const returnArray = favor.map((item) => {
+   if (item.user === compareUser.user && item.pwd === compareUser.pwd) {
+    return { ...newCompare };
+   } else {
+    return item;
+   }
+  });
+
+  localStorage.setItem("userData", JSON.stringify(returnArray));
+  setFavorMovies(newCompare);
  };
 
  const bck = "https://image.tmdb.org/t/p/w500";
@@ -51,13 +77,12 @@ function UserPofile() {
      </div>
      <ButtonCommon text={t("logout")} onClick={handleLogOut} />
     </div>
-    {/* <h2 className="user-profile_">{t('favorites')}</h2> */}
     <SubTitle
      subTitle={t("favorites")}
      style={{ textTransform: "capitalize", color: "red" }}
     />
     <div className="user-profile_wrapper">
-     {userProf?.favorites?.map((item) => (
+     {favorMovies?.favorites?.map((item) => (
       <div key={item.id} className="user-profile_card">
        <button onClick={() => handleRemoveMovie(item.id)}>delete</button>
        <div className="user-profile_card_image">
@@ -66,12 +91,6 @@ function UserPofile() {
        </div>
       </div>
      ))}
-    </div>
-    <div>
-     {/* <div>
-      <img src={bck + item.poster_path} alt={item.title} />
-      <h4>{item.title}</h4>
-     </div> */}
     </div>
    </div>
   </>
