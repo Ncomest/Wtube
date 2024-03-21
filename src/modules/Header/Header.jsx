@@ -18,7 +18,6 @@ function Header({ selectedLanguage }) {
  const { isAuthenticated } = useAuth();
  const [authChanged, setAuthChanged] = useState(false);
 
- console.log(isAuthenticated);
  useEffect(() => {
   const handleResize = () => {
    setWindowWidth(window.innerWidth);

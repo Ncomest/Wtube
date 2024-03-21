@@ -6,10 +6,13 @@ import { useAuth } from "../../../helpers/AuthContext";
 import ButtonCommon from "../../../UI/components/Buttons/ButtonCommon/ButtonCommon";
 import SubTitle from "../../../UI/components/Title/Sub_Title/SubTitle";
 
+import { MdOutlineDeleteOutline } from "react-icons/md";
+
 function UserPofile() {
- const { setIsAuthenticated } = useAuth();
  const [userProf, setUserProf] = useState({});
  const [favorMovies, setFavorMovies] = useState({});
+
+ const { setIsAuthenticated } = useAuth();
  const navigate = useNavigate();
  const { t } = useTranslation();
 
@@ -22,7 +25,7 @@ function UserPofile() {
  }, []);
 
  useEffect(() => {
-  console.log("favorMovies", favorMovies);
+  console.log(favorMovies);
  }, [favorMovies]);
 
  useEffect(() => {
@@ -64,7 +67,6 @@ function UserPofile() {
   setFavorMovies(newCompare);
  };
 
- const bck = "https://image.tmdb.org/t/p/w500";
  return (
   <>
    <div className="user-profile">
@@ -82,14 +84,12 @@ function UserPofile() {
      style={{ textTransform: "capitalize", color: "red" }}
     />
     <div className="user-profile_wrapper">
+     {!favorMovies ||
+      (favorMovies?.favorites?.length === 0 && (
+       <div>Your movie list is empty</div>
+      ))}
      {favorMovies?.favorites?.map((item) => (
-      <div key={item.id} className="user-profile_card">
-       <button onClick={() => handleRemoveMovie(item.id)}>delete</button>
-       <div className="user-profile_card_image">
-        <img src={bck + item.poster_path} alt={item.title} />
-        <h4>{item.title}</h4>
-       </div>
-      </div>
+      <Cards handleRemoveMovie={handleRemoveMovie} item={item} key={item.id} />
      ))}
     </div>
    </div>
@@ -98,3 +98,38 @@ function UserPofile() {
 }
 
 export default UserPofile;
+
+const Cards = ({ handleRemoveMovie, item }) => {
+ const [isHovered, setIsHovered] = useState(false);
+
+ const handleMouseEnter = () => {
+  setIsHovered(true);
+ };
+
+ const handleMouseLeave = () => {
+  setIsHovered(false);
+ };
+
+ const bck = "https://image.tmdb.org/t/p/w500";
+
+ return (
+  <div
+   className="user-profile_card"
+   onMouseEnter={handleMouseEnter}
+   onMouseLeave={handleMouseLeave}
+  >
+   {isHovered && (
+    <div
+     className="user-profile_delete-favor"
+     onClick={() => handleRemoveMovie(item.id)}
+    >
+     <MdOutlineDeleteOutline size={40} color="red" />
+    </div>
+   )}
+   <div className="user-profile_card_image">
+    <img src={bck + item.poster_path} alt={item.title} />
+    <h4>{item.title}</h4>
+   </div>
+  </div>
+ );
+};

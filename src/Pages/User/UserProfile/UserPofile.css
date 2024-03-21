@@ -28,10 +28,19 @@
 .user-profile_card {
  position: relative;
 }
-.user-profile_card button {
+
+.user-profile_card:hover {
+ filter: brightness(0.5);
+}
+
+.user-profile_delete-favor {
  position: absolute;
  top: 0;
  right: 0;
+}
+
+.user-profile_delete-favor:hover {
+ filter: brightness(1.5);
 }
 
 .user-profile_card_image {
