@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./UserPofile.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "../../../helpers/AuthContext";
 import ButtonCommon from "../../../UI/components/Buttons/ButtonCommon/ButtonCommon";
 import SubTitle from "../../../UI/components/Title/Sub_Title/SubTitle";
 
-import { MdOutlineDeleteOutline } from "react-icons/md";
+import { LiaWindowClose } from "react-icons/lia";
 
 function UserPofile() {
  const [userProf, setUserProf] = useState({});
@@ -121,15 +121,19 @@ const Cards = ({ handleRemoveMovie, item }) => {
    {isHovered && (
     <div
      className="user-profile_delete-favor"
-     onClick={() => handleRemoveMovie(item.id)}
+     onClick={() => {
+      handleRemoveMovie(item.id);
+     }}
     >
-     <MdOutlineDeleteOutline size={40} color="red" />
+     <LiaWindowClose size={40} color="red" />
     </div>
    )}
-   <div className="user-profile_card_image">
-    <img src={bck + item.poster_path} alt={item.title} />
-    <h4>{item.title}</h4>
-   </div>
+   <Link className="Router-link" key={item.id} to={`/movies/${item.id}`}>
+    <div className="user-profile_card_image">
+     <img src={bck + item.poster_path} alt={item.title} />
+     <h4>{item.title}</h4>
+    </div>
+   </Link>
   </div>
  );
 };

@@ -43,6 +43,8 @@ i18n.use(initReactI18next).init({
     thereisnosuchpage: "there is no such page",
     logout: "Log Out",
     favorites: "Favorites",
+    alreadyInFavorites: "Already in favorites",
+    addToFavorites: "Add in favorites",
    },
   },
   "ru-RU": {
@@ -82,6 +84,8 @@ i18n.use(initReactI18next).init({
     thereisnosuchpage: "такой страницы не существует",
     logout: "Выйти",
     favorites: "Избранные",
+    alreadyInFavorites: "Уже вы избранном",
+    addToFavorites: "Добавить в избранное",
    },
   },
  },

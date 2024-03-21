@@ -49,6 +49,30 @@
  gap: 5px;
 }
 
+.moviesbody_add-btn_container {
+ max-width: 300px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ border-radius: 5px;
+ border: 1px solid var(--grey);
+ gap: 10px;
+ cursor: pointer;
+ background-color: #979797;
+ color: #000;
+}
+
+.moviesbody_add-btn_container:hover {
+ background-color: #bdbdbd;
+ color: #000;
+}
+
+.moviesbody_add-btn_container.not-fill {
+ background-color: transparent;
+ color: #fff;
+ cursor: no-drop;
+}
+
 .MovieWatch {
  gap: 10px;
  max-width: 200px;

@@ -6,17 +6,16 @@ import "./MoviesBody.css";
 
 import { ImPlay } from "react-icons/im";
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
+import { MdFavoriteBorder } from "react-icons/md";
+import { MdFavorite } from "react-icons/md";
 
 import SubTitle from "../../../UI/components/Title/Sub_Title/SubTitle";
 import Reviews from "../../../UI/components/Reviews/Reviews";
 
 function MoviesBody({ movieDetails }) {
  const [open, setOpen] = useState(false);
+ const [isMoviesFavorite, setIsMoviesFavorite] = useState(false);
  const { t } = useTranslation();
-
- if (!movieDetails) {
-  return <>Wait</>;
- }
 
  const handleOpenMovie = (e) => {
   setOpen((e) => !open);
@@ -86,11 +85,29 @@ function MoviesBody({ movieDetails }) {
   if (lookMoviesYet) {
    console.log("Уже есть фильм");
   } else {
+   setIsMoviesFavorite(true);
    localStorage.setItem("userData", JSON.stringify(pushData));
    console.log("данные успешно обновленны в localStorage", pushData);
   }
  };
 
+ // Обновляем значение 'добавить в избранное'
+ useEffect(() => {
+  const isMoviesInLocalStorage =
+   JSON.parse(localStorage.getItem("userData")) || [];
+  const userWhoOnline = JSON.parse(localStorage.getItem("Authorization")) || {};
+  const compareUser = isMoviesInLocalStorage.find(
+   (user) => user.user === userWhoOnline.user
+  );
+  const findMovies = compareUser?.favorites.some(
+   (movie) => movie.id === movieDetails.id
+  );
+  setIsMoviesFavorite(findMovies);
+ }, [movieDetails.id]);
+
+ if (!movieDetails) {
+  return <>Wait</>;
+ }
  const bck = "https://image.tmdb.org/t/p/w500";
  return (
   <div className="MoviesBody">
@@ -135,10 +152,28 @@ function MoviesBody({ movieDetails }) {
       {movieDetails.runtime + " "}
       {t("minute")}
      </p>
+     <div
+      className={`moviesbody_add-btn_container ${
+       isMoviesFavorite ? "not-fill" : ""
+      }`}
+      onClick={handleFavorites}
+     >
+      <div>
+       {isMoviesFavorite ? (
+        <MdFavorite size={40} className="moviesbody_add-btn" />
+       ) : (
+        <MdFavoriteBorder size={40} className="moviesbody_add-btn" />
+       )}
+      </div>
+      {isMoviesFavorite ? (
+       <p>{t("alreadyInFavorites")}</p>
+      ) : (
+       <p>{t("addToFavorites")}</p>
+      )}
+      {console.log(isMoviesFavorite)}
+     </div>
     </div>
    </div>
-
-   <button onClick={handleFavorites}>Add to favorites</button>
 
    {/* Btn Trailer DropDown */}
    <div className="MovieWatch" onClick={handleOpenMovie}>
