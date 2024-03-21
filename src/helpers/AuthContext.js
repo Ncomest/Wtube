@@ -11,8 +11,13 @@ export const AuthProvider = ({ children }) => {
 
  useEffect(() => {
   // Читаем значение из localStorage при инициализации компонента
-  const online = localStorage.getItem("online");
-  setIsAuthenticated(online === "true"); // Преобразуем строку "true" в булево значение
+  const auth = JSON.parse(localStorage.getItem("Authorization"));
+  console.log("useEffect online context", auth.online);
+  if (auth.online) {
+   setIsAuthenticated(true);
+  } else {
+   setIsAuthenticated(false);
+  }
  }, []);
 
  return (
