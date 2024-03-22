@@ -11,9 +11,7 @@
 .MoviesCategory-grid {
  display: grid;
  grid-template-columns: repeat(5, minmax(100px, 1fr));
- justify-content: space-between;
  gap: 10px;
- align-items: stretch;
 }
 
 .grid_card {
@@ -44,7 +42,7 @@
 
 .grid-card-image img {
  width: 100%;
- height: 100%;
+ height: 400px;
  object-fit: cover;
  border-radius: 5px;
 }
@@ -62,6 +60,11 @@
  font-size: 18px;
 }
 
+@media (max-width: 1024px) {
+ .grid-card-image img {
+  height: 320px;
+ }
+}
 @media (max-width: 992px) {
  .MoviesCategory-grid {
   grid-template-columns: repeat(4, minmax(160px, 1fr));
@@ -70,12 +73,15 @@
 
 @media (max-width: 768px) {
  .MoviesCategory-grid {
-  grid-template-columns: repeat(4, minmax(90px, 1fr));
+  grid-template-columns: repeat(3, minmax(90px, 1fr));
  }
 }
 
 @media (max-width: 425px) {
  .MoviesCategory-grid {
   grid-template-columns: repeat(2, minmax(90px, 1fr));
+ }
+ .grid-card-image img {
+  height: 280px;
  }
 }
