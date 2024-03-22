@@ -16,6 +16,14 @@
  overflow: hidden;
 }
 
+.slider-popular_card p {
+ font-size: var(--textSmall);
+ color: #ffffffa2;
+ overflow: hidden;
+ white-space: nowrap;
+ text-overflow: ellipsis;
+}
+
 @media (max-width: 768px) {
  .slider-popular_card h3 {
   font-size: var(--textNormal);

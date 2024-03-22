@@ -49,6 +49,7 @@ function Body({ selectedLanguage }) {
   }
  };
 
+ console.log(upcomingMovies);
  useEffect(() => {
   fetchData();
   // eslint-disable-next-line

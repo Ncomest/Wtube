@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./SliderPopular.css";
 
 import { Link } from "react-router-dom";
@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 import { MdArrowBackIos } from "react-icons/md";
 import { MdArrowForwardIos } from "react-icons/md";
+import genreId from "../../Genre";
 
 function SliderPopular({ movies }) {
  const poster = "https://image.tmdb.org/t/p/w500";
@@ -88,6 +89,8 @@ function SliderPopular({ movies }) {
   ],
  };
 
+ const genres = genreId();
+
  return (
   <div className="slider-popular">
    <Slider {...settings}>
@@ -101,7 +104,18 @@ function SliderPopular({ movies }) {
          alt={movie.title}
          loading="lazy"
         />
-        <p>{movie.release_date.slice(0, 4)}•</p>
+        <p>
+         {movie.release_date.slice(0, 4)}•
+         {movie.genre_ids.map((id, index) => {
+          const genre = genres.find((genre) => genre.id === id);
+          return (
+           <span key={id}>
+            {genre ? genre.name : "Unknown"}
+            {index < movie.genre_ids.length - 1 ? ", " : ""}
+           </span>
+          );
+         })}
+        </p>
         <h3>{movie.title}</h3>
        </div>
       </div>
