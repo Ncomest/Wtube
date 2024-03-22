@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import "./MoviesCategory.css";
 import ButtonCommon from "../../UI/components/Buttons/ButtonCommon/ButtonCommon";
+import genreId from "../../helpers/Genre";
 
 function MoviesCategory({ selectedLanguage }) {
  const { category } = useParams();
@@ -44,6 +45,8 @@ function MoviesCategory({ selectedLanguage }) {
   fetchData();
  }, [request]);
 
+ const genres = genreId();
+
  const bck = "https://image.tmdb.org/t/p/w500";
  return (
   <div className="MoviesCategory">
@@ -54,7 +57,19 @@ function MoviesCategory({ selectedLanguage }) {
       <Link className="Router-link" to={`/movies/${item.id}`} key={item.id}>
        <div key={item.id} className="grid_card">
         <div className="grid-card-image">
-         <img src={bck + item.poster_path} alt={item.title} />
+         <img src={bck + item.poster_path} alt={item.title} loading="lazy" />
+         <p>
+          {item.release_date.slice(0, 4)}•
+          {item.genre_ids.map((id, index) => {
+           const genre = genres.find((genre) => genre.id === id);
+           return (
+            <span key={id}>
+             {genre ? genre.name : "Unknown"}
+             {index < item.genre_ids.length - 1 ? ", " : ""}
+            </span>
+           );
+          })}
+         </p>
          <h4>{item.title}</h4>
         </div>
        </div>

@@ -27,10 +27,19 @@
 }
 
 .grid-card-image h4 {
- text-align: center;
+ text-align: start;
  overflow: hidden;
  text-overflow: ellipsis;
  white-space: nowrap;
+}
+
+.grid-card-image p {
+ font-size: var(--textSmall);
+ color: #ffffffa2;
+ overflow: hidden;
+ white-space: nowrap;
+ text-overflow: ellipsis;
+ margin: 5px 0;
 }
 
 .grid-card-image img {

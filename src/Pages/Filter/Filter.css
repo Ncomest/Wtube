@@ -31,6 +31,11 @@
 
 .filter-card_image p {
  font-size: var(--textSmall);
+ color: #ffffffa2;
+ overflow: hidden;
+ white-space: nowrap;
+ text-overflow: ellipsis;
+ margin: 5px 0;
 }
 
 .filter-card_image h4 {

@@ -97,7 +97,7 @@ function SliderPopular({ movies }) {
     {movies.map((movie) => (
      <Link className="Router-link" key={movie.id} to={`/movies/${movie.id}`}>
       <div key={movie.id} className="slider-popular_card" onClick={handleUp}>
-       <div>
+       <div className="slider-popular_img_container">
         <img
          className="slider-popular_img"
          src={poster + movie.poster_path}

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import SideBar from "../../UI/components/SideBar/SideBar";
 import { useTranslation } from "react-i18next";
 import ButtonFilterMenu from "../../UI/components/Buttons/Filter_Menu/Button_Filter_Menu";
+import genreId from "../../helpers/Genre";
 
 export default function Filter({ selectedLanguage }) {
  const [movies, setMovies] = useState([]);
@@ -73,6 +74,8 @@ export default function Filter({ selectedLanguage }) {
   handleChangeFetch();
  }, [page, selectedLanguage, sortMovies]);
 
+ const genres = genreId();
+
  return (
   <div className="filterPage">
    <SideBar filters={filters} onClick={handleChangeFetch} />
@@ -85,7 +88,18 @@ export default function Filter({ selectedLanguage }) {
       <div key={item.id} onClick={handleUp}>
        <div className="filter-card_image">
         <img src={bck + item.poster_path} alt={item.title} />
-        <p>{item.release_date.slice(0, 4)}</p>
+        <p>
+         {item.release_date.slice(0, 4)}•
+         {item.genre_ids.map((id, index) => {
+          const genre = genres.find((genre) => genre.id === id);
+          return (
+           <span key={id}>
+            {genre ? genre.name : "Unknown"}
+            {index < item.genre_ids.length - 1 ? ", " : ""}
+           </span>
+          );
+         })}
+        </p>
         <h4>{item.title}</h4>
        </div>
       </div>
