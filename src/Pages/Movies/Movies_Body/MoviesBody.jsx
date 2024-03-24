@@ -54,13 +54,15 @@ function MoviesBody({ movieDetails }) {
   const newFavorite = { id, poster_path, title };
 
   // Если нет массива избранные, то создаем его
-  if (!userFindData.hasOwnProperty("favorites")) {
+  if (userFindData && userFindData.hasOwnProperty("favorites")) {
    userFindData.favorites = [];
   }
 
   const updateData = {
    ...userFindData,
-   favorites: [...userFindData.favorites, newFavorite],
+   favorites: userFindData
+    ? [...userFindData.favorites, newFavorite]
+    : [newFavorite],
   };
   console.log(
    "обновленные данные где мы добавили уже favorites в переменную updateData",
@@ -84,7 +86,7 @@ function MoviesBody({ movieDetails }) {
 
   if (lookMoviesYet) {
    console.log("Уже есть фильм");
-  } else {
+  } else if (existData && existData.online === true) {
    setIsMoviesFavorite(true);
    localStorage.setItem("userData", JSON.stringify(pushData));
    console.log("данные успешно обновленны в localStorage", pushData);
