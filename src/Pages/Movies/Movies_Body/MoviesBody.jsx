@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import "./MoviesBody.css";
@@ -16,6 +16,7 @@ function MoviesBody({ movieDetails }) {
  const [open, setOpen] = useState(false);
  const [isMoviesFavorite, setIsMoviesFavorite] = useState(false);
  const { t } = useTranslation();
+ const navigate = useNavigate();
 
  const handleOpenMovie = (e) => {
   setOpen((e) => !open);
@@ -34,17 +35,17 @@ function MoviesBody({ movieDetails }) {
 
  const handleFavorites = () => {
   const existData = JSON.parse(localStorage.getItem("Authorization")) || [];
+  console.log("existData", existData);
   const existUserData = JSON.parse(localStorage.getItem("userData")) || [];
   console.log(
    "записываем данные из общего массива userData в переменную existUserData",
    existUserData
   );
-  //Деструктуризировать данные из localStorage Auth
-  const { user, pwd } = existData;
-  console.log("Деструктурируем данные из авторизации", user, pwd);
 
   //Сравнить и найти данные нужного пользователя
-  const userFindData = existUserData.find((item) => item.user === user);
+  let userFindData = null;
+  userFindData = existUserData.find((item) => item.user === existData.user);
+
   console.log(
    "Находим нужные нам данные из массива userData, сравниваем и записываем в переменную userFindData",
    userFindData
@@ -53,16 +54,19 @@ function MoviesBody({ movieDetails }) {
   const { id, poster_path, title } = movieDetails;
   const newFavorite = { id, poster_path, title };
 
-  // Если нет массива избранные, то создаем его
-  if (userFindData && userFindData.hasOwnProperty("favorites")) {
+  if (userFindData && !userFindData.hasOwnProperty("favorites")) {
    userFindData.favorites = [];
+   console.log("userFindData true", userFindData);
+  } else {
+   console.log(
+    "userFindData false поэтому мы отправляем на страницу авторизации"
+   );
+   navigate("/login");
   }
 
   const updateData = {
    ...userFindData,
-   favorites: userFindData
-    ? [...userFindData.favorites, newFavorite]
-    : [newFavorite],
+   favorites: userFindData && [...userFindData.favorites, newFavorite],
   };
   console.log(
    "обновленные данные где мы добавили уже favorites в переменную updateData",
@@ -70,7 +74,7 @@ function MoviesBody({ movieDetails }) {
   );
 
   const pushData = existUserData.map((item) => {
-   if (item.user === user && item.pwd === pwd) {
+   if (item.user === existData.user && item.pwd === existData.pwd) {
     return { ...item, favorites: [...userFindData.favorites, newFavorite] };
    } else {
     return item;
@@ -79,9 +83,10 @@ function MoviesBody({ movieDetails }) {
   console.log("Отпраляем обновленные данные обратно", pushData);
 
   // Проверяем , если такой уже фильм
-  const lookMoviesYet = userFindData?.favorites.some(
-   (item) => item.id === newFavorite.id
-  );
+  const lookMoviesYet =
+   userFindData &&
+   userFindData?.favorites &&
+   userFindData?.favorites?.some((item) => item.id === newFavorite.id);
   console.log(lookMoviesYet);
 
   if (lookMoviesYet) {
@@ -97,13 +102,17 @@ function MoviesBody({ movieDetails }) {
  useEffect(() => {
   const isMoviesInLocalStorage =
    JSON.parse(localStorage.getItem("userData")) || [];
+  console.log("isMoviesInLocalStorage", isMoviesInLocalStorage);
   const userWhoOnline = JSON.parse(localStorage.getItem("Authorization")) || {};
+  console.log("userWhoOnline", userWhoOnline);
   const compareUser = isMoviesInLocalStorage.find(
    (user) => user.user === userWhoOnline.user
   );
-  const findMovies = compareUser?.favorites.some(
-   (movie) => movie.id === movieDetails.id
-  );
+  console.log("compareUser", compareUser);
+  const findMovies =
+   compareUser &&
+   compareUser?.favorites &&
+   compareUser?.favorites?.some((movie) => movie.id === movieDetails.id);
   setIsMoviesFavorite(findMovies);
  }, [movieDetails.id]);
 
@@ -189,7 +198,7 @@ function MoviesBody({ movieDetails }) {
 
    <div className="main">
     {/* ACTORS */}
-    {movieDetails.credits.cast !== 0 && (
+    {/* {movieDetails.credits.cast !== 0 && (
      <>
       <SubTitle subTitle={t("actors")} />
       <div className="sliderItem">
@@ -209,11 +218,11 @@ function MoviesBody({ movieDetails }) {
        ))}
       </div>
      </>
-    )}
+    )} */}
 
     {/* RECOMENDATIOM */}
     <>
-     {movieDetails.recommendations.results.length !== 0 && (
+     {/* {movieDetails.recommendations.results.length !== 0 && (
       <>
        <SubTitle subTitle={t("recommendation")} />
        <div className="sliderItem">
@@ -229,11 +238,11 @@ function MoviesBody({ movieDetails }) {
         ))}
        </div>
       </>
-     )}
+     )} */}
     </>
 
     {/* SIMILAR */}
-    {movieDetails.similar.results.length !== 0 && (
+    {/* {movieDetails.similar.results.length !== 0 && (
      <>
       <SubTitle subTitle={t("similar")} />
       <div className="sliderItem">
@@ -249,18 +258,18 @@ function MoviesBody({ movieDetails }) {
        ))}
       </div>
      </>
-    )}
+    )} */}
 
     {/* REVIEWS */}
     <SubTitle subTitle={t("reviews")} />
     <div className="sliderItem reviews">
-     {movieDetails.reviews.results.length !== 0 && (
+     {/* {movieDetails.reviews.results.length !== 0 && (
       <>
        {movieDetails.reviews.results.map((item) => (
         <Reviews key={item.id} {...item} />
        ))}
       </>
-     )}
+     )} */}
     </div>
    </div>
   </div>
