@@ -67,6 +67,8 @@ function UserPofile() {
   setFavorMovies(newCompare);
  };
 
+ console.log(favorMovies, "favormovies вот что");
+
  return (
   <>
    <div className="user-profile">
@@ -83,11 +85,11 @@ function UserPofile() {
      subTitle={t("favorites")}
      style={{ textTransform: "capitalize", color: "red" }}
     />
+    {!favorMovies ||
+     (favorMovies?.favorites?.length === 0 && (
+      <div>{t('yourMovieListIsEmpty')}</div>
+     ))}
     <div className="user-profile_wrapper">
-     {!favorMovies ||
-      (favorMovies?.favorites?.length === 0 && (
-       <div>Your movie list is empty</div>
-      ))}
      {favorMovies?.favorites?.map((item) => (
       <Cards handleRemoveMovie={handleRemoveMovie} item={item} key={item.id} />
      ))}
@@ -101,6 +103,7 @@ export default UserPofile;
 
 const Cards = ({ handleRemoveMovie, item }) => {
  const [isHovered, setIsHovered] = useState(false);
+ const bck = "https://image.tmdb.org/t/p/w500";
 
  const handleMouseEnter = () => {
   setIsHovered(true);
@@ -110,8 +113,6 @@ const Cards = ({ handleRemoveMovie, item }) => {
   setIsHovered(false);
  };
 
- const bck = "https://image.tmdb.org/t/p/w500";
-
  return (
   <div
    className="user-profile_card"
@@ -119,6 +120,16 @@ const Cards = ({ handleRemoveMovie, item }) => {
    onMouseLeave={handleMouseLeave}
   >
    {isHovered && (
+    <div
+     className="user-profile_delete-favor"
+     onClick={() => {
+      handleRemoveMovie(item.id);
+     }}
+    >
+     <LiaWindowClose size={40} color="red" />
+    </div>
+   )}
+   {window.innerWidth <= 992 && (
     <div
      className="user-profile_delete-favor"
      onClick={() => {

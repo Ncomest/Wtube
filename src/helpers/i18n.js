@@ -59,6 +59,7 @@ i18n.use(initReactI18next).init({
     mustBe416LetterOrNumbers: "Must be 4 - 16 letter or numbers",
     mustMatchTheFirstPasswordInputField:
      "Must match the first password input field",
+    yourMovieListIsEmpty: "Your movie list is empty",
    },
   },
   "ru-RU": {
@@ -115,6 +116,7 @@ i18n.use(initReactI18next).init({
     mustBe416LetterOrNumbers:
      "Должны быть буквы или цифры не меньше 4 символов и не больше 16",
     mustMatchTheFirstPasswordInputField: "Пароли не совпадают",
+    yourMovieListIsEmpty: "Список избранных фильмов пуст",
    },
   },
  },
