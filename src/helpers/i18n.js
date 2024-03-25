@@ -55,6 +55,10 @@ i18n.use(initReactI18next).init({
     try: "try",
     again: "again",
     ifYouDontHaveAnAccount: `If you don't have an account`,
+    mustIncludeLetterAndNumber832: "Must include letter and number 8 - 32",
+    mustBe416LetterOrNumbers: "Must be 4 - 16 letter or numbers",
+    mustMatchTheFirstPasswordInputField:
+     "Must match the first password input field",
    },
   },
   "ru-RU": {
@@ -106,6 +110,11 @@ i18n.use(initReactI18next).init({
     try: "попробуйте",
     again: "еще раз",
     ifYouDontHaveAnAccount: "Если у Вас нет аккаунта",
+    mustIncludeLetterAndNumber832:
+     "Должны быть буквы и цифры не меньше 8 символов и не больше 32",
+    mustBe416LetterOrNumbers:
+     "Должны быть буквы или цифры не меньше 4 символов и не больше 16",
+    mustMatchTheFirstPasswordInputField: "Пароли не совпадают",
    },
   },
  },

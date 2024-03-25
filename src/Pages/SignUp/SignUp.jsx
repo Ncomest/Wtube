@@ -99,7 +99,7 @@ function SignUp() {
         }`}
        >
         {!userFocus && user && !validName ? (
-         <Instruct text="Must be 4-16 letter or numbers" />
+         <Instruct text={t("mustBe416LetterOrNumbers")} />
         ) : null}
        </div>
        <input
@@ -125,7 +125,7 @@ function SignUp() {
         }`}
        >
         {!pwdFocus && pwd && !validPwd ? (
-         <Instruct text="Must include letter and number 8-32" />
+         <Instruct text={t("mustIncludeLetterAndNumber8-32")} />
         ) : null}
        </div>
        <input
@@ -153,7 +153,7 @@ function SignUp() {
         }`}
        >
         {!matchFocus && matchPwd && !validMatch ? (
-         <Instruct text="Must match the first password input field" />
+         <Instruct text={t("mustMatchTheFirstPasswordInputField")} />
         ) : null}
        </div>
        <input
@@ -174,7 +174,7 @@ function SignUp() {
        </button>
       </form>
       <p>
-       {t('ifYouHaveAnAccount')}{" "}
+       {t("ifYouHaveAnAccount")}{" "}
        <Link className="Router-link" to={`/login`}>
         <span className="signup-span">{t("logIn")}</span>
        </Link>

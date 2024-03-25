@@ -110,7 +110,7 @@ function Login() {
         }`}
        >
         {!userFocus && userData.user && !validName ? (
-         <Instruct text="Must be 4-16 letter or numbers" />
+         <Instruct text={t("mustBe416LetterOrNumbers")} />
         ) : null}
        </div>
        <input
@@ -137,7 +137,7 @@ function Login() {
         }`}
        >
         {!pwdFocus && userData.pwd && !validPwd ? (
-         <Instruct text="Must include letter and number 8-32" />
+         <Instruct text={t("mustIncludeLetterAndNumber8-32")} />
         ) : null}
        </div>
 
@@ -162,7 +162,6 @@ function Login() {
        </Link>
       </p>
 
-      {/* <button>go to Sign Up</button> */}
      </section>
     </div>
    )}
