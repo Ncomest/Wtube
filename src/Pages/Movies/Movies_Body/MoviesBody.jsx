@@ -11,6 +11,7 @@ import { MdFavorite } from "react-icons/md";
 
 import SubTitle from "../../../UI/components/Title/Sub_Title/SubTitle";
 import Reviews from "../../../UI/components/Reviews/Reviews";
+import { exists } from "i18next";
 
 function MoviesBody({ movieDetails }) {
  const [open, setOpen] = useState(false);
@@ -54,10 +55,15 @@ function MoviesBody({ movieDetails }) {
   const { id, poster_path, title } = movieDetails;
   const newFavorite = { id, poster_path, title };
 
-  if (userFindData && !userFindData.hasOwnProperty("favorites")) {
+  if (
+   userFindData &&
+   existData.online &&
+   !userFindData.hasOwnProperty("favorites")
+  ) {
    userFindData.favorites = [];
    console.log("userFindData true", userFindData);
-  } else {
+   console.log("Эта тоже выполняется");
+  } else if (!existData.online) {
    console.log(
     "userFindData false поэтому мы отправляем на страницу авторизации"
    );
@@ -110,6 +116,7 @@ function MoviesBody({ movieDetails }) {
   );
   console.log("compareUser", compareUser);
   const findMovies =
+   userWhoOnline.online &&
    compareUser &&
    compareUser?.favorites &&
    compareUser?.favorites?.some((movie) => movie.id === movieDetails.id);
