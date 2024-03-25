@@ -64,7 +64,7 @@ function SignUp() {
   }
 
   userDataArray.push({ user, pwd });
-
+  //тут ту ловеркейс сделать можно
   localStorage.setItem("userData", JSON.stringify(userDataArray));
 
   setUser("");

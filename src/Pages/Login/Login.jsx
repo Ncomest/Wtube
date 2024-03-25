@@ -87,10 +87,7 @@ function Login() {
    {failed ? (
     <div className="login">
      <h1>Failed, try again</h1>
-     <button
-      className="login-failed_btn"
-      onClick={() => window.location.reload()}
-     >
+     <button className="login-failed_btn" onClick={() => setFailed(false)}>
       Reload
      </button>
     </div>
