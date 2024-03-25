@@ -163,7 +163,7 @@ function MoviesBody({ movieDetails }) {
       {movieDetails.runtime + " "}
       {t("minute")}
      </p>
-     {/* <div
+     <div
       className={`moviesbody_add-btn_container ${
        isMoviesFavorite ? "not-fill" : ""
       }`}
@@ -181,7 +181,7 @@ function MoviesBody({ movieDetails }) {
       ) : (
        <p>{t("addToFavorites")}</p>
       )}
-     </div> */}
+     </div>
     </div>
    </div>
 
