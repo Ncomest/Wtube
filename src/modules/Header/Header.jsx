@@ -50,7 +50,7 @@ function Header({ selectedLanguage }) {
       </Link>
      </div>
      {windowWidth <= breakpoint ? (
-      <Burger />
+      <Burger isAuthenticated={isAuthenticated} />
      ) : (
       <>
        {isAuthenticated ? (

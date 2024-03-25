@@ -1,5 +1,7 @@
-import { useState, useEffect, useRef } from "react";
 import "./Burger.css";
+import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoCloseOutline } from "react-icons/io5";
@@ -7,7 +9,7 @@ import { IoCloseOutline } from "react-icons/io5";
 import BtnLogin from "../Buttons/LogIn/BtnLogin";
 import BtnSignUp from "../Buttons/LogIn/BtnSignUp";
 
-const Burger = () => {
+const Burger = ({ isAuthenticated }) => {
  const [isOpen, setIsOpen] = useState(false);
 
  const toggleBurger = () => {
@@ -40,10 +42,13 @@ const Burger = () => {
    ) : (
     <RxHamburgerMenu size={50} className="BurgerIcon" onClick={toggleBurger} />
    )}
-   {isOpen && <BurgerText />}
+   {isOpen && !isAuthenticated && <BurgerText />}
+   {isOpen && isAuthenticated && <AuthText setIsOpen={setIsOpen} />}
   </div>
  );
 };
+
+export default Burger;
 
 const BurgerText = () => {
  return (
@@ -56,4 +61,19 @@ const BurgerText = () => {
  );
 };
 
-export default Burger;
+const AuthText = ({ setIsOpen }) => {
+ const { t } = useTranslation();
+
+ return (
+  <div className="BurgerDropDown" onClick={() => setIsOpen(false)}>
+   <Link className="Router-link" to={`/user_profile`}>
+    <p>
+     {t("hello")},{" "}
+     <span style={{ textTransform: "capitalize", color: "red" }}>
+      {JSON.parse(localStorage.getItem("Authorization"))?.user}
+     </span>
+    </p>
+   </Link>
+  </div>
+ );
+};

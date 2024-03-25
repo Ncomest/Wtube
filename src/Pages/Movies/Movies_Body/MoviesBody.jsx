@@ -163,7 +163,7 @@ function MoviesBody({ movieDetails }) {
       {movieDetails.runtime + " "}
       {t("minute")}
      </p>
-     <div
+     {/* <div
       className={`moviesbody_add-btn_container ${
        isMoviesFavorite ? "not-fill" : ""
       }`}
@@ -181,8 +181,7 @@ function MoviesBody({ movieDetails }) {
       ) : (
        <p>{t("addToFavorites")}</p>
       )}
-      {console.log(isMoviesFavorite)}
-     </div>
+     </div> */}
     </div>
    </div>
 
@@ -198,7 +197,7 @@ function MoviesBody({ movieDetails }) {
 
    <div className="main">
     {/* ACTORS */}
-    {/* {movieDetails.credits.cast !== 0 && (
+    {movieDetails.credits.cast !== 0 && (
      <>
       <SubTitle subTitle={t("actors")} />
       <div className="sliderItem">
@@ -218,11 +217,11 @@ function MoviesBody({ movieDetails }) {
        ))}
       </div>
      </>
-    )} */}
+    )}
 
     {/* RECOMENDATIOM */}
     <>
-     {/* {movieDetails.recommendations.results.length !== 0 && (
+     {movieDetails.recommendations.results.length !== 0 && (
       <>
        <SubTitle subTitle={t("recommendation")} />
        <div className="sliderItem">
@@ -238,11 +237,11 @@ function MoviesBody({ movieDetails }) {
         ))}
        </div>
       </>
-     )} */}
+     )}
     </>
 
     {/* SIMILAR */}
-    {/* {movieDetails.similar.results.length !== 0 && (
+    {movieDetails.similar.results.length !== 0 && (
      <>
       <SubTitle subTitle={t("similar")} />
       <div className="sliderItem">
@@ -258,18 +257,18 @@ function MoviesBody({ movieDetails }) {
        ))}
       </div>
      </>
-    )} */}
+    )}
 
     {/* REVIEWS */}
     <SubTitle subTitle={t("reviews")} />
     <div className="sliderItem reviews">
-     {/* {movieDetails.reviews.results.length !== 0 && (
+     {movieDetails.reviews.results.length !== 0 && (
       <>
        {movieDetails.reviews.results.map((item) => (
         <Reviews key={item.id} {...item} />
        ))}
       </>
-     )} */}
+     )}
     </div>
    </div>
   </div>

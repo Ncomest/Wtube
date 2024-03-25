@@ -17,6 +17,7 @@
  border-radius: 5px;
  border-left: 1px solid var(--grey);
  border-bottom: 1px solid var(--grey);
+ color: #fff;
 }
 
 .BurgerIcon {
