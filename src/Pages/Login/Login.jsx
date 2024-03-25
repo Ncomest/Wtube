@@ -1,12 +1,15 @@
-import React, { useEffect, useRef, useState } from "react";
 import "./Login.css";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 import { PWD_REGEX, USER_REGEX } from "../../helpers/Register";
 import { GrStatusGood } from "react-icons/gr";
 import { LuBadgeInfo } from "react-icons/lu";
 import { useAuth } from "../../helpers/AuthContext";
 
 function Login() {
+ const { t } = useTranslation();
  const { setIsAuthenticated } = useAuth();
  const navigate = useNavigate();
  const userRef = useRef();
@@ -86,9 +89,11 @@ function Login() {
   <>
    {failed ? (
     <div className="login">
-     <h1>Failed, try again</h1>
+     <h1>
+      {t("failed")}, {t("try")} {t("again")}
+     </h1>
      <button className="login-failed_btn" onClick={() => setFailed(false)}>
-      Reload
+      {t("again")}
      </button>
     </div>
    ) : (
@@ -96,7 +101,7 @@ function Login() {
      <section className="login-section">
       <form className="login-form" onSubmit={handleLogin}>
        <div className="login_label-container">
-        <label htmlFor="username">Username:</label>
+        <label htmlFor="username">{t("username")}:</label>
         {validName ? <GrStatusGood size={15} color="green" /> : null}
        </div>
        <div
@@ -121,7 +126,9 @@ function Login() {
        />
 
        <div className="login_label-container">
-        <label htmlFor="password">Password:</label>
+        <label htmlFor="password" className="login_label-container_password">
+         {t("password")}:
+        </label>
         {validPwd ? <GrStatusGood size={15} color="green" /> : null}
        </div>
        <div
@@ -145,13 +152,13 @@ function Login() {
        />
 
        <button className="login-btn" disabled={!validName || !validPwd}>
-        Log In
+        {t("logIn")}
        </button>
       </form>
       <p>
-       If you don't have an account, you can{" "}
+       {t(`ifYouDontHaveAnAccount`)}{" "}
        <Link className="Router-link" to={`/signup`}>
-        <span style={{ color: "red" }}>Sign Up</span>
+        <span style={{ color: "red" }}>{t("signUp")}</span>
        </Link>
       </p>
 

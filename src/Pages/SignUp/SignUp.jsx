@@ -1,6 +1,7 @@
+import "./SignUp.css";
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import "./SignUp.css";
+import { useTranslation } from "react-i18next";
 import { USER_REGEX } from "../../helpers/Register";
 import { PWD_REGEX } from "../../helpers/Register";
 import { GrStatusGood } from "react-icons/gr";
@@ -8,6 +9,7 @@ import { LuBadgeInfo } from "react-icons/lu";
 
 function SignUp() {
  const userRef = useRef();
+ const { t } = useTranslation();
 
  const [user, setUser] = useState("");
  const [validName, setValidName] = useState(false);
@@ -78,9 +80,9 @@ function SignUp() {
   <>
    {success ? (
     <div className="signup">
-     <h1>Success</h1>
+     <h1>{t("success")}</h1>
      <Link className="Router-link" to={`/login`}>
-      <span className="signup-span">Log In</span>
+      <span className="signup-span">{t("logIn")}</span>
      </Link>
     </div>
    ) : (
@@ -88,7 +90,7 @@ function SignUp() {
      <section className="signup-section">
       <form className="form-singup" onSubmit={handleSubmit}>
        <div className="label-container">
-        <label htmlFor="username">Username:</label>
+        <label htmlFor="username">{t("username")}:</label>
         {validName ? <GrStatusGood size={15} color="green" /> : null}
        </div>
        <div
@@ -112,7 +114,9 @@ function SignUp() {
        />
 
        <div className="label-container">
-        <label htmlFor="password">Password:</label>
+        <label htmlFor="password">
+         {t("enter")} {t("password")}:
+        </label>
         {validPwd ? <GrStatusGood size={15} color="green" /> : null}
        </div>
        <div
@@ -136,7 +140,9 @@ function SignUp() {
        />
 
        <div className="label-container">
-        <label htmlFor="confirm_pwd">Confirm password:</label>
+        <label htmlFor="confirm_pwd">
+         {t("confirm")} {t("password")}:
+        </label>
         {matchPwd && validMatch ? (
          <GrStatusGood size={15} color="green" />
         ) : null}
@@ -164,13 +170,13 @@ function SignUp() {
         className="sign-up_btn"
         disabled={!validName || !validPwd || !validMatch ? true : false}
        >
-        Sign Up
+        {t("signUp")}
        </button>
       </form>
       <p>
-       If you have an account{" "}
+       {t('ifYouHaveAnAccount')}{" "}
        <Link className="Router-link" to={`/login`}>
-        <span className="signup-span">Log In</span>
+        <span className="signup-span">{t("logIn")}</span>
        </Link>
       </p>
      </section>

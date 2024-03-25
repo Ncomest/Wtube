@@ -49,6 +49,9 @@
  align-items: center;
  gap: 5px;
 }
+.login_label-container_password {
+ text-transform: capitalize;
+}
 
 .login_err-msg {
  opacity: 0;
