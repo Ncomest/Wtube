@@ -5,6 +5,7 @@
  margin: 0px auto;
  background-color: var(--dark);
  color: var(--white);
+ min-height: 100vh;
 }
 
 .background-image_container {

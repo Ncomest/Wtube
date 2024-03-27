@@ -284,10 +284,12 @@ function MoviesBody({ movieDetails }) {
 export default MoviesBody;
 
 const TrailerMovie = ({ movieDetails }) => {
+ const { t } = useTranslation();
+
  if (movieDetails.videos.results.length === 0) {
   return (
    <>
-    <p>No trailers available</p>
+    <div className="TrailerMovie">{t("noTrailersAvailable")}</div>
    </>
   );
  }

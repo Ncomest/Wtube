@@ -45,12 +45,10 @@ function ActorsCast({ selectedLanguage }) {
  };
 
  const bck = "https://image.tmdb.org/t/p/w500";
-//  const randomIndex = Math.floor(Math.random() * movies?.credits?.cast.length);
 
  return (
   <div className="main-container">
    <div className="background-image_container">
-    {/* <img src={bck + movies?.credits?.cast[randomIndex]?.backdrop_path} alt="" /> */}
     <div className="wrapp-actors">
      <div className="actors-card">
       <div className="actors-card_image">

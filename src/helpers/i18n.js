@@ -89,6 +89,7 @@ i18n.use(initReactI18next).init({
     Russia: "Russia",
     India: "India",
     loading: "Loading",
+    noTrailersAvailable: "No trailers available",
    },
   },
   "ru-RU": {
@@ -175,6 +176,7 @@ i18n.use(initReactI18next).init({
     Russia: "Россия",
     India: "Индия",
     loading: "Загрузка",
+    noTrailersAvailable: "Трейлеры не найдены",
    },
   },
  },
