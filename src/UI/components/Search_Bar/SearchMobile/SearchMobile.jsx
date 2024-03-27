@@ -34,7 +34,7 @@ function SearchMobile({ selectedLanguage }) {
     onClick={() => setSearchOpen(!searchOpen)}
    />
    {searchOpen && (
-    <SearchMobileMenu inputRef={inputRef} selectedLanguage={selectedLanguage} />
+    <SearchMobileMenu inputRef={inputRef} selectedLanguage={selectedLanguage} setSearchOpen={setSearchOpen}/>
    )}
   </div>
  );
