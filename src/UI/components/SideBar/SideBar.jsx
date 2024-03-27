@@ -30,24 +30,24 @@ const FilterBarContainerGenre = ({ filters }) => {
    <p className="FilterBarContainer_Text">{t("genres")}</p>
    <select className="FilterBarContainer_Select" onChange={handleFilterChange}>
     <option value="">-- {t("chooseGenre")} --</option>
-    <option value="28">Action</option>
-    <option value="12">Adventure</option>
-    <option value="16">Animation</option>
-    <option value="35">Comedy</option>
-    <option value="99">Documentary</option>
-    <option value="18">Drama</option>
-    <option value="10751">Family</option>
-    <option value="14">Fantasy</option>
-    <option value="36">History</option>
-    <option value="27">Horror</option>
-    <option value="10402">Music</option>
-    <option value="9648">Mystery</option>
-    <option value="10749">Romance</option>
-    <option value="878">Science Fiction</option>
-    <option value="10770">TV Movie</option>
-    <option value="53">Thriller</option>
-    <option value="10752">War</option>
-    <option value="37">Western</option>
+    <option value="28">{t("Action")}</option>
+    <option value="12">{t("Adventure")}</option>
+    <option value="16">{t("Animation")}</option>
+    <option value="35">{t("Comedy")}</option>
+    <option value="99">{t("Documentary")}</option>
+    <option value="18">{t("Drama")}</option>
+    <option value="10751">{t("Family")}</option>
+    <option value="14">{t("Fantasy")}</option>
+    <option value="36">{t("History")}</option>
+    <option value="27">{t("Horror")}</option>
+    <option value="10402">{t("Music")}</option>
+    <option value="9648">{t("Mystery")}</option>
+    <option value="10749">{t("Romance")}</option>
+    <option value="878">{t("ScienceFiction")}</option>
+    <option value="10770">{t("TVMovie")}</option>
+    <option value="53">{t("Thriller")}</option>
+    <option value="10752">{t("War")}</option>
+    <option value="37">{t("Western")}</option>
    </select>
   </div>
  );
@@ -63,16 +63,16 @@ const FilterBarContainerCountry = ({ filters }) => {
    <p className="FilterBarContainer_Text">{t("country")}</p>
    <select className="FilterBarContainer_Select" onChange={handleFilterChange}>
     <option value="">-- {t("chooseCountry")} --</option>
-    <option value="PL">Poland</option>
-    <option value="CA">Canada</option>
-    <option value="CN">China</option>
-    <option value="DE">Germany</option>
-    <option value="US">US America</option>
-    <option value="GB">United Kingdom</option>
-    <option value="FR">France</option>
-    <option value="IT">Italy</option>
-    <option value="RU">Russia</option>
-    <option value="IN">India</option>
+    <option value="PL">{t("Poland")}</option>
+    <option value="CA">{t("Canada")}</option>
+    <option value="CN">{t("China")}</option>
+    <option value="DE">{t("Germany")}</option>
+    <option value="US">{t("USAmerica")}</option>
+    <option value="GB">{t("UnitedKingdom")}</option>
+    <option value="FR">{t("France")}</option>
+    <option value="IT">{t("Italy")}</option>
+    <option value="RU">{t("Russia")}</option>
+    <option value="IN">{t("India")}</option>
    </select>
   </div>
  );
