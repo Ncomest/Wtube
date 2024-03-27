@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./SideBar.css";
 
 import SideBarFilter from "../Buttons/SideBarFilter/SideBarFilter";

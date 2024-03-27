@@ -1,4 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { useTranslation } from "react-i18next";
+
 import "./SliderPopular.css";
 
 import { Link } from "react-router-dom";
@@ -13,6 +15,7 @@ import genreId from "../../Genre";
 
 function SliderPopular({ movies }) {
  const poster = "https://image.tmdb.org/t/p/w500";
+ const { t } = useTranslation();
 
  const handleUp = () => {
   window.scrollTo(0, 0);
@@ -105,12 +108,12 @@ function SliderPopular({ movies }) {
          loading="lazy"
         />
         <p>
-         {movie.release_date.slice(0, 4)}•
+         {movie.release_date.slice(0, 4)} •{" "}
          {movie.genre_ids.map((id, index) => {
           const genre = genres.find((genre) => genre.id === id);
           return (
            <span key={id}>
-            {genre ? genre.name : "Unknown"}
+            {genre ? t(genre.name) : "Unknown"}
             {index < movie.genre_ids.length - 1 ? ", " : ""}
            </span>
           );

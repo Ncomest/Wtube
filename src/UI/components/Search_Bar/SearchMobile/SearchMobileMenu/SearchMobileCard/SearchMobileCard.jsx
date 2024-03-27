@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./SearchMobileCard.css";
 import { useTranslation } from "react-i18next";
+import genreId from "../../../../../../helpers/Genre";
 
 const SearchMobileCard = ({
  searchResult,
@@ -11,6 +12,7 @@ const SearchMobileCard = ({
 }) => {
  const [loading, setLoading] = useState(true);
  const [searchMovie, setSearchMovie] = useState(null);
+ const { t } = useTranslation();
 
  const API_URL_TWO = `https://api.themoviedb.org/3/search/movie?query=${searchResult}&?api_key=14d8d8918e888fb791f87057ac1674c0&language=${selectedLanguage}`;
 
@@ -45,11 +47,11 @@ const SearchMobileCard = ({
  };
 
  if (loading) {
-  return <div className="loading_searchbar">Loading...</div>;
+  return <div className="loading_searchbar">{t("loading")}...</div>;
  }
 
  if (searchResult && searchMovie.length === 0) {
-  return <>Movie not found</>;
+  return <>{t("loading")}...</>;
  }
 
  return (
@@ -70,12 +72,13 @@ const SearchMobileCard = ({
 
 const MobileCard = ({ ...movie }) => {
  const imger = "https://image.tmdb.org/t/p/w500";
- const { poster_path, title, genres, vote_average, release_date, overview } =
+ const { poster_path, title, genre_ids, vote_average, release_date, overview } =
   movie;
  const { t } = useTranslation();
+ const genres = genreId();
 
  if (!movie) {
-  return <div>Loading...MovieCard</div>;
+  return <div>{t("loading")}</div>;
  }
 
  const handleUp = () => {
@@ -88,6 +91,7 @@ const MobileCard = ({ ...movie }) => {
   });
  };
 
+ console.log("genre_ids", genre_ids);
  return (
   <div className="SearchMobileCard" onClick={handleUp}>
    <div className="SearchMobileCard_Left">
@@ -105,11 +109,17 @@ const MobileCard = ({ ...movie }) => {
     <h2>{title}</h2>
     <div className="SearchMobileCard_Text">
      <p>{t("genres")}:</p>
-     {/* <div className="SearchMobileCard_List">
-      {genres.map((genre) => (
-       <p key={genre.name}>{genre.name},</p>
-      ))}
-     </div> */}
+     <div className="SearchMobileCard_List">
+      {genre_ids.map((id, index) => {
+       const genre = genres?.find((genre) => genre.id === id);
+       return (
+        <span key={id}>
+         {genre ? t(genre.name) : "Unknown"}
+         {index < movie.genre_ids.length - 1 ? ", " : ""}
+        </span>
+       );
+      })}
+     </div>
     </div>
 
     <div className="SearchMobileCard_Text">

@@ -61,7 +61,7 @@ const genreId = () => [
  },
  {
   id: 10770,
-  name: "TV Movie",
+  name: "TVMovie",
  },
  {
   id: 53,

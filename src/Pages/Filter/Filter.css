@@ -25,7 +25,7 @@
 }
 
 .filter-card_image p {
- font-size: var(--textSmall);
+ font-size: 12px;
  color: #ffffffa2;
  overflow: hidden;
  white-space: nowrap;
@@ -34,7 +34,7 @@
 }
 
 .filter-card_image h4 {
- font-size: var(--textLarge);
+ font-size: var(--textNormal);
  white-space: nowrap;
  overflow: hidden;
  text-overflow: ellipsis;
