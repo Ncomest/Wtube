@@ -11,7 +11,6 @@ import { MdFavorite } from "react-icons/md";
 
 import SubTitle from "../../../UI/components/Title/Sub_Title/SubTitle";
 import Reviews from "../../../UI/components/Reviews/Reviews";
-import { exists } from "i18next";
 
 function MoviesBody({ movieDetails }) {
  const [open, setOpen] = useState(false);
@@ -124,7 +123,7 @@ function MoviesBody({ movieDetails }) {
  }, [movieDetails.id]);
 
  if (!movieDetails) {
-  return <>Wait</>;
+  return <>{t("loading")}...</>;
  }
  const bck = "https://image.tmdb.org/t/p/w500";
  return (

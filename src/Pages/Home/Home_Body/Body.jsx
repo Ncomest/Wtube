@@ -14,6 +14,10 @@ function Body({ selectedLanguage }) {
  const { t } = useTranslation();
  const myKey = "14d8d8918e888fb791f87057ac1674c0";
 
+ const handleUp = () => {
+  window.scrollTo(0, 0);
+ };
+
  const requests = {
   requestPopular: `https://api.themoviedb.org/3/movie/popular?api_key=${myKey}&language=${selectedLanguage}&page=1`,
   requestTopRated: `https://api.themoviedb.org/3/movie/top_rated?api_key=${myKey}&language=${selectedLanguage}&page=1`,
@@ -59,9 +63,9 @@ function Body({ selectedLanguage }) {
   <div className="Body">
    <div className="Body_Container">
     <div className="section-header">
-     <h4>{t("upComming")}</h4>
+     <h4>{t("upcoming")}</h4>
      <Link className="Router-link" to={`/moviescategory/upcoming`}>
-      <p>{t("lookingAll")}</p>
+      <p onClick={handleUp}>{t("lookingAll")}</p>
      </Link>
     </div>
     <SliderMain upcomingMovies={upcomingMovies} />
@@ -69,7 +73,7 @@ function Body({ selectedLanguage }) {
     <div className="section-header">
      <h4>{t("popular")}</h4>
      <Link className="Router-link" to={`/moviescategory/popular`}>
-      <p>{t("lookingAll")}</p>
+      <p onClick={handleUp}>{t("lookingAll")}</p>
      </Link>
     </div>
     <SliderPopular movies={popularMovies} />
@@ -77,7 +81,7 @@ function Body({ selectedLanguage }) {
     <div className="section-header">
      <h4>{t("top_rated")}</h4>
      <Link className="Router-link" to={`/moviescategory/top_rated`}>
-      <p>{t("lookingAll")}</p>
+      <p onClick={handleUp}>{t("lookingAll")}</p>
      </Link>
     </div>
     <SliderPopular movies={topRatedMovies} />

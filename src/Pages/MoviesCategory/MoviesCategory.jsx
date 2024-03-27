@@ -59,12 +59,12 @@ function MoviesCategory({ selectedLanguage }) {
         <div className="grid-card-image">
          <img src={bck + item.poster_path} alt={item.title} loading="lazy" />
          <p>
-          {item.release_date.slice(0, 4)}•
+          {item.release_date.slice(0, 4)} •{" "}
           {item.genre_ids.map((id, index) => {
            const genre = genres.find((genre) => genre.id === id);
            return (
             <span key={id}>
-             {genre ? genre.name : "Unknown"}
+             {genre ? t(genre.name) : "Unknown"}
              {index < item.genre_ids.length - 1 ? ", " : ""}
             </span>
            );

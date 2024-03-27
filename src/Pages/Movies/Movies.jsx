@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 import "./Movies.css";
-// import { myKey } from "../../helpers/Requests.js";
 
 import MoviesBody from "./Movies_Body/MoviesBody";
 
@@ -10,6 +11,7 @@ function Movies({ selectedLanguage }) {
  const [movieDetails, setMovieDetails] = useState(null);
  const myKey = "14d8d8918e888fb791f87057ac1674c0";
  const API_DB = `https://api.themoviedb.org/3/movie/${id}?api_key=${myKey}&language=${selectedLanguage}&append_to_response=credits,similar,recommendations,videos,reviews`;
+ const { t } = useTranslation();
 
  const fetchOption = {
   method: "GET",
@@ -34,7 +36,7 @@ function Movies({ selectedLanguage }) {
  }, [id, selectedLanguage]);
 
  if (!movieDetails) {
-  return <div className="waitLoading">Loading...</div>;
+  return <div className="waitLoading">{t("loading")}...</div>;
  }
 
  return (
