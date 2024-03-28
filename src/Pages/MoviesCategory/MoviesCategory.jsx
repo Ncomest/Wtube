@@ -15,14 +15,14 @@ function MoviesCategory({ selectedLanguage }) {
  const handleNextPage = () => {
   setPage((nextPage) => nextPage + 1);
   window.scrollTo(0, 0);
-  sessionStorage.setItem("MoviesCategory", JSON.stringify(page));
+  sessionStorage.setItem("movies-category", JSON.stringify(page));
  };
 
  const handlePrevPage = () => {
   setPage((prevPage) => prevPage - 1);
   window.scrollTo(0, 0);
 
-  sessionStorage.setItem("MoviesCategory", JSON.stringify(page));
+  sessionStorage.setItem("movies-category", JSON.stringify(page));
  };
 
  const request = `https://api.themoviedb.org/3/movie/${category}?api_key=${myKey}&language=${selectedLanguage}&page=${page}`;
@@ -49,9 +49,9 @@ function MoviesCategory({ selectedLanguage }) {
   fetchData();
  }, [request]);
 
-//  useEffect(() => {
-//   sessionStorage.getItem("MoviesCategory", JSON.parse());
-//  }, [page]);
+ useEffect(() => {
+  sessionStorage.setItem("movies-category", JSON.stringify(page));
+ }, [page]);
 
  const genres = genreId();
 
@@ -86,7 +86,7 @@ function MoviesCategory({ selectedLanguage }) {
     </div>
     <div className="MoviesCategory-btn_container">
      {page > 1 && (
-      <ButtonCommon text={t("previous")} onClick={handlePrevPage} />
+      <ButtonCommon text={t("back")} onClick={handlePrevPage} />
      )}
      <p>{page}</p>
      <ButtonCommon text={t("next")} onClick={handleNextPage} />
