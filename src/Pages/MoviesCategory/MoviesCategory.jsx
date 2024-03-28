@@ -8,21 +8,38 @@ import genreId from "../../helpers/Genre";
 function MoviesCategory({ selectedLanguage }) {
  const { category } = useParams();
  const [movies, setMovies] = useState([]);
- const [page, setPage] = useState(1);
+
+ const initialPage = 1;
+ const storedPage = JSON.parse(sessionStorage.getItem("movies-category-page"));
+ if (!storedPage) {
+  sessionStorage.setItem("movies-category-page", JSON.stringify(initialPage));
+ }
+ const [page, setPage] = useState(storedPage || initialPage);
  const { t } = useTranslation();
  const myKey = "14d8d8918e888fb791f87057ac1674c0";
 
  const handleNextPage = () => {
-  setPage((nextPage) => nextPage + 1);
+  setPage((nextPage) => {
+   const nextPageValue = nextPage + 1;
+   sessionStorage.setItem(
+    "movies-category-page",
+    JSON.stringify(nextPageValue)
+   );
+   return nextPageValue;
+  });
   window.scrollTo(0, 0);
-  sessionStorage.setItem("movies-category", JSON.stringify(page));
  };
 
  const handlePrevPage = () => {
-  setPage((prevPage) => prevPage - 1);
+  setPage((nextPage) => {
+   const nextPageValue = nextPage - 1;
+   sessionStorage.setItem(
+    "movies-category-page",
+    JSON.stringify(nextPageValue)
+   );
+   return nextPageValue;
+  });
   window.scrollTo(0, 0);
-
-  sessionStorage.setItem("movies-category", JSON.stringify(page));
  };
 
  const request = `https://api.themoviedb.org/3/movie/${category}?api_key=${myKey}&language=${selectedLanguage}&page=${page}`;
@@ -48,10 +65,6 @@ function MoviesCategory({ selectedLanguage }) {
   }
   fetchData();
  }, [request]);
-
- useEffect(() => {
-  sessionStorage.setItem("movies-category", JSON.stringify(page));
- }, [page]);
 
  const genres = genreId();
 
@@ -85,11 +98,11 @@ function MoviesCategory({ selectedLanguage }) {
      ))}
     </div>
     <div className="MoviesCategory-btn_container">
-     {page > 1 && (
-      <ButtonCommon text={t("back")} onClick={handlePrevPage} />
-     )}
-     <p>{page}</p>
+     {page > 1 && <ButtonCommon text={t("back")} onClick={handlePrevPage} />}
      <ButtonCommon text={t("next")} onClick={handleNextPage} />
+    </div>
+    <div className="movies-category_page-count">
+     {t("page")}: {page}/{movies?.total_pages}
     </div>
    </div>
   </div>

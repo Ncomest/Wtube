@@ -61,6 +61,12 @@
  font-size: 18px;
 }
 
+.movies-category_page-count {
+ display: flex;
+ justify-content: center;
+ margin-top: 10px;
+}
+
 @media (max-width: 1024px) {
  .grid-card-image img {
   height: 320px;

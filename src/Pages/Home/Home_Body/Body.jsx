@@ -15,6 +15,7 @@ function Body({ selectedLanguage }) {
  const myKey = "14d8d8918e888fb791f87057ac1674c0";
 
  const handleUp = () => {
+  sessionStorage.setItem("movies-category-page", JSON.stringify(1));
   window.scrollTo(0, 0);
  };
 
