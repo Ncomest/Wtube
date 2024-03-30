@@ -19,6 +19,8 @@ function ButtonFilterMenu({ sortMovies, setSortMovies }) {
     <option value="primary_release_date.asc">по дате: по возрастанию</option>
     <option value="vote_average.desc">по рейтингу: по убыванию</option>
     <option value="vote_average.asc">по рейтингу: по возрастанию</option>
+    <option value="popularity.desc">по популярности: по убыванию</option>
+    <option value="popularity.asc">по популярности: по возрастанию</option>
    </select>
   </>
  );

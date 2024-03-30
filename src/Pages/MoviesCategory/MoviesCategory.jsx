@@ -73,6 +73,7 @@ function MoviesCategory({ selectedLanguage }) {
   <div className="MoviesCategory">
    <h2>{t(`${category}`)}</h2>
    <div>
+   
     <div className="MoviesCategory-grid">
      {movies?.results?.map((item) => (
       <Link className="Router-link" to={`/movies/${item.id}`} key={item.id}>
