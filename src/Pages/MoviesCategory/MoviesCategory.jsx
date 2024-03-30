@@ -76,6 +76,7 @@ function MoviesCategory({ selectedLanguage }) {
    setPage(Number(inputChange));
    setInputChange("");
    window.scrollTo(0, 0);
+    sessionStorage.setItem("movies-category-page", JSON.stringify(Number(inputChange)));
   } else {
    console.log("такой страницы не существует");
   }

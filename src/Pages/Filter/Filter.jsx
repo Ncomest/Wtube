@@ -109,7 +109,7 @@ export default function Filter({ selectedLanguage }) {
    <div className="btnNextPage">
     {page > 1 && (
      <button className="Sign btnRed" onClick={handlePrevPage}>
-      {t("previous")}
+      {t("back")}
      </button>
     )}
 
