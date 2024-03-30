@@ -8,7 +8,7 @@ import genreId from "../../helpers/Genre";
 function MoviesCategory({ selectedLanguage }) {
  const { category } = useParams();
  const [movies, setMovies] = useState([]);
- const [inputChange, setInputChange] = useState();
+ const [inputChange, setInputChange] = useState("");
 
  const initialPage = 1;
  const storedPage = JSON.parse(sessionStorage.getItem("movies-category-page"));
@@ -29,6 +29,7 @@ function MoviesCategory({ selectedLanguage }) {
    return nextPageValue;
   });
   window.scrollTo(0, 0);
+  setInputChange("");
  };
 
  const handlePrevPage = () => {
@@ -41,6 +42,7 @@ function MoviesCategory({ selectedLanguage }) {
    return nextPageValue;
   });
   window.scrollTo(0, 0);
+  setInputChange("");
  };
 
  const request = `https://api.themoviedb.org/3/movie/${category}?api_key=${myKey}&language=${selectedLanguage}&page=${page}`;
@@ -71,14 +73,18 @@ function MoviesCategory({ selectedLanguage }) {
 
  const handleSelectPage = () => {
   if (inputChange) {
-  setPage(inputChange);
-  setInputChange("");
-  window.scrollTo(0, 0);
+   setPage(inputChange);
+   setInputChange("");
+   window.scrollTo(0, 0);
   }
  };
 
  const handleSetPage = (e) => {
   setInputChange(e.target.value);
+ };
+
+ const scrollUp = () => {
+  window.scrollTo(0, 0);
  };
 
  const bck = "https://image.tmdb.org/t/p/w500";
@@ -89,7 +95,7 @@ function MoviesCategory({ selectedLanguage }) {
     <div className="MoviesCategory-grid">
      {movies?.results?.map((item) => (
       <Link className="Router-link" to={`/movies/${item.id}`} key={item.id}>
-       <div key={item.id} className="grid_card">
+       <div key={item.id} className="grid_card" onClick={scrollUp}>
         <div className="grid-card-image">
          <img src={bck + item.poster_path} alt={item.title} loading="lazy" />
          <p>
