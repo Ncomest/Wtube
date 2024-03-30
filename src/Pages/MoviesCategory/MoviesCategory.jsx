@@ -72,15 +72,20 @@ function MoviesCategory({ selectedLanguage }) {
  const genres = genreId();
 
  const handleSelectPage = () => {
-  if (inputChange) {
-   setPage(inputChange);
+  if (inputChange && inputChange <= movies.total_pages) {
+   setPage(Number(inputChange));
    setInputChange("");
    window.scrollTo(0, 0);
+  } else {
+   console.log("такой страницы не существует");
   }
  };
 
  const handleSetPage = (e) => {
-  setInputChange(e.target.value);
+  const value = e.target.value;
+  if (/^\d*$/.test(value)) {
+   setInputChange(value);
+  }
  };
 
  const scrollUp = () => {
@@ -127,6 +132,7 @@ function MoviesCategory({ selectedLanguage }) {
       className="movies-category_input-count"
       onChange={handleSetPage}
       value={inputChange}
+      pattern="[0-9]{3}"
      />
      {movies?.total_pages}
      <p className="movies-category_btn-count" onClick={handleSelectPage}>
