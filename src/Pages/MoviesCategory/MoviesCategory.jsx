@@ -8,6 +8,7 @@ import genreId from "../../helpers/Genre";
 function MoviesCategory({ selectedLanguage }) {
  const { category } = useParams();
  const [movies, setMovies] = useState([]);
+ const [inputChange, setInputChange] = useState();
 
  const initialPage = 1;
  const storedPage = JSON.parse(sessionStorage.getItem("movies-category-page"));
@@ -68,12 +69,23 @@ function MoviesCategory({ selectedLanguage }) {
 
  const genres = genreId();
 
+ const handleSelectPage = () => {
+  if (inputChange) {
+  setPage(inputChange);
+  setInputChange("");
+  window.scrollTo(0, 0);
+  }
+ };
+
+ const handleSetPage = (e) => {
+  setInputChange(e.target.value);
+ };
+
  const bck = "https://image.tmdb.org/t/p/w500";
  return (
   <div className="MoviesCategory">
    <h2>{t(`${category}`)}</h2>
    <div>
-   
     <div className="MoviesCategory-grid">
      {movies?.results?.map((item) => (
       <Link className="Router-link" to={`/movies/${item.id}`} key={item.id}>
@@ -103,7 +115,17 @@ function MoviesCategory({ selectedLanguage }) {
      <ButtonCommon text={t("next")} onClick={handleNextPage} />
     </div>
     <div className="movies-category_page-count">
-     {t("page")}: {page}/{movies?.total_pages}
+     {t("page")}: {page}
+     <input
+      type="text"
+      className="movies-category_input-count"
+      onChange={handleSetPage}
+      value={inputChange}
+     />
+     {movies?.total_pages}
+     <p className="movies-category_btn-count" onClick={handleSelectPage}>
+      {t("select")}
+     </p>
     </div>
    </div>
   </div>

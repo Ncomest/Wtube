@@ -93,6 +93,7 @@ i18n.use(initReactI18next).init({
     noTrailersAvailable: "No trailers available",
     back: "Back",
     page: "Page",
+    select: "select",
    },
   },
   "ru-RU": {
@@ -183,6 +184,7 @@ i18n.use(initReactI18next).init({
     noTrailersAvailable: "Трейлеры не найдены",
     back: "Назад",
     page: "Страница",
+    select: "перейти",
    },
   },
  },
