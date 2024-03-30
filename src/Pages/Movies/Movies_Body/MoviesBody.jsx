@@ -212,6 +212,7 @@ function MoviesBody({ movieDetails }) {
          className="Router-link"
          to={`/actorscast/${item.id}`}
          key={item.id}
+         onClick={()=> window.scrollTo(0,0)}
         >
          <div className="itemCard" key={item.id}>
           <div>
