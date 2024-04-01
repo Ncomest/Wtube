@@ -51,6 +51,6 @@
 @media (max-width: 425px) {
  .FilterBarContainer_Container {
   margin: 20px auto;
-  width: 80%;
+  width: 100%;
  }
 }
