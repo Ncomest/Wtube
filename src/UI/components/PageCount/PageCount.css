@@ -1,0 +1,19 @@
+.movies-category_page-count {
+ display: flex;
+ justify-content: center;
+ margin-top: 10px;
+}
+
+.movies-category_input-count {
+ margin: 0 5px;
+ max-width: 30px;
+ outline: none;
+ text-align: center;
+ border-radius: 5px;
+}
+
+.movies-category_btn-count {
+ cursor: pointer;
+ margin: 0 5px;
+ color: var(--red);
+}

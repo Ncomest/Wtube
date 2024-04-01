@@ -126,6 +126,7 @@ function MoviesCategory({ selectedLanguage }) {
      {page > 1 && <ButtonCommon text={t("back")} onClick={handlePrevPage} />}
      <ButtonCommon text={t("next")} onClick={handleNextPage} />
     </div>
+
     <div className="movies-category_page-count">
      {t("page")}: {page}
      <input
@@ -140,6 +141,7 @@ function MoviesCategory({ selectedLanguage }) {
       {t("select")}
      </p>
     </div>
+    
    </div>
   </div>
  );

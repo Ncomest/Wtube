@@ -3,13 +3,13 @@
  flex-direction: column;
  background-color: var(--dark);
  color: var(--white);
+ padding: 10px;
 }
 
 .filterMenu {
  display: grid;
  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
  gap: 10px;
- padding: 10px 5px;
  min-height: 100vh;
 }
 
