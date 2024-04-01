@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import "./MoviesCategory.css";
 import ButtonCommon from "../../UI/components/Buttons/ButtonCommon/ButtonCommon";
 import genreId from "../../helpers/Genre";
+import PageCount from "../../UI/components/PageCount/PageCount";
 
 function MoviesCategory({ selectedLanguage }) {
  const { category } = useParams();
@@ -76,7 +77,10 @@ function MoviesCategory({ selectedLanguage }) {
    setPage(Number(inputChange));
    setInputChange("");
    window.scrollTo(0, 0);
-    sessionStorage.setItem("movies-category-page", JSON.stringify(Number(inputChange)));
+   sessionStorage.setItem(
+    "movies-category-page",
+    JSON.stringify(Number(inputChange))
+   );
   } else {
    console.log("такой страницы не существует");
   }
@@ -124,24 +128,18 @@ function MoviesCategory({ selectedLanguage }) {
     </div>
     <div className="MoviesCategory-btn_container">
      {page > 1 && <ButtonCommon text={t("back")} onClick={handlePrevPage} />}
-     <ButtonCommon text={t("next")} onClick={handleNextPage} />
+     {movies?.total_pages > page && (
+      <ButtonCommon text={t("next")} onClick={handleNextPage} />
+     )}
     </div>
 
-    <div className="movies-category_page-count">
-     {t("page")}: {page}
-     <input
-      type="text"
-      className="movies-category_input-count"
-      onChange={handleSetPage}
-      value={inputChange}
-      pattern="[0-9]{3}"
-     />
-     {movies?.total_pages}
-     <p className="movies-category_btn-count" onClick={handleSelectPage}>
-      {t("select")}
-     </p>
-    </div>
-    
+    <PageCount
+     page={page}
+     handleSetPage={handleSetPage}
+     inputChange={inputChange}
+     movies={movies}
+     handleSelectPage={handleSelectPage}
+    />
    </div>
   </div>
  );

@@ -6,6 +6,8 @@ import SideBar from "../../UI/components/SideBar/SideBar";
 import { useTranslation } from "react-i18next";
 import ButtonFilterMenu from "../../UI/components/Buttons/Filter_Menu/Button_Filter_Menu";
 import genreId from "../../helpers/Genre";
+import PageCount from "../../UI/components/PageCount/PageCount";
+import ButtonCommon from "../../UI/components/Buttons/ButtonCommon/ButtonCommon";
 
 export default function Filter({ selectedLanguage }) {
  const [movies, setMovies] = useState([]);
@@ -15,8 +17,15 @@ export default function Filter({ selectedLanguage }) {
  const [genre, setGenre] = useState("");
  const [startImdb, setStartImdb] = useState(5);
  const [finishImdb, setFinishImdb] = useState(10);
- const [page, setPage] = useState(1);
+ const initialPage = 1;
+ const storedPage = JSON.parse(sessionStorage.getItem("filter-page"));
+ if (!storedPage) {
+  sessionStorage.setItem("filter-page", JSON.stringify(initialPage));
+ }
+ const [page, setPage] = useState(storedPage || initialPage);
  const [sortMovies, setSortMovies] = useState("primary_release_date.desc");
+ const [inputChange, setInputChange] = useState("");
+
  const { t } = useTranslation();
  const bck = "https://image.tmdb.org/t/p/w500";
 
@@ -61,13 +70,23 @@ export default function Filter({ selectedLanguage }) {
  };
 
  const handleNextPage = () => {
-  setPage((nextPage) => nextPage + 1);
+  setPage((nextPage) => {
+   const nextPageValue = nextPage + 1;
+   sessionStorage.setItem("filter-page", JSON.stringify(nextPageValue));
+   return nextPageValue;
+  });
   window.scrollTo(0, 0);
+  setInputChange("");
  };
 
  const handlePrevPage = () => {
-  setPage((prevPage) => prevPage - 1);
+  setPage((nextPage) => {
+   const nextPageValue = nextPage - 1;
+   sessionStorage.setItem("filter-page", JSON.stringify(nextPageValue));
+   return nextPageValue;
+  });
   window.scrollTo(0, 0);
+  setInputChange("");
  };
 
  useEffect(() => {
@@ -75,6 +94,24 @@ export default function Filter({ selectedLanguage }) {
  }, [page, selectedLanguage, sortMovies]);
 
  const genres = genreId();
+
+ const handleSelectPage = () => {
+  if (inputChange && inputChange <= movies?.total_pages && inputChange <= 500) {
+   setPage(Number(inputChange));
+   setInputChange("");
+   window.scrollTo(0, 0);
+   sessionStorage.setItem("filter-page", JSON.stringify(Number(inputChange)));
+  } else {
+   console.log("такой страницы не существует");
+  }
+ };
+
+ const handleSetPage = (e) => {
+  const value = e.target.value;
+  if (/^\d*$/.test(value)) {
+   setInputChange(value);
+  }
+ };
 
  return (
   <div className="filterPage">
@@ -107,34 +144,18 @@ export default function Filter({ selectedLanguage }) {
     ))}
    </div>
    <div className="btnNextPage">
-    {page > 1 && (
-     <button className="Sign btnRed" onClick={handlePrevPage}>
-      {t("back")}
-     </button>
-    )}
+    {page > 1 && <ButtonCommon text={t("back")} onClick={handlePrevPage} />}
+    {console.log(page, "page")}
+    {page < 500 && <ButtonCommon text={t("next")} onClick={handleNextPage} />}
+   </div>
 
-    <button className="Sign btnRed" onClick={handleNextPage}>
-     {t("next")}
-    </button>
-   </div>
-   <div className="movies-category_page-count">
-    {t("page")}: {page}
-    <input
-     type="text"
-     className="movies-category_input-count"
-     //  onChange={handleSetPage}
-     //  value={inputChange}
-     pattern="[0-9]{3}"
-    />
-    {movies?.total_pages}
-    {console.log(movies.total_pages, "total")}
-    <p
-     className="movies-category_btn-count"
-     // onClick={handleSelectPage}
-    >
-     {t("select")}
-    </p>
-   </div>
+   <PageCount
+    page={page}
+    handleSetPage={handleSetPage}
+    inputChange={inputChange}
+    movies={movies}
+    handleSelectPage={handleSelectPage}
+   />
   </div>
  );
 }
