@@ -117,6 +117,7 @@ export default function Filter({ selectedLanguage }) {
      {t("next")}
     </button>
    </div>
+   <div>{page}</div>
   </div>
  );
 }
