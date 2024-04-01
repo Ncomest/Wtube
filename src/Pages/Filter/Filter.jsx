@@ -50,7 +50,7 @@ export default function Filter({ selectedLanguage }) {
   fetch(API, options)
    .then((response) => response.json())
    .then((response) => {
-    setMovies(response.results);
+    setMovies(response);
     console.log(response);
    })
    .catch((err) => console.error(err));
@@ -83,7 +83,7 @@ export default function Filter({ selectedLanguage }) {
     <ButtonFilterMenu sortMovies={sortMovies} setSortMovies={setSortMovies} />
    </div>
    <div className="filterMenu">
-    {movies.map((item) => (
+    {movies?.results?.map((item) => (
      <Link className="Router-link" to={`/movies/${item.id}`} key={item.id}>
       <div key={item.id} onClick={handleUp}>
        <div className="filter-card_image">
@@ -117,7 +117,24 @@ export default function Filter({ selectedLanguage }) {
      {t("next")}
     </button>
    </div>
-   <div>{page}</div>
+   <div className="movies-category_page-count">
+    {t("page")}: {page}
+    <input
+     type="text"
+     className="movies-category_input-count"
+     //  onChange={handleSetPage}
+     //  value={inputChange}
+     pattern="[0-9]{3}"
+    />
+    {movies?.total_pages}
+    {console.log(movies.total_pages, "total")}
+    <p
+     className="movies-category_btn-count"
+     // onClick={handleSelectPage}
+    >
+     {t("select")}
+    </p>
+   </div>
   </div>
  );
 }
