@@ -24,6 +24,7 @@ function SignUp() {
  const [matchFocus, setMatchFocus] = useState(false);
 
  const [success, setSuccess] = useState(false);
+ const [userExist, setUserExist] = useState(false);
 
  useEffect(() => {
   userRef.current.focus();
@@ -61,7 +62,13 @@ function SignUp() {
   const userExists = userDataArray.some((userData) => userData.user === user);
   if (userExists) {
    // !Тут надо доделать визуальное изменение
-   console.log("Username already exist");
+   setTimeout(() => {
+    console.log("Username already exist");
+    setUserExist(false);
+    console.log("userExist", userExist);
+   }, 4000);
+   setUserExist(true);
+   console.log("userExist", userExist);
    return;
   }
 
