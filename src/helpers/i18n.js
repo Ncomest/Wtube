@@ -94,6 +94,7 @@ i18n.use(initReactI18next).init({
     back: "Back",
     page: "Page",
     select: "select",
+    userIsAlreadyExist: 'User is already exists'
    },
   },
   "ru-RU": {
@@ -185,6 +186,7 @@ i18n.use(initReactI18next).init({
     back: "Назад",
     page: "Страница",
     select: "перейти",
+    userIsAlreadyExist: "Такой пользователь уже существует",
    },
   },
  },

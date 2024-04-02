@@ -61,14 +61,14 @@ function SignUp() {
 
   const userExists = userDataArray.some((userData) => userData.user === user);
   if (userExists) {
+   setUserExist(true);
+   console.log("userExist in true", userExist);
    // !Тут надо доделать визуальное изменение
    setTimeout(() => {
     console.log("Username already exist");
     setUserExist(false);
-    console.log("userExist", userExist);
+    console.log("userExist in false", userExist);
    }, 4000);
-   setUserExist(true);
-   console.log("userExist", userExist);
    return;
   }
 
@@ -96,6 +96,8 @@ function SignUp() {
     <div className="signup">
      <section className="signup-section">
       <form className="form-singup" onSubmit={handleSubmit}>
+       {userExist && <Instruct text={t("userIsAlreadyExist")} />}
+
        <div className="label-container">
         <label htmlFor="username">{t("username")}:</label>
         {validName ? <GrStatusGood size={15} color="green" /> : null}
