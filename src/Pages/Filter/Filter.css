@@ -46,6 +46,15 @@
  gap: 10px;
 }
 
+.filter-page-not-found {
+ margin: auto;
+ background-color: red;
+ padding: 5px 10px;
+ /* border: 1px solid red; */
+ border-radius: 5px;
+ max-width: 300px;
+}
+
 @media (max-width: 425px) {
  .filterMenu {
   display: grid;

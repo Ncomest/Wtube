@@ -25,6 +25,7 @@ export default function Filter({ selectedLanguage }) {
  const [page, setPage] = useState(storedPage || initialPage);
  const [sortMovies, setSortMovies] = useState("primary_release_date.desc");
  const [inputChange, setInputChange] = useState("");
+ const [pageNotFound, setPageNotFound] = useState(false);
 
  const { t } = useTranslation();
  const bck = "https://image.tmdb.org/t/p/w500";
@@ -103,6 +104,10 @@ export default function Filter({ selectedLanguage }) {
    sessionStorage.setItem("filter-page", JSON.stringify(Number(inputChange)));
   } else {
    console.log("такой страницы не существует");
+   setPageNotFound(true);
+   setTimeout(() => {
+    setPageNotFound(false);
+   }, 3000);
   }
  };
 
@@ -149,6 +154,7 @@ export default function Filter({ selectedLanguage }) {
     {page < 500 && <ButtonCommon text={t("next")} onClick={handleNextPage} />}
    </div>
 
+   {pageNotFound && <div className="filter-page-not-found">{t('pageNotFound')}</div>}
    <PageCount
     page={page}
     handleSetPage={handleSetPage}

@@ -46,9 +46,6 @@ function Body({ selectedLanguage }) {
    setPopularMovies(popularResponse.data.results);
    setUpcomingMovies(upcomingResponse.data.results);
    setTopRatedMovies(topRatedMovies.data.results);
-   //  console.log("Popular", popularResponse.data);
-   //  console.log("Upcoming", upcomingResponse.data);
-   //  console.log("Top Rated", topRatedMovies.data);
   } catch (error) {
    console.error(error);
   }

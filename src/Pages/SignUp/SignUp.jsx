@@ -63,7 +63,6 @@ function SignUp() {
   if (userExists) {
    setUserExist(true);
    console.log("userExist in true", userExist);
-   // !Тут надо доделать визуальное изменение
    setTimeout(() => {
     console.log("Username already exist");
     setUserExist(false);
@@ -73,7 +72,6 @@ function SignUp() {
   }
 
   userDataArray.push({ user, pwd });
-  //тут ту ловеркейс сделать можно
   localStorage.setItem("userData", JSON.stringify(userDataArray));
 
   setUser("");
