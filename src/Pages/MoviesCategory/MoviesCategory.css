@@ -81,6 +81,15 @@
  color: var(--red);
 }
 
+.moviesCategory_page-not-found {
+ margin: 10px auto;
+ background-color: red;
+ padding: 5px 10px;
+ border-radius: 5px;
+ max-width: 300px;
+ text-align: center;
+}
+
 @media (max-width: 1024px) {
  .grid-card-image img {
   height: 320px;

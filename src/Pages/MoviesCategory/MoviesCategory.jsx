@@ -17,6 +17,7 @@ function MoviesCategory({ selectedLanguage }) {
   sessionStorage.setItem("movies-category-page", JSON.stringify(initialPage));
  }
  const [page, setPage] = useState(storedPage || initialPage);
+ const [pageNotFound, setPageNotFound] = useState(false);
  const { t } = useTranslation();
  const myKey = "14d8d8918e888fb791f87057ac1674c0";
 
@@ -83,6 +84,10 @@ function MoviesCategory({ selectedLanguage }) {
    );
   } else {
    console.log("такой страницы не существует");
+   setPageNotFound(true);
+   setTimeout(() => {
+    setPageNotFound(false);
+   }, 3000);
   }
  };
 
@@ -133,6 +138,7 @@ function MoviesCategory({ selectedLanguage }) {
      )}
     </div>
 
+{pageNotFound && <div className="moviesCategory_page-not-found">{t('pageNotFound')}</div>}
     <PageCount
      page={page}
      handleSetPage={handleSetPage}
