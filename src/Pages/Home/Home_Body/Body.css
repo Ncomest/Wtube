@@ -64,6 +64,7 @@
 .Body_Container h4 {
  margin: 20px 0px 0px 0px;
  font-size: var(--textLarge);
+ width: 100%;
 }
 
 .Body_Container h4:nth-child(1) {
@@ -72,19 +73,23 @@
 
 .section-header {
  position: relative;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
 }
 
-.section-header p {
+/* .button__looking {
  position: absolute;
  bottom: 5px;
  right: 0;
  color: var(--grey);
  cursor: pointer;
-}
+} */
 
-.section-header p:hover {
- color: var(--white);
-}
+/* .button__looking:hover {
+color: var(--white);
+} */
+
 
 @media (max-width: 1440px) {
 }

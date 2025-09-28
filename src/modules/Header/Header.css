@@ -4,7 +4,8 @@
  display: flex;
  height: 80px;
  background-color: var(--dark);
- box-shadow: 0px 2px 2px 0px var(--blue_border);
+ /* box-shadow: 0px 0px 2px 0px var(--blue_border); */
+ border-bottom: 1px solid #ffffff84;
  padding: 0px 10px;
 }
 
