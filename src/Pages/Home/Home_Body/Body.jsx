@@ -14,10 +14,11 @@ function Body({ selectedLanguage }) {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
   const { t } = useTranslation();
   const myKey = "14d8d8918e888fb791f87057ac1674c0";
+  const containerRef = React.useRef(null);
 
   const handleUp = () => {
-    sessionStorage.setItem("movies-category-page", JSON.stringify(1));
-    window.scrollTo(0, 0);
+    sessionStorage.setItem("movies-category-page", "1");
+    containerRef.current?.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const requests = {
@@ -60,7 +61,7 @@ function Body({ selectedLanguage }) {
 
   return (
     <div className="Body">
-      <div className="Body_Container">
+      <div ref={containerRef} className="Body_Container">
         <div className="section-header">
           <h4>{t("upcoming")}</h4>
           <Link className="Router-link" to={`/moviescategory/upcoming`}>
